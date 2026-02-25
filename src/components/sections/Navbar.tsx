@@ -65,15 +65,34 @@ const NAV_ITEMS = [
   },
 ];
 
+const LOGOS = ["/logos/logo1.png", "/logos/logo2.png"];
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [merged, setMerged] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const [cursorPos, setCursorPos] = useState<{ x: number; y: number } | null>(null);
+  const [logoIdx, setLogoIdx] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const ticking = useRef(false);
+
+  // Alternate logo on each page load, persist with localStorage
+  useEffect(() => {
+    const stored = localStorage.getItem("hommi-logo-idx");
+    const next = stored === "1" ? 0 : 1;
+    setLogoIdx(next);
+    localStorage.setItem("hommi-logo-idx", String(next));
+  }, []);
+
+  const toggleLogo = () => {
+    setLogoIdx((prev) => {
+      const next = prev === 0 ? 1 : 0;
+      localStorage.setItem("hommi-logo-idx", String(next));
+      return next;
+    });
+  };
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -153,9 +172,9 @@ export default function Navbar() {
           {mobileOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
 
-        <Link href="/" className="absolute left-1/2 -translate-x-1/2 cursor-pointer" aria-label="Hommi home">
-          <span className="text-[16px] font-display font-bold text-dark">Hommi</span>
-        </Link>
+        <button onClick={toggleLogo} className="absolute left-1/2 -translate-x-1/2 cursor-pointer" aria-label="Cambia logo Hommi">
+          <img src={LOGOS[logoIdx]} alt="Hommi" className="h-9 w-auto" />
+        </button>
 
         <Link href="#" className="p-1.5 text-secondary hover:text-dark transition-colors duration-200 cursor-pointer" aria-label="Accedi">
           <User size={18} />
@@ -175,15 +194,9 @@ export default function Navbar() {
             ${merged ? "rounded-l-xl rounded-r-none nav-merged-left" : "rounded-xl"}
           `}
         >
-          <Link href="/" className="flex items-center gap-2 cursor-pointer shrink-0" aria-label="Hommi home">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M3 10.5L12 3l9 7.5" />
-                <path d="M5 9.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" />
-              </svg>
-            </div>
-            <span className="text-[16px] font-display font-bold text-dark">Hommi</span>
-          </Link>
+          <button onClick={toggleLogo} className="flex items-center cursor-pointer shrink-0" aria-label="Cambia logo Hommi">
+            <img src={LOGOS[logoIdx]} alt="Hommi" className="h-10 w-auto" />
+          </button>
 
           <div className="flex items-center gap-8 ml-10 text-[13px] font-medium">
             {NAV_ITEMS.map((item) => (
