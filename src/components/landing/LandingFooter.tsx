@@ -1,0 +1,57 @@
+"use client";
+
+import Link from "next/link";
+
+export default function LandingFooter() {
+  return (
+    <footer className="bg-white border-t border-border">
+      <div className="max-w-site mx-auto px-6 pt-14 pb-8">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 pb-10 border-b border-border">
+          <div className="shrink-0">
+            <Link href="/" className="flex items-center gap-2 cursor-pointer">
+              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M3 10.5L12 3l9 7.5" />
+                  <path d="M5 9.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" />
+                </svg>
+              </div>
+              <span className="font-display font-bold text-dark text-[18px]">Hommi</span>
+            </Link>
+          </div>
+
+          <div className="text-[12px] text-secondary/50 leading-relaxed max-w-[400px] md:text-right">
+            <p className="font-semibold text-dark/60 mb-1">S9 srl Società Benefit</p>
+            <p>Partita IVA 13291110016 | REA TO-1352856</p>
+            <p>Corso Unione Sovietica, 612/15/C | 10135 Torino | TO</p>
+            <p>Capitale Sociale &euro; 10.000 i.v.</p>
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-between pt-6 gap-4">
+          <p className="text-[13px] text-secondary/50">
+            &copy; {new Date().getFullYear()} Hommi | S9 srl SB | Tutti i diritti riservati.
+          </p>
+          <div className="flex items-center gap-3 text-[13px]">
+            <Link href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Privacy Policy</Link>
+            <span className="text-secondary/20">|</span>
+            <Link href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Cookie Policy</Link>
+            <span className="text-secondary/20">|</span>
+            <Link href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Termini e Condizioni</Link>
+          </div>
+        </div>
+
+        {/* Powered by Mamazen */}
+        <div className="flex justify-center mt-8">
+          <a
+            href="https://www.mamazen.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+          >
+            <img src="/powered-by-mamazen.png" alt="Powered by Mamazen" className="h-12 w-auto" />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}

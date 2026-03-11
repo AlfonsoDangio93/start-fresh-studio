@@ -196,6 +196,18 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+
+        {/* Powered by Mamazen */}
+        <div className="flex justify-center mt-8">
+          <a
+            href="https://www.mamazen.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
+          >
+            <img src="/powered-by-mamazen.png" alt="Powered by Mamazen" className="h-12 w-auto" />
+          </a>
+        </div>
       </div>
     </footer>
   );

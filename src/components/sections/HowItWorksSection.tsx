@@ -370,7 +370,7 @@ export default function HowItWorksSection() {
                   <div
                     key={f.title}
                     data-card
-                    className="flex-shrink-0 w-[280px] md:w-[340px] snap-start"
+                    className="flex-shrink-0 w-[280px] md:w-[340px] snap-center md:snap-start"
                   >
                     {/* Visual area */}
                     <div className="h-[200px] md:h-[220px] bg-surface rounded-2xl border border-border/60 mb-5 overflow-hidden">

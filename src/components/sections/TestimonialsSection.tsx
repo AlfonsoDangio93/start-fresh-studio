@@ -258,14 +258,23 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Scrolling columns */}
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 reveal ${vis ? "revealed" : ""}`} style={{ transitionDelay: "0.15s" }}>
+        {/* Scrolling columns — desktop */}
+        <div className={`hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 reveal ${vis ? "revealed" : ""}`} style={{ transitionDelay: "0.15s" }}>
           <ScrollColumn reviews={REVIEWS[0]} direction="up" duration={45} />
           <ScrollColumn reviews={REVIEWS[1]} direction="down" duration={50} />
           <ScrollColumn reviews={REVIEWS[2]} direction="up" duration={42} />
           <div className="hidden lg:block">
             <ScrollColumn reviews={REVIEWS[3]} direction="down" duration={48} />
           </div>
+        </div>
+
+        {/* Mobile: single infinite scroll column */}
+        <div className={`md:hidden reveal ${vis ? "revealed" : ""}`} style={{ transitionDelay: "0.15s" }}>
+          <ScrollColumn
+            reviews={[...REVIEWS[0], ...REVIEWS[1], ...REVIEWS[2], ...REVIEWS[3]]}
+            direction="up"
+            duration={90}
+          />
         </div>
       </div>
     </section>
