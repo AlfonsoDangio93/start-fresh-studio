@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+
 import { useEffect, useState, useCallback, useRef } from "react";
 import { ArrowUp } from "lucide-react";
 
@@ -73,9 +73,9 @@ export default function LandingMobileBottomCTA() {
       {cta.label}
     </a>
   ) : (
-    <Link href={cta.href} className="flex-[4] flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-lg py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
+    <a href={cta.href} className="flex-[4] flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-lg py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
       {cta.label}
-    </Link>
+    </a>
   );
 
   const scrollTopButton = (

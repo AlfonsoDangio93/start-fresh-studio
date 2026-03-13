@@ -1,4 +1,4 @@
-"use client";
+
 
 const PRESS_OUTLETS = [
   "Il Sole 24 Ore",

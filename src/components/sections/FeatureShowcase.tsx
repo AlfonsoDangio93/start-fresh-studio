@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+
 import { useEffect, useRef, useState, useCallback } from "react";
 import TypingHeading from "@/components/TypingHeading";
 
@@ -254,12 +254,12 @@ export default function FeatureShowcase() {
 
         {/* CTA */}
         <div ref={ctaRef} className={`text-center reveal ${ctaVis ? "revealed" : ""}`}>
-          <Link
+          <a
             href={CTA_URL}
             className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-xl px-7 py-3.5 transition-all duration-200 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
           >
             Richiedi accesso prioritario
-          </Link>
+          </a>
         </div>
       </div>
     </section>

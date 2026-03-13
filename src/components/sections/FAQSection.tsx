@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+
 import { ArrowRight } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
 
@@ -110,13 +110,13 @@ export default function FAQSection() {
           <p className="text-[15px] text-secondary mb-4">
             Non hai trovato la risposta? Parliamone.
           </p>
-          <Link
+          <a
             href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
             className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
           >
             Richiedi accesso prioritario
             <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
+          </a>
         </div>
       </div>
     </div>

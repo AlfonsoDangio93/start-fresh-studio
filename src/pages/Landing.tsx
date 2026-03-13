@@ -12,7 +12,7 @@ import CTASection from "@/components/sections/CTASection";
 import LandingFooter from "@/components/landing/LandingFooter";
 import LandingMobileBottomCTA from "@/components/landing/LandingMobileBottomCTA";
 
-export default function LandingPage() {
+export default function Landing() {
   return (
     <main className="bg-[#FAFAFA] min-h-screen overflow-x-hidden pb-20 md:pb-0">
       <LandingNavbar />

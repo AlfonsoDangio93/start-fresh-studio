@@ -28,7 +28,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-poppins), "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
   text-wrap: balance;
 }
 

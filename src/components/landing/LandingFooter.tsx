@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+import { Link } from "react-router-dom";
 
 export default function LandingFooter() {
   return (
@@ -8,7 +8,7 @@ export default function LandingFooter() {
       <div className="max-w-site mx-auto px-6 pt-14 pb-8">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 pb-10 border-b border-border">
           <div className="shrink-0">
-            <Link href="/" className="flex items-center gap-2 cursor-pointer">
+            <Link to="/" className="flex items-center gap-2 cursor-pointer">
               <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M3 10.5L12 3l9 7.5" />
@@ -32,11 +32,11 @@ export default function LandingFooter() {
             &copy; {new Date().getFullYear()} Hommi | S9 srl SB | Tutti i diritti riservati.
           </p>
           <div className="flex items-center gap-3 text-[13px]">
-            <Link href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Privacy Policy</Link>
+            <a href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Privacy Policy</a>
             <span className="text-secondary/20">|</span>
-            <Link href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Cookie Policy</Link>
+            <a href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Cookie Policy</a>
             <span className="text-secondary/20">|</span>
-            <Link href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Termini e Condizioni</Link>
+            <a href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Termini e Condizioni</a>
           </div>
         </div>
 

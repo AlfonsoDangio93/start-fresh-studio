@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import { ArrowRight } from "lucide-react";
 
 export default function CTASection() {
@@ -23,13 +23,13 @@ export default function CTASection() {
           Nessun vincolo annuale, prezzo fisso, zero sorprese.
         </p>
         <div className="mt-8">
-          <Link
+          <a
             href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
             className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-dark"
           >
             Richiedi accesso prioritario
             <ArrowRight className="ml-2 w-4 h-4" aria-hidden="true" />
-          </Link>
+          </a>
         </div>
       </div>
     </section>

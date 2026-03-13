@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+
 import { useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
@@ -72,9 +72,9 @@ export default function LandingPricing() {
               <span className="text-[15px] text-secondary">/ mese per immobile</span>
             </div>
             <p className="text-[14px] text-secondary leading-relaxed mb-8 flex-1">Il miglior alleato per scalare. Tutto sotto controllo, anche quando hai 6 check-in contemporanei.</p>
-            <Link href={CTA_URL} className="block w-full text-center bg-dark text-white font-semibold text-[14px] py-3.5 rounded-xl hover:bg-dark/90 transition-colors duration-200 cursor-pointer">
+            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-dark text-white font-semibold text-[14px] py-3.5 rounded-xl hover:bg-dark/90 transition-colors duration-200 cursor-pointer">
               RICHIEDI ACCESSO PRIORITARIO
-            </Link>
+            </a>
           </div>
 
           <div className="relative bg-white rounded-2xl border-2 border-primary p-8 flex flex-col">
@@ -87,9 +87,9 @@ export default function LandingPricing() {
               <span className="text-[15px] text-secondary">/ mese per immobile</span>
             </div>
             <p className="text-[14px] text-secondary leading-relaxed mb-8 flex-1">Il tuo superpotere operativo. Zero coordinamento, interventi rapidi, gestione professionale. A meno di 1&euro;/giorno per unità.</p>
-            <Link href={CTA_URL} className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3.5 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
+            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3.5 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
               RICHIEDI ACCESSO PRIORITARIO
-            </Link>
+            </a>
           </div>
         </div>
       </div>

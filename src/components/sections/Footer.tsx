@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
 const COLUMNS = {
@@ -141,12 +141,12 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {items.map((item) => (
                   <li key={item}>
-                    <Link
+                    <a
                       href="#"
                       className="text-[14px] text-secondary/60 hover:text-dark transition-colors duration-200 cursor-pointer"
                     >
                       {item}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -158,13 +158,13 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {SOCIALS.map((s) => (
                 <li key={s.name}>
-                  <Link
+                  <a
                     href="#"
                     className="inline-flex items-center gap-2 text-[14px] text-secondary/60 hover:text-dark transition-colors duration-200 cursor-pointer"
                   >
                     {s.icon}
                     {s.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -185,7 +185,7 @@ export default function Footer() {
             <span>Made with</span>
             <span className="text-red-500">&#10084;</span>
             <span>by</span>
-            <Link href="/" className="flex items-center gap-1.5 cursor-pointer">
+            <Link to="/" className="flex items-center gap-1.5 cursor-pointer">
               <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M3 10.5L12 3l9 7.5" />

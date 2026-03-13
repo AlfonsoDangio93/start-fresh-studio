@@ -1,7 +1,7 @@
-"use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+
+
+import { Link, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -199,7 +199,7 @@ export default function Navbar() {
   const [showLoginTooltip, setShowLoginTooltip] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
+  const { pathname } = useLocation();
 
   const isActive = (item: NavItem) => {
     if (item.href) return pathname === item.href;
@@ -323,7 +323,7 @@ export default function Navbar() {
               >
                 {item.href ? (
                   <Link
-                    href={item.href}
+                    to={item.href}
                     className={`nav-link nav-link-light flex items-center gap-1 ${isActive(item) ? "text-primary border-b-2 border-primary pb-0.5" : ""}`}
                   >
                     {item.label}
@@ -359,9 +359,9 @@ export default function Navbar() {
                 </div>
               )}
             </div>
-            <Link href={CTA_URL} className="text-[13px] font-semibold text-white bg-dark hover:bg-dark/90 transition-colors duration-200 px-4 py-1.5 rounded-lg cursor-pointer">
+            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-white bg-dark hover:bg-dark/90 transition-colors duration-200 px-4 py-1.5 rounded-lg cursor-pointer">
               Richiedi accesso
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -405,7 +405,7 @@ export default function Navbar() {
                           return (
                             <Link
                               key={link.name}
-                              href={link.href}
+                              to={link.href}
                               className={`flex items-start gap-3 px-3 py-3 rounded-lg hover:bg-surface transition-colors duration-150 cursor-pointer group ${pathname === link.href ? "bg-primary/5" : ""}`}
                               onClick={() => setActiveMenu(null)}
                             >
@@ -460,7 +460,7 @@ export default function Navbar() {
                           return (
                             <Link
                               key={link.name}
-                              href={link.href}
+                              to={link.href}
                               className={`flex items-start gap-3 px-3 py-3 rounded-lg hover:bg-surface transition-colors duration-150 cursor-pointer group ${pathname === link.href ? "bg-primary/5" : ""}`}
                               onClick={() => setActiveMenu(null)}
                             >
@@ -503,7 +503,7 @@ export default function Navbar() {
                     </p>
                     {!activeMegamenuItem.comingSoon ? (
                       <Link
-                        href={activeMegamenuItem.megamenu.promo.href}
+                        to={activeMegamenuItem.megamenu.promo.href}
                         className="inline-flex items-center gap-2 text-[13px] font-bold text-white bg-primary hover:bg-primary-hover rounded-lg px-4 py-2 transition-colors duration-150"
                         onClick={() => setActiveMenu(null)}
                       >
@@ -567,7 +567,7 @@ export default function Navbar() {
                                 return (
                                   <Link
                                     key={link.name}
-                                    href={link.href}
+                                    to={link.href}
                                     className={`flex items-start gap-3 px-2 py-2 rounded-lg hover:bg-white transition-colors duration-150 cursor-pointer group ${pathname === link.href ? "bg-white" : ""}`}
                                     onClick={() => setMobileOpen(false)}
                                   >
@@ -594,7 +594,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     key={item.label}
-                    href={item.href || "#"}
+                    to={item.href || "#"}
                     className={`block text-[15px] font-semibold py-3.5 px-4 rounded-xl hover:bg-surface/80 transition-colors duration-200 cursor-pointer ${isActive(item) ? "text-primary" : "text-dark"}`}
                     onClick={() => setMobileOpen(false)}
                   >
@@ -607,7 +607,7 @@ export default function Navbar() {
             {/* CTA */}
             <div className="p-3 pt-0">
               <Link
-                href={CTA_URL}
+                to={CTA_URL}
                 className="block w-full text-center bg-dark text-white font-semibold text-[14px] py-3 rounded-xl hover:bg-dark/90 transition-colors duration-200 cursor-pointer"
                 onClick={() => setMobileOpen(false)}
               >

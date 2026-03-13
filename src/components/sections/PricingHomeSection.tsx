@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+
 import { useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
@@ -84,12 +84,12 @@ export default function PricingHomeSection() {
             <p className="text-[14px] text-secondary leading-relaxed mb-8 flex-1">
               Il miglior alleato per scalare. Tutto sotto controllo, anche quando hai 6 check-in contemporanei.
             </p>
-            <Link
+            <a
               href={CTA_URL}
               className="block w-full text-center bg-dark text-white font-semibold text-[14px] py-3.5 rounded-xl hover:bg-dark/90 transition-colors duration-200 cursor-pointer"
             >
               RICHIEDI ACCESSO PRIORITARIO
-            </Link>
+            </a>
           </div>
 
           {/* Plan 2 — popular */}
@@ -109,12 +109,12 @@ export default function PricingHomeSection() {
             <p className="text-[14px] text-secondary leading-relaxed mb-8 flex-1">
               Il tuo superpotere operativo. Zero coordinamento, interventi rapidi, gestione professionale. A meno di 1&euro;/giorno per unità.
             </p>
-            <Link
+            <a
               href={CTA_URL}
               className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3.5 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
             >
               RICHIEDI ACCESSO PRIORITARIO
-            </Link>
+            </a>
           </div>
         </div>
       </div>

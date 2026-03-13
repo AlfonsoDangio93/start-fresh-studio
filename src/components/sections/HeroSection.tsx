@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { useTypingEffect } from "@/components/TypingHeading";
 
@@ -613,18 +613,18 @@ export default function HeroSection() {
               className={`mt-8 md:mt-10 hidden lg:flex flex-row items-center gap-3 hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
               style={{ transitionDelay: "0.3s" }}
             >
-              <Link
+              <a
                 href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
                 className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
               >
                 Richiedi accesso prioritario
-              </Link>
-              <Link
+              </a>
+              <a
                 href="#come-funziona"
                 className="inline-flex items-center justify-center text-dark font-semibold text-[15px] rounded-[10px] px-8 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer"
               >
                 Vedi come funziona
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -667,18 +667,18 @@ export default function HeroSection() {
           className={`flex flex-col gap-3 max-w-[400px] mx-auto hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
           style={{ transitionDelay: "0.3s" }}
         >
-          <Link
+          <a
             href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
             className="flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-[10px] px-5 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
           >
             Richiedi accesso prioritario
-          </Link>
-          <Link
+          </a>
+          <a
             href="#come-funziona"
             className="flex items-center justify-center text-dark font-semibold text-[14px] rounded-[10px] px-4 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer"
           >
             Vedi come funziona
-          </Link>
+          </a>
         </div>
 
         {/* Scroll down arrow */}

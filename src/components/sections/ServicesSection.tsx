@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+
 import { useEffect, useRef, useState } from "react";
 import { Flame, Zap, Wrench, WashingMachine, Lock } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
@@ -87,12 +87,12 @@ export default function ServicesSection() {
               ))}
             </div>
 
-            <Link
+            <a
               href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
               className="inline-flex items-center justify-center bg-dark text-white font-semibold text-[14px] rounded-xl px-7 py-3.5 transition-all duration-200 hover:bg-primary hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
             >
               Inizia ora
-            </Link>
+            </a>
           </div>
 
           {/* Right — app mockup */}

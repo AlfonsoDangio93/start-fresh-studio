@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+
 import { ArrowRight, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import TypingHeading from "@/components/TypingHeading";
@@ -126,13 +126,13 @@ export default function AgenzieSection() {
           senza assumere.
         </p>
         <div className="mt-8">
-          <Link
+          <a
             href={CTA_URL}
             className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
           >
             Richiedi accesso prioritario
             <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -251,12 +251,12 @@ export default function AgenzieSection() {
             ))}
 
             <div className="text-center mt-6">
-              <Link
+              <a
                 href="/prezzi"
                 className="text-[14px] font-semibold text-primary hover:text-primary-hover transition-colors duration-200"
               >
                 Vedi tutti i piani &rarr;
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -284,13 +284,13 @@ export default function AgenzieSection() {
               Nessun vincolo annuale, prezzo fisso, zero sorprese.
             </p>
             <div className="mt-8">
-              <Link
+              <a
                 href={CTA_URL}
                 className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
               >
                 Richiedi accesso prioritario
                 <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+
 import { ArrowRight, Check } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
 
@@ -165,7 +165,7 @@ export default function PricingSection() {
               </ul>
 
               {/* CTA */}
-              <Link
+              <a
                 href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
                 className={`w-full inline-flex items-center justify-center font-semibold text-[15px] rounded-xl px-8 py-4 transition-all duration-200 cursor-pointer ${
                   plan.popular
@@ -175,7 +175,7 @@ export default function PricingSection() {
               >
                 Richiedi accesso prioritario
                 <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
+              </a>
             </div>
           ))}
         </div>
@@ -263,12 +263,12 @@ export default function PricingSection() {
 
           {/* Link to full FAQ */}
           <div className="text-center mt-8">
-            <Link
+            <a
               href="/faq"
               className="text-[14px] font-semibold text-primary hover:text-primary-hover transition-colors duration-200"
             >
               Vedi tutte le domande frequenti &rarr;
-            </Link>
+            </a>
           </div>
 
           {/* Bottom CTA */}
@@ -276,13 +276,13 @@ export default function PricingSection() {
             <p className="text-[15px] text-secondary mb-4">
               Hai altre domande? Parliamone.
             </p>
-            <Link
+            <a
               href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
               className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
             >
               Richiedi accesso prioritario
               <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
-"use client";
 
-import Link from "next/link";
+
+
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -62,12 +62,12 @@ export default function LandingNavbar() {
           <img src={LOGOS[logoIdx]} alt="Hommi" className="h-12 w-auto" />
         </button>
 
-        <Link
-          href={CTA_URL}
+        <a
+          href={CTA_URL} target="_blank" rel="noopener noreferrer"
           className="text-[12px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-3.5 py-1.5 rounded-lg cursor-pointer"
         >
           Inizia ora
-        </Link>
+        </a>
       </div>
 
       {/* Desktop navbar */}
@@ -87,12 +87,12 @@ export default function LandingNavbar() {
                 {item.label}
               </a>
             ))}
-            <Link
-              href={CTA_URL}
+            <a
+              href={CTA_URL} target="_blank" rel="noopener noreferrer"
               className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-5 py-2 rounded-lg cursor-pointer ml-2"
             >
               Inizia ora
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -118,13 +118,13 @@ export default function LandingNavbar() {
               ))}
             </div>
             <div className="p-3 pt-0">
-              <Link
-                href={CTA_URL}
+              <a
+                href={CTA_URL} target="_blank" rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
                 onClick={() => setMobileOpen(false)}
               >
                 Inizia ora
-              </Link>
+              </a>
             </div>
           </div>
         </>
