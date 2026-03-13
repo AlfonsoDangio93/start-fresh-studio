@@ -644,7 +644,7 @@ export default function HeroSection() {
       <div className="lg:hidden mt-auto pb-6 px-6">
         {/* Testimonial */}
         <div
-          className={`flex items-start gap-3 max-w-[460px] mx-auto mb-6 mt-6 hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
+          className={`flex items-start gap-3 max-w-[460px] mx-auto mb-6 mt-12 hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
           style={{ transitionDelay: "0.25s" }}
         >
           <img
