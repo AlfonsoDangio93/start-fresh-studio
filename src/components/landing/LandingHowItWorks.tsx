@@ -170,11 +170,7 @@ export default function LandingHowItWorks() {
               className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 -mx-6 px-6 md:-mx-10 md:px-10"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
-              <style jsx>{`
-                div::-webkit-scrollbar {
-                  display: none;
-                }
-              `}</style>
+              {/* scrollbar hidden via inline style above */}
               {FEATURES.map((f) => (
                 <div
                   key={f.title}
