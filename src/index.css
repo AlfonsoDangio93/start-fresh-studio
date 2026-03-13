@@ -2,219 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
 
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-body {
-  color: #101103;
-  background: #FFFFFF;
-}
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-a {
-  transition: color 0.2s ease;
-}
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Poppins", sans-serif;
-  text-wrap: balance;
-}
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-p {
-  text-wrap: pretty;
-}
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-/* ═══════════════════════════════════════════════
-   Scroll reveal
-   ═══════════════════════════════════════════════ */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-/* ═══════════════════════════════════════════════
-   Hero text entrance
-   ═══════════════════════════════════════════════ */
-.hero-text-entrance {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.hero-text-entrance.hero-text-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-/* Hero scroll-down arrow bounce */
-.animate-hero-bounce {
-  animation: hero-bounce 2s ease-in-out infinite;
-}
-@keyframes hero-bounce {
-  0%, 100% { transform: translateY(0); opacity: 0.5; }
-  50% { transform: translateY(6px); opacity: 1; }
-}
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
+    --radius: 0.5rem;
 
-/* ═══════════════════════════════════════════════
-   Navbar — link hover & CTA
-   ═══════════════════════════════════════════════ */
+    --sidebar-background: 0 0% 98%;
 
-/* Menu links — base + underline */
-.nav-link {
-  position: relative;
-  padding: 6px 2px;
-  padding-bottom: 8px;
-  cursor: pointer;
-  transition: color 0.5s ease;
-}
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #F16B01;
-  border-radius: 1px;
-  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.nav-link:hover::after {
-  width: 100%;
-}
+    --sidebar-foreground: 240 5.3% 26.1%;
 
-/* Light variant — dark text on white pill */
-.nav-link-light {
-  color: #344966;
-}
-.nav-link-light:hover {
-  color: #101103;
-}
+    --sidebar-primary: 240 5.9% 10%;
 
-/* CTA button — dark default, orange on hover */
-.nav-cta-primary {
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  background: #101103;
-  border-radius: 10px;
-  padding: 8px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-}
-.nav-cta-primary:hover {
-  background: #F16B01;
-  color: #fff;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(241, 107, 1, 0.3);
-}
-.nav-cta-primary:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(241, 107, 1, 0.2);
-}
+    --sidebar-primary-foreground: 0 0% 98%;
 
-/* Megamenu — enter animation */
-@keyframes megamenu-enter {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.megamenu-enter {
-  animation: megamenu-enter 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
+    --sidebar-accent: 240 4.8% 95.9%;
 
-/* ═══════════════════════════════════════════════
-   Logo marquee — infinite scroll
-   ═══════════════════════════════════════════════ */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.logo-marquee {
-  animation: marquee 30s linear infinite;
-  width: max-content;
-}
-.logo-marquee:hover {
-  animation-play-state: paused;
-}
-.mask-edges {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-}
+    --sidebar-accent-foreground: 240 5.9% 10%;
 
-/* ═══════════════════════════════════════════════
-   Testimonial columns — vertical infinite scroll
-   ═══════════════════════════════════════════════ */
-@keyframes testimonial-up {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-@keyframes testimonial-down {
-  0% { transform: translateY(-50%); }
-  100% { transform: translateY(0); }
-}
-.testimonial-scroll-up {
-  animation: testimonial-up 45s linear infinite;
-}
-.testimonial-scroll-down {
-  animation: testimonial-down 45s linear infinite;
-}
-.testimonial-scroll-up:hover,
-.testimonial-scroll-down:hover {
-  animation-play-state: paused;
-}
-.testimonial-mask {
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
-}
+    --sidebar-border: 220 13% 91%;
 
-/* ═══════════════════════════════════════════════
-   Hero typing cursor blink
-   ═══════════════════════════════════════════════ */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-.animate-blink {
-  animation: blink 0.9s step-end infinite;
-}
-
-@keyframes slide-up {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-.animate-slide-up {
-  animation: slide-up 0.3s ease-out;
-}
-
-/* ═══════════════════════════════════════════════
-   Accessibility — reduced motion
-   ═══════════════════════════════════════════════ */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  html {
-    scroll-behavior: auto;
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }
