@@ -14,7 +14,7 @@ import LandingMobileBottomCTA from "@/components/landing/LandingMobileBottomCTA"
 
 export default function Landing() {
   return (
-    <main className="bg-[#FAFAFA] min-h-screen overflow-x-hidden pb-20 md:pb-0">
+    <>
       <LandingNavbar />
       <HeroSection />
       <PressBar />
@@ -28,6 +28,6 @@ export default function Landing() {
       <CTASection />
       <LandingFooter />
       <LandingMobileBottomCTA />
-    </main>
+    </>
   );
 }

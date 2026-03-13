@@ -12,7 +12,7 @@ import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-[#FAFAFA] min-h-screen overflow-x-hidden">
+    <>
       <Navbar />
       <HeroSection />
       <PressBar />
@@ -24,6 +24,6 @@ export default function Home() {
       <TestimonialsSection />
       <CTASection />
       <Footer />
-    </main>
+    </>
   );
 }

@@ -4,10 +4,10 @@ import GestioneTecniciSection from "@/components/sections/GestioneTecniciSection
 
 export default function GestioneTecnici() {
   return (
-    <main className="bg-[#FAFAFA] min-h-screen overflow-x-hidden">
+    <>
       <Navbar />
       <GestioneTecniciSection />
       <Footer />
-    </main>
+    </>
   );
 }

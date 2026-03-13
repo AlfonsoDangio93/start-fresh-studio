@@ -18,6 +18,7 @@ import ReportAnalytics from "@/pages/ReportAnalytics";
 export default function App() {
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/landing" element={<Landing />} />
@@ -32,7 +33,6 @@ export default function App() {
         <Route path="/gestione-tecnici" element={<GestioneTecnici />} />
         <Route path="/report-analytics" element={<ReportAnalytics />} />
       </Routes>
-      <ScrollToTop />
     </>
   );
 }

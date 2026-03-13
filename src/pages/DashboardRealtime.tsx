@@ -4,10 +4,10 @@ import DashboardSection from "@/components/sections/DashboardSection";
 
 export default function DashboardRealtime() {
   return (
-    <main className="bg-[#FAFAFA] min-h-screen overflow-x-hidden">
+    <>
       <Navbar />
       <DashboardSection />
       <Footer />
-    </main>
+    </>
   );
 }

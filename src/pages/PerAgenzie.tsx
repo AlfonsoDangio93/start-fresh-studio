@@ -4,10 +4,10 @@ import AgenzieSection from "@/components/sections/AgenzieSection";
 
 export default function PerAgenzie() {
   return (
-    <main className="bg-[#FAFAFA] min-h-screen overflow-x-hidden">
+    <>
       <Navbar />
       <AgenzieSection />
       <Footer />
-    </main>
+    </>
   );
 }
