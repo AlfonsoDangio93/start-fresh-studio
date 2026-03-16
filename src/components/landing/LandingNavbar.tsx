@@ -58,7 +58,7 @@ export default function LandingNavbar() {
       <div ref={navRef} className="hidden md:block w-full z-[60]">
         <div className="flex items-center bg-white border border-border shadow-sm rounded-xl px-6 py-3">
           <div className="flex items-center shrink-0">
-            <img src={LOGO} alt="Hommi" className="h-10 w-auto" />
+            <img src={LOGO} alt="Hommi" className="h-8 w-auto" />
           </div>
 
           <div className="flex items-center gap-8 ml-auto">
