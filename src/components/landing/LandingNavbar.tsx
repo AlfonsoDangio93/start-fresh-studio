@@ -14,27 +14,11 @@ const NAV_LINKS = [
   { label: "FAQ", href: "#faq" },
 ];
 
-const LOGOS = ["/logos/logo1.png", "/logos/logo2.png"];
+const LOGO = "/logos/hommi_logo.png";
 
 export default function LandingNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [logoIdx, setLogoIdx] = useState(0);
   const navRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("hommi-logo-idx");
-    const next = stored === "1" ? 0 : 1;
-    setLogoIdx(next);
-    localStorage.setItem("hommi-logo-idx", String(next));
-  }, []);
-
-  const toggleLogo = () => {
-    setLogoIdx((prev) => {
-      const next = prev === 0 ? 1 : 0;
-      localStorage.setItem("hommi-logo-idx", String(next));
-      return next;
-    });
-  };
 
   useEffect(() => {
     if (mobileOpen) {
@@ -58,9 +42,9 @@ export default function LandingNavbar() {
           {mobileOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
 
-        <button onClick={toggleLogo} className="absolute left-1/2 -translate-x-1/2 cursor-pointer" aria-label="Cambia logo Hommi">
-          <img src={LOGOS[logoIdx]} alt="Hommi" className="h-12 w-auto" />
-        </button>
+        <div className="absolute left-1/2 -translate-x-1/2">
+          <img src={LOGO} alt="Hommi" className="h-12 w-auto" />
+        </div>
 
         <a
           href={CTA_URL} target="_blank" rel="noopener noreferrer"
@@ -73,9 +57,9 @@ export default function LandingNavbar() {
       {/* Desktop navbar */}
       <div ref={navRef} className="hidden md:block w-full z-[60]">
         <div className="flex items-center bg-white border border-border shadow-sm rounded-xl px-6 py-3">
-          <button onClick={toggleLogo} className="flex items-center cursor-pointer shrink-0" aria-label="Cambia logo Hommi">
-            <img src={LOGOS[logoIdx]} alt="Hommi" className="h-10 w-auto" />
-          </button>
+          <div className="flex items-center shrink-0">
+            <img src={LOGO} alt="Hommi" className="h-10 w-auto" />
+          </div>
 
           <div className="flex items-center gap-8 ml-auto">
             {NAV_LINKS.map((item) => (

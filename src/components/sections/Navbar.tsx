@@ -121,7 +121,7 @@ const NAV_ITEMS: NavItem[] = [
   },
 ];
 
-const LOGOS = ["/logos/logo1.png", "/logos/logo2.png"];
+const LOGO = "/logos/hommi_logo.png";
 const CTA_URL =
   "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
 
@@ -195,7 +195,7 @@ export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const [cursorPos, setCursorPos] = useState<{ x: number; y: number } | null>(null);
-  const [logoIdx, setLogoIdx] = useState(0);
+  
   const [showLoginTooltip, setShowLoginTooltip] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
@@ -211,20 +211,6 @@ export default function Navbar() {
     return false;
   };
 
-  useEffect(() => {
-    const stored = localStorage.getItem("hommi-logo-idx");
-    const next = stored === "1" ? 0 : 1;
-    setLogoIdx(next);
-    localStorage.setItem("hommi-logo-idx", String(next));
-  }, []);
-
-  const toggleLogo = () => {
-    setLogoIdx((prev) => {
-      const next = prev === 0 ? 1 : 0;
-      localStorage.setItem("hommi-logo-idx", String(next));
-      return next;
-    });
-  };
 
   useEffect(() => {
     if (mobileOpen) {
@@ -280,9 +266,9 @@ export default function Navbar() {
           {mobileOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
 
-        <button onClick={toggleLogo} className="absolute left-1/2 -translate-x-1/2 cursor-pointer" aria-label="Cambia logo Hommi">
-          <img src={LOGOS[logoIdx]} alt="Hommi" className="h-12 w-auto" />
-        </button>
+        <div className="absolute left-1/2 -translate-x-1/2">
+          <img src={LOGO} alt="Hommi" className="h-12 w-auto" />
+        </div>
 
         <div className="relative">
           <button
@@ -309,9 +295,9 @@ export default function Navbar() {
         {/* Bar */}
         <div className="flex items-center bg-white border border-border shadow-sm rounded-xl px-6 py-3">
           {/* Logo — left */}
-          <button onClick={toggleLogo} className="flex items-center cursor-pointer shrink-0" aria-label="Cambia logo Hommi">
-            <img src={LOGOS[logoIdx]} alt="Hommi" className="h-10 w-auto" />
-          </button>
+          <div className="flex items-center shrink-0">
+            <img src={LOGO} alt="Hommi" className="h-10 w-auto" />
+          </div>
 
           {/* Nav items — center */}
           <div className="flex-1 flex items-center justify-center gap-8 text-[13px] font-medium">
