@@ -14,27 +14,11 @@ const NAV_LINKS = [
   { label: "FAQ", href: "#faq" },
 ];
 
-const LOGOS = ["/logos/logo1.png", "/logos/logo2.png"];
+const LOGO = "/logos/hommi_logo.png";
 
 export default function LandingNavbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [logoIdx, setLogoIdx] = useState(0);
   const navRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("hommi-logo-idx");
-    const next = stored === "1" ? 0 : 1;
-    setLogoIdx(next);
-    localStorage.setItem("hommi-logo-idx", String(next));
-  }, []);
-
-  const toggleLogo = () => {
-    setLogoIdx((prev) => {
-      const next = prev === 0 ? 1 : 0;
-      localStorage.setItem("hommi-logo-idx", String(next));
-      return next;
-    });
-  };
 
   useEffect(() => {
     if (mobileOpen) {
