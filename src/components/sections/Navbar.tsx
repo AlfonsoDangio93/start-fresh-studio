@@ -297,9 +297,9 @@ export default function Navbar() {
         {/* Bar */}
         <div className="flex items-center bg-white border border-border shadow-sm rounded-xl px-6 py-3">
           {/* Logo — left */}
-          <button onClick={toggleLogo} className="flex items-center cursor-pointer shrink-0" aria-label="Cambia logo Hommi">
-            <img src={LOGOS[logoIdx]} alt="Hommi" className="h-10 w-auto" />
-          </button>
+          <div className="flex items-center shrink-0">
+            <img src={LOGO} alt="Hommi" className="h-10 w-auto" />
+          </div>
 
           {/* Nav items — center */}
           <div className="flex-1 flex items-center justify-center gap-8 text-[13px] font-medium">
