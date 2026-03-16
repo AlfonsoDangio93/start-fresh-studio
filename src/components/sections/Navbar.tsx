@@ -211,8 +211,6 @@ export default function Navbar() {
     return false;
   };
 
-  useEffect(() => {
-  };
 
   useEffect(() => {
     if (mobileOpen) {
