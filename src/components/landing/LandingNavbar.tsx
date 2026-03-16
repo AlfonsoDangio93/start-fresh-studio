@@ -57,9 +57,9 @@ export default function LandingNavbar() {
       {/* Desktop navbar */}
       <div ref={navRef} className="hidden md:block w-full z-[60]">
         <div className="flex items-center bg-white border border-border shadow-sm rounded-xl px-6 py-3">
-          <button onClick={toggleLogo} className="flex items-center cursor-pointer shrink-0" aria-label="Cambia logo Hommi">
-            <img src={LOGOS[logoIdx]} alt="Hommi" className="h-10 w-auto" />
-          </button>
+          <div className="flex items-center shrink-0">
+            <img src={LOGO} alt="Hommi" className="h-10 w-auto" />
+          </div>
 
           <div className="flex items-center gap-8 ml-auto">
             {NAV_LINKS.map((item) => (
