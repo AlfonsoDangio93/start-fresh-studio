@@ -212,18 +212,6 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    const stored = localStorage.getItem("hommi-logo-idx");
-    const next = stored === "1" ? 0 : 1;
-    setLogoIdx(next);
-    localStorage.setItem("hommi-logo-idx", String(next));
-  }, []);
-
-  const toggleLogo = () => {
-    setLogoIdx((prev) => {
-      const next = prev === 0 ? 1 : 0;
-      localStorage.setItem("hommi-logo-idx", String(next));
-      return next;
-    });
   };
 
   useEffect(() => {
