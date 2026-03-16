@@ -268,9 +268,9 @@ export default function Navbar() {
           {mobileOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
 
-        <button onClick={toggleLogo} className="absolute left-1/2 -translate-x-1/2 cursor-pointer" aria-label="Cambia logo Hommi">
-          <img src={LOGOS[logoIdx]} alt="Hommi" className="h-12 w-auto" />
-        </button>
+        <div className="absolute left-1/2 -translate-x-1/2">
+          <img src={LOGO} alt="Hommi" className="h-12 w-auto" />
+        </div>
 
         <div className="relative">
           <button
