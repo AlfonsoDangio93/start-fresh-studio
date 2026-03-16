@@ -8,14 +8,8 @@ export default function LandingFooter() {
       <div className="max-w-site mx-auto px-6 pt-14 pb-8">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 pb-10 border-b border-border">
           <div className="shrink-0">
-            <Link to="/" className="flex items-center gap-2 cursor-pointer">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M3 10.5L12 3l9 7.5" />
-                  <path d="M5 9.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" />
-                </svg>
-              </div>
-              <span className="font-display font-bold text-dark text-[18px]">Hommi</span>
+            <Link to="/" className="flex items-center cursor-pointer">
+              <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 w-auto" />
             </Link>
           </div>
 
