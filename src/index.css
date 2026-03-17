@@ -155,7 +155,7 @@ p {
   background: #E35210;
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(241, 107, 1, 0.3);
+  box-shadow: 0 4px 14px rgba(227, 82, 16, 0.3);
 }
 .nav-cta-primary:active {
   transform: translateY(0);
