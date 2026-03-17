@@ -21,29 +21,28 @@ export default function LandingFooter() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between pt-6 gap-4">
-          <p className="text-[13px] text-secondary/50">
-            &copy; {new Date().getFullYear()} Hommi | S9 srl SB | Tutti i diritti riservati.
+        <div className="border-t border-border py-6 space-y-4">
+          <p className="text-sm text-[#6B7280] text-center">
+            © 2026 Hommi · Tutti i diritti riservati · S9 srl Società Benefit · P.IVA 13291110016 · REA TO-1352856 · Corso Unione Sovietica, 612/15/C · 10135 Torino (TO) · Capitale Sociale € 10.000 i.v.
           </p>
-          <div className="flex items-center gap-3 text-[13px]">
-            <a href="/privacy-policy" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Privacy Policy</a>
-            <span className="text-secondary/20">|</span>
-            <a href="/cookie-policy" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Cookie Policy</a>
-            <span className="text-secondary/20">|</span>
-            <a href="/termini-e-condizioni" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Termini e Condizioni</a>
-          </div>
-        </div>
 
-        {/* Powered by Mamazen */}
-        <div className="flex justify-center mt-8">
-          <a
-            href="https://www.mamazen.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-200"
-          >
-            <img src="/powered-by-mamazen.png" alt="Powered by Mamazen" className="h-12 w-auto" />
-          </a>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 text-sm text-[#6B7280]">
+            <div className="flex items-center gap-2">
+              <span>Made with</span>
+              <span className="text-red-500">❤️</span>
+              <span>by</span>
+              <Link to="/" className="flex items-center">
+                <img src="/logos/hommi_logo.png" alt="Hommi" className="h-7 w-auto" />
+              </Link>
+            </div>
+            <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
+            <div className="flex items-center gap-2">
+              <span>Powered by</span>
+              <a href="https://www.mamazen.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                <img src="/powered-by-mamazen.png" alt="Mamazen" className="h-7 w-auto" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
