@@ -346,7 +346,7 @@ export default function Navbar() {
                 </div>
                 }
             </div>
-            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 py-1.5 cursor-pointer rounded-lg">
+            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 py-1.5 cursor-pointer rounded">
               Richiedi accesso
             </a>
           </div>
