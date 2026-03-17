@@ -23,11 +23,11 @@ function PhoneClickIcon() {
       {/* Home indicator */}
       <rect x="34" y="62" width="10" height="2" rx="1" fill="#9CA3AF" />
       {/* Cursor pointer */}
-      <path d="M56 38L63 46L58.5 47L61 53L57.5 54.5L55 48.5L51.5 51.5L56 38Z" fill="#F16B01" />
+      <path d="M56 38L63 46L58.5 47L61 53L57.5 54.5L55 48.5L51.5 51.5L56 38Z" fill="#E35210" />
       {/* Click spark lines */}
-      <line x1="65" y1="34" x2="70" y2="30" stroke="#F16B01" strokeWidth="2.5" strokeLinecap="round" />
-      <line x1="68" y1="42" x2="74" y2="42" stroke="#F16B01" strokeWidth="2.5" strokeLinecap="round" />
-      <line x1="65" y1="50" x2="70" y2="54" stroke="#F16B01" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="65" y1="34" x2="70" y2="30" stroke="#E35210" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="68" y1="42" x2="74" y2="42" stroke="#E35210" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="65" y1="50" x2="70" y2="54" stroke="#E35210" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -49,7 +49,7 @@ function ClockCheckIcon() {
       {/* Center dot */}
       <circle cx="40" cy="44" r="2.5" fill="#4B5563" />
       {/* Checkmark badge */}
-      <circle cx="62" cy="24" r="13" fill="#F16B01" />
+      <circle cx="62" cy="24" r="13" fill="#E35210" />
       <path d="M56 24L60 28L69 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -76,7 +76,7 @@ function TechHouseIcon() {
       {/* Window */}
       <rect x="63" y="46" width="6" height="5" rx="1" fill="#BFDBFE" stroke="#6B7280" strokeWidth="0.8" />
       {/* Checkmark badge */}
-      <circle cx="62" cy="24" r="13" fill="#F16B01" />
+      <circle cx="62" cy="24" r="13" fill="#E35210" />
       <path d="M56 24L60 28L69 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -104,7 +104,7 @@ function PhoneReportIcon() {
       {/* Home indicator */}
       <rect x="36" y="66" width="10" height="2" rx="1" fill="#9CA3AF" />
       {/* Checkmark badge */}
-      <circle cx="64" cy="20" r="13" fill="#F16B01" />
+      <circle cx="64" cy="20" r="13" fill="#E35210" />
       <path d="M58 20L62 24L71 16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
