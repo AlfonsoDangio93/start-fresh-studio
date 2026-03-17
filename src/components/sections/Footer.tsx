@@ -221,7 +221,7 @@ Corso Unione Sovietica, 612/15/C · 10135 Torino (TO) · Capitale Sociale € 10
               </Link>
             </div>
             <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 py-[16px]">
               <span>Powered by</span>
               <a
                 href="https://www.mamazen.com"
