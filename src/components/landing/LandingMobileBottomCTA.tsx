@@ -5,14 +5,14 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { ArrowUp } from "lucide-react";
 
 const CTA_URL =
-  "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+"https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
 
-const CONTEXTUAL_CTA: Record<string, { label: string; href: string }> = {
+const CONTEXTUAL_CTA: Record<string, {label: string;href: string;}> = {
   "come-funziona": { label: "Scopri i piani", href: "#prezzi" },
   servizi: { label: "Richiedi accesso prioritario", href: CTA_URL },
   prezzi: { label: "Richiedi accesso prioritario", href: CTA_URL },
   testimonianze: { label: "Richiedi accesso prioritario", href: CTA_URL },
-  faq: { label: "Richiedi accesso prioritario", href: CTA_URL },
+  faq: { label: "Richiedi accesso prioritario", href: CTA_URL }
 };
 
 const DEFAULT_CTA = { label: "Richiedi accesso prioritario", href: CTA_URL };
@@ -28,7 +28,7 @@ export default function LandingMobileBottomCTA() {
     setShow(window.scrollY > window.innerHeight * 0.7);
 
     const sections = document.querySelectorAll<HTMLElement>("section[id]");
-    let best: { id: string; ratio: number } = { id: "", ratio: 0 };
+    let best: {id: string;ratio: number;} = { id: "", ratio: 0 };
 
     sections.forEach((sec) => {
       const rect = sec.getBoundingClientRect();
@@ -68,35 +68,35 @@ export default function LandingMobileBottomCTA() {
 
   const isInternal = cta.href.startsWith("#");
 
-  const ctaButton = isInternal ? (
-    <a href={cta.href} className="flex-[4] flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-lg py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
+  const ctaButton = isInternal ?
+  <a href={cta.href} className="flex-[4] flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-lg py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
       {cta.label}
-    </a>
-  ) : (
-    <a href={cta.href} className="flex-[4] flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-lg py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
-      {cta.label}
-    </a>
-  );
+    </a> :
 
-  const scrollTopButton = (
-    <button
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      aria-label="Torna su"
-      className="flex-[1] flex items-center justify-center bg-dark/80 hover:bg-primary text-white rounded-lg py-2.5 shadow-md transition-colors duration-200 cursor-pointer"
-    >
-      <ArrowUp className="w-4 h-4" />
-    </button>
-  );
+  <a href={cta.href} className="flex-[4] flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-lg py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
+      {cta.label}
+    </a>;
+
+
+  const scrollTopButton;
+
+
+
+
+
+
+
+
 
   return (
     <div
       className={`md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-[calc(0.5rem+env(safe-area-inset-bottom))] pt-2 transition-all duration-300 ${
-        show ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
-      }`}
-    >
+      show ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"}`
+      }>
+      
       <div ref={barRef} className="flex items-center gap-2 transition-all duration-300" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         {swapped ? <>{scrollTopButton}{ctaButton}</> : <>{ctaButton}{scrollTopButton}</>}
       </div>
-    </div>
-  );
+    </div>);
+
 }
