@@ -35,8 +35,8 @@ const REVIEWS = [
   stars: 5,
   time: "5 giorni fa",
   text: "Il report mensile che esporto per i proprietari è una bomba. Vedono tutto: costi, interventi, tempi. Zero lamentele da quando uso Hommi.",
-  name: "Francesca Neri",
-  role: "Property Manager, Torino",
+  name: "Francesca N.",
+  role: "Torino",
   avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face"
 }],
 
