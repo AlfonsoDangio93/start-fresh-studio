@@ -254,7 +254,7 @@ export default function ManutentoriSection() {
       <div className="max-w-site mx-auto px-6">
         <div className="relative rounded-[10px] overflow-hidden px-8 py-20 md:px-16 md:py-24 text-center">
           <img
-            src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.1.0"
+            src="https://images.unsplash.com/photo-1749532125405-70950966b0e5?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
             aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
