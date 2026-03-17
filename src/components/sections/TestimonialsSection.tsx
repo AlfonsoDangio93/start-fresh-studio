@@ -19,7 +19,7 @@ const REVIEWS = [
       stars: 5,
       time: "1 settimana fa",
       text: "Stagione estiva = inferno. 25 alloggi, ognuno con problemi diversi. Hommi mi ha salvato la vita. Letteralmente. L'ho consigliato a 3 colleghi.",
-      name: "Alessandra Pieri",
+      name: "Alessandra P.",
       role: "Host Superhost, Rimini",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
     },
