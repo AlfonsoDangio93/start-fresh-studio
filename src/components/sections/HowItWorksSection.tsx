@@ -128,7 +128,7 @@ function TicketVisual() {
           <div className="bg-surface rounded-lg px-2.5 py-2 text-[9px] text-secondary/60">
             lavandino intasato
           </div>
-          <div className="bg-primary rounded-lg px-3 py-2 text-center">
+          <div className="bg-primary rounded-xl px-3 py-2 text-center">
             <span className="text-[10px] font-semibold text-white">Invia ticket</span>
           </div>
         </div>
