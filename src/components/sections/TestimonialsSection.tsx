@@ -115,7 +115,7 @@ const REVIEWS = [
 {
   stars: 5,
   time: "1 giorno fa",
-  text: "Gestisco appartamenti da remoto, da Londra. Con Hommi è come essere sul posto. Apro ticket, vedo foto, approvo preventivi. Tutto dal telefono.",
+  text: "Gestisco appartamenti da remoto. Con Hommi è come essere sul posto. Apro ticket, vedo foto, approvo preventivi. Tutto dal telefono.",
   name: "Paolo F.",
   role: "Milano",
   avatar: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=80&h=80&fit=crop&crop=face"
