@@ -19,7 +19,7 @@ export default function Landing() {
       <HeroSection />
       <PressBar />
       <FeatureShowcase />
-      <LandingHowItWorks />
+      <HowItWorksSection />
       <ServicesSection />
       <LandingPricing />
       <ComparisonSection />
