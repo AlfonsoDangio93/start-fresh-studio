@@ -132,7 +132,7 @@ const REVIEWS = [
       stars: 4,
       time: "1 settimana fa",
       text: "All'inizio ero scettico, un altro software... Dopo 2 settimane ho capito che Hommi è diverso. Semplice, veloce, funziona. Punto.",
-      name: "Stefano Ricci",
+      name: "Stefano R.",
       role: "Gestore Case Vacanza, Sardegna",
       avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&crop=face",
     },
