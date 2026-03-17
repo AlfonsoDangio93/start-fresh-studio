@@ -213,6 +213,119 @@ export default function PricingSection() {
           ))}
         </div>
 
+        {/* ── Ticket Flessibili ── */}
+        <div className="max-w-[820px] mx-auto mb-20">
+          <div className="bg-white rounded-2xl border border-border p-8 md:p-10">
+            <h2 className="font-display text-[24px] md:text-[30px] font-bold text-dark leading-tight tracking-tight mb-4">
+              Come Funziona il Sistema Ticket Flessibili
+            </h2>
+            <p className="text-[15px] text-secondary leading-relaxed mb-6">
+              Ricevi dei ticket gratuiti all'anno per ogni immobile che gestisci con Hommi, in base all'abbonamento. Ogni ticket copre un intervento di manutenzione della durata massima di 1 ora, su qualsiasi problema e su qualsiasi tuo immobile gestito da Hommi.
+            </p>
+            <div className="space-y-4 mb-8">
+              {[
+                { title: "I ticket sono completamente flessibili", desc: "puoi usarli dove e quando vuoi, anche tutti nello stesso mese." },
+                { title: "Si accumulano", desc: "se non li usi in un mese, li ritrovi disponibili nei mesi successivi." },
+                { title: "Trasferibili", desc: "se perdi un immobile, il ticket associato passa automaticamente agli altri tuoi immobili – zero sprechi!" },
+                { title: "Versatile per prevenzione", desc: "se non hai emergenze e interventi, puoi usarli per manutenzione preventiva su qualsiasi immobile (es. check impianti, regolazioni, piccoli aggiustamenti)." },
+              ].map((item) => (
+                <div key={item.title} className="flex items-start gap-2.5">
+                  <Check size={16} className="text-green-600 mt-0.5 shrink-0" />
+                  <p className="text-[14px] text-secondary leading-relaxed">
+                    <span className="font-semibold text-dark">{item.title}:</span> {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Esempio pratico */}
+            <div className="bg-muted rounded-xl p-6 mb-0">
+              <h3 className="font-display text-[16px] font-bold text-dark mb-3">
+                Esempio pratico: Gestisci 15 immobili? Hai 30 ticket gratuiti all'anno.
+              </h3>
+              <div className="space-y-2 text-[14px] text-secondary leading-relaxed">
+                <p><span className="font-semibold text-dark">Marzo:</span> 5 guasti improvvisi → usi 5 ticket su 5 immobili diversi.</p>
+                <p><span className="font-semibold text-dark">Aprile:</span> niente emergenze → i 30 ticket si accumulano a quelli non usati.</p>
+                <p><span className="font-semibold text-dark">Maggio:</span> perdi 2 immobili ma ne guadagni 1 → hai comunque tutti i ticket disponibili per i 14 immobili restanti.</p>
+                <p className="font-semibold text-dark pt-2">Risultato: 30 ticket/anno gratuiti, sempre utilizzabili come preferisci.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Pianificazione & Mini-Report ── */}
+        <div className="max-w-[820px] mx-auto mb-20 grid md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-2xl border border-border p-6 md:p-8">
+            <h3 className="font-display text-[18px] font-bold text-dark mb-3">📅 Pianificazione</h3>
+            <p className="text-[14px] text-secondary leading-relaxed">
+              Le date possono essere adattate al calendario prenotazioni per evitare disagi agli ospiti.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl border border-border p-6 md:p-8">
+            <h3 className="font-display text-[18px] font-bold text-dark mb-3">📋 Mini-Report automatico</h3>
+            <p className="text-[14px] text-secondary leading-relaxed mb-3">
+              Generato entro 48h dalla visita.
+            </p>
+            <p className="text-[14px] text-secondary leading-relaxed">
+              Include: stato generale (verde/giallo/rosso), anomalie rilevate, suggerimenti di manutenzione preventiva, foto e note del tecnico.
+            </p>
+          </div>
+        </div>
+
+        {/* ── Servizi inclusi manutenzione preventiva ── */}
+        <div className="max-w-[820px] mx-auto mb-24">
+          <div className="bg-white rounded-2xl border border-border p-8 md:p-10">
+            <h2 className="font-display text-[24px] md:text-[30px] font-bold text-dark leading-tight tracking-tight mb-6">
+              Servizi inclusi nell'abbonamento della manutenzione preventiva
+            </h2>
+
+            {/* Senza ricambi */}
+            <h3 className="font-display text-[17px] font-bold text-primary mb-4">
+              Senza ricambi (100% inclusi)
+            </h3>
+            <div className="space-y-4 mb-8">
+              {[
+                { cat: "Elettrico/Illuminazione", desc: "controllo luci, riavvitare lampadine/portalampade, verifica rapide prese/interruttori" },
+                { cat: "Idraulico/Sanitari", desc: "stringere rubinetti leggermente allentati, regolare flussi, pulizia superficiale scarichi/sifoni" },
+                { cat: "Falegnameria/Arredi", desc: "stringere maniglie, cerniere, serrature interne, fissare mensole o quadri, piccole regolazioni porte/finestre" },
+                { cat: "Climatizzazione/Riscaldamento", desc: "pulizia superficiale prese aria/filtri removibili, regolazione termostati/valvole, controllo visivo radiatori/caldaia" },
+                { cat: "Sicurezza/Accessi", desc: "lubrificazione serrature, verifica porte/finestre, test dispositivi smart lock" },
+                { cat: "Extra rapidi", desc: "riavvitare piccoli elementi allentati, regolazioni rapide piedini o complementi mobili" },
+              ].map((item) => (
+                <div key={item.cat} className="flex items-start gap-2.5">
+                  <Check size={16} className="text-green-600 mt-0.5 shrink-0" />
+                  <p className="text-[14px] text-secondary leading-relaxed">
+                    <span className="font-semibold text-dark">{item.cat}:</span> {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Con piccolissimi ricambi */}
+            <h3 className="font-display text-[17px] font-bold text-primary mb-4">
+              Con piccolissimi ricambi (inclusi se materiali minimi disponibili)
+            </h3>
+            <div className="space-y-3 mb-6">
+              {[
+                "Lampadine standard (max 2-3 per intervento)",
+                "Batterie telecomandi/altro (AAA/AA)",
+                "Guarnizioni piccole (rubinetti, docce, finestre)",
+                "Tasselli, viti, bulloni piccoli già presenti o portati dal tecnico",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-2.5">
+                  <Check size={16} className="text-green-600 mt-0.5 shrink-0" />
+                  <p className="text-[14px] text-secondary leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-muted rounded-xl p-4">
+              <p className="text-[13px] text-secondary leading-relaxed">
+                <span className="font-semibold text-dark">Nota:</span> interventi più grandi o specialistici → ticket extra con preventivo e approvazione PM.
+              </p>
+            </div>
+          </div>
+        </div>
         {/* FAQ */}
         <div className="max-w-[680px] mx-auto">
           <div className="text-center mb-10">
