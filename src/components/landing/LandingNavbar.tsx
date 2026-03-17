@@ -30,7 +30,8 @@ export default function LandingNavbar() {
   }, [mobileOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-2 pt-2" role="navigation" aria-label="Navigazione principale">
+    <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6" role="navigation" aria-label="Navigazione principale">
+      <div className="w-full max-w-site">
       {/* Mobile navbar */}
       <div className="md:hidden flex items-center justify-between bg-white border border-border shadow-sm rounded-xl px-4 py-3 w-full z-[60]">
         <button
@@ -113,6 +114,7 @@ export default function LandingNavbar() {
           </div>
         </>
       )}
+      </div>
     </nav>
   );
 }
