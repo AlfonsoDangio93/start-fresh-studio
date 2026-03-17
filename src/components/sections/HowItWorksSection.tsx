@@ -302,7 +302,7 @@ export default function HowItWorksSection() {
 
   return (
     <section id="come-funziona" className="py-20 md:py-28 bg-white rounded-[10px]" ref={ref}>
-      <div className="max-w-site mx-auto px-6">
+      <div className="mx-auto px-8">
         {/* Header */}
         <div className={`text-center mb-14 reveal ${vis ? "revealed" : ""}`}>
           <span className="inline-block text-[12px] font-semibold text-primary uppercase tracking-[0.15em] mb-3">
