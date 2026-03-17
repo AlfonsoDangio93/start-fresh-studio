@@ -152,7 +152,7 @@ p {
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 .nav-cta-primary:hover {
-  background: #F16B01;
+  background: #E35210;
   color: #fff;
   transform: translateY(-1px);
   box-shadow: 0 4px 14px rgba(241, 107, 1, 0.3);
