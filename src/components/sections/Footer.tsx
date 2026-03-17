@@ -160,12 +160,12 @@ export default function Footer() {
                 {items.map((item) => (
                   <li key={item.label}>
                     {item.href ? (
-                      <Link
-                        to={item.href}
+                      <a
+                        href={item.href}
                         className="text-[14px] text-secondary/60 hover:text-dark transition-colors duration-200 cursor-pointer"
                       >
                         {item.label}
-                      </Link>
+                      </a>
                     ) : (
                       <a
                         href="#"
