@@ -26,7 +26,7 @@ const FEATURES: PlanFeature[] = [
   },
   {
     highlight: "Piattaforma digitale",
-    label: " con "cartella clinica dell'immobile", report, preventivi, stato lavori e apertura ticket",
+    label: ' con "cartella clinica dell\'immobile", report, preventivi, stato lavori e apertura ticket',
     base: "incluso",
     premium: "incluso",
     plus: "incluso",
