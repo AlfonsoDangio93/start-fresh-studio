@@ -27,8 +27,8 @@ const REVIEWS = [
   stars: 4,
   time: "3 giorni fa",
   text: "Non sono bravissimo col computer. Ma Hommi è talmente semplice che l'ho imparato in 20 minuti. Ora non posso farne a meno. Prima ero uno schiavo di Excel.",
-  name: "Luca Marchetti",
-  role: "Gestore B&B, Como",
+  name: "Luca M.",
+  role: "Como",
   avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face"
 },
 {
