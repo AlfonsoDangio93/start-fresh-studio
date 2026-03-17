@@ -2,7 +2,7 @@ import LandingNavbar from "@/components/landing/LandingNavbar";
 import HeroSection from "@/components/sections/HeroSection";
 import PressBar from "@/components/sections/PressBar";
 import FeatureShowcase from "@/components/sections/FeatureShowcase";
-import LandingHowItWorks from "@/components/landing/LandingHowItWorks";
+import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import LandingPricing from "@/components/landing/LandingPricing";
 import ComparisonSection from "@/components/sections/ComparisonSection";
@@ -19,7 +19,7 @@ export default function Landing() {
       <HeroSection />
       <PressBar />
       <FeatureShowcase />
-      <LandingHowItWorks />
+      <HowItWorksSection />
       <ServicesSection />
       <LandingPricing />
       <ComparisonSection />
