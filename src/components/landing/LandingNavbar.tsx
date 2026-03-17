@@ -51,7 +51,7 @@ export default function LandingNavbar() {
           href={CTA_URL} target="_blank" rel="noopener noreferrer"
           className="text-[12px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-3.5 py-1.5 rounded-[10px] cursor-pointer"
         >
-          Inizia ora
+          Inizia
         </a>
       </div>
 
@@ -76,7 +76,7 @@ export default function LandingNavbar() {
               href={CTA_URL} target="_blank" rel="noopener noreferrer"
               className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-5 py-2 rounded-[10px] cursor-pointer ml-2"
             >
-              Inizia ora
+              Inizia
             </a>
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function LandingNavbar() {
                 className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
                 onClick={() => setMobileOpen(false)}
               >
-                Inizia ora
+                Inizia
               </a>
             </div>
           </div>
