@@ -15,6 +15,7 @@ import DashboardRealtime from "@/pages/DashboardRealtime";
 import TicketingGuasti from "@/pages/TicketingGuasti";
 import GestioneTecnici from "@/pages/GestioneTecnici";
 import ReportAnalytics from "@/pages/ReportAnalytics";
+import ThankYou from "@/pages/ThankYou";
 
 export default function App() {
   useUtmPersistence();
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/ticketing-guasti" element={<TicketingGuasti />} />
         <Route path="/gestione-tecnici" element={<GestioneTecnici />} />
         <Route path="/report-analytics" element={<ReportAnalytics />} />
+        <Route path="/thank-you" element={<ThankYou />} />
       </Routes>
     </>
   );
