@@ -16,6 +16,7 @@ import TicketingGuasti from "@/pages/TicketingGuasti";
 import GestioneTecnici from "@/pages/GestioneTecnici";
 import ReportAnalytics from "@/pages/ReportAnalytics";
 import ThankYou from "@/pages/ThankYou";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 
 export default function App() {
   useUtmPersistence();
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="/gestione-tecnici" element={<GestioneTecnici />} />
         <Route path="/report-analytics" element={<ReportAnalytics />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </>
   );
