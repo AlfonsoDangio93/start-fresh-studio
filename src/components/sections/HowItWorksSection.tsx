@@ -37,12 +37,6 @@ const FEATURES = [
     visual: "ticket",
   },
   {
-    icon: KeyRound,
-    title: "Gestiamo noi l\u2019accesso.",
-    desc: "Contattiamo ospiti o referenti per entrare nell\u2019immobile. Tu puoi restare offline.",
-    visual: "access",
-  },
-  {
     icon: Zap,
     title: "Risolviamo in giornata.",
     desc: "Il tecnico arriva entro 4 ore. Se serve uno specialista, ricevi un preventivo via app prima di approvare.",
