@@ -15,6 +15,15 @@
 .landing-theme .from-primary { --tw-gradient-from: #E35210 !important; }
 .landing-theme .to-primary { --tw-gradient-to: #E35210 !important; }
 
+/* Landing page dark/title color override */
+.landing-theme .text-dark { color: #3F4444 !important; }
+.landing-theme .text-dark\/80 { color: rgb(63 68 68 / 0.8) !important; }
+.landing-theme .text-dark\/70 { color: rgb(63 68 68 / 0.7) !important; }
+.landing-theme .text-dark\/90 { color: rgb(63 68 68 / 0.9) !important; }
+.landing-theme .text-dark\/25 { color: rgb(63 68 68 / 0.25) !important; }
+.landing-theme .bg-dark { background-color: #3F4444 !important; }
+.landing-theme .hover\:bg-dark\/90:hover { background-color: rgb(63 68 68 / 0.9) !important; }
+
 * {
   box-sizing: border-box;
   padding: 0;
