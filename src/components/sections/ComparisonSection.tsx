@@ -12,7 +12,7 @@ const ROWS = [
   {
     feature: "Costo fisso per unità",
     others: "Variabile, imprevedibile",
-    hommi: "€29-39/mese",
+    hommi: "Da €14,90/mese per immobile",
   },
   {
     feature: "Intervento urgente",
