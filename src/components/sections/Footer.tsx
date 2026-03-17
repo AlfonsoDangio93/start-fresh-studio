@@ -211,7 +211,7 @@ Corso Unione Sovietica, 612/15/C · 10135 Torino (TO) · Capitale Sociale € 10
           </p>
 
           {/* Riga 2 — credits */}
-          <div className="flex items-center justify-center gap-2 text-sm text-[#6B7280]">
+          <div className="flex items-center justify-center gap-2 text-sm text-[#6B7280] py-[12px]">
             <span>Made with</span>
             <span className="text-red-500">❤️</span>
             <span>by</span>
