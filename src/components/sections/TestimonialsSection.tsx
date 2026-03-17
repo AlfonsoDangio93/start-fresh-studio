@@ -55,7 +55,7 @@ const REVIEWS = [
   time: "1 settimana fa",
   text: "Prima ogni guasto era un casino. Ora se un ospite segnala un problema, il tecnico è già in strada. È magia.",
   name: "Elena M.",
-  role: "Siena",
+  role: "Como",
   avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
 },
 {
