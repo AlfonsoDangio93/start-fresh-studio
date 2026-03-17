@@ -40,6 +40,7 @@ export default function App() {
         <Route path="/report-analytics" element={<ReportAnalytics />} />
         <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
       </Routes>
     </>
   );
