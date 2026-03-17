@@ -1,16 +1,12 @@
 
 
 const PRESS_OUTLETS = [
-  "Il Sole 24 Ore",
-  "Forbes Italia",
-  "Wired Italia",
-  "StartupItalia",
+  "Simplybiz",
+  "Re2bit.com",
+  "Corriere Nazionale",
   "Corriere della Sera",
   "Milano Finanza",
-  "La Repubblica",
-  "Italian Tech",
-  "Economy Up",
-  "Linkiesta",
+  "DailyNet",
 ];
 
 function PressLogo({ name }: { name: string }) {
