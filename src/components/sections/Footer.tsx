@@ -205,11 +205,9 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-6 border-t border-border gap-4">
-          <div className="text-[13px] text-secondary/50 text-center md:text-left">
-            <p>&copy; {new Date().getFullYear()} Hommi. Tutti i diritti riservati.</p>
-            <p className="mt-1">S9 srl Società Benefit — Partita IVA 13291110016 | REA TO-1352856</p>
-            <p>Corso Unione Sovietica, 612/15/C | 10135 Torino | TO — Capitale Sociale € 10.000 i.v.</p>
-          </div>
+          <p className="text-[13px] text-secondary/50 text-center md:text-left">
+            &copy; {new Date().getFullYear()} Hommi. Tutti i diritti riservati. — S9 srl Società Benefit — P.IVA 13291110016 | REA TO-1352856 | Corso Unione Sovietica, 612/15/C | 10135 Torino | TO — Capitale Sociale € 10.000 i.v.
+          </p>
           <div className="flex items-center gap-2 text-[13px] text-secondary/50">
             <span>Made with</span>
             <span className="text-red-500">&#10084;</span>
