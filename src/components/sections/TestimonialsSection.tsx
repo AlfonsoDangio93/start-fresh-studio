@@ -89,7 +89,7 @@ const REVIEWS = [
       stars: 5,
       time: "1 settimana fa",
       text: "Turni serali, weekend, festivi... trovare un tecnico era un incubo. Con Hommi trovo professionisti verificati in automatico. Lo consiglio a tutti.",
-      name: "Valentina Ferrara",
+      name: "Valentina F.",
       role: "Host Superhost, Catania",
       avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face",
     },
