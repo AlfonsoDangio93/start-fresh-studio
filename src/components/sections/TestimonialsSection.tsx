@@ -12,7 +12,7 @@ const REVIEWS = [
       time: "2 giorni fa",
       text: "Gestisco 40 appartamenti e prima impazzivo con i guasti. Adesso apro un ticket in 10 secondi e il tecnico arriva in giornata. Non torno indietro.",
       name: "Marco B.",
-      role: "Property Manager, Milano",
+      role: "Milano",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -20,7 +20,7 @@ const REVIEWS = [
       time: "1 settimana fa",
       text: "Stagione estiva = inferno. 25 alloggi, ognuno con problemi diversi. Hommi mi ha salvato la vita. Letteralmente. L'ho consigliato a 3 colleghi.",
       name: "Alessandra P.",
-      role: "Host Superhost, Rimini",
+      role: "Rimini",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -28,7 +28,7 @@ const REVIEWS = [
       time: "3 giorni fa",
       text: "Non sono bravissimo col computer. Ma Hommi è talmente semplice che l'ho imparato in 20 minuti. Ora non posso farne a meno. Prima ero uno schiavo di Excel.",
       name: "Luca M.",
-      role: "Gestore B&B, Como",
+      role: "Como",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -36,7 +36,7 @@ const REVIEWS = [
       time: "5 giorni fa",
       text: "Il report mensile che esporto per i proprietari è una bomba. Vedono tutto: costi, interventi, tempi. Zero lamentele da quando uso Hommi.",
       name: "Francesca N.",
-      role: "Property Manager, Torino",
+      role: "Torino",
       avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face",
     },
   ],
@@ -47,7 +47,7 @@ const REVIEWS = [
       time: "6 giorni fa",
       text: "Il commercialista mi chiedeva sempre i costi di manutenzione e io impazzivo. Ora esporto tutto in 2 click. Anche lui è contento.",
       name: "Roberto C.",
-      role: "Gestore Appartamenti, Roma",
+      role: "Roma",
       avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -55,7 +55,7 @@ const REVIEWS = [
       time: "1 settimana fa",
       text: "Prima ogni guasto era un casino. Ora se un ospite segnala un problema, il tecnico è già in strada. È magia.",
       name: "Elena M.",
-      role: "Host Superhost, Siena",
+      role: "Siena",
       avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -63,7 +63,7 @@ const REVIEWS = [
       time: "3 giorni fa",
       text: "Ho recuperato 2 ore a settimana che uso per acquisire nuovi clienti invece di rincorrere idraulici. Hommi si ripaga da solo.",
       name: "Davide R.",
-      role: "Property Manager, Napoli",
+      role: "Napoli",
       avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -71,7 +71,7 @@ const REVIEWS = [
       time: "4 giorni fa",
       text: "La dashboard è spettacolare. Vedo tutto in un colpo d'occhio: ticket aperti, tempi, costi. Mai più brutte sorprese a fine mese.",
       name: "Sara C.",
-      role: "CEO, StayBright Rentals",
+      role: "Venezia",
       avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face",
     },
   ],
@@ -82,7 +82,7 @@ const REVIEWS = [
       time: "2 giorni fa",
       text: "Credevo che a questo prezzo fosse troppo bello per essere vero. Invece funziona benissimo e non pago abbonamenti nascosti. Affare del secolo.",
       name: "Michele G.",
-      role: "Gestore Turistico, Palermo",
+      role: "Palermo",
       avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -90,7 +90,7 @@ const REVIEWS = [
       time: "1 settimana fa",
       text: "Turni serali, weekend, festivi... trovare un tecnico era un incubo. Con Hommi trovo professionisti verificati in automatico. Lo consiglio a tutti.",
       name: "Valentina F.",
-      role: "Host Superhost, Catania",
+      role: "Catania",
       avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -98,7 +98,7 @@ const REVIEWS = [
       time: "5 giorni fa",
       text: "Abbiamo 120 alloggi in gestione. Prima di Hommi servivano 3 persone solo per la manutenzione. Ora ne basta una. Risultato: -60% sui costi operativi.",
       name: "Andrea B.",
-      role: "COO, ItalyStay Group",
+      role: "Genova",
       avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -106,7 +106,7 @@ const REVIEWS = [
       time: "3 giorni fa",
       text: "Le notifiche in tempo reale sono il top. So sempre a che punto è ogni intervento senza dover chiamare nessuno. Finalmente respiro.",
       name: "Chiara L.",
-      role: "Property Manager, Brescia",
+      role: "Brescia",
       avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face",
     },
   ],
@@ -117,7 +117,7 @@ const REVIEWS = [
       time: "1 giorno fa",
       text: "Gestisco appartamenti da remoto, da Londra. Con Hommi è come essere sul posto. Apro ticket, vedo foto, approvo preventivi. Tutto dal telefono.",
       name: "Paolo F.",
-      role: "Investitore Immobiliare, Londra",
+      role: "Londra",
       avatar: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -125,7 +125,7 @@ const REVIEWS = [
       time: "4 giorni fa",
       text: "I proprietari degli immobili che gestisco sono entusiasti. Vedono i report, i tempi di risoluzione, i costi. Trasparenza totale = fiducia totale.",
       name: "Giulia F.",
-      role: "Property Manager, Firenze",
+      role: "Firenze",
       avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -133,7 +133,7 @@ const REVIEWS = [
       time: "1 settimana fa",
       text: "All'inizio ero scettico, un altro software... Dopo 2 settimane ho capito che Hommi è diverso. Semplice, veloce, funziona. Punto.",
       name: "Stefano R.",
-      role: "Gestore Case Vacanza, Sardegna",
+      role: "Sardegna",
       avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&crop=face",
     },
     {
@@ -141,7 +141,7 @@ const REVIEWS = [
       time: "6 giorni fa",
       text: "Il calendario interventi mi ha cambiato la vita. Sopralluoghi, check-out, manutenzioni programmate: tutto in un'unica vista sincronizzata.",
       name: "Anna G.",
-      role: "Property Manager, Bologna",
+      role: "Bologna",
       avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=80&h=80&fit=crop&crop=face",
     },
   ],
