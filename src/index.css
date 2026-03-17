@@ -123,7 +123,7 @@ p {
   left: 0;
   width: 0;
   height: 2px;
-  background: #F16B01;
+  background: #E35210;
   border-radius: 1px;
   transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -152,14 +152,14 @@ p {
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 .nav-cta-primary:hover {
-  background: #F16B01;
+  background: #E35210;
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(241, 107, 1, 0.3);
+  box-shadow: 0 4px 14px rgba(227, 82, 16, 0.3);
 }
 .nav-cta-primary:active {
   transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(241, 107, 1, 0.2);
+  box-shadow: 0 2px 6px rgba(227, 82, 16, 0.2);
 }
 
 /* Megamenu — enter animation */
