@@ -256,7 +256,7 @@ export default function FeatureShowcase() {
         <div ref={ctaRef} className={`text-center reveal ${ctaVis ? "revealed" : ""}`}>
           <a
             href={CTA_URL}
-            className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-xl px-7 py-3.5 transition-all duration-200 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
+            className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-full px-7 py-3.5 transition-all duration-200 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
           >
             Richiedi accesso prioritario
           </a>

@@ -675,7 +675,7 @@ export default function HeroSection() {
           </a>
           <a
             href="#come-funziona"
-            className="flex items-center justify-center text-dark font-semibold text-[14px] rounded-[10px] px-4 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer">
+            className="flex items-center justify-center text-dark font-semibold text-[14px] rounded-full px-4 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer">
             
             Vedi come funziona
           </a>

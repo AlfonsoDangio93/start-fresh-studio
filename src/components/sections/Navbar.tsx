@@ -595,7 +595,7 @@ export default function Navbar() {
             <div className="p-3 pt-0">
               <Link
                 to={CTA_URL}
-                className="block w-full text-center bg-dark text-white font-semibold text-[14px] py-3 rounded-xl hover:bg-dark/90 transition-colors duration-200 cursor-pointer"
+                className="block w-full text-center bg-dark text-white font-semibold text-[14px] py-3 rounded-full hover:bg-dark/90 transition-colors duration-200 cursor-pointer"
                 onClick={() => setMobileOpen(false)}>
                 
                 Richiedi accesso prioritario
