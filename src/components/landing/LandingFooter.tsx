@@ -32,7 +32,7 @@ export default function LandingFooter() {
               <span className="text-red-500">❤️</span>
               <span>by</span>
               <Link to="/" className="flex items-center">
-                <img src="/logos/hommi_logo.png" alt="Hommi" className="h-7 w-auto" />
+                <img src="/logos/hommi_logo.png" alt="Hommi" className="h-5 w-auto" />
               </Link>
             </div>
             <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
