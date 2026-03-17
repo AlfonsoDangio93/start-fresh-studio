@@ -123,7 +123,7 @@ p {
   left: 0;
   width: 0;
   height: 2px;
-  background: #F16B01;
+  background: #E35210;
   border-radius: 1px;
   transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
