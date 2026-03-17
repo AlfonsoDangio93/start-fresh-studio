@@ -134,7 +134,7 @@ export default function ComparisonSection() {
         <div className={`text-center reveal ${vis ? "revealed" : ""}`} style={{ transitionDelay: "0.2s" }}>
           <a
             href={CTA_URL}
-            className="inline-flex items-center justify-center bg-dark text-white font-semibold text-[14px] rounded-full px-7 py-3.5 transition-all duration-200 hover:bg-primary hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
+            className="inline-flex items-center justify-center bg-dark text-white font-semibold text-[14px] rounded-xl px-7 py-3.5 transition-all duration-200 hover:bg-primary hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
           >
             Richiedi accesso prioritario
           </a>

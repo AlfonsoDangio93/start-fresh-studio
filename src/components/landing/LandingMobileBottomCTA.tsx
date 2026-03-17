@@ -69,11 +69,11 @@ export default function LandingMobileBottomCTA() {
   const isInternal = cta.href.startsWith("#");
 
   const ctaButton = isInternal ?
-  <a href={cta.href} className="flex-[4] flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-full py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
+  <a href={cta.href} className="flex-[4] flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-lg py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
       {cta.label}
     </a> :
 
-  <a href={cta.href} className="flex-[4] flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-full py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
+  <a href={cta.href} className="flex-[4] flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-lg py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
       {cta.label}
     </a>;
 
@@ -82,7 +82,7 @@ export default function LandingMobileBottomCTA() {
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Torna su"
-      className="flex-[1] flex items-center justify-center bg-muted text-foreground rounded-full py-2.5 transition-colors duration-200 cursor-pointer"
+      className="flex-[1] flex items-center justify-center bg-muted text-foreground rounded-lg py-2.5 transition-colors duration-200 cursor-pointer"
     >
       <ArrowUp className="w-5 h-5" />
     </button>
