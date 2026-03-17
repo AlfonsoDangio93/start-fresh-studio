@@ -213,13 +213,8 @@ export default function Footer() {
             <span className="text-red-500">&#10084;</span>
             <span>by</span>
             <Link to="/" className="flex items-center gap-1.5 cursor-pointer">
-              <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M3 10.5L12 3l9 7.5" />
-                  <path d="M5 9.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" />
-                </svg>
-              </div>
-              <span className="font-display font-bold text-dark text-[15px]">Hommi</span>
+              <img src="/logos/hommi_logo.png" alt="Hommi" className="h-5 w-auto" />
+            </Link>
             </Link>
           </div>
         </div>
