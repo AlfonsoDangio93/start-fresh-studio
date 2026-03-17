@@ -266,7 +266,7 @@ export default function Navbar() {
         </button>
 
         <Link to="/" className="absolute left-1/2 -translate-x-1/2">
-          <img src={LOGO} alt="Hommi" className="h-10 w-auto" />
+          <img src={LOGO} alt="Hommi" className="h-12 w-auto" />
         </Link>
 
         <a
@@ -330,7 +330,7 @@ export default function Navbar() {
                   href="https://app.hommi.it/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] font-semibold text-secondary hover:text-dark transition-colors duration-200 px-3 py-1.5 border border-border cursor-pointer rounded-lg no-underline">
+                  className="text-[13px] font-semibold text-secondary hover:text-dark transition-colors duration-200 px-3 py-1.5 border border-border cursor-pointer no-underline rounded-xl">
                 Accedi
               </a>
               {showLoginTooltip &&
@@ -339,7 +339,7 @@ export default function Navbar() {
                 </div>
                 }
             </div>
-            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 py-1.5 cursor-pointer rounded-lg">
+            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 py-1.5 cursor-pointer rounded-xl">
               Richiedi accesso
             </a>
           </div>
