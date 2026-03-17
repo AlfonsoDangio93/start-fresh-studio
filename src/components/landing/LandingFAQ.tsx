@@ -4,21 +4,21 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import TypingHeading from "@/components/TypingHeading";
 
 const FAQS = [
-  { q: "Posso gestire più immobili con un solo account?", a: "Certo. Ogni immobile ha il suo profilo, e puoi aprire ticket in parallelo." },
-  { q: "Come vengono scelti i tecnici?", a: "I tuttofare sono nostri dipendenti. Gli specialisti esterni seguono i nostri SOP e sono selezionati tramite verifica documentale, colloquio e feedback continui." },
-  { q: "Quanto costa?", a: "Hommi offre 3 piani: Base a €14,90/mese per immobile, Premium a €29,90/mese e Plus a €39,90/mese (prezzi esclusa IVA). Ogni piano include accesso alla rete di tecnici, piattaforma digitale, interventi garantiti entro 4 ore e sopralluogo iniziale. Il costo degli interventi viene sempre approvato dal Property Manager prima di procedere." },
-  { q: "Cosa succede se il guasto è grave?", a: "Organizziamo l\u2019intervento specialistico, ti inviamo preventivo e coordiniamo tutto fino alla risoluzione." },
-  { q: "Posso attivare il servizio solo in alta stagione?", a: "Sì, offriamo piani flessibili pensati anche per chi lavora solo nei mesi estivi. Puoi attivare l\u2019abbonamento solo quando ti serve, senza penali o costi di riattivazione." },
-  { q: "Quanto tempo serve per risolvere un problema?", a: "Il nostro obiettivo è intervenire entro 4 ore. In base alla complessità o alla disponibilità dello specialista, potremmo richiedere un tempo maggiore. In ogni caso, ti aggiorniamo in tempo reale." },
-  { q: "E se il problema si presenta di notte o nei festivi?", a: "Stiamo lavorando per offrire una copertura completa 24 ore su 24, 7 giorni su 7. Al momento il nostro servizio è attivo dal lunedì al sabato, dalle 8:00 alle 20:00, con chiusura nei giorni festivi." },
-  { q: "Cosa succede se il tecnico non può intervenire subito?", a: "Ogni proprietà ha un tecnico dedicato, in base alle proprie aree di competenza. Se non disponibile, attiviamo un secondo tecnico di backup. Coordinamento e selezione sono gestiti da noi." },
-  { q: "Chi garantisce che il lavoro sia stato fatto bene?", a: "Tutti gli interventi sono documentati con foto, video e check di fine lavoro. Puoi approvare o richiedere chiarimenti direttamente dall\u2019app prima della chiusura." },
-  { q: "Come viene gestito un guasto coperto da garanzia?", a: "Se un guasto riguarda un elettrodomestico ancora in garanzia, ti aiutiamo a contattare l\u2019assistenza ufficiale. In alternativa, puoi affidarci l\u2019intervento diretto." },
-  { q: "Posso usare i miei ricambi o materiali?", a: "Sì, se hai già i ricambi in casa o in magazzino, il nostro tecnico li utilizzerà dopo verifica. In alternativa, li procuriamo noi e li fatturiamo a parte." },
-  { q: "Chi paga l\u2019intervento? Io o il proprietario dell\u2019immobile?", a: "Decidi tu come vuoi gestire il pagamento. Puoi saldare tu o inviarci i dati del proprietario. Il pagamento avviene sempre via app, in modo tracciato." },
-];
+{ q: "Posso gestire più immobili con un solo account?", a: "Certo. Ogni immobile ha il suo profilo, e puoi aprire ticket in parallelo." },
+{ q: "Come vengono scelti i tecnici?", a: "I tuttofare sono nostri dipendenti. Gli specialisti esterni seguono i nostri SOP e sono selezionati tramite verifica documentale, colloquio e feedback continui." },
+{ q: "Quanto costa?", a: "Hommi offre 3 piani: Base a €14,90/mese per immobile, Premium a €29,90/mese e Plus a €39,90/mese (prezzi esclusa IVA). Ogni piano include accesso alla rete di tecnici, piattaforma digitale, interventi garantiti entro 4 ore e sopralluogo iniziale. Il costo degli interventi viene sempre approvato dal Property Manager prima di procedere." },
+{ q: "Cosa succede se il guasto è grave?", a: "Organizziamo l\u2019intervento specialistico, ti inviamo preventivo e coordiniamo tutto fino alla risoluzione." },
+{ q: "Posso attivare il servizio solo in alta stagione?", a: "Sì, offriamo piani flessibili pensati anche per chi lavora solo nei mesi estivi. Puoi attivare l\u2019abbonamento solo quando ti serve, senza penali o costi di riattivazione." },
+{ q: "Quanto tempo serve per risolvere un problema?", a: "Il nostro obiettivo è intervenire entro 4 ore. In base alla complessità o alla disponibilità dello specialista, potremmo richiedere un tempo maggiore. In ogni caso, ti aggiorniamo in tempo reale." },
+{ q: "E se il problema si presenta di notte o nei festivi?", a: "Stiamo lavorando per offrire una copertura completa 24 ore su 24, 7 giorni su 7. Al momento il nostro servizio è attivo dal lunedì al sabato, dalle 8:00 alle 20:00, con chiusura nei giorni festivi." },
+{ q: "Cosa succede se il tecnico non può intervenire subito?", a: "Ogni proprietà ha un tecnico dedicato, in base alle proprie aree di competenza. Se non disponibile, attiviamo un secondo tecnico di backup. Coordinamento e selezione sono gestiti da noi." },
+{ q: "Chi garantisce che il lavoro sia stato fatto bene?", a: "Tutti gli interventi sono documentati con foto, video e check di fine lavoro. Puoi approvare o richiedere chiarimenti direttamente dall\u2019app prima della chiusura." },
+{ q: "Come viene gestito un guasto coperto da garanzia?", a: "Se un guasto riguarda un elettrodomestico ancora in garanzia, ti aiutiamo a contattare l\u2019assistenza ufficiale. In alternativa, puoi affidarci l\u2019intervento diretto." },
+{ q: "Posso usare i miei ricambi o materiali?", a: "Sì, se hai già i ricambi in casa o in magazzino, il nostro tecnico li utilizzerà dopo verifica. In alternativa, li procuriamo noi e li fatturiamo a parte." },
+{ q: "Chi paga l\u2019intervento? Io o il proprietario dell\u2019immobile?", a: "Decidi tu come vuoi gestire il pagamento. Puoi saldare tu o inviarci i dati del proprietario. Il pagamento avviene sempre via app, in modo tracciato." }];
 
-function FaqItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
+
+function FaqItem({ q, a, isOpen, onToggle }: {q: string;a: string;isOpen: boolean;onToggle: () => void;}) {
   const contentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
@@ -42,8 +42,8 @@ function FaqItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
           <p className="text-[14px] text-secondary leading-relaxed pb-5 pr-10">{a}</p>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }
 
 export default function LandingFAQ() {
@@ -54,7 +54,7 @@ export default function LandingFAQ() {
   useEffect(() => {
     if (!ref.current) return;
     const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVis(true); obs.disconnect(); } },
+      ([e]) => {if (e.isIntersecting) {setVis(true);obs.disconnect();}},
       { threshold: 0.1 }
     );
     obs.observe(ref.current);
@@ -62,37 +62,37 @@ export default function LandingFAQ() {
   }, []);
 
   const toggle = useCallback((idx: number) => {
-    setOpenIdx((prev) => (prev === idx ? null : idx));
+    setOpenIdx((prev) => prev === idx ? null : idx);
   }, []);
 
   return (
-    <section id="faq" className="py-20 md:py-28" ref={ref}>
+    <section id="faq" className="py-20 md:py-[89px]" ref={ref}>
       <div className="max-w-site mx-auto px-6">
         <div className={`text-center mb-14 reveal ${vis ? "revealed" : ""}`}>
           <span className="inline-block text-[11px] font-semibold text-dark uppercase tracking-[0.08em] border border-border rounded-full px-3.5 py-1.5 mb-5">FAQ</span>
-          {vis ? (
-            <TypingHeading
-              lines={["Scopri le risposte alle", "domande più frequenti."]}
-              className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight"
-              speed={40}
-              startDelay={200}
-            />
-          ) : (
-            <h2 className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight">
+          {vis ?
+          <TypingHeading
+            lines={["Scopri le risposte alle", "domande più frequenti."]}
+            className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight"
+            speed={40}
+            startDelay={200} /> :
+
+
+          <h2 className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight">
               <span className="block invisible">Scopri le risposte alle</span>
               <span className="block invisible">domande più frequenti.</span>
             </h2>
-          )}
+          }
         </div>
 
         <div className={`max-w-[680px] mx-auto reveal ${vis ? "revealed" : ""}`} style={{ transitionDelay: "0.1s" }}>
           <div className="bg-white rounded-2xl border border-border px-6 md:px-8">
-            {FAQS.map((faq, i) => (
-              <FaqItem key={faq.q} q={faq.q} a={faq.a} isOpen={openIdx === i} onToggle={() => toggle(i)} />
-            ))}
+            {FAQS.map((faq, i) =>
+            <FaqItem key={faq.q} q={faq.q} a={faq.a} isOpen={openIdx === i} onToggle={() => toggle(i)} />
+            )}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }

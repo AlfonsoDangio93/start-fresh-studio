@@ -6,7 +6,7 @@ const CTA_URL =
 
 export default function CTASection() {
   return (
-    <div className="max-w-site mx-auto px-6 my-0 py-[112px]">
+    <div className="max-w-site mx-auto px-6 my-0 py-[31px]">
       <div className="relative rounded-[10px] overflow-hidden px-8 py-20 md:px-16 md:py-24 text-center">
         <img
           src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2970&auto=format&fit=crop"
