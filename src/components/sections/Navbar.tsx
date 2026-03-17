@@ -265,9 +265,9 @@ export default function Navbar() {
           {mobileOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
 
-        <div className="absolute left-1/2 -translate-x-1/2">
+        <Link to="/" className="absolute left-1/2 -translate-x-1/2">
           <img src={LOGO} alt="Hommi" className="h-12 w-auto" />
-        </div>
+        </Link>
 
         <a
             href="https://app.hommi.it/"
