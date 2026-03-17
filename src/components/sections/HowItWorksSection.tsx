@@ -7,7 +7,7 @@ import {
   UserCheck,
   BookOpen,
   Timer,
-  KeyRound,
+  
   Zap,
   Eye,
   ChevronLeft,
