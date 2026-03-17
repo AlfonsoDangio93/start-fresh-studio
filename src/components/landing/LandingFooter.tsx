@@ -22,9 +22,9 @@ export default function LandingFooter() {
         </div>
 
         <div className="border-t border-border py-6 space-y-4">
-          <p className="text-sm text-[#6B7280] text-center">
-            © 2026 Hommi · Tutti i diritti riservati · S9 srl Società Benefit · P.IVA 13291110016 · REA TO-1352856 · Corso Unione Sovietica, 612/15/C · 10135 Torino (TO) · Capitale Sociale € 10.000 i.v.
-          </p>
+          
+
+          
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 text-sm text-[#6B7280]">
             <div className="flex items-center gap-2">
