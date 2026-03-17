@@ -25,11 +25,8 @@ export default function PressBar() {
     <section className="py-10 md:py-14 border-t border-border overflow-hidden">
       <div className="max-w-site mx-auto px-6 flex items-center gap-8 md:gap-12">
         {/* Fixed text on the left */}
-        <div className="shrink-0 max-w-[200px]">
+        <div className="shrink-0">
           <p className="text-[13px] md:text-[14px] text-dark font-semibold leading-snug">
-            Scelto da 2.000+ property manager.
-          </p>
-          <p className="text-[11px] md:text-[12px] text-secondary/40 mt-1 leading-snug">
             Hanno parlato di noi:
           </p>
         </div>
