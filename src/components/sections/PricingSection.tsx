@@ -69,7 +69,7 @@ const FEATURES: PlanFeature[] = [
   highlight: "Customer care manutenzioni",
   label: " da remoto e gestione ticket degli ospiti",
   base: "non-incluso",
-  premium: "incluso",
+  premium: "non-incluso",
   plus: "incluso"
 }];
 
