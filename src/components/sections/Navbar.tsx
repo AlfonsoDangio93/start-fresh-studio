@@ -330,7 +330,7 @@ export default function Navbar() {
                   href="https://app.hommi.it/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] font-semibold text-secondary hover:text-dark transition-colors duration-200 px-3 py-1.5 border border-border cursor-pointer rounded no-underline">
+                  className="text-[13px] font-semibold text-secondary hover:text-dark transition-colors duration-200 px-3 py-1.5 border border-border cursor-pointer rounded-lg no-underline">
                 Accedi
               </a>
               {showLoginTooltip &&
@@ -339,7 +339,7 @@ export default function Navbar() {
                 </div>
                 }
             </div>
-            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 py-1.5 cursor-pointer rounded">
+            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 py-1.5 cursor-pointer rounded-lg">
               Richiedi accesso
             </a>
           </div>
