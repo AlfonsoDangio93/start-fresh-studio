@@ -31,13 +31,13 @@ export default function TypingHeading({
   lines,
   className = "font-display text-[32px] md:text-[46px] lg:text-[52px] font-bold text-dark leading-[1.08] tracking-tight",
   speed = 45,
-  startDelay = 400,
-}: {
-  lines: string[];
-  className?: string;
-  speed?: number;
-  startDelay?: number;
-}) {
+  startDelay = 400
+
+
+
+
+
+}: {lines: string[];className?: string;speed?: number;startDelay?: number;}) {
   const FULL = lines.join(" ");
   const { displayed, done } = useTypingEffect(FULL, speed, startDelay);
 
@@ -71,25 +71,25 @@ export default function TypingHeading({
 
   const cursorLine = getCursorLine();
 
-  const cursor = (
-    <span
-      className={`inline-block w-[3px] h-[0.85em] bg-primary ml-1 align-baseline relative top-[0.05em] ${done ? "animate-blink" : ""}`}
-    />
-  );
+  const cursor =
+  <span
+    className={`inline-block w-[3px] h-[0.85em] bg-primary ml-1 align-baseline relative top-[0.05em] ${done ? "animate-blink" : ""}`} />;
+
+
 
   return (
     <h1 className={className}>
-      {lines.map((line, i) => (
-        <span key={i} className="block relative">
+      {lines.map((line, i) =>
+      <span key={i} className="block relative">
           <span className="invisible" aria-hidden="true">
             {line}
           </span>
-          <span className="absolute inset-0">
+          <span className="absolute inset-0 py-0 my-0">
             {getTypedForLine(i)}
             {cursorLine === i && cursor}
           </span>
         </span>
-      ))}
-    </h1>
-  );
+      )}
+    </h1>);
+
 }
