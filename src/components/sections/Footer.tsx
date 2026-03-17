@@ -18,7 +18,7 @@ const COLUMNS: Record<string, { label: string; href?: string }[]> = {
   ],
   Impresa: [
     { label: "Chi siamo" },
-    { label: "Termini e condizioni" },
+    { label: "Termini e condizioni", href: "/termini-e-condizioni" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Cookie Policy", href: "/cookie-policy" },
   ],
