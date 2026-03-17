@@ -2,18 +2,18 @@
 import { ArrowRight } from "lucide-react";
 
 const CTA_URL =
-  "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+"https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
 
 export default function CTASection() {
   return (
-    <div className="max-w-site mx-auto px-6">
+    <div className="max-w-site mx-auto px-6 my-[45px]">
       <div className="relative rounded-[10px] overflow-hidden px-8 py-20 md:px-16 md:py-24 text-center">
         <img
           src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2970&auto=format&fit=crop"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+          className="absolute inset-0 w-full h-full object-cover" />
+        
         <div className="absolute inset-0 bg-dark/75" aria-hidden="true" />
 
         <div className="relative z-10">
@@ -29,14 +29,14 @@ export default function CTASection() {
           <div className="mt-8">
             <a
               href={CTA_URL}
-              className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
-            >
+              className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer">
+              
               Richiedi accesso prioritario
               <ArrowRight className="ml-2 w-4 h-4" />
             </a>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }
