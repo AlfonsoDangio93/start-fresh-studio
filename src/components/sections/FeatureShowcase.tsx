@@ -104,7 +104,7 @@ function PhoneReportIcon() {
       {/* Home indicator */}
       <rect x="36" y="66" width="10" height="2" rx="1" fill="#9CA3AF" />
       {/* Checkmark badge */}
-      <circle cx="64" cy="20" r="13" fill="#F16B01" />
+      <circle cx="64" cy="20" r="13" fill="#E35210" />
       <path d="M58 20L62 24L71 16" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
