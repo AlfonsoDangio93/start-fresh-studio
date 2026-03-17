@@ -39,7 +39,7 @@ const FEATURES = [
   {
     icon: Zap,
     title: "Risolviamo in giornata.",
-    desc: "Il tecnico arriva entro 4 ore. Se serve uno specialista, ricevi un preventivo via app prima di approvare.",
+    desc: "Il tecnico arriva entro 4 ore. Se serve uno specialista, ricevi un preventivo prima di approvare.",
     visual: "speed",
   },
   {
