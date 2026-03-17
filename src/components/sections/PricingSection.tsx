@@ -55,8 +55,8 @@ const FEATURES: PlanFeature[] = [
   highlight: "Ticket di 1 ora ciascuno di interventi di manutenzione",
   label: " da utilizzare anche per check up di manutenzione preventiva in caso di non interventi",
   base: "Incluso uno all'anno",
-  premium: "Incluso due all'anno",
-  plus: "Incluso quattro all'anno"
+  premium: "Inclusi due all'anno",
+  plus: "Inclusi quattro all'anno"
 },
 {
   highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
