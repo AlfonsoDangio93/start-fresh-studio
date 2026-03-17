@@ -112,13 +112,7 @@ export default function ServicesSection() {
                   {/* App header */}
                   <div className="px-5 pb-4 border-b border-[#EFEFEF]">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
-                          <path d="M3 10.5L12 3l9 7.5" />
-                          <path d="M5 9.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" />
-                        </svg>
-                      </div>
-                      <span className="text-[13px] font-bold text-dark">Hommi</span>
+                      <img src="/logos/hommi_logo.png" alt="Hommi" className="h-6 w-auto" />
                     </div>
                     <p className="text-[11px] text-secondary/60">I tuoi interventi</p>
                   </div>
