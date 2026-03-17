@@ -16,69 +16,69 @@ interface PlanFeature {
 }
 
 const FEATURES: PlanFeature[] = [
-  {
-    highlight: "Accesso alla rete",
-    label: ": manutentori, idraulici, elettricisti, fabbri, caldaisti ecc..",
-    base: "incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    highlight: "Piattaforma digitale",
-    label: ' con "cartella clinica dell\'immobile", report, preventivi, stato lavori e apertura ticket',
-    base: "incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    label: "Interventi ",
-    highlight: "garantiti entro 4 ore.",
-    base: "incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    highlight: "Sopralluogo iniziale con mappatura",
-    label: " impianti, dispositivi e punti critici.",
-    base: "incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    highlight: "Preventivi trasparenti",
-    label: " con costo materiale e manodopera indicati, lo approvi sempre prima di procedere.",
-    base: "incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    highlight: "Ticket di 1 ora ciascuno di interventi di manutenzione",
-    label: " da utilizzare anche per check up di manutenzione preventiva in caso di non interventi",
-    base: "Incluso uno all'anno",
-    premium: "Incluso due all'anno",
-    plus: "Incluso quattro all'anno",
-  },
-  {
-    highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
-    label: "",
-    base: "incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    highlight: "Customer care manutenzioni",
-    label: " da remoto e gestione ticket degli ospiti",
-    base: "non-incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-];
+{
+  highlight: "Accesso alla rete",
+  label: ": manutentori, idraulici, elettricisti, fabbri, caldaisti ecc..",
+  base: "incluso",
+  premium: "incluso",
+  plus: "incluso"
+},
+{
+  highlight: "Piattaforma digitale",
+  label: ' con "cartella clinica dell\'immobile", report, preventivi, stato lavori e apertura ticket',
+  base: "incluso",
+  premium: "incluso",
+  plus: "incluso"
+},
+{
+  label: "Interventi ",
+  highlight: "garantiti entro 4 ore.",
+  base: "incluso",
+  premium: "incluso",
+  plus: "incluso"
+},
+{
+  highlight: "Sopralluogo iniziale con mappatura",
+  label: " impianti, dispositivi e punti critici.",
+  base: "incluso",
+  premium: "incluso",
+  plus: "incluso"
+},
+{
+  highlight: "Preventivi trasparenti",
+  label: " con costo materiale e manodopera indicati, lo approvi sempre prima di procedere.",
+  base: "incluso",
+  premium: "incluso",
+  plus: "incluso"
+},
+{
+  highlight: "Ticket di 1 ora ciascuno di interventi di manutenzione",
+  label: " da utilizzare anche per check up di manutenzione preventiva in caso di non interventi",
+  base: "Incluso uno all'anno",
+  premium: "Incluso due all'anno",
+  plus: "Incluso quattro all'anno"
+},
+{
+  highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
+  label: "",
+  base: "incluso",
+  premium: "incluso",
+  plus: "incluso"
+},
+{
+  highlight: "Customer care manutenzioni",
+  label: " da remoto e gestione ticket degli ospiti",
+  base: "non-incluso",
+  premium: "incluso",
+  plus: "incluso"
+}];
+
 
 const PLANS = [
-  { name: "Base", price: "€ 14,90", popular: false, key: "base" as const },
-  { name: "Premium", price: "€ 29,90", popular: true, key: "premium" as const },
-  { name: "Plus", price: "€ 39,90", popular: false, key: "plus" as const },
-];
+{ name: "Base", price: "€ 14,90", popular: false, key: "base" as const },
+{ name: "Premium", price: "€ 29,90", popular: true, key: "premium" as const },
+{ name: "Plus", price: "€ 39,90", popular: false, key: "plus" as const }];
+
 
 /* ─── FAQ data ─── */
 const FAQS = [
@@ -147,28 +147,28 @@ export default function PricingSection() {
           Tutto incluso: tecnico dedicato, sopralluogo iniziale, gestione
           end-to-end e report dettagliati via app.
         </p>
-        <p className="mt-4 text-[11px] md:text-[12px] font-semibold text-secondary/40 uppercase tracking-[0.12em]">
-          Nessun vincolo annuale. Prezzo fisso, zero sorprese.
-        </p>
+        
+
+        
       </div>
 
       {/* Pricing Cards */}
       <div className="max-w-site mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto mb-24">
-          {PLANS.map((plan) => (
-            <div
-              key={plan.name}
-              className={`relative bg-white rounded-2xl p-6 flex flex-col ${
-                plan.popular
-                  ? "border-2 border-primary shadow-xl shadow-primary/8"
-                  : "border border-border shadow-sm hover:shadow-md"
-              }`}
-            >
-              {plan.popular && (
-                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-[11px] font-bold uppercase tracking-[0.1em] px-4 py-1.5 rounded-full">
+          {PLANS.map((plan) =>
+          <div
+            key={plan.name}
+            className={`relative bg-white rounded-2xl p-6 flex flex-col ${
+            plan.popular ?
+            "border-2 border-primary shadow-xl shadow-primary/8" :
+            "border border-border shadow-sm hover:shadow-md"}`
+            }>
+            
+              {plan.popular &&
+            <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-[11px] font-bold uppercase tracking-[0.1em] px-4 py-1.5 rounded-full">
                   Più popolare
                 </span>
-              )}
+            }
 
               <h3 className="font-display text-[18px] font-bold text-primary uppercase mb-1">{plan.name}</h3>
               <div className="flex items-baseline gap-1 mb-1">
@@ -180,37 +180,37 @@ export default function PricingSection() {
 
               <div className="space-y-3 mb-6 flex-1">
                 {FEATURES.map((f, i) => {
-                  const val = f[plan.key];
-                  return (
-                    <div key={i} className="flex items-start gap-2 text-[13px]">
-                      {val === "non-incluso" ? (
-                        <X size={14} className="text-red-400 mt-0.5 shrink-0" />
-                      ) : (
-                        <Check size={14} className="text-green-600 mt-0.5 shrink-0" />
-                      )}
+                const val = f[plan.key];
+                return (
+                  <div key={i} className="flex items-start gap-2 text-[13px]">
+                      {val === "non-incluso" ?
+                    <X size={14} className="text-red-400 mt-0.5 shrink-0" /> :
+
+                    <Check size={14} className="text-green-600 mt-0.5 shrink-0" />
+                    }
                       <span className="text-dark/70">
                         {f.highlight && <span className="font-semibold text-dark/90">{f.highlight}</span>}
                         {val !== "incluso" && val !== "non-incluso" ? ` — ${val}` : ""}
                       </span>
-                    </div>
-                  );
-                })}
+                    </div>);
+
+              })}
               </div>
 
               <a
-                href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block w-full text-center font-semibold text-[14px] py-3.5 rounded-xl transition-colors duration-200 cursor-pointer ${
-                  plan.popular
-                    ? "bg-primary text-white hover:bg-primary-hover"
-                    : "bg-dark text-white hover:bg-dark/90"
-                }`}
-              >
+              href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`block w-full text-center font-semibold text-[14px] py-3.5 rounded-xl transition-colors duration-200 cursor-pointer ${
+              plan.popular ?
+              "bg-primary text-white hover:bg-primary-hover" :
+              "bg-dark text-white hover:bg-dark/90"}`
+              }>
+              
                 RICHIEDI ACCESSO PRIORITARIO
               </a>
             </div>
-          ))}
+          )}
         </div>
 
         {/* ── Ticket Flessibili ── */}
@@ -224,18 +224,18 @@ export default function PricingSection() {
             </p>
             <div className="space-y-4 mb-8">
               {[
-                { title: "I ticket sono completamente flessibili", desc: "puoi usarli dove e quando vuoi, anche tutti nello stesso mese." },
-                { title: "Si accumulano", desc: "se non li usi in un mese, li ritrovi disponibili nei mesi successivi." },
-                { title: "Trasferibili", desc: "se perdi un immobile, il ticket associato passa automaticamente agli altri tuoi immobili – zero sprechi!" },
-                { title: "Versatile per prevenzione", desc: "se non hai emergenze e interventi, puoi usarli per manutenzione preventiva su qualsiasi immobile (es. check impianti, regolazioni, piccoli aggiustamenti)." },
-              ].map((item) => (
-                <div key={item.title} className="flex items-start gap-2.5">
+              { title: "I ticket sono completamente flessibili", desc: "puoi usarli dove e quando vuoi, anche tutti nello stesso mese." },
+              { title: "Si accumulano", desc: "se non li usi in un mese, li ritrovi disponibili nei mesi successivi." },
+              { title: "Trasferibili", desc: "se perdi un immobile, il ticket associato passa automaticamente agli altri tuoi immobili – zero sprechi!" },
+              { title: "Versatile per prevenzione", desc: "se non hai emergenze e interventi, puoi usarli per manutenzione preventiva su qualsiasi immobile (es. check impianti, regolazioni, piccoli aggiustamenti)." }].
+              map((item) =>
+              <div key={item.title} className="flex items-start gap-2.5">
                   <Check size={16} className="text-green-600 mt-0.5 shrink-0" />
                   <p className="text-[14px] text-secondary leading-relaxed">
                     <span className="font-semibold text-dark">{item.title}:</span> {item.desc}
                   </p>
                 </div>
-              ))}
+              )}
             </div>
 
             {/* Esempio pratico */}
@@ -285,20 +285,20 @@ export default function PricingSection() {
             </h3>
             <div className="space-y-4 mb-8">
               {[
-                { cat: "Elettrico/Illuminazione", desc: "controllo luci, riavvitare lampadine/portalampade, verifica rapide prese/interruttori" },
-                { cat: "Idraulico/Sanitari", desc: "stringere rubinetti leggermente allentati, regolare flussi, pulizia superficiale scarichi/sifoni" },
-                { cat: "Falegnameria/Arredi", desc: "stringere maniglie, cerniere, serrature interne, fissare mensole o quadri, piccole regolazioni porte/finestre" },
-                { cat: "Climatizzazione/Riscaldamento", desc: "pulizia superficiale prese aria/filtri removibili, regolazione termostati/valvole, controllo visivo radiatori/caldaia" },
-                { cat: "Sicurezza/Accessi", desc: "lubrificazione serrature, verifica porte/finestre, test dispositivi smart lock" },
-                { cat: "Extra rapidi", desc: "riavvitare piccoli elementi allentati, regolazioni rapide piedini o complementi mobili" },
-              ].map((item) => (
-                <div key={item.cat} className="flex items-start gap-2.5">
+              { cat: "Elettrico/Illuminazione", desc: "controllo luci, riavvitare lampadine/portalampade, verifica rapide prese/interruttori" },
+              { cat: "Idraulico/Sanitari", desc: "stringere rubinetti leggermente allentati, regolare flussi, pulizia superficiale scarichi/sifoni" },
+              { cat: "Falegnameria/Arredi", desc: "stringere maniglie, cerniere, serrature interne, fissare mensole o quadri, piccole regolazioni porte/finestre" },
+              { cat: "Climatizzazione/Riscaldamento", desc: "pulizia superficiale prese aria/filtri removibili, regolazione termostati/valvole, controllo visivo radiatori/caldaia" },
+              { cat: "Sicurezza/Accessi", desc: "lubrificazione serrature, verifica porte/finestre, test dispositivi smart lock" },
+              { cat: "Extra rapidi", desc: "riavvitare piccoli elementi allentati, regolazioni rapide piedini o complementi mobili" }].
+              map((item) =>
+              <div key={item.cat} className="flex items-start gap-2.5">
                   <Check size={16} className="text-green-600 mt-0.5 shrink-0" />
                   <p className="text-[14px] text-secondary leading-relaxed">
                     <span className="font-semibold text-dark">{item.cat}:</span> {item.desc}
                   </p>
                 </div>
-              ))}
+              )}
             </div>
 
             {/* Con piccolissimi ricambi */}
@@ -307,16 +307,16 @@ export default function PricingSection() {
             </h3>
             <div className="space-y-3 mb-6">
               {[
-                "Lampadine standard (max 2-3 per intervento)",
-                "Batterie telecomandi/altro (AAA/AA)",
-                "Guarnizioni piccole (rubinetti, docce, finestre)",
-                "Tasselli, viti, bulloni piccoli già presenti o portati dal tecnico",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-2.5">
+              "Lampadine standard (max 2-3 per intervento)",
+              "Batterie telecomandi/altro (AAA/AA)",
+              "Guarnizioni piccole (rubinetti, docce, finestre)",
+              "Tasselli, viti, bulloni piccoli già presenti o portati dal tecnico"].
+              map((item) =>
+              <div key={item} className="flex items-start gap-2.5">
                   <Check size={16} className="text-green-600 mt-0.5 shrink-0" />
                   <p className="text-[14px] text-secondary leading-relaxed">{item}</p>
                 </div>
-              ))}
+              )}
             </div>
 
             <div className="bg-muted rounded-xl p-4">
@@ -335,16 +335,16 @@ export default function PricingSection() {
           </div>
 
           <div className="bg-white rounded-2xl border border-border px-6 md:px-8">
-            {FAQS.map((faq) => (
-              <FaqItem key={faq.q} q={faq.q} a={faq.a} />
-            ))}
+            {FAQS.map((faq) =>
+            <FaqItem key={faq.q} q={faq.q} a={faq.a} />
+            )}
           </div>
 
           <div className="text-center mt-8">
             <a
               href="/faq"
-              className="text-[14px] font-semibold text-primary hover:text-primary-hover transition-colors duration-200"
-            >
+              className="text-[14px] font-semibold text-primary hover:text-primary-hover transition-colors duration-200">
+              
               Vedi tutte le domande frequenti &rarr;
             </a>
           </div>
@@ -355,8 +355,8 @@ export default function PricingSection() {
             </p>
             <a
               href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
-              className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
-            >
+              className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer">
+              
               Richiedi accesso prioritario
               <ArrowRight className="ml-2 w-4 h-4" />
             </a>
