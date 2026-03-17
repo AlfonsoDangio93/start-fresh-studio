@@ -16,6 +16,7 @@ import TicketingGuasti from "@/pages/TicketingGuasti";
 import GestioneTecnici from "@/pages/GestioneTecnici";
 import ReportAnalytics from "@/pages/ReportAnalytics";
 import ThankYou from "@/pages/ThankYou";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 
 export default function App() {
   useUtmPersistence();
