@@ -49,7 +49,7 @@ function ClockCheckIcon() {
       {/* Center dot */}
       <circle cx="40" cy="44" r="2.5" fill="#4B5563" />
       {/* Checkmark badge */}
-      <circle cx="62" cy="24" r="13" fill="#F16B01" />
+      <circle cx="62" cy="24" r="13" fill="#E35210" />
       <path d="M56 24L60 28L69 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
