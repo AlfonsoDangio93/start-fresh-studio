@@ -18,6 +18,12 @@ import GestioneTecnici from "@/pages/GestioneTecnici";
 import ReportAnalytics from "@/pages/ReportAnalytics";
 
 export default function App() {
+  useEffect(() => {
+    captureUtmsFromUrl();
+    const cleanup = installUtmClickInterceptor();
+    return cleanup;
+  }, []);
+
   return (
     <>
       <ScrollToTop />
