@@ -334,12 +334,13 @@ export default function Navbar() {
           {/* Actions — right */}
           <div className="flex items-center gap-3 shrink-0">
             <div className="relative">
-              <button
-                  className="text-[13px] font-semibold text-secondary hover:text-dark transition-colors duration-200 px-3 py-1.5 border border-border cursor-pointer rounded"
-                  onClick={() => setShowLoginTooltip((v) => !v)}>
-                  
+              <a
+                  href="https://app.hommi.it/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[13px] font-semibold text-secondary hover:text-dark transition-colors duration-200 px-3 py-1.5 border border-border cursor-pointer rounded no-underline">
                 Accedi
-              </button>
+              </a>
               {showLoginTooltip &&
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-dark text-white text-[11px] font-bold uppercase tracking-wider rounded-lg px-3 py-1.5 shadow-lg whitespace-nowrap">
                   In arrivo
