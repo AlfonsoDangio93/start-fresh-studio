@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
+import { captureUtmsFromUrl, installUtmClickInterceptor } from "@/hooks/useUtmPersistence";
 
 // Pages
 import Home from "@/pages/Home";
