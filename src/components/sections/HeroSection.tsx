@@ -647,10 +647,10 @@ export default function HeroSection() {
           className={`flex items-start gap-3 max-w-[460px] mx-auto mb-6 mt-12 hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
           style={{ transitionDelay: "0.25s" }}>
           
-          <img
-            src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face"
-            alt="Francesca"
-            className="w-8 h-8 rounded-full object-cover shrink-0 mt-0.5" />
+          
+
+
+          
           
           <div>
             <p className="text-[13px] text-secondary leading-relaxed">
