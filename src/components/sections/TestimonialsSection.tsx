@@ -63,7 +63,7 @@ const REVIEWS = [
   time: "3 giorni fa",
   text: "Ho recuperato 2 ore a settimana che uso per acquisire nuovi clienti invece di rincorrere idraulici. Hommi si ripaga da solo.",
   name: "Davide R.",
-  role: "Napoli",
+  role: "Torino",
   avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
 },
 {
