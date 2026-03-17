@@ -271,20 +271,14 @@ export default function Navbar() {
           <img src={LOGO} alt="Hommi" className="h-12 w-auto" />
         </div>
 
-        <div className="relative">
-          <button
-              className="p-1.5 text-secondary hover:text-dark transition-colors duration-200 cursor-pointer"
-              aria-label="Accedi"
-              onClick={() => setShowLoginTooltip((v) => !v)}>
-              
-            <User size={18} />
-          </button>
-          {showLoginTooltip &&
-            <div className="absolute top-full right-0 mt-2 bg-dark text-white text-[11px] font-bold uppercase tracking-wider rounded-lg px-3 py-1.5 shadow-lg whitespace-nowrap">
-              In arrivo
-            </div>
-            }
-        </div>
+        <a
+            href="https://app.hommi.it/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-1.5 text-secondary hover:text-dark transition-colors duration-200 cursor-pointer"
+            aria-label="Accedi">
+          <User size={18} />
+        </a>
       </div>
 
       {/* ─── Desktop navbar ─── */}
