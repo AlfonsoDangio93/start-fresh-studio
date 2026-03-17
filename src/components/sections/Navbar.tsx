@@ -64,8 +64,6 @@ const NAV_ITEMS: NavItem[] = [
       title: "Soluzioni",
       links: [
       { name: "Per property manager", desc: "Gestisci decine di alloggi senza stress", href: "/per-property-manager", comingSoon: false, icon: Building2 },
-      { name: "Per agenzie", desc: "Scala le operazioni di manutenzione", href: "/per-agenzie", comingSoon: false, icon: Landmark },
-      { name: "Per host professionali", desc: "Automatizza la gestione degli imprevisti", href: "/per-host-professionali", comingSoon: false, icon: Home },
       { name: "Per manutentori", desc: "Entra nella rete e ricevi incarichi", href: "/per-manutentori", comingSoon: false, icon: Wrench }]
 
     }],
