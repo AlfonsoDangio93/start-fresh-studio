@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
+import { captureUtmsFromUrl, installUtmClickInterceptor } from "@/hooks/useUtmPersistence";
 
 // Pages
 import Home from "@/pages/Home";
@@ -16,6 +18,12 @@ import GestioneTecnici from "@/pages/GestioneTecnici";
 import ReportAnalytics from "@/pages/ReportAnalytics";
 
 export default function App() {
+  useEffect(() => {
+    captureUtmsFromUrl();
+    const cleanup = installUtmClickInterceptor();
+    return cleanup;
+  }, []);
+
   return (
     <>
       <ScrollToTop />
