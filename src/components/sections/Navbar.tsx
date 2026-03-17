@@ -604,7 +604,7 @@ export default function Navbar() {
           className="fixed z-[9999] pointer-events-none"
           style={{ left: cursorPos.x + 12, top: cursorPos.y - 14 }}>
           
-          <span className="block text-[10px] font-bold uppercase tracking-wider text-white bg-dark rounded-full px-3 py-1.5 shadow-lg whitespace-nowrap">
+          <span className="block text-[10px] font-bold uppercase tracking-wider text-white rounded-full px-3 py-1.5 shadow-lg whitespace-nowrap" style={{ backgroundColor: '#E35210' }}>
             In arrivo
           </span>
         </div>
