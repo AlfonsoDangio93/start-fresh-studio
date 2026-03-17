@@ -4,44 +4,81 @@
 import { ArrowRight, Check } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
 
-/* ─── Plan data ─── */
+/* ─── Feature data ─── */
+type FeatureValue = "incluso" | "non-incluso" | string;
+
+interface PlanFeature {
+  label: string;
+  highlight?: string;
+  base: FeatureValue;
+  premium: FeatureValue;
+  plus: FeatureValue;
+}
+
+const FEATURES: PlanFeature[] = [
+  {
+    highlight: "Accesso alla rete",
+    label: ": manutentori, idraulici, elettricisti, fabbri, caldaisti ecc..",
+    base: "incluso",
+    premium: "incluso",
+    plus: "incluso",
+  },
+  {
+    highlight: "Piattaforma digitale",
+    label: ' con "cartella clinica dell\'immobile", report, preventivi, stato lavori e apertura ticket',
+    base: "incluso",
+    premium: "incluso",
+    plus: "incluso",
+  },
+  {
+    label: "Interventi ",
+    highlight: "garantiti entro 4 ore.",
+    base: "incluso",
+    premium: "incluso",
+    plus: "incluso",
+  },
+  {
+    highlight: "Sopralluogo iniziale con mappatura",
+    label: " impianti, dispositivi e punti critici.",
+    base: "incluso",
+    premium: "incluso",
+    plus: "incluso",
+  },
+  {
+    highlight: "Preventivi trasparenti",
+    label: " con costo materiale e manodopera indicati, lo approvi sempre prima di procedere.",
+    base: "incluso",
+    premium: "incluso",
+    plus: "incluso",
+  },
+  {
+    highlight: "Ticket di 1 ora ciascuno di interventi di manutenzione",
+    label: " da utilizzare anche per check up di manutenzione preventiva in caso di non interventi",
+    base: "Incluso uno all'anno",
+    premium: "Incluso due all'anno",
+    plus: "Incluso quattro all'anno",
+  },
+  {
+    highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
+    label: "",
+    base: "incluso",
+    premium: "incluso",
+    plus: "incluso",
+  },
+  {
+    highlight: "Customer care manutenzioni",
+    label: " da remoto e gestione ticket degli ospiti",
+    base: "non-incluso",
+    premium: "incluso",
+    plus: "incluso",
+  },
+];
+
 const PLANS = [
-{
-  name: "Starter",
-  range: "Fino a 14 immobili",
-  price: 39,
-  popular: false,
-  tagline: "Il miglior alleato per scalare.",
-  desc: "Tutto sotto controllo, anche quando hai 6 check-in contemporanei.",
-  features: [
-  "Ticketing guasti illimitato",
-  "Tecnici verificati nella tua zona",
-  "Dashboard real-time",
-  "Notifiche in tempo reale",
-  "Report mensili PDF",
-  "Storico interventi completo",
-  "Supporto email prioritario"]
-
-},
-{
-  name: "Pro",
-  range: "Da 15 immobili in su",
-  price: 29,
-  popular: true,
-  tagline: "Il tuo superpotere operativo.",
-  desc: "Zero coordinamento, interventi rapidi, gestione professionale. A meno di 1\u20AC/giorno per unit\u00E0.",
-  features: [
-  "Tutto incluso in Starter",
-  "Tecnico dedicato",
-  "Sopralluogo iniziale incluso",
-  "Gestione end-to-end",
-  "Report dettagliati via app",
-  "Calendario interventi condiviso",
-  "Gestione fornitori avanzata",
-  "Supporto WhatsApp dedicato"]
-
-}];
-
+  { name: "Base", price: "€ 14,90", popular: false, key: "base" as const },
+  { name: "Premium", price: "€ 29,90", popular: true, key: "premium" as const },
+  { name: "Plus", price: "€ 39,90", popular: false, key: "plus" as const },
+];
 
 /* ─── FAQ data ─── */
 const FAQS = [
