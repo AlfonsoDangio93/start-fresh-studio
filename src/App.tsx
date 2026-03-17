@@ -38,6 +38,7 @@ export default function App() {
         <Route path="/gestione-tecnici" element={<GestioneTecnici />} />
         <Route path="/report-analytics" element={<ReportAnalytics />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
     </>
   );
