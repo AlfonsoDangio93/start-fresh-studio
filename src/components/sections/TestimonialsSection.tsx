@@ -140,7 +140,7 @@ const REVIEWS = [
       stars: 5,
       time: "6 giorni fa",
       text: "Il calendario interventi mi ha cambiato la vita. Sopralluoghi, check-out, manutenzioni programmate: tutto in un'unica vista sincronizzata.",
-      name: "Anna Greco",
+      name: "Anna G.",
       role: "Property Manager, Bologna",
       avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=80&h=80&fit=crop&crop=face",
     },
