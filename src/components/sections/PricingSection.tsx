@@ -1,7 +1,7 @@
 
 
 
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, X } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
 
 /* ─── Feature data ─── */
