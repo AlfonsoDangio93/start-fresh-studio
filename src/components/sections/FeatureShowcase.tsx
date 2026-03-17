@@ -76,7 +76,7 @@ function TechHouseIcon() {
       {/* Window */}
       <rect x="63" y="46" width="6" height="5" rx="1" fill="#BFDBFE" stroke="#6B7280" strokeWidth="0.8" />
       {/* Checkmark badge */}
-      <circle cx="62" cy="24" r="13" fill="#F16B01" />
+      <circle cx="62" cy="24" r="13" fill="#E35210" />
       <path d="M56 24L60 28L69 20" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
