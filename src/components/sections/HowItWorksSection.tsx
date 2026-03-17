@@ -329,28 +329,24 @@ export default function HowItWorksSection() {
           style={{ transitionDelay: "0.1s" }}
         >
           {/* Nav arrows */}
-          <button
-            onClick={() => scroll("left")}
-            className={`hidden md:flex absolute -left-5 top-[110px] z-10 w-10 h-10 rounded-full bg-white border border-border shadow-md items-center justify-center transition-opacity duration-200 ${
-              canScrollLeft
-                ? "opacity-100 hover:border-primary/30"
-                : "opacity-0 pointer-events-none"
-            }`}
-            aria-label="Scorri a sinistra"
-          >
-            <ChevronLeft size={18} className="text-dark" />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className={`hidden md:flex absolute -right-5 top-[110px] z-10 w-10 h-10 rounded-full bg-white border border-border shadow-md items-center justify-center transition-opacity duration-200 ${
-              canScrollRight
-                ? "opacity-100 hover:border-primary/30"
-                : "opacity-0 pointer-events-none"
-            }`}
-            aria-label="Scorri a destra"
-          >
-            <ChevronRight size={18} className="text-dark" />
-          </button>
+          {canScrollLeft && (
+            <button
+              onClick={() => scroll("left")}
+              className="hidden md:flex absolute -left-5 top-[110px] z-10 w-10 h-10 rounded-full bg-white border border-border shadow-md items-center justify-center hover:border-primary/30"
+              aria-label="Scorri a sinistra"
+            >
+              <ChevronLeft size={18} className="text-dark" />
+            </button>
+          )}
+          {canScrollRight && (
+            <button
+              onClick={() => scroll("right")}
+              className="hidden md:flex absolute -right-5 top-[110px] z-10 w-10 h-10 rounded-full bg-white border border-border shadow-md items-center justify-center hover:border-primary/30"
+              aria-label="Scorri a destra"
+            >
+              <ChevronRight size={18} className="text-dark" />
+            </button>
+          )}
 
           {/* Scrollable row + fade hint */}
           <div className="relative">
