@@ -105,8 +105,8 @@ const REVIEWS = [
   stars: 5,
   time: "3 giorni fa",
   text: "Le notifiche in tempo reale sono il top. So sempre a che punto è ogni intervento senza dover chiamare nessuno. Finalmente respiro.",
-  name: "Chiara Lombardi",
-  role: "Property Manager, Brescia",
+  name: "Chiara L.",
+  role: "Brescia",
   avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face"
 }],
 
