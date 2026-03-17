@@ -36,6 +36,7 @@ export default function App() {
         <Route path="/ticketing-guasti" element={<TicketingGuasti />} />
         <Route path="/gestione-tecnici" element={<GestioneTecnici />} />
         <Route path="/report-analytics" element={<ReportAnalytics />} />
+        <Route path="/thank-you" element={<ThankYou />} />
       </Routes>
     </>
   );
