@@ -15,6 +15,7 @@ import DashboardRealtime from "@/pages/DashboardRealtime";
 import TicketingGuasti from "@/pages/TicketingGuasti";
 import GestioneTecnici from "@/pages/GestioneTecnici";
 import ReportAnalytics from "@/pages/ReportAnalytics";
+import ThankYou from "@/pages/ThankYou";
 
 export default function App() {
   useUtmPersistence();
