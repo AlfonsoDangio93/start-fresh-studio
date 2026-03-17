@@ -14,7 +14,7 @@ import LandingMobileBottomCTA from "@/components/landing/LandingMobileBottomCTA"
 
 export default function Landing() {
   return (
-    <>
+    <div className="landing-theme">
       <LandingNavbar />
       <HeroSection />
       <PressBar />
@@ -28,6 +28,6 @@ export default function Landing() {
       <CTASection />
       <LandingFooter />
       <LandingMobileBottomCTA />
-    </>
+    </div>
   );
 }

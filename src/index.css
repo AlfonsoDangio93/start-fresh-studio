@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Landing page orange override */
+.landing-theme .bg-primary { background-color: #E35210 !important; }
+.landing-theme .bg-primary\/10 { background-color: rgb(227 82 16 / 0.1) !important; }
+.landing-theme .bg-primary\/15 { background-color: rgb(227 82 16 / 0.15) !important; }
+.landing-theme .hover\:bg-primary:hover { background-color: #E35210 !important; }
+.landing-theme .hover\:bg-primary-hover:hover { background-color: #C44710 !important; }
+.landing-theme .text-primary { color: #E35210 !important; }
+.landing-theme .border-primary { border-color: #E35210 !important; }
+.landing-theme .border-2.border-primary { border-color: #E35210 !important; }
+.landing-theme .hover\:border-primary\/30:hover { border-color: rgb(227 82 16 / 0.3) !important; }
+.landing-theme .from-primary { --tw-gradient-from: #E35210 !important; }
+.landing-theme .to-primary { --tw-gradient-to: #E35210 !important; }
+
 * {
   box-sizing: border-box;
   padding: 0;
