@@ -135,63 +135,9 @@ export default function LandingPricing() {
           <p className="mt-2 text-[14px] text-dark font-semibold">Nessun vincolo annuale. Prezzo fisso, zero sorprese.</p>
         </div>
 
-        {/* ── Desktop: comparison table ── */}
-        <div className={`hidden lg:block reveal ${vis ? "revealed" : ""}`} style={{ transitionDelay: "0.1s" }}>
-          <div className="overflow-x-auto rounded-2xl border border-border bg-white">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-muted/60">
-                  <th className="p-5 text-primary font-bold text-[16px] uppercase tracking-wide w-[34%]">
-                    Abbonamento Hommi
-                  </th>
-                  <th className="p-5 text-primary font-bold text-[16px] uppercase tracking-wide border-l border-border w-[22%]">
-                    Base
-                  </th>
-                  <th className="p-5 text-primary font-bold text-[16px] uppercase tracking-wide border-l border-border w-[22%]">
-                    Premium
-                  </th>
-                  <th className="p-5 text-primary font-bold text-[16px] uppercase tracking-wide border-l border-border w-[22%]">
-                    Plus
-                  </th>
-                </tr>
-                <tr className="border-t border-border bg-muted/40">
-                  <td className="p-5 text-dark font-bold text-[14px]">*esclusa IVA - ad immobile mensile</td>
-                  <td className="p-5 text-dark font-bold text-[22px] border-l border-border">€ 14,90</td>
-                  <td className="p-5 text-dark font-bold text-[22px] border-l border-border">€ 29,90</td>
-                  <td className="p-5 text-dark font-bold text-[22px] border-l border-border">€ 39,90</td>
-                </tr>
-              </thead>
-              <tbody>
-                {FEATURES.map((f, i) => (
-                  <tr key={i} className="border-t border-border hover:bg-muted/20 transition-colors">
-                    <td className="p-5 text-[14px] text-dark/80 leading-relaxed">
-                      {f.highlight && f.label.startsWith(":") ? (
-                        <><span className="text-primary font-semibold">{f.highlight}</span>{f.label}</>
-                      ) : f.highlight && f.label.startsWith(" ") ? (
-                        <><span className="text-primary font-semibold">{f.highlight}</span>{f.label}</>
-                      ) : f.label.endsWith(".") || f.label === "" ? (
-                        <>{f.label}<span className="text-primary font-semibold">{f.highlight}</span></>
-                      ) : (
-                        <>{f.label}<span className="text-primary font-semibold">{f.highlight}</span></>
-                      )}
-                    </td>
-                    <td className="p-5 border-l border-border"><FeatureCell value={f.base} /></td>
-                    <td className="p-5 border-l border-border"><FeatureCell value={f.premium} /></td>
-                    <td className="p-5 border-l border-border"><FeatureCell value={f.plus} /></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="flex justify-center mt-8">
-            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-primary text-white font-semibold text-[14px] py-3.5 px-10 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer">
-              RICHIEDI ACCESSO PRIORITARIO
-            </a>
-          </div>
-        </div>
 
-        {/* ── Mobile: stacked cards ── */}
-        <div className={`lg:hidden grid gap-6 reveal ${vis ? "revealed" : ""}`} style={{ transitionDelay: "0.1s" }}>
+        {/* ── Cards for all breakpoints ── */}
+        <div className={`grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto reveal ${vis ? "revealed" : ""}`} style={{ transitionDelay: "0.1s" }}>
           {[
             { name: "Base", price: "€ 14,90", popular: false, key: "base" as const },
             { name: "Premium", price: "€ 29,90", popular: true, key: "premium" as const },
