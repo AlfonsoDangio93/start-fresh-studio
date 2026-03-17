@@ -197,7 +197,7 @@ const VISUAL_MAP: Record<string, React.FC> = {
   technician: TechnicianVisual,
   dashboard: DashboardVisual,
   ticket: TicketVisual,
-  access: AccessVisual,
+  
   speed: SpeedVisual,
   control: ControlVisual,
 };
