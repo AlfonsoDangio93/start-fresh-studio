@@ -37,7 +37,7 @@ export default function LandingFooter() {
             </div>
             <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
             <div className="flex items-center gap-2">
-              <span>Powered by</span>
+              
               <a href="https://www.mamazen.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
                 <img src="/powered-by-mamazen.png" alt="Mamazen" className="h-7 w-auto" />
               </a>
@@ -45,6 +45,6 @@ export default function LandingFooter() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
