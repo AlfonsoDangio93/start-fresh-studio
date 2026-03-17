@@ -7,7 +7,7 @@ const REVIEWS = [
 [
 { stars: 5, time: "2 giorni fa", text: "Gestisco 40 appartamenti e prima impazzivo con i guasti. Adesso apro un ticket in 10 secondi e il tecnico arriva in giornata. Non torno indietro.", name: "Marco B.", role: "Milano", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" },
 { stars: 5, time: "1 settimana fa", text: "Stagione estiva = inferno. 25 alloggi, ognuno con problemi diversi. Hommi mi ha salvato la vita. Letteralmente. L'ho consigliato a 3 colleghi.", name: "Alessandra P.", role: "Monza", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" },
-{ stars: 4, time: "3 giorni fa", text: "Non sono bravissimo col computer. Ma Hommi è talmente semplice che l'ho imparato in 20 minuti. Ora non posso farne a meno. Prima ero uno schiavo di Excel.", name: "Luca M.", role: "Gestore B&B, Como", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" },
+{ stars: 4, time: "3 giorni fa", text: "Non sono bravissimo col computer. Ma Hommi è talmente semplice che l'ho imparato in 20 minuti. Ora non posso farne a meno. Prima ero uno schiavo di Excel.", name: "Luca M.", role: "Como", avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" },
 { stars: 5, time: "5 giorni fa", text: "Il report mensile che esporto per i proprietari è una bomba. Vedono tutto: costi, interventi, tempi. Zero lamentele da quando uso Hommi.", name: "Francesca N.", role: "Property Manager, Torino", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face" }],
 
 [
