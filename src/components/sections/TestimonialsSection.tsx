@@ -97,7 +97,7 @@ const REVIEWS = [
       stars: 4,
       time: "5 giorni fa",
       text: "Abbiamo 120 alloggi in gestione. Prima di Hommi servivano 3 persone solo per la manutenzione. Ora ne basta una. Risultato: -60% sui costi operativi.",
-      name: "Andrea Bianchi",
+      name: "Andrea B.",
       role: "COO, ItalyStay Group",
       avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
     },
