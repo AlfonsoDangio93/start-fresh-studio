@@ -124,7 +124,7 @@ const REVIEWS = [
       stars: 5,
       time: "4 giorni fa",
       text: "I proprietari degli immobili che gestisco sono entusiasti. Vedono i report, i tempi di risoluzione, i costi. Trasparenza totale = fiducia totale.",
-      name: "Giulia Ferretti",
+      name: "Giulia F.",
       role: "Property Manager, Firenze",
       avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&crop=face",
     },
