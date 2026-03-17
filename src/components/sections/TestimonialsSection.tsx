@@ -20,7 +20,7 @@ const REVIEWS = [
   time: "1 settimana fa",
   text: "Stagione estiva = inferno. 25 alloggi, ognuno con problemi diversi. Hommi mi ha salvato la vita. Letteralmente. L'ho consigliato a 3 colleghi.",
   name: "Alessandra P.",
-  role: "Rimini",
+  role: "Monza",
   avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face"
 },
 {
@@ -47,7 +47,7 @@ const REVIEWS = [
   time: "6 giorni fa",
   text: "Il commercialista mi chiedeva sempre i costi di manutenzione e io impazzivo. Ora esporto tutto in 2 click. Anche lui è contento.",
   name: "Roberto C.",
-  role: "Roma",
+  role: "Monza",
   avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face"
 },
 {
@@ -55,7 +55,7 @@ const REVIEWS = [
   time: "1 settimana fa",
   text: "Prima ogni guasto era un casino. Ora se un ospite segnala un problema, il tecnico è già in strada. È magia.",
   name: "Elena M.",
-  role: "Siena",
+  role: "Como",
   avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
 },
 {
@@ -63,7 +63,7 @@ const REVIEWS = [
   time: "3 giorni fa",
   text: "Ho recuperato 2 ore a settimana che uso per acquisire nuovi clienti invece di rincorrere idraulici. Hommi si ripaga da solo.",
   name: "Davide R.",
-  role: "Napoli",
+  role: "Torino",
   avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
 },
 {
@@ -82,7 +82,7 @@ const REVIEWS = [
   time: "2 giorni fa",
   text: "Credevo che a questo prezzo fosse troppo bello per essere vero. Invece funziona benissimo e non pago abbonamenti nascosti. Affare del secolo.",
   name: "Michele G.",
-  role: "Palermo",
+  role: "Monza",
   avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&crop=face"
 },
 {
@@ -90,7 +90,7 @@ const REVIEWS = [
   time: "1 settimana fa",
   text: "Turni serali, weekend, festivi... trovare un tecnico era un incubo. Con Hommi trovo professionisti verificati in automatico. Lo consiglio a tutti.",
   name: "Valentina F.",
-  role: "Catania",
+  role: "Como",
   avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face"
 },
 {
@@ -106,7 +106,7 @@ const REVIEWS = [
   time: "3 giorni fa",
   text: "Le notifiche in tempo reale sono il top. So sempre a che punto è ogni intervento senza dover chiamare nessuno. Finalmente respiro.",
   name: "Chiara L.",
-  role: "Brescia",
+  role: "Monza",
   avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face"
 }],
 
@@ -115,9 +115,9 @@ const REVIEWS = [
 {
   stars: 5,
   time: "1 giorno fa",
-  text: "Gestisco appartamenti da remoto, da Londra. Con Hommi è come essere sul posto. Apro ticket, vedo foto, approvo preventivi. Tutto dal telefono.",
+  text: "Gestisco appartamenti da remoto. Con Hommi è come essere sul posto. Apro ticket, vedo foto, approvo preventivi. Tutto dal telefono.",
   name: "Paolo F.",
-  role: "Londra",
+  role: "Milano",
   avatar: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=80&h=80&fit=crop&crop=face"
 },
 {
@@ -125,7 +125,7 @@ const REVIEWS = [
   time: "4 giorni fa",
   text: "I proprietari degli immobili che gestisco sono entusiasti. Vedono i report, i tempi di risoluzione, i costi. Trasparenza totale = fiducia totale.",
   name: "Giulia F.",
-  role: "Firenze",
+  role: "Torino",
   avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&crop=face"
 },
 {
@@ -133,7 +133,7 @@ const REVIEWS = [
   time: "1 settimana fa",
   text: "All'inizio ero scettico, un altro software... Dopo 2 settimane ho capito che Hommi è diverso. Semplice, veloce, funziona. Punto.",
   name: "Stefano R.",
-  role: "Sardegna",
+  role: "Como",
   avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&crop=face"
 },
 {
@@ -141,7 +141,7 @@ const REVIEWS = [
   time: "6 giorni fa",
   text: "Il calendario interventi mi ha cambiato la vita. Sopralluoghi, check-out, manutenzioni programmate: tutto in un'unica vista sincronizzata.",
   name: "Anna G.",
-  role: "Bologna",
+  role: "Monza",
   avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=80&h=80&fit=crop&crop=face"
 }]];
 
