@@ -621,7 +621,7 @@ export default function HeroSection() {
               </a>
               <a
                 href="#come-funziona"
-                className="inline-flex items-center justify-center text-dark font-semibold text-[15px] rounded-[10px] px-8 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer">
+                className="inline-flex items-center justify-center text-dark font-semibold text-[15px] rounded-full px-8 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer">
                 
                 Vedi come funziona
               </a>
