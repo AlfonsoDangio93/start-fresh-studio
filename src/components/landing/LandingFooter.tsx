@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function LandingFooter() {
   return (
     <footer className="bg-white border-t border-border">
-      <div className="max-w-site mx-auto px-6 pt-14 pb-8">
+      <div className="max-w-site mx-auto px-6 pt-14 pb-8 py-[33px]">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 pb-10 border-b border-border">
           <div className="shrink-0">
             <Link to="/" className="flex items-center cursor-pointer">
@@ -21,7 +21,7 @@ export default function LandingFooter() {
           </div>
         </div>
 
-        <div className="border-t border-border py-6 space-y-4">
+        <div className="border-t border-border space-y-4 py-[10px]">
           
 
           
@@ -32,14 +32,14 @@ export default function LandingFooter() {
               <span className="text-red-500">❤️</span>
               <span>by</span>
               <Link to="/" className="flex items-center">
-                <img src="/logos/hommi_logo.png" alt="Hommi" className="h-5 w-auto" />
+                <img src="/logos/hommi_logo.png" alt="Hommi" className="h-7 w-auto" />
               </Link>
             </div>
             <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
             <div className="flex items-center gap-2">
-              <span>Powered by</span>
+              
               <a href="https://www.mamazen.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                <img alt="Mamazen" className="h-9 w-auto" src="/lovable-uploads/c0246aaf-5d46-4899-8294-5e44ae8569d7.jpg" />
+                <img alt="Mamazen" className="h-7 w-auto" src="/lovable-uploads/c0246aaf-5d46-4899-8294-5e44ae8569d7.jpg" />
               </a>
             </div>
           </div>
