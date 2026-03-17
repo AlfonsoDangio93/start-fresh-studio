@@ -3,11 +3,29 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
-const COLUMNS = {
-  Prodotto: ["Come funziona", "Servizi", "Prezzi", "Integrazioni"],
-  Risorse: ["App Hommi", "Blog", "Documentazione", "Partnerships"],
-  Impresa: ["Chi siamo", "Termini e condizioni", "Informativa sulla privacy"],
-  Prezzi: ["Piani", "Centro di aiuto"],
+const COLUMNS: Record<string, { label: string; href?: string }[]> = {
+  Prodotto: [
+    { label: "Come funziona" },
+    { label: "Servizi" },
+    { label: "Prezzi" },
+    { label: "Integrazioni" },
+  ],
+  Risorse: [
+    { label: "App Hommi" },
+    { label: "Blog" },
+    { label: "Documentazione" },
+    { label: "Partnerships" },
+  ],
+  Impresa: [
+    { label: "Chi siamo" },
+    { label: "Termini e condizioni" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+  ],
+  Prezzi: [
+    { label: "Piani" },
+    { label: "Centro di aiuto" },
+  ],
 };
 
 const SOCIALS = [
@@ -140,13 +158,22 @@ export default function Footer() {
               <h4 className="text-[14px] font-bold text-dark mb-4">{title}</h4>
               <ul className="space-y-2.5">
                 {items.map((item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="text-[14px] text-secondary/60 hover:text-dark transition-colors duration-200 cursor-pointer"
-                    >
-                      {item}
-                    </a>
+                  <li key={item.label}>
+                    {item.href ? (
+                      <Link
+                        to={item.href}
+                        className="text-[14px] text-secondary/60 hover:text-dark transition-colors duration-200 cursor-pointer"
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href="#"
+                        className="text-[14px] text-secondary/60 hover:text-dark transition-colors duration-200 cursor-pointer"
+                      >
+                        {item.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
