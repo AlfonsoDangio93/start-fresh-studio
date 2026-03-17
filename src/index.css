@@ -232,7 +232,18 @@ p {
    ═══════════════════════════════════════════════ */
 #iubenda-cs-banner,
 .iubenda-cs-preferences-link,
+#iubenda-cs-preferences-link,
+.iubenda-uspr-btn,
+#iubenda-iframe,
+[id*="iubenda-cs"],
+[class*="iubenda-cs-preferences"],
 [class*="iubenda"] {
+  left: 24px !important;
+  right: auto !important;
+}
+
+iframe[id*="iubenda"],
+iframe[src*="iubenda"] {
   left: 24px !important;
   right: auto !important;
 }
