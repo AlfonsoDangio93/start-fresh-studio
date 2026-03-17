@@ -48,7 +48,7 @@ export default function LandingNavbar() {
 
         <a
           href={CTA_URL} target="_blank" rel="noopener noreferrer"
-          className="text-[12px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-3.5 py-1.5 rounded-lg cursor-pointer"
+          className="text-[12px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-3.5 py-1.5 rounded-full cursor-pointer"
         >
           Inizia ora
         </a>
@@ -73,7 +73,7 @@ export default function LandingNavbar() {
             ))}
             <a
               href={CTA_URL} target="_blank" rel="noopener noreferrer"
-              className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-5 py-2 rounded-lg cursor-pointer ml-2"
+              className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-5 py-2 rounded-full cursor-pointer ml-2"
             >
               Inizia ora
             </a>
@@ -104,7 +104,7 @@ export default function LandingNavbar() {
             <div className="p-3 pt-0">
               <a
                 href={CTA_URL} target="_blank" rel="noopener noreferrer"
-                className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
+                className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3 rounded-full hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
                 onClick={() => setMobileOpen(false)}
               >
                 Inizia ora

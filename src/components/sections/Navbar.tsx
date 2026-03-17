@@ -346,7 +346,7 @@ export default function Navbar() {
                 </div>
                 }
             </div>
-            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 py-1.5 cursor-pointer rounded">
+            <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 py-1.5 cursor-pointer rounded-full">
               Richiedi accesso
             </a>
           </div>
@@ -491,7 +491,7 @@ export default function Navbar() {
                     {!activeMegamenuItem.comingSoon ?
                     <Link
                       to={activeMegamenuItem.megamenu.promo.href}
-                      className="inline-flex items-center gap-2 text-[13px] font-bold text-white bg-primary hover:bg-primary-hover rounded-lg px-4 py-2 transition-colors duration-150"
+                      className="inline-flex items-center gap-2 text-[13px] font-bold text-white bg-primary hover:bg-primary-hover rounded-full px-4 py-2 transition-colors duration-150"
                       onClick={() => setActiveMenu(null)}>
                       
                         {activeMegamenuItem.megamenu.promo.cta}
@@ -595,7 +595,7 @@ export default function Navbar() {
             <div className="p-3 pt-0">
               <Link
                 to={CTA_URL}
-                className="block w-full text-center bg-dark text-white font-semibold text-[14px] py-3 rounded-xl hover:bg-dark/90 transition-colors duration-200 cursor-pointer"
+                className="block w-full text-center bg-dark text-white font-semibold text-[14px] py-3 rounded-full hover:bg-dark/90 transition-colors duration-200 cursor-pointer"
                 onClick={() => setMobileOpen(false)}>
                 
                 Richiedi accesso prioritario

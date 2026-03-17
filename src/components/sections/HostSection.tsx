@@ -89,7 +89,7 @@ export default function HostSection() {
         <div className="mt-8">
           <a
             href={CTA_URL}
-            className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
+            className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-full px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
           >
             Richiedi accesso prioritario
             <ArrowRight className="ml-2 w-4 h-4" />
@@ -240,7 +240,7 @@ export default function HostSection() {
             <div className="mt-8">
               <a
                 href={CTA_URL}
-                className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
+                className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-full px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
               >
                 Richiedi accesso prioritario
                 <ArrowRight className="ml-2 w-4 h-4" />
