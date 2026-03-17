@@ -158,13 +158,22 @@ export default function Footer() {
               <h4 className="text-[14px] font-bold text-dark mb-4">{title}</h4>
               <ul className="space-y-2.5">
                 {items.map((item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="text-[14px] text-secondary/60 hover:text-dark transition-colors duration-200 cursor-pointer"
-                    >
-                      {item}
-                    </a>
+                  <li key={item.label}>
+                    {item.href ? (
+                      <Link
+                        to={item.href}
+                        className="text-[14px] text-secondary/60 hover:text-dark transition-colors duration-200 cursor-pointer"
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href="#"
+                        className="text-[14px] text-secondary/60 hover:text-dark transition-colors duration-200 cursor-pointer"
+                      >
+                        {item.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
