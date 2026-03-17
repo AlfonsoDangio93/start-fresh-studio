@@ -6,7 +6,7 @@ import TypingHeading from "@/components/TypingHeading";
 const FAQS = [
   { q: "Posso gestire più immobili con un solo account?", a: "Certo. Ogni immobile ha il suo profilo, e puoi aprire ticket in parallelo." },
   { q: "Come vengono scelti i tecnici?", a: "I tuttofare sono nostri dipendenti. Gli specialisti esterni seguono i nostri SOP e sono selezionati tramite verifica documentale, colloquio e feedback continui." },
-  { q: "Quanto costa?", a: "L\u2019abbonamento base è di 39\u20AC/mese per immobile. Piani personalizzati disponibili. Il costo degli interventi viene sempre approvato dal Property Manager prima di procedere." },
+  { q: "Quanto costa?", a: "Hommi offre 3 piani: Base a €14,90/mese per immobile, Premium a €29,90/mese e Plus a €39,90/mese (prezzi esclusa IVA). Ogni piano include accesso alla rete di tecnici, piattaforma digitale, interventi garantiti entro 4 ore e sopralluogo iniziale. Il costo degli interventi viene sempre approvato dal Property Manager prima di procedere." },
   { q: "Cosa succede se il guasto è grave?", a: "Organizziamo l\u2019intervento specialistico, ti inviamo preventivo e coordiniamo tutto fino alla risoluzione." },
   { q: "Posso attivare il servizio solo in alta stagione?", a: "Sì, offriamo piani flessibili pensati anche per chi lavora solo nei mesi estivi. Puoi attivare l\u2019abbonamento solo quando ti serve, senza penali o costi di riattivazione." },
   { q: "Quanto tempo serve per risolvere un problema?", a: "Il nostro obiettivo è intervenire entro 4 ore. In base alla complessità o alla disponibilità dello specialista, potremmo richiedere un tempo maggiore. In ogni caso, ti aggiorniamo in tempo reale." },
