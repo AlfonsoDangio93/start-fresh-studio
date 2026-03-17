@@ -23,11 +23,11 @@ function PhoneClickIcon() {
       {/* Home indicator */}
       <rect x="34" y="62" width="10" height="2" rx="1" fill="#9CA3AF" />
       {/* Cursor pointer */}
-      <path d="M56 38L63 46L58.5 47L61 53L57.5 54.5L55 48.5L51.5 51.5L56 38Z" fill="#F16B01" />
+      <path d="M56 38L63 46L58.5 47L61 53L57.5 54.5L55 48.5L51.5 51.5L56 38Z" fill="#E35210" />
       {/* Click spark lines */}
-      <line x1="65" y1="34" x2="70" y2="30" stroke="#F16B01" strokeWidth="2.5" strokeLinecap="round" />
-      <line x1="68" y1="42" x2="74" y2="42" stroke="#F16B01" strokeWidth="2.5" strokeLinecap="round" />
-      <line x1="65" y1="50" x2="70" y2="54" stroke="#F16B01" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="65" y1="34" x2="70" y2="30" stroke="#E35210" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="68" y1="42" x2="74" y2="42" stroke="#E35210" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="65" y1="50" x2="70" y2="54" stroke="#E35210" strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 }
