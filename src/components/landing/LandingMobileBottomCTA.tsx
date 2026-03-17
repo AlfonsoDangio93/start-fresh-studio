@@ -78,7 +78,15 @@ export default function LandingMobileBottomCTA() {
     </a>;
 
 
-  const scrollTopButton;
+  const scrollTopButton = (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="flex-[1] flex items-center justify-center bg-white border border-border text-secondary rounded-lg py-2.5 shadow-sm hover:bg-surface transition-colors duration-200 cursor-pointer"
+      aria-label="Torna su"
+    >
+      <ArrowUp size={16} />
+    </button>
+  );
 
 
 
