@@ -266,7 +266,7 @@ export default function Navbar() {
         </button>
 
         <Link to="/" className="absolute left-1/2 -translate-x-1/2">
-          <img src={LOGO} alt="Hommi" className="h-12 w-auto" />
+          <img src={LOGO} alt="Hommi" className="h-10 w-auto" />
         </Link>
 
         <a
