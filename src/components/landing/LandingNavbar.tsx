@@ -114,6 +114,7 @@ export default function LandingNavbar() {
           </div>
         </>
       )}
+      </div>
     </nav>
   );
 }
