@@ -70,8 +70,8 @@ const REVIEWS = [
   stars: 5,
   time: "4 giorni fa",
   text: "La dashboard è spettacolare. Vedo tutto in un colpo d'occhio: ticket aperti, tempi, costi. Mai più brutte sorprese a fine mese.",
-  name: "Sara Colombo",
-  role: "CEO, StayBright Rentals",
+  name: "Sara C.",
+  role: "Milano",
   avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face"
 }],
 
