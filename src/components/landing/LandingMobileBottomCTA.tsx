@@ -19,9 +19,6 @@ const DEFAULT_CTA = { label: "Richiedi accesso prioritario", href: CTA_URL };
 export default function LandingMobileBottomCTA() {
   const [show, setShow] = useState(false);
   const [cta, setCta] = useState(DEFAULT_CTA);
-  const [swapped, setSwapped] = useState(false);
-  const barRef = useRef<HTMLDivElement>(null);
-  const touchStartX = useRef(0);
 
   const update = useCallback(() => {
     setShow(window.scrollY > window.innerHeight * 0.7);
