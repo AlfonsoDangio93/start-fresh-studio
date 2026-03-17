@@ -211,23 +211,26 @@ Corso Unione Sovietica, 612/15/C · 10135 Torino (TO) · Capitale Sociale € 10
           </p>
 
           {/* Riga 2 — credits */}
-          <div className="flex items-center justify-center gap-2 text-sm text-[#6B7280] py-[12px]">
-            <span>Made with</span>
-            <span className="text-red-500">❤️</span>
-            <span>by</span>
-            <Link to="/" className="flex items-center">
-              <img src="/logos/hommi_logo.png" alt="Hommi" className="h-7 w-auto" />
-            </Link>
-            <span className="mx-1 text-[#D1D5DB]">|</span>
-            <span>Powered by</span>
-            <a
-              href="https://www.mamazen.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center">
-              
-              <img src="/powered-by-mamazen.png" alt="Mamazen" className="h-7 w-auto" />
-            </a>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 text-sm text-[#6B7280] py-[12px]">
+            <div className="flex items-center gap-2">
+              <span>Made with</span>
+              <span className="text-red-500">❤️</span>
+              <span>by</span>
+              <Link to="/" className="flex items-center">
+                <img src="/logos/hommi_logo.png" alt="Hommi" className="h-7 w-auto" />
+              </Link>
+            </div>
+            <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
+            <div className="flex items-center gap-2">
+              <span>Powered by</span>
+              <a
+                href="https://www.mamazen.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center">
+                <img src="/powered-by-mamazen.png" alt="Mamazen" className="h-7 w-auto" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
