@@ -42,6 +42,7 @@ export default function App() {
         <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/termini-e-condizioni" element={<TerminiCondizioni />} />
       </Routes>
     </>
   );
