@@ -24,7 +24,7 @@ const REVIEWS = [
 
 [
 { stars: 5, time: "1 giorno fa", text: "Gestisco appartamenti da remoto, da Londra. Con Hommi è come essere sul posto. Apro ticket, vedo foto, approvo preventivi. Tutto dal telefono.", name: "Paolo F.", role: "Milano", avatar: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=80&h=80&fit=crop&crop=face" },
-{ stars: 5, time: "4 giorni fa", text: "I proprietari degli immobili che gestisco sono entusiasti. Vedono i report, i tempi di risoluzione, i costi. Trasparenza totale = fiducia totale.", name: "Giulia F.", role: "Property Manager, Firenze", avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&crop=face" },
+{ stars: 5, time: "4 giorni fa", text: "I proprietari degli immobili che gestisco sono entusiasti. Vedono i report, i tempi di risoluzione, i costi. Trasparenza totale = fiducia totale.", name: "Giulia F.", role: "Torino", avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=80&h=80&fit=crop&crop=face" },
 { stars: 4, time: "1 settimana fa", text: "All'inizio ero scettico, un altro software... Dopo 2 settimane ho capito che Hommi è diverso. Semplice, veloce, funziona. Punto.", name: "Stefano R.", role: "Gestore Case Vacanza, Sardegna", avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&crop=face" },
 { stars: 5, time: "6 giorni fa", text: "Il calendario interventi mi ha cambiato la vita. Sopralluoghi, check-out, manutenzioni programmate: tutto in un'unica vista sincronizzata.", name: "Anna G.", role: "Property Manager, Bologna", avatar: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=80&h=80&fit=crop&crop=face" }]];
 
