@@ -7,7 +7,7 @@ import {
   UserCheck,
   BookOpen,
   Timer,
-  KeyRound,
+  
   Zap,
   Eye,
   ChevronLeft,
@@ -35,12 +35,6 @@ const FEATURES = [
     title: "Apri un ticket in 10 secondi.",
     desc: "Scegli la proprietà, scrivi due righe, aggiungi una foto. Fatto. Nessuna telefonata, nessun follow-up.",
     visual: "ticket",
-  },
-  {
-    icon: KeyRound,
-    title: "Gestiamo noi l\u2019accesso.",
-    desc: "Contattiamo ospiti o referenti per entrare nell\u2019immobile. Tu puoi restare offline.",
-    visual: "access",
   },
   {
     icon: Zap,
@@ -137,25 +131,6 @@ function TicketVisual() {
   );
 }
 
-function AccessVisual() {
-  return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      <div className="relative">
-        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-          <KeyRound size={30} className="text-primary" />
-        </div>
-      </div>
-      <div className="absolute top-4 right-4 space-y-1.5">
-        <div className="bg-white rounded-xl rounded-tr-sm px-3 py-1.5 shadow-sm border border-border/40 text-[8px] text-dark">
-          Ospite avvisato &#10003;
-        </div>
-        <div className="bg-primary/10 rounded-xl rounded-tr-sm px-3 py-1.5 text-[8px] text-primary ml-4">
-          Accesso confermato
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function SpeedVisual() {
   return (
@@ -222,7 +197,7 @@ const VISUAL_MAP: Record<string, React.FC> = {
   technician: TechnicianVisual,
   dashboard: DashboardVisual,
   ticket: TicketVisual,
-  access: AccessVisual,
+  
   speed: SpeedVisual,
   control: ControlVisual,
 };
