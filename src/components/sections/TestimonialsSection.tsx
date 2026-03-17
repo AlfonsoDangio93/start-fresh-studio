@@ -82,7 +82,7 @@ const REVIEWS = [
   time: "2 giorni fa",
   text: "Credevo che a questo prezzo fosse troppo bello per essere vero. Invece funziona benissimo e non pago abbonamenti nascosti. Affare del secolo.",
   name: "Michele G.",
-  role: "Palermo",
+  role: "Monza",
   avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=80&h=80&fit=crop&crop=face"
 },
 {
