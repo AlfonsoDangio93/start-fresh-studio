@@ -26,11 +26,11 @@ export default function LandingFooter() {
             &copy; {new Date().getFullYear()} Hommi | S9 srl SB | Tutti i diritti riservati.
           </p>
           <div className="flex items-center gap-3 text-[13px]">
-            <a href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Privacy Policy</a>
+            <a href="/privacy-policy" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Privacy Policy</a>
             <span className="text-secondary/20">|</span>
-            <a href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Cookie Policy</a>
+            <a href="/cookie-policy" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Cookie Policy</a>
             <span className="text-secondary/20">|</span>
-            <a href="#" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Termini e Condizioni</a>
+            <a href="/termini-e-condizioni" className="text-secondary/50 hover:text-dark transition-colors duration-200 cursor-pointer">Termini e Condizioni</a>
           </div>
         </div>
 
