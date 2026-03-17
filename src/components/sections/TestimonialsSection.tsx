@@ -116,8 +116,8 @@ const REVIEWS = [
   stars: 5,
   time: "1 giorno fa",
   text: "Gestisco appartamenti da remoto, da Londra. Con Hommi è come essere sul posto. Apro ticket, vedo foto, approvo preventivi. Tutto dal telefono.",
-  name: "Paolo Ferri",
-  role: "Investitore Immobiliare, Londra",
+  name: "Paolo F.",
+  role: "Londra",
   avatar: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=80&h=80&fit=crop&crop=face"
 },
 {
