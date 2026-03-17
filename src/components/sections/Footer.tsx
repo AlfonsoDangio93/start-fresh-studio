@@ -215,7 +215,6 @@ export default function Footer() {
             <Link to="/" className="flex items-center gap-1.5 cursor-pointer">
               <img src="/logos/hommi_logo.png" alt="Hommi" className="h-5 w-auto" />
             </Link>
-            </Link>
           </div>
         </div>
 
