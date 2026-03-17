@@ -356,7 +356,7 @@ export default function HowItWorksSection() {
           <div className="relative">
             <div
               ref={scrollRef}
-              className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2 -mx-6 px-6 md:-mx-10 md:px-10"
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-2"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {/* scrollbar hidden via inline style above */}
