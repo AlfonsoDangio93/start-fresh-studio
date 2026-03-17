@@ -8,20 +8,20 @@ import { useTypingEffect } from "@/components/TypingHeading";
 
 type SectionKey = "home" | "alloggi" | "ticket" | "tecnici" | "calendario" | "report";
 
-const SIDEBAR_ITEMS: { key: SectionKey; label: string }[] = [
-  { key: "home", label: "Home" },
-  { key: "alloggi", label: "Alloggi" },
-  { key: "ticket", label: "Ticket guasti" },
-  { key: "tecnici", label: "Tecnici" },
-  { key: "calendario", label: "Calendario" },
-  { key: "report", label: "Report" },
-];
+const SIDEBAR_ITEMS: {key: SectionKey;label: string;}[] = [
+{ key: "home", label: "Home" },
+{ key: "alloggi", label: "Alloggi" },
+{ key: "ticket", label: "Ticket guasti" },
+{ key: "tecnici", label: "Tecnici" },
+{ key: "calendario", label: "Calendario" },
+{ key: "report", label: "Report" }];
+
 
 /* ─── Notification cards per section ─── */
-function NotificationCard({ section }: { section: SectionKey }) {
+function NotificationCard({ section }: {section: SectionKey;}) {
   const cards: Record<SectionKey, React.ReactNode> = {
-    home: (
-      <>
+    home:
+    <>
         <div className="flex items-center gap-2 mb-3">
           <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
             <div className="w-2 h-2 rounded-full bg-primary" />
@@ -46,10 +46,10 @@ function NotificationCard({ section }: { section: SectionKey }) {
             <p className="text-[9px] text-green-600 font-medium">Aggiornato · 14:32</p>
           </div>
         </div>
-      </>
-    ),
-    alloggi: (
-      <>
+      </>,
+
+    alloggi:
+    <>
         <div className="flex items-center gap-2 mb-3">
           <div className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center">
             <div className="w-2 h-2 rounded-full bg-blue-500" />
@@ -74,10 +74,10 @@ function NotificationCard({ section }: { section: SectionKey }) {
             <p className="text-[9px] text-amber-600 font-medium">Ispezione in attesa</p>
           </div>
         </div>
-      </>
-    ),
-    ticket: (
-      <>
+      </>,
+
+    ticket:
+    <>
         <div className="flex items-center gap-2 mb-3">
           <div className="w-5 h-5 rounded-full bg-amber-50 flex items-center justify-center">
             <div className="w-2 h-2 rounded-full bg-amber-500" />
@@ -102,10 +102,10 @@ function NotificationCard({ section }: { section: SectionKey }) {
             <p className="text-[9px] text-green-600 font-medium">In arrivo · 15 min</p>
           </div>
         </div>
-      </>
-    ),
-    tecnici: (
-      <>
+      </>,
+
+    tecnici:
+    <>
         <div className="flex items-center gap-2 mb-3">
           <div className="w-5 h-5 rounded-full bg-green-50 flex items-center justify-center">
             <div className="w-2 h-2 rounded-full bg-green-500" />
@@ -130,10 +130,10 @@ function NotificationCard({ section }: { section: SectionKey }) {
             <p className="text-[9px] text-green-600 font-medium">Disponibile ora</p>
           </div>
         </div>
-      </>
-    ),
-    calendario: (
-      <>
+      </>,
+
+    calendario:
+    <>
         <div className="flex items-center gap-2 mb-3">
           <div className="w-5 h-5 rounded-full bg-violet-50 flex items-center justify-center">
             <div className="w-2 h-2 rounded-full bg-violet-500" />
@@ -158,10 +158,10 @@ function NotificationCard({ section }: { section: SectionKey }) {
             <p className="text-[9px] text-violet-600 font-medium">Tra 2 ore</p>
           </div>
         </div>
-      </>
-    ),
-    report: (
-      <>
+      </>,
+
+    report:
+    <>
         <div className="flex items-center gap-2 mb-3">
           <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center">
             <div className="w-2 h-2 rounded-full bg-primary" />
@@ -187,17 +187,17 @@ function NotificationCard({ section }: { section: SectionKey }) {
           </div>
         </div>
       </>
-    ),
+
   };
   return (
     <div className="absolute -top-8 -right-4 w-[210px] h-[200px] bg-white rounded-xl shadow-xl shadow-black/12 border border-[#EBEBEB] p-4 z-10 transition-all duration-300">
       {cards[section]}
-    </div>
-  );
+    </div>);
+
 }
 
 /* ─── Section content views ─── */
-function SectionContent({ section }: { section: SectionKey }) {
+function SectionContent({ section }: {section: SectionKey;}) {
   switch (section) {
     case "home":
       return (
@@ -210,38 +210,38 @@ function SectionContent({ section }: { section: SectionKey }) {
           </div>
           <div className="grid grid-cols-3 gap-3 mb-5">
             {[
-              { label: "Ticket aperti", val: "12", color: "text-primary" },
-              { label: "In corso", val: "5", color: "text-amber-500" },
-              { label: "Risolti oggi", val: "8", color: "text-green-600" },
-            ].map((s) => (
-              <div key={s.label} className="bg-[#FAFAFA] rounded-lg p-3 border border-[#F0F0F0]">
+            { label: "Ticket aperti", val: "12", color: "text-primary" },
+            { label: "In corso", val: "5", color: "text-amber-500" },
+            { label: "Risolti oggi", val: "8", color: "text-green-600" }].
+            map((s) =>
+            <div key={s.label} className="bg-[#FAFAFA] rounded-lg p-3 border border-[#F0F0F0]">
                 <p className="text-[9px] text-secondary/50 uppercase tracking-wider font-medium mb-1">{s.label}</p>
                 <p className={`text-[20px] font-bold leading-none ${s.color}`}>{s.val}</p>
               </div>
-            ))}
+            )}
           </div>
           <div>
             <p className="text-[10px] font-semibold text-secondary/50 uppercase tracking-wider mb-3">Attività recenti</p>
             <div className="space-y-0">
               {[
-                { text: "Ticket #142 assegnato a M. Bianchi", time: "2 min fa", dot: "bg-blue-500" },
-                { text: "Caldaia riparata — Via Manzoni 3", time: "18 min fa", dot: "bg-green-500" },
-                { text: "Nuovo ticket: Perdita bagno", time: "43 min fa", dot: "bg-primary" },
-                { text: "Check-out completato — Via Dante 23", time: "1h fa", dot: "bg-secondary/30" },
-                { text: "Report settimanale disponibile", time: "2h fa", dot: "bg-violet-500" },
-              ].map((a, i) => (
-                <div key={i} className="flex items-start gap-2.5 py-2 border-b border-[#F5F5F5] last:border-0">
+              { text: "Ticket #142 assegnato a M. Bianchi", time: "2 min fa", dot: "bg-blue-500" },
+              { text: "Caldaia riparata — Via Manzoni 3", time: "18 min fa", dot: "bg-green-500" },
+              { text: "Nuovo ticket: Perdita bagno", time: "43 min fa", dot: "bg-primary" },
+              { text: "Check-out completato — Via Dante 23", time: "1h fa", dot: "bg-secondary/30" },
+              { text: "Report settimanale disponibile", time: "2h fa", dot: "bg-violet-500" }].
+              map((a, i) =>
+              <div key={i} className="flex items-start gap-2.5 py-2 border-b border-[#F5F5F5] last:border-0">
                   <div className={`w-1.5 h-1.5 rounded-full ${a.dot} mt-1.5 shrink-0`} />
                   <div className="flex-1 min-w-0">
                     <p className="text-[10px] text-dark truncate">{a.text}</p>
                     <p className="text-[9px] text-secondary/35">{a.time}</p>
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           </div>
-        </>
-      );
+        </>);
+
 
     case "alloggi":
       return (
@@ -255,15 +255,15 @@ function SectionContent({ section }: { section: SectionKey }) {
           </div>
           <div className="space-y-2">
             {[
-              { name: "Via Roma 12", city: "Milano", rooms: 3, status: "Occupato", sColor: "bg-green-500" },
-              { name: "Corso Italia 8", city: "Roma", rooms: 2, status: "Libero", sColor: "bg-blue-500" },
-              { name: "Via Dante 23", city: "Firenze", rooms: 4, status: "Manutenzione", sColor: "bg-amber-500" },
-              { name: "P.za Duomo 5", city: "Torino", rooms: 2, status: "Occupato", sColor: "bg-green-500" },
-              { name: "Via Manzoni 3", city: "Bologna", rooms: 3, status: "Libero", sColor: "bg-blue-500" },
-              { name: "Via Garibaldi 15", city: "Napoli", rooms: 5, status: "Occupato", sColor: "bg-green-500" },
-              { name: "Via Veneto 42", city: "Roma", rooms: 2, status: "Libero", sColor: "bg-blue-500" },
-            ].map((p, i) => (
-              <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#FAFAFA] transition-colors border border-transparent hover:border-[#F0F0F0]">
+            { name: "Via Roma 12", city: "Milano", rooms: 3, status: "Occupato", sColor: "bg-green-500" },
+            { name: "Corso Italia 8", city: "Roma", rooms: 2, status: "Libero", sColor: "bg-blue-500" },
+            { name: "Via Dante 23", city: "Firenze", rooms: 4, status: "Manutenzione", sColor: "bg-amber-500" },
+            { name: "P.za Duomo 5", city: "Torino", rooms: 2, status: "Occupato", sColor: "bg-green-500" },
+            { name: "Via Manzoni 3", city: "Bologna", rooms: 3, status: "Libero", sColor: "bg-blue-500" },
+            { name: "Via Garibaldi 15", city: "Napoli", rooms: 5, status: "Occupato", sColor: "bg-green-500" },
+            { name: "Via Veneto 42", city: "Roma", rooms: 2, status: "Libero", sColor: "bg-blue-500" }].
+            map((p, i) =>
+            <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#FAFAFA] transition-colors border border-transparent hover:border-[#F0F0F0]">
                 <div className="w-8 h-8 rounded-lg bg-[#F5F5F5] flex items-center justify-center text-[11px]">🏠</div>
                 <div className="flex-1 min-w-0">
                   <p className="text-[11px] font-medium text-dark">{p.name}, {p.city}</p>
@@ -271,10 +271,10 @@ function SectionContent({ section }: { section: SectionKey }) {
                 </div>
                 <span className={`inline-block px-1.5 py-0.5 rounded text-[8px] font-semibold text-white ${p.sColor}`}>{p.status}</span>
               </div>
-            ))}
+            )}
           </div>
-        </>
-      );
+        </>);
+
 
     case "ticket":
       return (
@@ -294,14 +294,14 @@ function SectionContent({ section }: { section: SectionKey }) {
               <span>Alloggio</span><span>Problema</span><span>Priorità</span><span>Stato</span><span>Tecnico</span><span>Tempo</span>
             </div>
             {[
-              { addr: "Via Roma 12", issue: "Perdita bagno", pr: "Urgente", prC: "bg-red-500", st: "In corso", stC: "bg-amber-500", tech: "M. Bianchi", time: "2h" },
-              { addr: "Corso Italia 8", issue: "Caldaia guasta", pr: "Alta", prC: "bg-orange-500", st: "Assegnato", stC: "bg-blue-500", tech: "L. Verdi", time: "4h" },
-              { addr: "Via Dante 23", issue: "Serratura rotta", pr: "Media", prC: "bg-yellow-500", st: "Aperto", stC: "bg-gray-400", tech: "—", time: "1h" },
-              { addr: "P.za Duomo 5", issue: "Presa elettrica", pr: "Bassa", prC: "bg-green-500", st: "Risolto", stC: "bg-green-500", tech: "G. Neri", time: "6h" },
-              { addr: "Via Manzoni 3", issue: "Condizionatore", pr: "Alta", prC: "bg-orange-500", st: "Risolto", stC: "bg-green-500", tech: "A. Russo", time: "3h" },
-              { addr: "Via Garibaldi 15", issue: "Scarico ostruito", pr: "Urgente", prC: "bg-red-500", st: "In corso", stC: "bg-amber-500", tech: "P. Costa", time: "45m" },
-            ].map((r, i) => (
-              <div key={i} className={`grid grid-cols-6 gap-2 px-3 py-2 text-[10px] border-t border-[#F5F5F5] ${i % 2 === 0 ? "bg-white" : "bg-[#FDFDFD]"}`}>
+            { addr: "Via Roma 12", issue: "Perdita bagno", pr: "Urgente", prC: "bg-red-500", st: "In corso", stC: "bg-amber-500", tech: "M. Bianchi", time: "2h" },
+            { addr: "Corso Italia 8", issue: "Caldaia guasta", pr: "Alta", prC: "bg-orange-500", st: "Assegnato", stC: "bg-blue-500", tech: "L. Verdi", time: "4h" },
+            { addr: "Via Dante 23", issue: "Serratura rotta", pr: "Media", prC: "bg-yellow-500", st: "Aperto", stC: "bg-gray-400", tech: "—", time: "1h" },
+            { addr: "P.za Duomo 5", issue: "Presa elettrica", pr: "Bassa", prC: "bg-green-500", st: "Risolto", stC: "bg-green-500", tech: "G. Neri", time: "6h" },
+            { addr: "Via Manzoni 3", issue: "Condizionatore", pr: "Alta", prC: "bg-orange-500", st: "Risolto", stC: "bg-green-500", tech: "A. Russo", time: "3h" },
+            { addr: "Via Garibaldi 15", issue: "Scarico ostruito", pr: "Urgente", prC: "bg-red-500", st: "In corso", stC: "bg-amber-500", tech: "P. Costa", time: "45m" }].
+            map((r, i) =>
+            <div key={i} className={`grid grid-cols-6 gap-2 px-3 py-2 text-[10px] border-t border-[#F5F5F5] ${i % 2 === 0 ? "bg-white" : "bg-[#FDFDFD]"}`}>
                 <span className="font-medium text-dark truncate">{r.addr}</span>
                 <span className="text-secondary/60 truncate">{r.issue}</span>
                 <span><span className={`inline-block px-1.5 py-0.5 rounded text-[7px] font-semibold text-white ${r.prC}`}>{r.pr}</span></span>
@@ -309,10 +309,10 @@ function SectionContent({ section }: { section: SectionKey }) {
                 <span className="text-secondary/50">{r.tech}</span>
                 <span className="text-secondary/35">{r.time}</span>
               </div>
-            ))}
+            )}
           </div>
-        </>
-      );
+        </>);
+
 
     case "tecnici":
       return (
@@ -326,14 +326,14 @@ function SectionContent({ section }: { section: SectionKey }) {
           </div>
           <div className="space-y-1.5">
             {[
-              { name: "Marco Bianchi", init: "MB", spec: "Idraulica", zone: "Milano Centro", status: "Occupato", sColor: "bg-amber-500", bg: "bg-blue-100", fg: "text-blue-600" },
-              { name: "Luca Verdi", init: "LV", spec: "Idraulica · Elettrica", zone: "Milano Nord", status: "Disponibile", sColor: "bg-green-500", bg: "bg-emerald-100", fg: "text-emerald-700" },
-              { name: "Giovanni Neri", init: "GN", spec: "Elettrica", zone: "Torino", status: "Disponibile", sColor: "bg-green-500", bg: "bg-gray-100", fg: "text-gray-700" },
-              { name: "Anna Russo", init: "AR", spec: "Generalista", zone: "Bologna", status: "Disponibile", sColor: "bg-green-500", bg: "bg-pink-100", fg: "text-pink-700" },
-              { name: "Paolo Costa", init: "PC", spec: "Idraulica", zone: "Napoli", status: "Occupato", sColor: "bg-amber-500", bg: "bg-orange-100", fg: "text-orange-700" },
-              { name: "Sara Ferri", init: "SF", spec: "Serrature · Falegname", zone: "Firenze", status: "Disponibile", sColor: "bg-green-500", bg: "bg-violet-100", fg: "text-violet-700" },
-            ].map((t, i) => (
-              <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#FAFAFA] transition-colors">
+            { name: "Marco Bianchi", init: "MB", spec: "Idraulica", zone: "Milano Centro", status: "Occupato", sColor: "bg-amber-500", bg: "bg-blue-100", fg: "text-blue-600" },
+            { name: "Luca Verdi", init: "LV", spec: "Idraulica · Elettrica", zone: "Milano Nord", status: "Disponibile", sColor: "bg-green-500", bg: "bg-emerald-100", fg: "text-emerald-700" },
+            { name: "Giovanni Neri", init: "GN", spec: "Elettrica", zone: "Torino", status: "Disponibile", sColor: "bg-green-500", bg: "bg-gray-100", fg: "text-gray-700" },
+            { name: "Anna Russo", init: "AR", spec: "Generalista", zone: "Bologna", status: "Disponibile", sColor: "bg-green-500", bg: "bg-pink-100", fg: "text-pink-700" },
+            { name: "Paolo Costa", init: "PC", spec: "Idraulica", zone: "Napoli", status: "Occupato", sColor: "bg-amber-500", bg: "bg-orange-100", fg: "text-orange-700" },
+            { name: "Sara Ferri", init: "SF", spec: "Serrature · Falegname", zone: "Firenze", status: "Disponibile", sColor: "bg-green-500", bg: "bg-violet-100", fg: "text-violet-700" }].
+            map((t, i) =>
+            <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#FAFAFA] transition-colors">
                 <div className={`w-7 h-7 rounded-full ${t.bg} flex items-center justify-center text-[9px] font-bold ${t.fg}`}>{t.init}</div>
                 <div className="flex-1 min-w-0">
                   <p className="text-[11px] font-medium text-dark">{t.name}</p>
@@ -344,10 +344,10 @@ function SectionContent({ section }: { section: SectionKey }) {
                   <span className="text-[9px] text-secondary/50">{t.status}</span>
                 </div>
               </div>
-            ))}
+            )}
           </div>
-        </>
-      );
+        </>);
+
 
     case "calendario":
       return (
@@ -365,34 +365,34 @@ function SectionContent({ section }: { section: SectionKey }) {
           {/* Mini calendar grid */}
           <div className="mb-4">
             <div className="grid grid-cols-7 gap-0 text-center text-[8px] font-semibold text-secondary/35 uppercase mb-1">
-              {["Lun","Mar","Mer","Gio","Ven","Sab","Dom"].map(d => <span key={d} className="py-1">{d}</span>)}
+              {["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"].map((d) => <span key={d} className="py-1">{d}</span>)}
             </div>
             <div className="grid grid-cols-7 gap-0 text-center text-[10px]">
               {/* Empty cells for starting day */}
-              {[null,null,null,null,null,null,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28].map((d, i) => (
-                <div key={i} className={`py-1.5 rounded-md ${d === 18 ? "bg-primary text-white font-semibold" : d && [4,11,15,22].includes(d) ? "bg-primary/10 text-primary font-medium" : d ? "text-dark" : ""}`}>
+              {[null, null, null, null, null, null, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28].map((d, i) =>
+              <div key={i} className={`py-1.5 rounded-md ${d === 18 ? "bg-primary text-white font-semibold" : d && [4, 11, 15, 22].includes(d) ? "bg-primary/10 text-primary font-medium" : d ? "text-dark" : ""}`}>
                   {d || ""}
                 </div>
-              ))}
+              )}
             </div>
           </div>
           <div>
             <p className="text-[10px] font-semibold text-secondary/50 uppercase tracking-wider mb-2">Oggi</p>
             <div className="space-y-1.5">
               {[
-                { time: "09:00", text: "Sopralluogo — Via Dante 23", color: "border-l-blue-500" },
-                { time: "11:30", text: "Riparazione caldaia — Corso Italia 8", color: "border-l-primary" },
-                { time: "15:30", text: "Manutenzione — P.za Duomo 5", color: "border-l-violet-500" },
-              ].map((e, i) => (
-                <div key={i} className={`border-l-2 ${e.color} pl-2.5 py-1.5`}>
+              { time: "09:00", text: "Sopralluogo — Via Dante 23", color: "border-l-blue-500" },
+              { time: "11:30", text: "Riparazione caldaia — Corso Italia 8", color: "border-l-primary" },
+              { time: "15:30", text: "Manutenzione — P.za Duomo 5", color: "border-l-violet-500" }].
+              map((e, i) =>
+              <div key={i} className={`border-l-2 ${e.color} pl-2.5 py-1.5`}>
                   <p className="text-[9px] text-secondary/40">{e.time}</p>
                   <p className="text-[10px] text-dark font-medium">{e.text}</p>
                 </div>
-              ))}
+              )}
             </div>
           </div>
-        </>
-      );
+        </>);
+
 
     case "report":
       return (
@@ -406,39 +406,39 @@ function SectionContent({ section }: { section: SectionKey }) {
           </div>
           <div className="grid grid-cols-2 gap-3 mb-5">
             {[
-              { label: "Tasso risoluzione", val: "97%", sub: "+2% vs mese scorso", color: "text-green-600" },
-              { label: "Tempo medio", val: "43m", sub: "-12m vs mese scorso", color: "text-dark" },
-              { label: "Costo medio", val: "€85", sub: "-8% vs mese scorso", color: "text-dark" },
-              { label: "Soddisfazione", val: "4.9", sub: "+0.3 vs mese scorso", color: "text-primary" },
-            ].map((s) => (
-              <div key={s.label} className="bg-[#FAFAFA] rounded-lg p-3 border border-[#F0F0F0]">
+            { label: "Tasso risoluzione", val: "97%", sub: "+2% vs mese scorso", color: "text-green-600" },
+            { label: "Tempo medio", val: "43m", sub: "-12m vs mese scorso", color: "text-dark" },
+            { label: "Costo medio", val: "€85", sub: "-8% vs mese scorso", color: "text-dark" },
+            { label: "Soddisfazione", val: "4.9", sub: "+0.3 vs mese scorso", color: "text-primary" }].
+            map((s) =>
+            <div key={s.label} className="bg-[#FAFAFA] rounded-lg p-3 border border-[#F0F0F0]">
                 <p className="text-[9px] text-secondary/50 uppercase tracking-wider font-medium mb-1">{s.label}</p>
                 <p className={`text-[18px] font-bold leading-none ${s.color}`}>{s.val}</p>
                 <p className="text-[8px] text-secondary/35 mt-1">{s.sub}</p>
               </div>
-            ))}
+            )}
           </div>
           {/* Simple bar chart */}
           <div>
             <p className="text-[10px] font-semibold text-secondary/50 uppercase tracking-wider mb-3">Ticket per settimana</p>
             <div className="flex items-end gap-2 h-[80px]">
               {[
-                { label: "Sett 1", h: 60 },
-                { label: "Sett 2", h: 80 },
-                { label: "Sett 3", h: 45 },
-                { label: "Sett 4", h: 70 },
-              ].map((bar) => (
-                <div key={bar.label} className="flex-1 flex flex-col items-center gap-1">
+              { label: "Sett 1", h: 60 },
+              { label: "Sett 2", h: 80 },
+              { label: "Sett 3", h: 45 },
+              { label: "Sett 4", h: 70 }].
+              map((bar) =>
+              <div key={bar.label} className="flex-1 flex flex-col items-center gap-1">
                   <div className="w-full rounded-t bg-primary/20 relative" style={{ height: `${bar.h}%` }}>
                     <div className="absolute bottom-0 left-0 right-0 rounded-t bg-primary" style={{ height: "60%" }} />
                   </div>
                   <span className="text-[8px] text-secondary/40">{bar.label}</span>
                 </div>
-              ))}
+              )}
             </div>
           </div>
-        </>
-      );
+        </>);
+
   }
 }
 
@@ -461,7 +461,7 @@ function DashboardMockup() {
     };
 
     timerRef.current = setInterval(tick, 2500);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+    return () => {if (timerRef.current) clearInterval(timerRef.current);};
   }, []);
 
   // Manual click: set section, pause for one full cycle, then resume
@@ -469,7 +469,7 @@ function DashboardMockup() {
     setActiveSection(key);
     pauseRef.current = true;
     // Resume auto-cycle after 6s (enough time to explore)
-    setTimeout(() => { pauseRef.current = false; }, 6000);
+    setTimeout(() => {pauseRef.current = false;}, 6000);
   };
 
   return (
@@ -494,16 +494,16 @@ function DashboardMockup() {
 
             {/* Nav items */}
             <nav className="flex flex-col gap-px px-2 py-2.5 text-[11px] font-medium">
-              {SIDEBAR_ITEMS.map((item) => (
-                <button
-                  key={item.key}
-                  onClick={() => handleManualClick(item.key)}
-                  className={`flex items-center gap-2 px-2.5 py-[7px] rounded-md text-left transition-all duration-150 w-full ${
-                    activeSection === item.key
-                      ? "bg-primary/8 text-primary font-semibold"
-                      : "text-secondary/60 hover:bg-[#F0F0EF] hover:text-dark"
-                  }`}
-                >
+              {SIDEBAR_ITEMS.map((item) =>
+              <button
+                key={item.key}
+                onClick={() => handleManualClick(item.key)}
+                className={`flex items-center gap-2 px-2.5 py-[7px] rounded-md text-left transition-all duration-150 w-full ${
+                activeSection === item.key ?
+                "bg-primary/8 text-primary font-semibold" :
+                "text-secondary/60 hover:bg-[#F0F0EF] hover:text-dark"}`
+                }>
+                
                   <span className="text-[12px] w-5 text-center opacity-70">
                     {item.key === "home" && "⌂"}
                     {item.key === "alloggi" && "🏠"}
@@ -514,7 +514,7 @@ function DashboardMockup() {
                   </span>
                   {item.label}
                 </button>
-              ))}
+              )}
             </nav>
 
             {/* User at bottom */}
@@ -536,13 +536,13 @@ function DashboardMockup() {
 
       {/* Floating notification card — changes per section */}
       <NotificationCard section={activeSection} />
-    </div>
-  );
+    </div>);
+
 }
 
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => { const t = setTimeout(() => setMounted(true), 100); return () => clearTimeout(t); }, []);
+  useEffect(() => {const t = setTimeout(() => setMounted(true), 100);return () => clearTimeout(t);}, []);
 
   const LINES = ["Ogni guasto nei tuoi", "immobili risolto", "in giornata."];
   const FULL = LINES.join(" ");
@@ -555,9 +555,9 @@ export default function HeroSection() {
   const typed3 = displayed.length > breaks[1] + 1 ? displayed.slice(breaks[1] + 1) : "";
   const cursorLine = displayed.length <= breaks[0] ? 0 : displayed.length <= breaks[1] ? 1 : 2;
 
-  const cursor = (
-    <span className={`inline-block w-[3px] h-[0.85em] bg-primary ml-1 align-baseline relative top-[0.05em] ${done ? "animate-blink" : ""}`} />
-  );
+  const cursor =
+  <span className={`inline-block w-[3px] h-[0.85em] bg-primary ml-1 align-baseline relative top-[0.05em] ${done ? "animate-blink" : ""}`} />;
+
 
   return (
     <section className="relative bg-white overflow-hidden rounded-b-[10px] min-h-svh lg:min-h-0 flex flex-col">
@@ -566,37 +566,37 @@ export default function HeroSection() {
           {/* Left — copy */}
           <div className="text-center lg:text-left lg:pb-24">
             <h1
-              className="font-display text-[36px] md:text-[50px] lg:text-[58px] font-bold text-dark leading-[1.06] tracking-[-0.025em]"
-            >
-              {LINES.map((line, i) => (
-                <span key={i} className="block relative">
+              className="font-display text-[36px] md:text-[50px] lg:text-[58px] font-bold text-dark leading-[1.06] tracking-[-0.025em]">
+              
+              {LINES.map((line, i) =>
+              <span key={i} className="block relative">
                   <span className="invisible" aria-hidden="true">{line}</span>
                   <span className="absolute inset-0">
                     {i === 0 ? typed1 : i === 1 ? typed2 : typed3}
                     {cursorLine === i && cursor}
                   </span>
                 </span>
-              ))}
+              )}
             </h1>
 
             <p
               className={`mt-6 text-secondary text-[15px] md:text-[18px] max-w-[500px] mx-auto lg:mx-0 leading-[1.7] hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
-              style={{ transitionDelay: "0.1s" }}
-            >
+              style={{ transitionDelay: "0.1s" }}>
+              
               Hommi è il servizio per property manager che vogliono zero stress e interventi risolti in giornata. Gestiamo ogni guasto e imprevisto al posto tuo: intervento, supervisione, report con foto e costi, anche con ospiti presenti.
             </p>
 
             {/* Testimonial (inline, desktop) */}
             <div
               className={`mt-8 md:mt-10 hidden lg:block hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
-              style={{ transitionDelay: "0.25s" }}
-            >
+              style={{ transitionDelay: "0.25s" }}>
+              
               <div className="flex items-start gap-3 max-w-[460px]">
                 <img
                   src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face"
                   alt="Francesca"
-                  className="w-8 h-8 rounded-full object-cover shrink-0 mt-0.5"
-                />
+                  className="w-8 h-8 rounded-full object-cover shrink-0 mt-0.5" />
+                
                 <div>
                   <p className="text-[14px] text-secondary leading-relaxed">
                     &ldquo;In 2 ore era tutto risolto — senza dover chiamare nessuno.&rdquo;
@@ -611,18 +611,18 @@ export default function HeroSection() {
             {/* CTA buttons (desktop) */}
             <div
               className={`mt-8 md:mt-10 hidden lg:flex flex-row items-center gap-3 hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
-              style={{ transitionDelay: "0.3s" }}
-            >
+              style={{ transitionDelay: "0.3s" }}>
+              
               <a
                 href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
-                className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
-              >
+                className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer rounded-sm">
+                
                 Richiedi accesso prioritario
               </a>
               <a
                 href="#come-funziona"
-                className="inline-flex items-center justify-center text-dark font-semibold text-[15px] rounded-[10px] px-8 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer"
-              >
+                className="inline-flex items-center justify-center text-dark font-semibold text-[15px] rounded-[10px] px-8 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer">
+                
                 Vedi come funziona
               </a>
             </div>
@@ -631,8 +631,8 @@ export default function HeroSection() {
           {/* Right — dashboard mockup (desktop only, overflows bottom) */}
           <div
             className={`relative hidden lg:block hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
-            style={{ transitionDelay: "0.15s" }}
-          >
+            style={{ transitionDelay: "0.15s" }}>
+            
             <div className="-translate-y-24">
               <DashboardMockup />
             </div>
@@ -645,13 +645,13 @@ export default function HeroSection() {
         {/* Testimonial */}
         <div
           className={`flex items-start gap-3 max-w-[460px] mx-auto mb-6 mt-12 hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
-          style={{ transitionDelay: "0.25s" }}
-        >
+          style={{ transitionDelay: "0.25s" }}>
+          
           <img
             src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face"
             alt="Francesca"
-            className="w-8 h-8 rounded-full object-cover shrink-0 mt-0.5"
-          />
+            className="w-8 h-8 rounded-full object-cover shrink-0 mt-0.5" />
+          
           <div>
             <p className="text-[13px] text-secondary leading-relaxed">
               &ldquo;In 2 ore era tutto risolto — senza dover chiamare nessuno.&rdquo;
@@ -665,18 +665,18 @@ export default function HeroSection() {
         {/* CTA buttons */}
         <div
           className={`flex flex-col gap-3 max-w-[400px] mx-auto hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
-          style={{ transitionDelay: "0.3s" }}
-        >
+          style={{ transitionDelay: "0.3s" }}>
+          
           <a
             href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
-            className="flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-[10px] px-5 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
-          >
+            className="flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-[10px] px-5 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer">
+            
             Richiedi accesso prioritario
           </a>
           <a
             href="#come-funziona"
-            className="flex items-center justify-center text-dark font-semibold text-[14px] rounded-[10px] px-4 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer"
-          >
+            className="flex items-center justify-center text-dark font-semibold text-[14px] rounded-[10px] px-4 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer">
+            
             Vedi come funziona
           </a>
         </div>
@@ -699,14 +699,14 @@ export default function HeroSection() {
               requestAnimationFrame(step);
             }}
             className="animate-hero-bounce"
-            aria-label="Scorri in basso"
-          >
+            aria-label="Scorri in basso">
+            
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-secondary/40">
               <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
