@@ -46,8 +46,8 @@ const REVIEWS = [
   stars: 5,
   time: "6 giorni fa",
   text: "Il commercialista mi chiedeva sempre i costi di manutenzione e io impazzivo. Ora esporto tutto in 2 click. Anche lui è contento.",
-  name: "Roberto Conti",
-  role: "Gestore Appartamenti, Roma",
+  name: "Roberto C.",
+  role: "Roma",
   avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face"
 },
 {
