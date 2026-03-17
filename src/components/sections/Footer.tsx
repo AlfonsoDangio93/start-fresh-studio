@@ -3,11 +3,29 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
-const COLUMNS = {
-  Prodotto: ["Come funziona", "Servizi", "Prezzi", "Integrazioni"],
-  Risorse: ["App Hommi", "Blog", "Documentazione", "Partnerships"],
-  Impresa: ["Chi siamo", "Termini e condizioni", "Informativa sulla privacy"],
-  Prezzi: ["Piani", "Centro di aiuto"],
+const COLUMNS: Record<string, { label: string; href?: string }[]> = {
+  Prodotto: [
+    { label: "Come funziona" },
+    { label: "Servizi" },
+    { label: "Prezzi" },
+    { label: "Integrazioni" },
+  ],
+  Risorse: [
+    { label: "App Hommi" },
+    { label: "Blog" },
+    { label: "Documentazione" },
+    { label: "Partnerships" },
+  ],
+  Impresa: [
+    { label: "Chi siamo" },
+    { label: "Termini e condizioni" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+  ],
+  Prezzi: [
+    { label: "Piani" },
+    { label: "Centro di aiuto" },
+  ],
 };
 
 const SOCIALS = [
