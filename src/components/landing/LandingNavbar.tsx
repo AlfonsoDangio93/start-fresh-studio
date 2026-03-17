@@ -74,7 +74,7 @@ export default function LandingNavbar() {
             ))}
             <a
               href={CTA_URL} target="_blank" rel="noopener noreferrer"
-              className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-5 py-2 rounded-lg cursor-pointer ml-2"
+              className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-5 py-2 rounded-full cursor-pointer ml-2"
             >
               Inizia ora
             </a>
