@@ -32,7 +32,7 @@ const FEATURES = [
 },
 {
   icon: Timer,
-  title: "Apri un ticket tramite whatsapp.",
+  title: "Apri un ticket tramite WhatsApp.",
   desc: "Scegli la proprietà, scrivi due righe, aggiungi una foto. Fatto. Nessuna telefonata, nessun follow-up.",
   visual: "ticket"
 },
