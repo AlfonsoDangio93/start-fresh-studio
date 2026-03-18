@@ -114,7 +114,7 @@ const BENEFITS = [
   {
     visual: <PhoneClickIcon />,
     title: "Zero telefonate. Un solo click.",
-    desc: "Segnala il guasto via app, noi lo gestiamo dall\u2019intervento alla supervisione alla chiusura. Tu ricevi solo il report finale.",
+    desc: "Segnala il guasto, noi lo gestiamo dall\u2019intervento alla supervisione alla chiusura. Tu ricevi solo il report finale.",
   },
   {
     visual: <ClockCheckIcon />,
