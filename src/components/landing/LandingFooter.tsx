@@ -10,7 +10,7 @@ export default function LandingFooter() {
             <Link to="/" className="flex items-center cursor-pointer">
               <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 w-auto" />
             </Link>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 my-[13px]">
               <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
                 <Linkedin size={18} />
               </a>
