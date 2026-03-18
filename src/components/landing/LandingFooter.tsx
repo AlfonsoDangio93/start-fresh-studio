@@ -52,6 +52,12 @@ export default function LandingFooter() {
                 <img alt="Mamazen" className="h-9 w-auto" src="/lovable-uploads/c0246aaf-5d46-4899-8294-5e44ae8569d7.jpg" />
               </a>
             </div>
+            <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
+            <a href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</a>
+            <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
+            <a href="/termini-e-condizioni" className="hover:text-foreground transition-colors">Termini e Condizioni</a>
+            <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
+            <a href="/cookie-policy" className="hover:text-foreground transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>
