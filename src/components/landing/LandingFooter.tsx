@@ -14,7 +14,7 @@ export default function LandingFooter() {
               <a href="https://www.linkedin.com/company/hommi-it/?originalSubdomain=it" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
                 <Linkedin size={18} />
               </a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/hommi.it/" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
                 <Instagram size={18} />
               </a>
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
