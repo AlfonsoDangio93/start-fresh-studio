@@ -232,7 +232,7 @@ export default function TestimonialsSection() {
       <div className="max-w-site mx-auto px-6">
         {/* Header */}
         <div className={`text-center mb-14 reveal ${vis ? "revealed" : ""}`}>
-          <span className="inline-block text-[11px] font-semibold text-dark uppercase tracking-[0.08em] border border-border rounded-full px-3.5 py-1.5 mb-5">
+          <span className="inline-block text-[12px] font-semibold text-primary uppercase tracking-[0.15em] mb-3">
             Dicono di noi
           </span>
           {vis ?
