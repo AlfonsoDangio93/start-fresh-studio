@@ -55,11 +55,11 @@ export default function LandingFooter() {
           </div>
           <div className="flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground/60 flex-wrap">
             <span>© 2026 Hommi | All rights reserved</span>
-            <span>·</span>
+            <span>|</span>
             <a href="/privacy-policy" className="hover:text-muted-foreground transition-colors">Privacy Policy</a>
-            <span>·</span>
+            <span>|</span>
             <a href="/termini-e-condizioni" className="hover:text-muted-foreground transition-colors">Termini e Condizioni</a>
-            <span>·</span>
+            <span>|</span>
             <a href="/cookie-policy" className="hover:text-muted-foreground transition-colors">Cookie Policy</a>
           </div>
         </div>
