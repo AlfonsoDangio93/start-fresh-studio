@@ -11,13 +11,13 @@ export default function LandingFooter() {
               <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 w-auto" />
             </Link>
             <div className="flex items-center gap-3 my-[18px]">
-              <a href="https://www.linkedin.com/company/hommi-it/?originalSubdomain=it" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 rounded-full border border-border text-dark hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-200">
+              <a href="https://www.linkedin.com/company/hommi-it/?originalSubdomain=it" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 rounded-full border border-transparent text-dark hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-200">
                 <Linkedin size={16} />
               </a>
-              <a href="https://www.instagram.com/hommi.it/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 rounded-full border border-border text-dark hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-200">
+              <a href="https://www.instagram.com/hommi.it/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 rounded-full border border-transparent text-dark hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-200">
                 <Instagram size={16} />
               </a>
-              <a href="https://www.facebook.com/hommi.it/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 rounded-full border border-border text-dark hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-200">
+              <a href="https://www.facebook.com/hommi.it/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-8 h-8 rounded-full border border-transparent text-dark hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-200">
                 <Facebook size={16} />
               </a>
             </div>
