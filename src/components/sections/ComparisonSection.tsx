@@ -67,7 +67,7 @@ export default function ComparisonSection() {
         <div className={`text-center mb-14 reveal ${vis ? "revealed" : ""}`}>
           {vis ? (
             <TypingHeading
-              lines={["Confronta Hommi con le alternative", "che già usi"]}
+              lines={["Confronta Hommi con le alternative", "che già usi."]}
               className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight"
               speed={40}
               startDelay={200}
