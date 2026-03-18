@@ -129,7 +129,7 @@ const BENEFITS = [
   {
     visual: <PhoneReportIcon />,
     title: "Foto, costi e aggiornamenti in tempo reale.",
-    desc: "Controlla tutto tramite la piattaforma. Approvazione solo quando necessario. Nessuna sorpresa, mai.",
+    desc: "Controlla tutto. Approvazione solo quando necessario. Nessuna sorpresa, mai.",
   },
 ];
 
