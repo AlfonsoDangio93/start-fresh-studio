@@ -62,7 +62,7 @@ const FEATURES: PlanFeature[] = [
 {
   highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
   label: "",
-  base: "incluso",
+  base: "non-incluso",
   premium: "incluso",
   plus: "incluso"
 },
