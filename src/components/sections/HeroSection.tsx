@@ -59,7 +59,7 @@ function NotificationCard({ section }: {section: SectionKey;}) {
         <div className="space-y-2.5 text-[10px]">
           <div>
             <p className="text-secondary/40 text-[9px]">Alloggio</p>
-            <p className="text-dark font-medium">Via Dante 23, Firenze</p>
+            <p className="text-dark font-medium">Via Dante 23, Como</p>
           </div>
           <div>
             <p className="text-secondary/40 text-[9px]">Check-out</p>
