@@ -256,12 +256,12 @@ function SectionContent({ section }: {section: SectionKey;}) {
           <div className="space-y-2">
             {[
             { name: "Via Roma 12", city: "Milano", rooms: 3, status: "Occupato", sColor: "bg-green-500" },
-            { name: "Corso Italia 8", city: "Roma", rooms: 2, status: "Libero", sColor: "bg-blue-500" },
-            { name: "Via Dante 23", city: "Firenze", rooms: 4, status: "Manutenzione", sColor: "bg-amber-500" },
+            { name: "Corso Italia 8", city: "Monza", rooms: 2, status: "Libero", sColor: "bg-blue-500" },
+            { name: "Via Dante 23", city: "Como", rooms: 4, status: "Manutenzione", sColor: "bg-amber-500" },
             { name: "P.za Duomo 5", city: "Torino", rooms: 2, status: "Occupato", sColor: "bg-green-500" },
-            { name: "Via Manzoni 3", city: "Bologna", rooms: 3, status: "Libero", sColor: "bg-blue-500" },
-            { name: "Via Garibaldi 15", city: "Napoli", rooms: 5, status: "Occupato", sColor: "bg-green-500" },
-            { name: "Via Veneto 42", city: "Roma", rooms: 2, status: "Libero", sColor: "bg-blue-500" }].
+            { name: "Via Manzoni 3", city: "Milano", rooms: 3, status: "Libero", sColor: "bg-blue-500" },
+            { name: "Via Garibaldi 15", city: "Como", rooms: 5, status: "Occupato", sColor: "bg-green-500" },
+            { name: "Via Veneto 42", city: "Monza", rooms: 2, status: "Libero", sColor: "bg-blue-500" }].
             map((p, i) =>
             <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#FAFAFA] transition-colors border border-transparent hover:border-[#F0F0F0]">
                 <div className="w-8 h-8 rounded-lg bg-[#F5F5F5] flex items-center justify-center text-[11px]">🏠</div>
