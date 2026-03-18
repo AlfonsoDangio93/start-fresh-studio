@@ -23,8 +23,8 @@ export default function CTASection() {
             anche con 50 alloggi?
           </h2>
           <p className="mt-5 text-white/60 text-[15px] md:text-[17px] max-w-[460px] mx-auto leading-relaxed">
-            2.000+ property manager hanno già scelto Hommi.
-            Nessun vincolo annuale, prezzo fisso, zero sorprese.
+            2.000+ property manager hanno già scelto Hommi. 
+          
           </p>
           <div className="mt-8">
             <a
