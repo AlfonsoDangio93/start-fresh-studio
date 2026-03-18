@@ -187,6 +187,9 @@ export default function LandingPricing() {
             </div>
           )}
         </div>
+        <p className="text-center text-secondary/70 text-[13px] mt-6">
+          *ticket spendibili per interventi programmati della durata massima di un'ora.
+        </p>
       </div>
     </section>);
 
