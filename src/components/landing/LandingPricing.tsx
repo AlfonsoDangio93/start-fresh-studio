@@ -33,10 +33,10 @@ const FEATURES: PlanFeature[] = [
 },
 {
   label: "",
-  highlight: "Interventi garantiti entro 6 ore.",
-  base: "incluso",
-  premium: "incluso",
-  plus: "incluso"
+  highlight: "Interventi garantiti entro",
+  base: "Interventi garantiti entro 6 ore.",
+  premium: "Interventi garantiti entro 4 ore.",
+  plus: "Interventi garantiti entro 4 ore."
 },
 {
   highlight: "Sopralluogo iniziale con mappatura",
@@ -161,6 +161,7 @@ export default function LandingPricing() {
                 {FEATURES.map((f, i) => {
                 const val = f[plan.key];
                 const isTicketFeature = f.highlight?.includes("ticket/anno*");
+                const isInterventionFeature = f.highlight?.includes("Interventi garantiti entro");
                 return (
                   <div key={i} className="flex items-start gap-2 text-[13px]">
                       {val === "non-incluso" ?
@@ -170,6 +171,8 @@ export default function LandingPricing() {
                       <span className="font-semibold text-dark/90">
                         {isTicketFeature ? (
                           <>{val} per interventi di riparazione o prevenzione</>
+                        ) : isInterventionFeature ? (
+                          <>{val}</>
                         ) : (
                           f.highlight
                         )}
