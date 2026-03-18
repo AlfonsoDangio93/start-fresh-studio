@@ -53,10 +53,10 @@ const FEATURES: PlanFeature[] = [
   plus: "incluso"
 },
 {
-  highlight: "1 ticket/anno* per interventi di riparazione o prevenzione",
+  highlight: "2 ticket/anno* per interventi di riparazione o prevenzione",
   label: "",
   base: "1 ticket incluso all'anno",
-  premium: "2 ticket inclusi all'anno",
+  premium: "incluso",
   plus: "4 ticket inclusi all'anno"
 },
 {
