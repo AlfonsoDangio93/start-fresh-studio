@@ -5,7 +5,7 @@ import TypingHeading from "@/components/TypingHeading";
 
 const FAQS = [
 { q: "Posso gestire più immobili con un solo account?", a: "Certo. Ogni immobile ha il suo profilo, e puoi aprire ticket in parallelo." },
-{ q: "Come vengono scelti i tecnici?", a: "I tuttofare sono nostri dipendenti. Gli specialisti esterni seguono i nostri SOP e sono selezionati tramite verifica documentale, colloquio e feedback continui." },
+{ q: "Come vengono scelti i tecnici?", a: "I nostri collaboratori sono selezionati con attenzione meticolosa e verificati in ogni fase: verifica documentale, colloquio, prove pratiche, feedback continui e aderenza ai nostri standard qualitativi ed alle nostre procedure operative." },
 { q: "Quanto costa?", a: "Hommi offre 3 piani di abbonamento disponibili. Il costo degli interventi è fisso e trasparente. Ogni extra viene sempre approvato dal Property Manager prima di procedere." },
 { q: "Cosa succede se il guasto è grave?", a: "Organizziamo l\u2019intervento specialistico, ti inviamo preventivo e coordiniamo tutto fino alla risoluzione." },
 
