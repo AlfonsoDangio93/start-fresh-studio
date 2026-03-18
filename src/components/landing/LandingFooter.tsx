@@ -1,6 +1,5 @@
-
-
 import { Link } from "react-router-dom";
+import { Linkedin, Instagram, Facebook } from "lucide-react";
 
 export default function LandingFooter() {
   return (
