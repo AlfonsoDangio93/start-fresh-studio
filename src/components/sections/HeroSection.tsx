@@ -329,9 +329,9 @@ function SectionContent({ section }: {section: SectionKey;}) {
             { name: "Marco Bianchi", init: "MB", spec: "Idraulica", zone: "Milano Centro", status: "Occupato", sColor: "bg-amber-500", bg: "bg-blue-100", fg: "text-blue-600" },
             { name: "Luca Verdi", init: "LV", spec: "Idraulica · Elettrica", zone: "Milano Nord", status: "Disponibile", sColor: "bg-green-500", bg: "bg-emerald-100", fg: "text-emerald-700" },
             { name: "Giovanni Neri", init: "GN", spec: "Elettrica", zone: "Torino", status: "Disponibile", sColor: "bg-green-500", bg: "bg-gray-100", fg: "text-gray-700" },
-            { name: "Anna Russo", init: "AR", spec: "Generalista", zone: "Bologna", status: "Disponibile", sColor: "bg-green-500", bg: "bg-pink-100", fg: "text-pink-700" },
-            { name: "Paolo Costa", init: "PC", spec: "Idraulica", zone: "Napoli", status: "Occupato", sColor: "bg-amber-500", bg: "bg-orange-100", fg: "text-orange-700" },
-            { name: "Sara Ferri", init: "SF", spec: "Serrature · Falegname", zone: "Firenze", status: "Disponibile", sColor: "bg-green-500", bg: "bg-violet-100", fg: "text-violet-700" }].
+            { name: "Anna Russo", init: "AR", spec: "Generalista", zone: "Monza", status: "Disponibile", sColor: "bg-green-500", bg: "bg-pink-100", fg: "text-pink-700" },
+            { name: "Paolo Costa", init: "PC", spec: "Idraulica", zone: "Como", status: "Occupato", sColor: "bg-amber-500", bg: "bg-orange-100", fg: "text-orange-700" },
+            { name: "Sara Ferri", init: "SF", spec: "Serrature · Falegname", zone: "Torino", status: "Disponibile", sColor: "bg-green-500", bg: "bg-violet-100", fg: "text-violet-700" }].
             map((t, i) =>
             <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#FAFAFA] transition-colors">
                 <div className={`w-7 h-7 rounded-full ${t.bg} flex items-center justify-center text-[9px] font-bold ${t.fg}`}>{t.init}</div>
