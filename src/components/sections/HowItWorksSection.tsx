@@ -114,12 +114,12 @@ function TicketVisual() {
         {/* Chat */}
         <div className="px-3 py-3 space-y-2">
           {/* User message */}
-          <div className="bg-white rounded-tr-none px-3 py-2 max-w-[88%] ml-auto shadow-sm rounded">
+          <div className="bg-white rounded-tr-none px-3 py-2 max-w-[88%] ml-auto shadow-sm rounded-xl">
             <p className="text-[9px] text-dark leading-relaxed">Lavandino intasato in Appartamento Milano 2 🔧</p>
             <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:02 ✓✓</span>
           </div>
           {/* Bot reply */}
-          <div className="bg-primary/10 rounded-tl-none px-3 py-2 max-w-[88%] shadow-sm rounded">
+          <div className="bg-primary/10 rounded-tl-none px-3 py-2 max-w-[88%] shadow-sm rounded-xl">
             <p className="text-[9px] text-dark leading-relaxed">Ticket aperto ✅ Marco arriva entro le 14:00!</p>
             <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:03</span>
           </div>
