@@ -4,7 +4,7 @@ import { Linkedin, Instagram, Facebook } from "lucide-react";
 export default function LandingFooter() {
   return (
     <footer className="bg-white border-t border-border">
-      <div className="max-w-site mx-auto px-6 pt-14 pb-8">
+      <div className="max-w-site mx-auto px-6 pt-10 pb-6">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 pb-10 border-b border-border">
           <div className="shrink-0 space-y-3">
             <Link to="/" className="flex items-center cursor-pointer">
