@@ -59,7 +59,7 @@ function NotificationCard({ section }: {section: SectionKey;}) {
         <div className="space-y-2.5 text-[10px]">
           <div>
             <p className="text-secondary/40 text-[9px]">Alloggio</p>
-            <p className="text-dark font-medium">Via Dante 23, Firenze</p>
+            <p className="text-dark font-medium">Via Dante 23, Como</p>
           </div>
           <div>
             <p className="text-secondary/40 text-[9px]">Check-out</p>
@@ -151,7 +151,7 @@ function NotificationCard({ section }: {section: SectionKey;}) {
           </div>
           <div>
             <p className="text-secondary/40 text-[9px]">Alloggio</p>
-            <p className="text-dark font-medium">Corso Italia 8, Roma</p>
+            <p className="text-dark font-medium">Corso Italia 8, Monza</p>
           </div>
           <div className="flex items-center gap-1.5 pt-0.5">
             <div className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
@@ -256,12 +256,12 @@ function SectionContent({ section }: {section: SectionKey;}) {
           <div className="space-y-2">
             {[
             { name: "Via Roma 12", city: "Milano", rooms: 3, status: "Occupato", sColor: "bg-green-500" },
-            { name: "Corso Italia 8", city: "Roma", rooms: 2, status: "Libero", sColor: "bg-blue-500" },
-            { name: "Via Dante 23", city: "Firenze", rooms: 4, status: "Manutenzione", sColor: "bg-amber-500" },
+            { name: "Corso Italia 8", city: "Monza", rooms: 2, status: "Libero", sColor: "bg-blue-500" },
+            { name: "Via Dante 23", city: "Como", rooms: 4, status: "Manutenzione", sColor: "bg-amber-500" },
             { name: "P.za Duomo 5", city: "Torino", rooms: 2, status: "Occupato", sColor: "bg-green-500" },
-            { name: "Via Manzoni 3", city: "Bologna", rooms: 3, status: "Libero", sColor: "bg-blue-500" },
-            { name: "Via Garibaldi 15", city: "Napoli", rooms: 5, status: "Occupato", sColor: "bg-green-500" },
-            { name: "Via Veneto 42", city: "Roma", rooms: 2, status: "Libero", sColor: "bg-blue-500" }].
+            { name: "Via Manzoni 3", city: "Milano", rooms: 3, status: "Libero", sColor: "bg-blue-500" },
+            { name: "Via Garibaldi 15", city: "Como", rooms: 5, status: "Occupato", sColor: "bg-green-500" },
+            { name: "Via Veneto 42", city: "Monza", rooms: 2, status: "Libero", sColor: "bg-blue-500" }].
             map((p, i) =>
             <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#FAFAFA] transition-colors border border-transparent hover:border-[#F0F0F0]">
                 <div className="w-8 h-8 rounded-lg bg-[#F5F5F5] flex items-center justify-center text-[11px]">🏠</div>
@@ -329,9 +329,9 @@ function SectionContent({ section }: {section: SectionKey;}) {
             { name: "Marco Bianchi", init: "MB", spec: "Idraulica", zone: "Milano Centro", status: "Occupato", sColor: "bg-amber-500", bg: "bg-blue-100", fg: "text-blue-600" },
             { name: "Luca Verdi", init: "LV", spec: "Idraulica · Elettrica", zone: "Milano Nord", status: "Disponibile", sColor: "bg-green-500", bg: "bg-emerald-100", fg: "text-emerald-700" },
             { name: "Giovanni Neri", init: "GN", spec: "Elettrica", zone: "Torino", status: "Disponibile", sColor: "bg-green-500", bg: "bg-gray-100", fg: "text-gray-700" },
-            { name: "Anna Russo", init: "AR", spec: "Generalista", zone: "Bologna", status: "Disponibile", sColor: "bg-green-500", bg: "bg-pink-100", fg: "text-pink-700" },
-            { name: "Paolo Costa", init: "PC", spec: "Idraulica", zone: "Napoli", status: "Occupato", sColor: "bg-amber-500", bg: "bg-orange-100", fg: "text-orange-700" },
-            { name: "Sara Ferri", init: "SF", spec: "Serrature · Falegname", zone: "Firenze", status: "Disponibile", sColor: "bg-green-500", bg: "bg-violet-100", fg: "text-violet-700" }].
+            { name: "Anna Russo", init: "AR", spec: "Generalista", zone: "Monza", status: "Disponibile", sColor: "bg-green-500", bg: "bg-pink-100", fg: "text-pink-700" },
+            { name: "Paolo Costa", init: "PC", spec: "Idraulica", zone: "Como", status: "Occupato", sColor: "bg-amber-500", bg: "bg-orange-100", fg: "text-orange-700" },
+            { name: "Sara Ferri", init: "SF", spec: "Serrature · Falegname", zone: "Torino", status: "Disponibile", sColor: "bg-green-500", bg: "bg-violet-100", fg: "text-violet-700" }].
             map((t, i) =>
             <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#FAFAFA] transition-colors">
                 <div className={`w-7 h-7 rounded-full ${t.bg} flex items-center justify-center text-[9px] font-bold ${t.fg}`}>{t.init}</div>
