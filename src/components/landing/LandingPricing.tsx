@@ -11,6 +11,8 @@ type FeatureValue = "incluso" | "non-incluso" | string;
 interface PlanFeature {
   label: string;
   highlight?: string;
+  highlightPremium?: string;
+  highlightPlus?: string;
   base: FeatureValue;
   premium: FeatureValue;
   plus: FeatureValue;
@@ -34,6 +36,8 @@ const FEATURES: PlanFeature[] = [
 {
   label: "",
   highlight: "Interventi garantiti entro 6 ore.",
+  highlightPremium: "Interventi garantiti entro 4 ore.",
+  highlightPlus: "Interventi garantiti entro 4 ore.",
   base: "incluso",
   premium: "incluso",
   plus: "incluso"
@@ -171,6 +175,8 @@ export default function LandingPricing() {
                         {isTicketFeature ? (
                           <>{val} per interventi di riparazione o prevenzione</>
                         ) : (
+                          (plan.key === "premium" && f.highlightPremium) ? f.highlightPremium :
+                          (plan.key === "plus" && f.highlightPlus) ? f.highlightPlus :
                           f.highlight
                         )}
                       </span>
