@@ -33,10 +33,10 @@ const FEATURES: PlanFeature[] = [
 },
 {
   label: "",
-  highlight: "Interventi garantiti entro 6 ore.",
-  base: "incluso",
-  premium: "incluso",
-  plus: "incluso"
+  highlight: "Interventi garantiti entro",
+  base: "Interventi garantiti entro 6 ore.",
+  premium: "Interventi garantiti entro 4 ore.",
+  plus: "Interventi garantiti entro 4 ore."
 },
 {
   highlight: "Sopralluogo iniziale con mappatura",
