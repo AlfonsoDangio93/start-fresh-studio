@@ -35,7 +35,7 @@ export default function LandingFooter() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <span>Made with</span>
-              <span className="text-red-500">❤️</span>
+              <span className="text-red-500 text-xs">❤️</span>
               <span>by</span>
               <Link to="/" className="flex items-center">
                 <img src="/logos/hommi_logo.png" alt="Hommi" className="h-5 w-auto" />
