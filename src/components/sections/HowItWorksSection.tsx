@@ -27,7 +27,7 @@ const FEATURES = [
   {
     icon: BookOpen,
     title: "Ogni casa ha il suo manuale tecnico.",
-    desc: "Creiamo un profilo dettagliato con sopralluogo iniziale e mappatura degli impianti. Quando c\u2019è un problema, non si parte mai da zero.",
+    desc: "Creiamo un profilo dettagliato con sopralluogo iniziale e mappatura degli impianti. Quando c\u2019è un problema, non si parte mai da zero",
     visual: "dashboard",
   },
   {
