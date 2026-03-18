@@ -109,21 +109,42 @@ function DashboardVisual() {
 
 function TicketVisual() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl shadow-lg border border-border/60 w-full max-w-[200px] overflow-hidden">
-        <div className="px-4 pt-3 pb-2">
-          <span className="text-[11px] font-bold text-dark">Apri ticket</span>
+    <div className="relative w-full h-full flex items-center justify-center p-3">
+      <div className="bg-[#ECE5DD] rounded-xl shadow-lg w-full max-w-[210px] overflow-hidden">
+        {/* WhatsApp header */}
+        <div className="bg-[#075E54] px-3 py-2 flex items-center gap-2">
+          <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+            <img src="/logos/hommi_logo.png" alt="Hommi" className="w-3.5 h-3.5 object-contain" />
+          </div>
+          <span className="text-[10px] font-semibold text-white">Hommi</span>
+          <span className="text-[7px] text-white/60 ml-auto">online</span>
         </div>
-        <div className="px-4 pb-3 space-y-2">
-          <div className="bg-surface rounded-lg px-2.5 py-2 text-[9px] text-secondary flex justify-between items-center">
-            <span>Appartamento Milano 2</span>
-            <ChevronRight size={10} className="text-secondary/40" />
+        {/* Chat messages */}
+        <div className="px-2.5 py-2.5 space-y-1.5">
+          {/* Bot message */}
+          <div className="bg-white rounded-lg rounded-tl-none px-2.5 py-1.5 max-w-[85%] shadow-sm">
+            <p className="text-[8px] text-dark leading-relaxed">Ciao! 👋 Quale proprietà ha bisogno di assistenza?</p>
+            <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:02</span>
           </div>
-          <div className="bg-surface rounded-lg px-2.5 py-2 text-[9px] text-secondary/60">
-            lavandino intasato
+          {/* User message */}
+          <div className="bg-[#DCF8C6] rounded-lg rounded-tr-none px-2.5 py-1.5 max-w-[85%] ml-auto shadow-sm">
+            <p className="text-[8px] text-dark leading-relaxed">Appartamento Milano 2</p>
+            <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:02</span>
           </div>
-          <div className="bg-primary rounded-xl px-3 py-2 text-center">
-            <span className="text-[10px] font-semibold text-white">Invia ticket</span>
+          {/* Bot message */}
+          <div className="bg-white rounded-lg rounded-tl-none px-2.5 py-1.5 max-w-[85%] shadow-sm">
+            <p className="text-[8px] text-dark leading-relaxed">Descrivi il problema e allega una foto 📸</p>
+            <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:02</span>
+          </div>
+          {/* User message with photo placeholder */}
+          <div className="bg-[#DCF8C6] rounded-lg rounded-tr-none px-2.5 py-1.5 max-w-[85%] ml-auto shadow-sm">
+            <p className="text-[8px] text-dark leading-relaxed">Lavandino intasato 🔧</p>
+            <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:03 ✓✓</span>
+          </div>
+          {/* Bot confirmation */}
+          <div className="bg-white rounded-lg rounded-tl-none px-2.5 py-1.5 max-w-[85%] shadow-sm">
+            <p className="text-[8px] text-dark leading-relaxed">Ticket #1042 aperto ✅ Marco, il tuo tecnico, arriva entro le 14:00.</p>
+            <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:03</span>
           </div>
         </div>
       </div>
