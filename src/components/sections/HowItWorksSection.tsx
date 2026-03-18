@@ -111,16 +111,6 @@ function TicketVisual() {
   return (
     <div className="relative w-full h-full flex items-center justify-center p-2">
       <div className="bg-[#F0F0F0] rounded-xl shadow-lg w-full max-w-[230px] overflow-hidden">
-        {/* Header */}
-        <div className="bg-primary px-3 py-2.5 flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-            <img src="/logos/hommi_logo.png" alt="Hommi" className="w-4 h-4 object-contain" />
-          </div>
-          <div>
-            <span className="text-[11px] font-semibold text-white block leading-tight">Hommi</span>
-            <span className="text-[7px] text-white/60">online</span>
-          </div>
-        </div>
         {/* Chat */}
         <div className="px-3 py-3 space-y-2">
           {/* User message */}
