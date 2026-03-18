@@ -167,15 +167,11 @@ export default function LandingPricing() {
                     <X size={14} className="text-red-400 mt-0.5 shrink-0" /> :
                     <Check size={14} className="text-green-600 mt-0.5 shrink-0" />
                     }
-                      <span className="text-dark/70">
+                      <span className="font-semibold text-dark/90">
                         {isTicketFeature ? (
-                          <span className="font-semibold text-dark/90">{val} per interventi di riparazione o prevenzione</span>
+                          <>{val} per interventi di riparazione o prevenzione</>
                         ) : (
-                          <>
-                            {f.highlight && <span className="font-semibold text-dark/90">{f.highlight}</span>}
-                            {f.label}
-                            {val !== "incluso" && val !== "non-incluso" ? ` — ${val}` : ""}
-                          </>
+                          f.highlight
                         )}
                       </span>
                     </div>);
