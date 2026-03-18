@@ -175,6 +175,8 @@ export default function LandingPricing() {
                         {isTicketFeature ? (
                           <>{val} per interventi di riparazione o prevenzione</>
                         ) : (
+                          (plan.key === "premium" && f.highlightPremium) ? f.highlightPremium :
+                          (plan.key === "plus" && f.highlightPlus) ? f.highlightPlus :
                           f.highlight
                         )}
                       </span>
