@@ -116,19 +116,19 @@ export default function LandingPricing() {
       <div className="max-w-site mx-auto px-6">
         <div className={`text-center mb-14 reveal ${vis ? "revealed" : ""}`}>
           <span className="inline-block text-[11px] font-semibold text-dark uppercase tracking-[0.08em] border border-border rounded-full px-3.5 py-1.5 mb-5">Prezzi</span>
-          {vis ?
-          <TypingHeading
-            lines={["Un servizio su misura per chi", "gestisce più immobili."]}
-            className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight"
-            speed={40}
-            startDelay={200} /> :
-
-
-          <h2 className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight">
+          <div key={vis ? "typing" : "placeholder"}>
+            {vis ?
+            <TypingHeading
+              lines={["Un servizio su misura per chi", "gestisce più immobili."]}
+              className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight"
+              speed={40}
+              startDelay={200} /> :
+            <h2 className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight">
               <span className="block invisible">Un servizio su misura per chi</span>
               <span className="block invisible">gestisce più immobili.</span>
             </h2>
-          }
+            }
+          </div>
           <p className="mt-5 text-secondary text-[15px] md:text-[17px] max-w-[560px] mx-auto leading-relaxed">
             Tutto incluso: tecnico dedicato, sopralluogo iniziale, gestione end-to-end e report dettagliati via app.
           </p>
