@@ -1,16 +1,26 @@
-
-
 import { Link } from "react-router-dom";
+import { Linkedin, Instagram, Facebook } from "lucide-react";
 
 export default function LandingFooter() {
   return (
     <footer className="bg-white border-t border-border">
       <div className="max-w-site mx-auto px-6 pt-14 pb-8">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 pb-10 border-b border-border">
-          <div className="shrink-0">
+          <div className="shrink-0 space-y-3">
             <Link to="/" className="flex items-center cursor-pointer">
               <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 w-auto" />
             </Link>
+            <div className="flex items-center gap-3">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
+                <Linkedin size={18} />
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
+                <Facebook size={18} />
+              </a>
+            </div>
           </div>
 
           <div className="text-[12px] text-secondary/50 leading-relaxed max-w-[400px] md:text-right">
