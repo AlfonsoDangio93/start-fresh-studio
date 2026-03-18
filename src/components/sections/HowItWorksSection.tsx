@@ -109,42 +109,35 @@ function DashboardVisual() {
 
 function TicketVisual() {
   return (
-    <div className="relative w-full h-full flex items-center justify-center p-3">
-      <div className="bg-[#ECE5DD] rounded-xl shadow-lg w-full max-w-[210px] overflow-hidden">
-        {/* WhatsApp header */}
-        <div className="bg-[#075E54] px-3 py-2 flex items-center gap-2">
-          <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-            <img src="/logos/hommi_logo.png" alt="Hommi" className="w-3.5 h-3.5 object-contain" />
+    <div className="relative w-full h-full flex items-center justify-center p-2">
+      <div className="bg-[#F0F0F0] rounded-xl shadow-lg w-full max-w-[230px] overflow-hidden">
+        {/* Header */}
+        <div className="bg-primary px-3 py-2.5 flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
+            <img src="/logos/hommi_logo.png" alt="Hommi" className="w-4 h-4 object-contain" />
           </div>
-          <span className="text-[10px] font-semibold text-white">Hommi</span>
-          <span className="text-[7px] text-white/60 ml-auto">online</span>
+          <div>
+            <span className="text-[11px] font-semibold text-white block leading-tight">Hommi</span>
+            <span className="text-[7px] text-white/60">online</span>
+          </div>
         </div>
-        {/* Chat messages */}
-        <div className="px-2.5 py-2.5 space-y-1.5">
-          {/* Bot message */}
-          <div className="bg-white rounded-lg rounded-tl-none px-2.5 py-1.5 max-w-[85%] shadow-sm">
-            <p className="text-[8px] text-dark leading-relaxed">Ciao! 👋 Quale proprietà ha bisogno di assistenza?</p>
-            <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:02</span>
-          </div>
+        {/* Chat */}
+        <div className="px-3 py-3 space-y-2">
           {/* User message */}
-          <div className="bg-[#DCF8C6] rounded-lg rounded-tr-none px-2.5 py-1.5 max-w-[85%] ml-auto shadow-sm">
-            <p className="text-[8px] text-dark leading-relaxed">Appartamento Milano 2</p>
-            <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:02</span>
+          <div className="bg-white rounded-lg rounded-tr-none px-3 py-2 max-w-[88%] ml-auto shadow-sm">
+            <p className="text-[9px] text-dark leading-relaxed">Lavandino intasato in Appartamento Milano 2 🔧</p>
+            <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:02 ✓✓</span>
           </div>
-          {/* Bot message */}
-          <div className="bg-white rounded-lg rounded-tl-none px-2.5 py-1.5 max-w-[85%] shadow-sm">
-            <p className="text-[8px] text-dark leading-relaxed">Descrivi il problema e allega una foto 📸</p>
-            <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:02</span>
-          </div>
-          {/* User message with photo placeholder */}
-          <div className="bg-[#DCF8C6] rounded-lg rounded-tr-none px-2.5 py-1.5 max-w-[85%] ml-auto shadow-sm">
-            <p className="text-[8px] text-dark leading-relaxed">Lavandino intasato 🔧</p>
-            <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:03 ✓✓</span>
-          </div>
-          {/* Bot confirmation */}
-          <div className="bg-white rounded-lg rounded-tl-none px-2.5 py-1.5 max-w-[85%] shadow-sm">
-            <p className="text-[8px] text-dark leading-relaxed">Ticket #1042 aperto ✅ Marco, il tuo tecnico, arriva entro le 14:00.</p>
+          {/* Bot reply */}
+          <div className="bg-primary/10 rounded-lg rounded-tl-none px-3 py-2 max-w-[88%] shadow-sm">
+            <p className="text-[9px] text-dark leading-relaxed">Ticket aperto ✅ Marco arriva entro le 14:00!</p>
             <span className="text-[6px] text-secondary/40 block text-right mt-0.5">10:03</span>
+          </div>
+          {/* Typing indicator */}
+          <div className="bg-primary/10 rounded-lg rounded-tl-none px-3 py-2.5 max-w-[50px] shadow-sm flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-[pulse_1s_ease-in-out_infinite]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-[pulse_1s_ease-in-out_0.2s_infinite]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-[pulse_1s_ease-in-out_0.4s_infinite]" />
           </div>
         </div>
       </div>
