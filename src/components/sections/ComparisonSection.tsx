@@ -75,7 +75,7 @@ export default function ComparisonSection() {
           ) : (
             <h2 className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight">
               <span className="block invisible">Confronta Hommi con le alternative</span>
-              <span className="block invisible">che già usi</span>
+              <span className="block invisible">che già usi.</span>
             </h2>
           )}
           <p className="mt-5 text-secondary text-[15px] md:text-[17px] max-w-[580px] mx-auto leading-relaxed">
