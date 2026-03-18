@@ -31,12 +31,8 @@ export default function LandingFooter() {
           </div>
         </div>
 
-        <div className="border-t border-border py-6 space-y-4">
-          
-
-          
-
-          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 text-sm text-[#6B7280]">
+        <div className="border-t border-border py-6 space-y-3">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <span>Made with</span>
               <span className="text-red-500">❤️</span>
@@ -45,19 +41,20 @@ export default function LandingFooter() {
                 <img src="/logos/hommi_logo.png" alt="Hommi" className="h-5 w-auto" />
               </Link>
             </div>
-            <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
+            <span className="hidden md:inline mx-1 text-border">|</span>
             <div className="flex items-center gap-2">
               <span>Powered by</span>
               <a href="https://www.mamazen.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
                 <img alt="Mamazen" className="h-9 w-auto" src="/lovable-uploads/c0246aaf-5d46-4899-8294-5e44ae8569d7.jpg" />
               </a>
             </div>
-            <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
-            <a href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</a>
-            <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
-            <a href="/termini-e-condizioni" className="hover:text-foreground transition-colors">Termini e Condizioni</a>
-            <span className="hidden md:inline mx-1 text-[#D1D5DB]">|</span>
-            <a href="/cookie-policy" className="hover:text-foreground transition-colors">Cookie Policy</a>
+          </div>
+          <div className="flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground/60">
+            <a href="/privacy-policy" className="hover:text-muted-foreground transition-colors">Privacy Policy</a>
+            <span>·</span>
+            <a href="/termini-e-condizioni" className="hover:text-muted-foreground transition-colors">Termini e Condizioni</a>
+            <span>·</span>
+            <a href="/cookie-policy" className="hover:text-muted-foreground transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>
