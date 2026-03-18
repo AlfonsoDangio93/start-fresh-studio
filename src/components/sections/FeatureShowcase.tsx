@@ -220,7 +220,7 @@ export default function FeatureShowcase() {
               <span className="block invisible">Affidati a Hommi.</span>
             </h2>
           )}
-          <p className="mt-5 text-secondary text-[15px] md:text-[17px] max-w-[520px] mx-auto leading-relaxed">
+          <p className="mt-5 text-secondary text-[15px] md:text-[17px] mx-auto leading-relaxed whitespace-nowrap">
             Gestione della casa senza stress: un click, un tecnico, zero complicazioni.
           </p>
         </div>
