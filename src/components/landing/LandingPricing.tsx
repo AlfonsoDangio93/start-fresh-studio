@@ -53,11 +53,11 @@ const FEATURES: PlanFeature[] = [
   plus: "incluso"
 },
 {
-  highlight: "2 ticket/anno* per interventi di riparazione o prevenzione",
+  highlight: "ticket/anno* per interventi di riparazione o prevenzione",
   label: "",
-  base: "1 ticket incluso all'anno",
-  premium: "incluso",
-  plus: "4 ticket inclusi all'anno"
+  base: "1 ticket/anno*",
+  premium: "2 ticket/anno*",
+  plus: "4 ticket/anno*"
 },
 {
   highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
@@ -160,20 +160,26 @@ export default function LandingPricing() {
               <div className="space-y-3 mb-6 flex-1">
                 {FEATURES.map((f, i) => {
                 const val = f[plan.key];
+                const isTicketFeature = f.highlight?.includes("ticket/anno*");
                 return (
                   <div key={i} className="flex items-start gap-2 text-[13px]">
                       {val === "non-incluso" ?
                     <X size={14} className="text-red-400 mt-0.5 shrink-0" /> :
-
                     <Check size={14} className="text-green-600 mt-0.5 shrink-0" />
                     }
                       <span className="text-dark/70">
-                        {f.highlight && <span className="font-semibold text-dark/90">{f.highlight}</span>}
-                        {val !== "incluso" && val !== "non-incluso" ? ` — ${val}` : ""}
+                        {isTicketFeature ? (
+                          <span className="font-semibold text-dark/90">{val} per interventi di riparazione o prevenzione</span>
+                        ) : (
+                          <>
+                            {f.highlight && <span className="font-semibold text-dark/90">{f.highlight}</span>}
+                            {f.label}
+                            {val !== "incluso" && val !== "non-incluso" ? ` — ${val}` : ""}
+                          </>
+                        )}
                       </span>
                     </div>);
-
-              })}
+                })}
               </div>
               <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className={`block w-full text-center font-semibold text-[14px] py-3.5 rounded-xl transition-colors duration-200 cursor-pointer ${plan.popular ? "bg-primary text-white hover:bg-primary-hover" : "bg-dark text-white hover:bg-dark/90"}`}>
                 RICHIEDI ACCESSO PRIORITARIO
@@ -181,6 +187,9 @@ export default function LandingPricing() {
             </div>
           )}
         </div>
+        <p className="text-center text-secondary/70 text-[13px] mt-6">
+          *ticket spendibili per interventi programmati della durata massima di un'ora.
+        </p>
       </div>
     </section>);
 
