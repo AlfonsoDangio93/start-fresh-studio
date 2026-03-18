@@ -21,6 +21,10 @@ export default function LandingFooter() {
                 <Facebook size={18} />
               </a>
             </div>
+            <p className="text-[12px] text-secondary/50 leading-relaxed">
+              <a href="mailto:info@hommi.it" className="hover:text-primary transition-colors">info@hommi.it</a>
+              <span> | s9srl@pec.it</span>
+            </p>
           </div>
 
           <div className="text-[12px] text-secondary/50 leading-relaxed max-w-[400px] md:text-right">
