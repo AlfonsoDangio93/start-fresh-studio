@@ -11,7 +11,7 @@ export default function LandingFooter() {
               <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 w-auto" />
             </Link>
             <div className="flex items-center gap-3 my-[18px]">
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/company/hommi-it/?originalSubdomain=it" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
                 <Linkedin size={18} />
               </a>
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-dark hover:text-primary transition-colors">
