@@ -11,6 +11,8 @@ type FeatureValue = "incluso" | "non-incluso" | string;
 interface PlanFeature {
   label: string;
   highlight?: string;
+  highlightPremium?: string;
+  highlightPlus?: string;
   base: FeatureValue;
   premium: FeatureValue;
   plus: FeatureValue;
