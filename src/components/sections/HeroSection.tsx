@@ -151,7 +151,7 @@ function NotificationCard({ section }: {section: SectionKey;}) {
           </div>
           <div>
             <p className="text-secondary/40 text-[9px]">Alloggio</p>
-            <p className="text-dark font-medium">Corso Italia 8, Roma</p>
+            <p className="text-dark font-medium">Corso Italia 8, Monza</p>
           </div>
           <div className="flex items-center gap-1.5 pt-0.5">
             <div className="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse" />
