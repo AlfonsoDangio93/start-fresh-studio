@@ -53,11 +53,11 @@ const FEATURES: PlanFeature[] = [
   plus: "incluso"
 },
 {
-  highlight: "",
-  label: "ticket/anno* per interventi di riparazione o prevenzione",
-  base: "1 ticket/anno incluso",
-  premium: "2 ticket/anno inclusi",
-  plus: "4 ticket/anno inclusi"
+  highlight: "Ticket/anno* per interventi di riparazione o prevenzione",
+  label: "",
+  base: "1 ticket incluso all'anno",
+  premium: "2 ticket inclusi all'anno",
+  plus: "4 ticket inclusi all'anno"
 },
 {
   highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
