@@ -21,7 +21,7 @@ export default function Landing1() {
       <FeatureShowcase />
       <HowItWorksSection />
       <ServicesSection />
-      <LandingPricing />
+      <Landing1Pricing />
       <ComparisonSection />
       <LandingTestimonials />
       <LandingFAQ />
