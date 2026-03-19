@@ -5,6 +5,7 @@ import { useUtmPersistence } from "@/hooks/useUtmPersistence";
 // Pages
 import Home from "@/pages/Home";
 import Landing from "@/pages/Landing";
+import Landing1 from "@/pages/Landing1";
 import Prezzi from "@/pages/Prezzi";
 import Faq from "@/pages/Faq";
 import PerPropertyManager from "@/pages/PerPropertyManager";
