@@ -216,8 +216,10 @@ export default function PricingSection() {
             </div>
           )}
         </div>
+        <p className="text-center text-secondary/70 text-[13px] mt-6 mb-24">
+          *ticket spendibili per interventi programmati della durata massima di un'ora.
+        </p>
 
-        {/* ── Ticket Flessibili ── */}
         <div className="max-w-[820px] mx-auto mb-20">
           <div className="bg-white rounded-2xl border border-border p-8 md:p-10">
             <h2 className="font-display text-[24px] md:text-[30px] font-bold text-dark leading-tight tracking-tight mb-4">
