@@ -10,7 +10,7 @@ const KEY_SERVICES = [
   "Piattaforma digitale con report, preventivi e stato lavori",
   "Sopralluogo iniziale con mappatura impianti e punti critici",
   "Preventivi trasparenti con costo materiale e manodopera",
-  "Interventi garantiti entro 6 ore",
+  "Interventi garantiti entro 4 ore",
   "Ticket annuali per interventi di riparazione o prevenzione",
 ];
 
