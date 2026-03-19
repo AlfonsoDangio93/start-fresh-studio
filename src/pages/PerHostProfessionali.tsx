@@ -7,7 +7,7 @@ export default function PerHostProfessionali() {
     <>
       <Navbar />
       <HostSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

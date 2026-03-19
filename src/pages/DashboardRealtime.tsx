@@ -7,7 +7,7 @@ export default function DashboardRealtime() {
     <>
       <Navbar />
       <DashboardSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

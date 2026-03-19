@@ -7,7 +7,7 @@ export default function Faq() {
     <>
       <Navbar />
       <FAQSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

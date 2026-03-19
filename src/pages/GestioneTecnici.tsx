@@ -7,7 +7,7 @@ export default function GestioneTecnici() {
     <>
       <Navbar />
       <GestioneTecniciSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

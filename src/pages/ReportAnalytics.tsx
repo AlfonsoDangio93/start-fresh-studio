@@ -7,7 +7,7 @@ export default function ReportAnalytics() {
     <>
       <Navbar />
       <ReportSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

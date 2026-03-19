@@ -7,7 +7,7 @@ export default function PerAgenzie() {
     <>
       <Navbar />
       <AgenzieSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

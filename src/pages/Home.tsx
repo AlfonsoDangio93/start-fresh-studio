@@ -23,7 +23,7 @@ export default function Home() {
       <ComparisonSection />
       <TestimonialsSection />
       <CTASection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

@@ -7,7 +7,7 @@ export default function PerPropertyManager() {
     <>
       <Navbar />
       <PropertyManagerSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

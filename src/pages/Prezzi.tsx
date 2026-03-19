@@ -7,7 +7,7 @@ export default function Prezzi() {
     <>
       <Navbar />
       <PricingSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

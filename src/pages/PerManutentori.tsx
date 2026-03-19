@@ -7,7 +7,7 @@ export default function PerManutentori() {
     <>
       <Navbar />
       <ManutentoriSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

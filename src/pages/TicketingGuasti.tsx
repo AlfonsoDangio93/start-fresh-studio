@@ -7,7 +7,7 @@ export default function TicketingGuasti() {
     <>
       <Navbar />
       <TicketingSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }
