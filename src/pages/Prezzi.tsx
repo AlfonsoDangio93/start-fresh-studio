@@ -1,5 +1,5 @@
 import Navbar from "@/components/sections/Navbar";
-import Footer from "@/components/sections/Footer";
+import LandingFooter from "@/components/landing/LandingFooter";
 import PricingSection from "@/components/sections/PricingSection";
 
 export default function Prezzi() {
@@ -7,7 +7,7 @@ export default function Prezzi() {
     <>
       <Navbar />
       <PricingSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

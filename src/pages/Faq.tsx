@@ -1,5 +1,5 @@
 import Navbar from "@/components/sections/Navbar";
-import Footer from "@/components/sections/Footer";
+import LandingFooter from "@/components/landing/LandingFooter";
 import FAQSection from "@/components/sections/FAQSection";
 
 export default function Faq() {
@@ -7,7 +7,7 @@ export default function Faq() {
     <>
       <Navbar />
       <FAQSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

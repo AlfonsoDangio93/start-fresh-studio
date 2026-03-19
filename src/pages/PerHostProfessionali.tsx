@@ -1,5 +1,5 @@
 import Navbar from "@/components/sections/Navbar";
-import Footer from "@/components/sections/Footer";
+import LandingFooter from "@/components/landing/LandingFooter";
 import HostSection from "@/components/sections/HostSection";
 
 export default function PerHostProfessionali() {
@@ -7,7 +7,7 @@ export default function PerHostProfessionali() {
     <>
       <Navbar />
       <HostSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

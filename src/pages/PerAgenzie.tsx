@@ -1,5 +1,5 @@
 import Navbar from "@/components/sections/Navbar";
-import Footer from "@/components/sections/Footer";
+import LandingFooter from "@/components/landing/LandingFooter";
 import AgenzieSection from "@/components/sections/AgenzieSection";
 
 export default function PerAgenzie() {
@@ -7,7 +7,7 @@ export default function PerAgenzie() {
     <>
       <Navbar />
       <AgenzieSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }

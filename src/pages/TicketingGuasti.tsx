@@ -1,5 +1,5 @@
 import Navbar from "@/components/sections/Navbar";
-import Footer from "@/components/sections/Footer";
+import LandingFooter from "@/components/landing/LandingFooter";
 import TicketingSection from "@/components/sections/TicketingSection";
 
 export default function TicketingGuasti() {
@@ -7,7 +7,7 @@ export default function TicketingGuasti() {
     <>
       <Navbar />
       <TicketingSection />
-      <Footer />
+      <LandingFooter />
     </>
   );
 }
