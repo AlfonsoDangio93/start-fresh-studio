@@ -1,5 +1,5 @@
 import Navbar from "@/components/sections/Navbar";
-import Footer from "@/components/sections/Footer";
+import LandingFooter from "@/components/landing/LandingFooter";
 import GestioneTecniciSection from "@/components/sections/GestioneTecniciSection";
 
 export default function GestioneTecnici() {
