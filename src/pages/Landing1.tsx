@@ -4,7 +4,7 @@ import PressBar from "@/components/sections/PressBar";
 import FeatureShowcase from "@/components/sections/FeatureShowcase";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import ServicesSection from "@/components/sections/ServicesSection";
-import LandingPricing from "@/components/landing/LandingPricing";
+import Landing1Pricing from "@/components/landing/Landing1Pricing";
 import ComparisonSection from "@/components/sections/ComparisonSection";
 import LandingTestimonials from "@/components/landing/LandingTestimonials";
 import LandingFAQ from "@/components/landing/LandingFAQ";
