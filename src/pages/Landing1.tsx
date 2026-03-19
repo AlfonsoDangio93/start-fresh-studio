@@ -10,7 +10,7 @@ import LandingTestimonials from "@/components/landing/LandingTestimonials";
 import LandingFAQ from "@/components/landing/LandingFAQ";
 import CTASection from "@/components/sections/CTASection";
 import LandingFooter from "@/components/landing/LandingFooter";
-import LandingMobileBottomCTA from "@/components/landing/LandingMobileBottomCTA";
+import Landing1MobileBottomCTA from "@/components/landing/Landing1MobileBottomCTA";
 
 export default function Landing1() {
   return (
@@ -27,7 +27,7 @@ export default function Landing1() {
       <LandingFAQ />
       <CTASection />
       <LandingFooter />
-      <LandingMobileBottomCTA />
+      <Landing1MobileBottomCTA />
     </div>
   );
 }
