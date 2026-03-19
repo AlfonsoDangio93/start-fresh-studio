@@ -130,10 +130,12 @@ export default function PricingHomeSection() {
               <div className="flex items-baseline gap-1 mb-1">
                 <span className={`text-[32px] font-display font-bold leading-none ${plan.popular ? "text-primary" : "text-dark"}`}>{plan.price}</span>
               </div>
-              <p className="text-[12px] text-secondary mb-5">/ mese per immobile · *esclusa IVA</p>
+              <p className="text-[12px] text-secondary mb-5">/ mese per immobile</p>
               <div className="space-y-3 mb-6 flex-1">
                 {FEATURES.map((f, i) => {
                   const val = f[plan.key];
+                  const isTicketFeature = f.highlight?.includes("ticket/anno*");
+                  const isInterventionFeature = f.highlight?.includes("Interventi garantiti entro");
                   return (
                     <div key={i} className="flex items-start gap-2 text-[13px]">
                       {val === "non-incluso" ? (
@@ -141,9 +143,14 @@ export default function PricingHomeSection() {
                       ) : (
                         <Check size={14} className="text-green-600 mt-0.5 shrink-0" />
                       )}
-                      <span className="text-dark/70">
-                        {f.highlight && <span className="font-semibold text-dark/90">{f.highlight}</span>}
-                        {val !== "incluso" && val !== "non-incluso" ? ` — ${val}` : ""}
+                      <span className="font-semibold text-dark/90">
+                        {isTicketFeature ? (
+                          <>{val} per interventi di riparazione o prevenzione</>
+                        ) : isInterventionFeature ? (
+                          <>{val}</>
+                        ) : (
+                          f.highlight
+                        )}
                       </span>
                     </div>
                   );
