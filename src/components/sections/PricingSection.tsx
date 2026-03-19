@@ -31,11 +31,11 @@ const FEATURES: PlanFeature[] = [
   plus: "incluso"
 },
 {
-  label: "Interventi ",
-  highlight: "garantiti entro 4 ore.",
-  base: "incluso",
-  premium: "incluso",
-  plus: "incluso"
+  label: "",
+  highlight: "Interventi garantiti entro",
+  base: "Interventi garantiti entro 6 ore.",
+  premium: "Interventi garantiti entro 4 ore.",
+  plus: "Interventi garantiti entro 4 ore."
 },
 {
   highlight: "Sopralluogo iniziale con mappatura",
@@ -52,16 +52,16 @@ const FEATURES: PlanFeature[] = [
   plus: "incluso"
 },
 {
-  highlight: "Ticket di 1 ora ciascuno di interventi di manutenzione",
-  label: " da utilizzare anche per check up di manutenzione preventiva in caso di non interventi",
-  base: "Incluso uno all'anno",
-  premium: "Inclusi due all'anno",
-  plus: "Inclusi quattro all'anno"
+  highlight: "ticket/anno* per interventi di riparazione o prevenzione",
+  label: "",
+  base: "1 ticket/anno*",
+  premium: "2 ticket/anno*",
+  plus: "4 ticket/anno*"
 },
 {
   highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
   label: "",
-  base: "incluso",
+  base: "non-incluso",
   premium: "incluso",
   plus: "incluso"
 },
@@ -72,7 +72,6 @@ const FEATURES: PlanFeature[] = [
   premium: "non-incluso",
   plus: "incluso"
 }];
-
 
 const PLANS = [
 { name: "Base", price: "€ 14,90", popular: false, key: "base" as const },
@@ -147,9 +146,9 @@ export default function PricingSection() {
           Tutto incluso: tecnico dedicato, sopralluogo iniziale, gestione
           end-to-end e report dettagliati via app.
         </p>
-        
-
-        
+        <p className="mt-2 text-secondary/70 text-[13px] md:text-[14px]">
+          I prezzi si intendono IVA esclusa.
+        </p>
       </div>
 
       {/* Pricing Cards */}
@@ -176,25 +175,30 @@ export default function PricingSection() {
                   {plan.price}
                 </span>
               </div>
-              <p className="text-[12px] text-secondary mb-5">/ mese per immobile · *esclusa IVA</p>
+              <p className="text-[12px] text-secondary mb-5">/ mese per immobile</p>
 
               <div className="space-y-3 mb-6 flex-1">
                 {FEATURES.map((f, i) => {
                 const val = f[plan.key];
+                const isTicketFeature = f.highlight?.includes("ticket/anno*");
+                const isInterventionFeature = f.highlight?.includes("Interventi garantiti entro");
                 return (
                   <div key={i} className="flex items-start gap-2 text-[13px]">
                       {val === "non-incluso" ?
                     <X size={14} className="text-red-400 mt-0.5 shrink-0" /> :
-
                     <Check size={14} className="text-green-600 mt-0.5 shrink-0" />
                     }
-                      <span className="text-dark/70">
-                        {f.highlight && <span className="font-semibold text-dark/90">{f.highlight}</span>}
-                        {val !== "incluso" && val !== "non-incluso" ? ` — ${val}` : ""}
+                      <span className="font-semibold text-dark/90">
+                        {isTicketFeature ? (
+                          <>{val} per interventi di riparazione o prevenzione</>
+                        ) : isInterventionFeature ? (
+                          <>{val}</>
+                        ) : (
+                          f.highlight
+                        )}
                       </span>
                     </div>);
-
-              })}
+                })}
               </div>
 
               <a
@@ -212,8 +216,10 @@ export default function PricingSection() {
             </div>
           )}
         </div>
+        <p className="text-center text-secondary/70 text-[13px] mt-6 mb-24">
+          *ticket spendibili per interventi programmati della durata massima di un'ora.
+        </p>
 
-        {/* ── Ticket Flessibili ── */}
         <div className="max-w-[820px] mx-auto mb-20">
           <div className="bg-white rounded-2xl border border-border p-8 md:p-10">
             <h2 className="font-display text-[24px] md:text-[30px] font-bold text-dark leading-tight tracking-tight mb-4">
