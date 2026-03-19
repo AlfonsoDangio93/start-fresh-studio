@@ -8,7 +8,7 @@ import PricingHomeSection from "@/components/sections/PricingHomeSection";
 import ComparisonSection from "@/components/sections/ComparisonSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTASection from "@/components/sections/CTASection";
-import Footer from "@/components/sections/Footer";
+import LandingFooter from "@/components/landing/LandingFooter";
 
 export default function Home() {
   return (
