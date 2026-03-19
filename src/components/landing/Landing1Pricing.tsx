@@ -10,7 +10,7 @@ const KEY_SERVICES = [
   "Piattaforma digitale con report, preventivi e stato lavori",
   "Sopralluogo iniziale con mappatura impianti e punti critici",
   "Preventivi trasparenti con costo materiale e manodopera",
-  "Interventi garantiti entro 6 ore",
+  "Interventi garantiti entro 4 ore",
   "Ticket annuali per interventi di riparazione o prevenzione",
 ];
 
@@ -59,7 +59,7 @@ export default function Landing1Pricing() {
               <span className="bg-primary text-white text-[10px] font-bold uppercase tracking-wider rounded-full px-4 py-1.5">Il tuo piano</span>
             </div>
 
-            <p className="text-[13px] text-secondary mb-1">A partire da</p>
+            <p className="text-[13px] text-secondary font-semibold mb-1">A partire da</p>
             <div className="flex items-baseline gap-1 mb-1">
               <span className="text-[42px] font-display font-bold text-primary leading-none">€ 14,90</span>
             </div>
