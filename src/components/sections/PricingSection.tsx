@@ -146,9 +146,9 @@ export default function PricingSection() {
           Tutto incluso: tecnico dedicato, sopralluogo iniziale, gestione
           end-to-end e report dettagliati via app.
         </p>
-        
-
-        
+        <p className="mt-2 text-secondary/70 text-[13px] md:text-[14px]">
+          I prezzi si intendono IVA esclusa.
+        </p>
       </div>
 
       {/* Pricing Cards */}
