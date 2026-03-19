@@ -27,7 +27,7 @@ export default function Landing1() {
       <LandingFAQ />
       <CTASection />
       <LandingFooter />
-      <LandingMobileBottomCTA />
+      <Landing1MobileBottomCTA />
     </div>
   );
 }
