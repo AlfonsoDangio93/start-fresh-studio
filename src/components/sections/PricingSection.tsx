@@ -31,11 +31,11 @@ const FEATURES: PlanFeature[] = [
   plus: "incluso"
 },
 {
-  label: "Interventi ",
-  highlight: "garantiti entro 4 ore.",
-  base: "incluso",
-  premium: "incluso",
-  plus: "incluso"
+  label: "",
+  highlight: "Interventi garantiti entro",
+  base: "Interventi garantiti entro 6 ore.",
+  premium: "Interventi garantiti entro 4 ore.",
+  plus: "Interventi garantiti entro 4 ore."
 },
 {
   highlight: "Sopralluogo iniziale con mappatura",
@@ -52,16 +52,16 @@ const FEATURES: PlanFeature[] = [
   plus: "incluso"
 },
 {
-  highlight: "Ticket di 1 ora ciascuno di interventi di manutenzione",
-  label: " da utilizzare anche per check up di manutenzione preventiva in caso di non interventi",
-  base: "Incluso uno all'anno",
-  premium: "Inclusi due all'anno",
-  plus: "Inclusi quattro all'anno"
+  highlight: "ticket/anno* per interventi di riparazione o prevenzione",
+  label: "",
+  base: "1 ticket/anno*",
+  premium: "2 ticket/anno*",
+  plus: "4 ticket/anno*"
 },
 {
   highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
   label: "",
-  base: "incluso",
+  base: "non-incluso",
   premium: "incluso",
   plus: "incluso"
 },
@@ -72,7 +72,6 @@ const FEATURES: PlanFeature[] = [
   premium: "non-incluso",
   plus: "incluso"
 }];
-
 
 const PLANS = [
 { name: "Base", price: "€ 14,90", popular: false, key: "base" as const },
