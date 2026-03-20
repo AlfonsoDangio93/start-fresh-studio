@@ -238,7 +238,7 @@ export default function DashboardSection() {
   }, []);
 
   return (
-    <div ref={ref} className="pt-32 md:pt-40 pb-20 md:pb-28">
+    <div ref={ref} className="pt-32 md:pt-40">
       {/* ─── Header ─── */}
       <div className="max-w-site mx-auto px-6 text-center mb-16">
         <span className="inline-block text-[11px] font-semibold text-primary uppercase tracking-[0.12em] mb-5">
