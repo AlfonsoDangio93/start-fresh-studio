@@ -322,7 +322,7 @@ export default function ReportSection() {
       </div>
 
       {/* ─── CTA finale ─── */}
-      <div className="max-w-site mx-auto px-6">
+      <div className="max-w-site mx-auto px-6 my-0 py-[31px]">
         <div className="relative rounded-[10px] overflow-hidden px-8 py-20 md:px-16 md:py-24 text-center">
           {/* Background image */}
           <img
