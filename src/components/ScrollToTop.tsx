@@ -4,7 +4,13 @@ import { useLocation } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
 
 export default function ScrollToTop() {
+  const { pathname } = useLocation();
   const [visible, setVisible] = useState(false);
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400);
