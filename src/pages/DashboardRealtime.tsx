@@ -8,7 +8,11 @@ export default function DashboardRealtime() {
     <>
       <Navbar />
       <DashboardSection />
-      <CTASection />
+      <CTASection
+        title={<>Basta fogli Excel e gruppi WhatsApp.<br />Passa ad Hommi.</>}
+        subtitle="2.000+ property manager hanno già scelto Hommi. Nessun vincolo annuale, prezzo fisso, zero sorprese."
+        image="https://images.unsplash.com/photo-1622266234556-faab3e09f67b?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.1.0"
+      />
       <LandingFooter />
     </>
   );

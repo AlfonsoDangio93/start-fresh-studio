@@ -4,12 +4,22 @@ import { ArrowRight } from "lucide-react";
 const CTA_URL =
 "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
 
-export default function CTASection() {
+interface CTASectionProps {
+  title?: React.ReactNode;
+  subtitle?: string;
+  image?: string;
+}
+
+export default function CTASection({
+  title = <>Pronto a dormire tranquillo<br />anche con 50 alloggi?</>,
+  subtitle = "Unisciti ai property manager che hanno già scelto Hommi.",
+  image = "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2970&auto=format&fit=crop",
+}: CTASectionProps) {
   return (
     <div className="max-w-site mx-auto px-6 my-0 py-[31px]">
       <div className="relative rounded-[10px] overflow-hidden px-8 py-20 md:px-16 md:py-24 text-center">
         <img
-          src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2970&auto=format&fit=crop"
+          src={image}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover" />
@@ -18,24 +28,19 @@ export default function CTASection() {
 
         <div className="relative z-10">
           <h2 className="font-display text-[26px] md:text-[40px] font-bold text-white leading-[1.1] tracking-tight">
-            Pronto a dormire tranquillo
-            <br />
-            anche con 50 alloggi?
+            {title}
           </h2>
           <p className="mt-5 text-white/60 text-[15px] md:text-[17px] max-w-[460px] mx-auto leading-relaxed">
-            Unisciti ai property manager che hanno già scelto Hommi. 
-          
+            {subtitle}
           </p>
           <div className="mt-8">
             <a
               href={CTA_URL}
               className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer">
-              
               Richiedi accesso prioritario
             </a>
           </div>
         </div>
       </div>
     </div>);
-
 }
