@@ -76,14 +76,15 @@ const LANGUAGES = [
 /* ─── Language selector with popup ─── */
 function LanguageSelector() {
   const [open, setOpen] = useState(false);
+  const [wip, setWip] = useState<string | null>(null);
   const ref = useRef<HTMLDivElement>(null);
-  const [cursorPos, setCursorPos] = useState<{ x: number; y: number } | null>(null);
 
   // Close on outside click
   useEffect(() => {
     function handler(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false);
+        setWip(null);
       }
     }
     document.addEventListener("mousedown", handler);
@@ -93,8 +94,9 @@ function LanguageSelector() {
   return (
     <div className="relative" ref={ref}>
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => {setOpen(!open);setWip(null);}}
         className="inline-flex items-center gap-2 border border-border rounded-lg px-4 py-2.5 text-[14px] font-medium text-dark hover:border-dark/30 transition-colors duration-200 cursor-pointer">
+        
         <span className="text-[16px]" aria-hidden="true">{LANGUAGES[0].flag}</span>
         Italia
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}>
@@ -108,45 +110,41 @@ function LanguageSelector() {
         <button
           key={lang.label}
           onClick={() => {
-            if (lang.active) setOpen(false);
+            if (lang.active) {
+              setOpen(false);
+              setWip(null);
+            } else {
+              setWip(lang.label);
+            }
           }}
-          onMouseMove={(e) => {
-            if (!lang.active) setCursorPos({ x: e.clientX, y: e.clientY });
-          }}
-          onMouseEnter={(e) => {
-            if (!lang.active) setCursorPos({ x: e.clientX, y: e.clientY });
-          }}
-          onMouseLeave={() => {
-            if (!lang.active) setCursorPos(null);
-          }}
-          className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-[13px] transition-colors duration-150 ${
-          lang.active
-            ? "text-dark font-semibold bg-surface cursor-pointer"
-            : "text-secondary/60 cursor-none"}`
+          className={`w-full flex items-center gap-2.5 px-4 py-2.5 text-[13px] transition-colors duration-150 cursor-pointer ${
+          lang.active ?
+          "text-dark font-semibold bg-surface" :
+          "text-secondary/60 hover:bg-surface hover:text-dark"}`
           }>
+          
               <span className="text-[15px]">{lang.flag}</span>
               {lang.label}
               {lang.active &&
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-auto text-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F16B01" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-auto">
                   <path d="M20 6L9 17l-5-5" />
                 </svg>
           }
             </button>
         )}
-        </div>
-      }
 
-      {/* Floating "IN ARRIVO" cursor label */}
-      {cursorPos &&
-        <div
-          className="fixed z-[9999] pointer-events-none"
-          style={{ left: cursorPos.x + 12, top: cursorPos.y - 14 }}>
-          <span className="block text-[10px] font-bold uppercase tracking-wider text-white rounded-full px-3 py-1.5 shadow-lg whitespace-nowrap" style={{ backgroundColor: '#E35210' }}>
-            In arrivo
-          </span>
+          {wip &&
+        <div className="mx-3 mt-1.5 mb-1 px-3 py-2 bg-amber-50 border border-amber-200 rounded-lg">
+              <p className="text-[11px] font-semibold text-amber-700">Work in progress</p>
+              <p className="text-[10px] text-amber-600/70 mt-0.5">
+                {wip} coming soon!
+              </p>
+            </div>
+        }
         </div>
       }
     </div>);
+
 }
 
 export default function Footer() {
