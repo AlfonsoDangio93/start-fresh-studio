@@ -224,7 +224,7 @@ export default function GestioneTecniciSection() {
   }, []);
 
   return (
-    <div ref={ref} className="pt-32 md:pt-40 pb-20 md:pb-28">
+    <div ref={ref} className="pt-32 md:pt-40">
       {/* ─── Header ─── */}
       <div className="max-w-site mx-auto px-6 text-center mb-16">
         <span className="inline-block text-[11px] font-semibold text-primary uppercase tracking-[0.12em] mb-5">
@@ -325,7 +325,7 @@ export default function GestioneTecniciSection() {
       </div>
 
       {/* ─── CTA finale ─── */}
-      <div className="max-w-site mx-auto px-6 pt-20 md:pt-28">
+      <div className="max-w-site mx-auto px-6 my-0 py-[31px]">
         <div className="relative rounded-[10px] overflow-hidden px-8 py-20 md:px-16 md:py-24 text-center">
           {/* Background image */}
           <img
