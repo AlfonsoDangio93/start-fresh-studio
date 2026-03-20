@@ -337,41 +337,7 @@ export default function DashboardSection() {
         </div>
       </div>
 
-      {/* ─── CTA finale ─── */}
-      <div className="max-w-site mx-auto px-6 pt-20 md:pt-28">
-        <div className="relative rounded-[10px] overflow-hidden px-8 py-20 md:px-16 md:py-24 text-center">
-          {/* Background image */}
-          <img
-            src="https://images.unsplash.com/photo-1622266234556-faab3e09f67b?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.1.0"
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-dark/75" aria-hidden="true" />
 
-          <div className="relative z-10">
-            <h2 className="font-display text-[26px] md:text-[40px] font-bold text-white leading-[1.1] tracking-tight">
-              Basta fogli Excel e gruppi WhatsApp.
-              <br />
-              Passa ad Hommi.
-            </h2>
-            <p className="mt-5 text-white/60 text-[15px] md:text-[17px] max-w-[460px] mx-auto leading-relaxed">
-              2.000+ property manager hanno gi&agrave; scelto Hommi.
-              Nessun vincolo annuale, prezzo fisso, zero sorprese.
-            </p>
-            <div className="mt-8">
-              <a
-                href={CTA_URL}
-                className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
-              >
-                Richiedi accesso prioritario
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
