@@ -5,53 +5,79 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import {
+  Droplets,
+  Zap,
+  ShieldCheck,
+  Thermometer,
+  KeyRound,
+  Wrench,
+  Paintbrush,
+  FileCheck,
+} from "lucide-react";
+
+import cityMilano from "@/assets/city-milano.png";
+import cityMonza from "@/assets/city-monza.png";
+import cityComo from "@/assets/city-como.png";
+import cityTorino from "@/assets/city-torino.png";
+import cityLecco from "@/assets/city-lecco.png";
 
 const SPECIALIZZAZIONI = [
-  "Idraulica",
-  "Elettricità",
-  "Sicurezza e video-sorveglianza",
-  "Riscaldamento / Condizionamento",
-  "Fabbro",
-  "Installazioni (montaggio arredi/elettrodomestici)",
-  "Tinteggiatura",
-  "Interventi con certificazioni",
+  { label: "Idraulica", icon: Droplets },
+  { label: "Elettricità", icon: Zap },
+  { label: "Sicurezza e video-sorveglianza", icon: ShieldCheck },
+  { label: "Riscaldamento / Condizionamento", icon: Thermometer },
+  { label: "Fabbro", icon: KeyRound },
+  { label: "Installazioni (montaggio arredi/elettrodomestici)", icon: Wrench },
+  { label: "Tinteggiatura", icon: Paintbrush },
+  { label: "Interventi con certificazioni", icon: FileCheck },
 ];
 
-const AREE = [
-  "Milano Nord",
-  "Milano Centro",
-  "Milano Sud",
-  "Milano Est",
-  "Milano Ovest",
-  "Como",
-  "Monza",
-  "Torino",
+const CITTA = [
+  { label: "Milano", img: cityMilano },
+  { label: "Monza", img: cityMonza },
+  { label: "Como", img: cityComo },
+  { label: "Torino", img: cityTorino },
+  { label: "Lecco", img: cityLecco },
 ];
 
 export default function PerManutentoriDomanda() {
   const { toast } = useToast();
   const [nome, setNome] = useState("");
+  const [cognome, setCognome] = useState("");
+  const [azienda, setAzienda] = useState("");
   const [email, setEmail] = useState("");
   const [cellulare, setCellulare] = useState("");
-  const [interventiSettimana, setInterventiSettimana] = useState("");
   const [specializzazioni, setSpecializzazioni] = useState<string[]>([]);
-  const [area, setArea] = useState("");
+  const [citta, setCitta] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
 
-  const toggleSpecializzazione = (s: string) => {
+  const toggleSpec = (s: string) => {
     setSpecializzazioni((prev) =>
       prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]
     );
   };
 
+  const toggleCitta = (c: string) => {
+    setCitta((prev) =>
+      prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c]
+    );
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!nome.trim() || !email.trim() || !cellulare.trim() || !interventiSettimana || specializzazioni.length === 0 || !area) {
+    if (
+      !nome.trim() ||
+      !cognome.trim() ||
+      !email.trim() ||
+      !cellulare.trim() ||
+      specializzazioni.length === 0 ||
+      citta.length === 0
+    ) {
       toast({
         title: "Compila tutti i campi",
-        description: "Tutti i campi sono obbligatori per procedere.",
+        description: "Tutti i campi obbligatori devono essere compilati.",
         variant: "destructive",
       });
       return;
@@ -119,13 +145,39 @@ export default function PerManutentoriDomanda() {
 
           <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6 overflow-visible">
             {/* Nome e Cognome */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="nome" className="text-foreground font-medium">Nome *</Label>
+                <Input
+                  id="nome"
+                  placeholder="Mario"
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                  maxLength={50}
+                  className="rounded-xl"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="cognome" className="text-foreground font-medium">Cognome *</Label>
+                <Input
+                  id="cognome"
+                  placeholder="Rossi"
+                  value={cognome}
+                  onChange={(e) => setCognome(e.target.value)}
+                  maxLength={50}
+                  className="rounded-xl"
+                />
+              </div>
+            </div>
+
+            {/* Azienda */}
             <div className="space-y-2">
-              <Label htmlFor="nome" className="text-foreground font-medium">Nome e Cognome *</Label>
+              <Label htmlFor="azienda" className="text-foreground font-medium">Azienda</Label>
               <Input
-                id="nome"
-                placeholder="Mario Rossi"
-                value={nome}
-                onChange={(e) => setNome(e.target.value)}
+                id="azienda"
+                placeholder="Nome azienda (opzionale)"
+                value={azienda}
+                onChange={(e) => setAzienda(e.target.value)}
                 maxLength={100}
                 className="rounded-xl"
               />
@@ -159,60 +211,61 @@ export default function PerManutentoriDomanda() {
               />
             </div>
 
-            {/* Interventi a settimana */}
-            <div className="space-y-2">
-              <Label htmlFor="interventi" className="text-foreground font-medium">
-                Quanti interventi puoi gestire a settimana? *
-              </Label>
-              <Select value={interventiSettimana} onValueChange={setInterventiSettimana}>
-                <SelectTrigger className="rounded-xl">
-                  <SelectValue placeholder="Seleziona..." />
-                </SelectTrigger>
-                <SelectContent className="z-[70] border-border bg-background shadow-lg">
-                  <SelectItem value="1-3">1 – 3</SelectItem>
-                  <SelectItem value="4-7">4 – 7</SelectItem>
-                  <SelectItem value="8-15">8 – 15</SelectItem>
-                  <SelectItem value="15+">Più di 15</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
             {/* Specializzazioni */}
             <div className="space-y-3">
-              <Label className="text-foreground font-medium">Settori di specializzazione *</Label>
+              <Label className="text-foreground font-medium">Che tipo di manutentore sei? *</Label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {SPECIALIZZAZIONI.map((s) => (
+                {SPECIALIZZAZIONI.map(({ label, icon: Icon }) => (
                   <label
-                    key={s}
-                    className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-colors ${
-                      specializzazioni.includes(s)
-                        ? "border-primary bg-primary/5"
+                    key={label}
+                    className={`flex items-center gap-3 p-3.5 rounded-xl border cursor-pointer transition-all ${
+                      specializzazioni.includes(label)
+                        ? "border-primary bg-primary/5 shadow-sm"
                         : "border-border hover:border-muted-foreground/30"
                     }`}
                   >
                     <Checkbox
-                      checked={specializzazioni.includes(s)}
-                      onCheckedChange={() => toggleSpecializzazione(s)}
+                      checked={specializzazioni.includes(label)}
+                      onCheckedChange={() => toggleSpec(label)}
                     />
-                    <span className="text-sm text-foreground">{s}</span>
+                    <Icon className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-sm text-foreground leading-tight">{label}</span>
                   </label>
                 ))}
               </div>
             </div>
 
-            {/* Area */}
-            <div className="space-y-2">
-              <Label htmlFor="area" className="text-foreground font-medium">In quale area operi? *</Label>
-              <Select value={area} onValueChange={setArea}>
-                <SelectTrigger className="rounded-xl">
-                  <SelectValue placeholder="Seleziona la tua zona..." />
-                </SelectTrigger>
-                <SelectContent className="z-[70] border-border bg-background shadow-lg">
-                  {AREE.map((a) => (
-                    <SelectItem key={a} value={a}>{a}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+            {/* Città */}
+            <div className="space-y-3">
+              <Label className="text-foreground font-medium">Quali aree geografiche riesci a coprire? *</Label>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {CITTA.map(({ label, img }) => (
+                  <label
+                    key={label}
+                    onClick={() => toggleCitta(label)}
+                    className={`relative flex flex-col items-center gap-2 p-4 rounded-xl border cursor-pointer transition-all ${
+                      citta.includes(label)
+                        ? "border-primary bg-primary/5 shadow-sm ring-2 ring-primary/20"
+                        : "border-border hover:border-muted-foreground/30"
+                    }`}
+                  >
+                    <img
+                      src={img}
+                      alt={label}
+                      loading="lazy"
+                      className="w-16 h-16 object-contain"
+                    />
+                    <span className="text-sm font-medium text-foreground">{label}</span>
+                    {citta.includes(label) && (
+                      <div className="absolute top-2 right-2 w-5 h-5 rounded-full bg-primary flex items-center justify-center">
+                        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                    )}
+                  </label>
+                ))}
+              </div>
               <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
                 Non trovi la tua città? Hommi non opera ancora nella tua zona, ma stiamo crescendo! Seguici su{" "}
                 <a href="https://www.linkedin.com/company/hommi" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:no-underline">LinkedIn</a>,{" "}
