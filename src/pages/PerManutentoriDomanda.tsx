@@ -50,7 +50,7 @@ export default function PerManutentoriDomanda() {
   const [email, setEmail] = useState("");
   const [cellulare, setCellulare] = useState("");
   const [specializzazioni, setSpecializzazioni] = useState<string[]>([]);
-  const [citta, setCitta] = useState<string[]>([]);
+  const [citta, setCitta] = useState("");
   const [accettaTermini, setAccettaTermini] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -60,10 +60,8 @@ export default function PerManutentoriDomanda() {
     );
   };
 
-  const toggleCitta = (c: string) => {
-    setCitta((prev) =>
-      prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c]
-    );
+  const selectCitta = (c: string) => {
+    setCitta((prev) => (prev === c ? "" : c));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -74,7 +72,7 @@ export default function PerManutentoriDomanda() {
       !email.trim() ||
       !cellulare.trim() ||
       specializzazioni.length === 0 ||
-      citta.length === 0 ||
+      !citta ||
       !accettaTermini
     ) {
       toast({
