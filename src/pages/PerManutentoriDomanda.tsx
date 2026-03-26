@@ -45,6 +45,7 @@ const CITTA = [
 export default function PerManutentoriDomanda() {
   const { toast } = useToast();
   const [nome, setNome] = useState("");
+  const [prefisso, setPrefisso] = useState("+39");
   const [cognome, setCognome] = useState("");
   const [azienda, setAzienda] = useState("");
   const [email, setEmail] = useState("");
@@ -202,15 +203,31 @@ export default function PerManutentoriDomanda() {
             {/* Cellulare */}
             <div className="space-y-2">
               <Label htmlFor="cellulare" className="text-foreground font-medium">Cellulare *</Label>
-              <Input
-                id="cellulare"
-                type="tel"
-                placeholder="+39 333 1234567"
-                value={cellulare}
-                onChange={(e) => setCellulare(e.target.value)}
-                maxLength={20}
-                className="rounded-xl"
-              />
+              <div className="flex gap-2">
+                <select
+                  value={prefisso}
+                  onChange={(e) => setPrefisso(e.target.value)}
+                  className="flex h-10 w-24 shrink-0 rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                >
+                  <option value="+39">🇮🇹 +39</option>
+                  <option value="+41">🇨🇭 +41</option>
+                  <option value="+43">🇦🇹 +43</option>
+                  <option value="+33">🇫🇷 +33</option>
+                  <option value="+49">🇩🇪 +49</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+34">🇪🇸 +34</option>
+                  <option value="+1">🇺🇸 +1</option>
+                </select>
+                <Input
+                  id="cellulare"
+                  type="tel"
+                  placeholder="333 1234567"
+                  value={cellulare}
+                  onChange={(e) => setCellulare(e.target.value)}
+                  maxLength={15}
+                  className="rounded-xl flex-1"
+                />
+              </div>
             </div>
 
             {/* Specializzazioni */}
