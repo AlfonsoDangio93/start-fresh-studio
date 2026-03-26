@@ -242,7 +242,7 @@ export default function PerManutentoriDomanda() {
               <Label className="text-foreground font-medium">Quali aree geografiche riesci a coprire? *</Label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {CITTA.map(({ label, img }) => (
-                  <label
+                  <div
                     key={label}
                     onClick={() => toggleCitta(label)}
                     className={`relative flex flex-col items-center gap-2 p-4 rounded-xl border cursor-pointer transition-all ${
@@ -265,7 +265,7 @@ export default function PerManutentoriDomanda() {
                         </svg>
                       </div>
                     )}
-                  </label>
+                  </div>
                 ))}
               </div>
             </div>
@@ -287,7 +287,12 @@ export default function PerManutentoriDomanda() {
             </label>
 
             {/* Submit */}
-            <Button type="submit" size="lg" className="w-full text-base font-semibold rounded-xl h-12">
+            <Button
+              type="submit"
+              size="lg"
+              disabled={!accettaTermini}
+              className="w-full text-base font-semibold rounded-xl h-12"
+            >
               Invia candidatura
             </Button>
           </form>
