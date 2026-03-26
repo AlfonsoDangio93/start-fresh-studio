@@ -12,6 +12,7 @@ import PerPropertyManager from "@/pages/PerPropertyManager";
 import PerAgenzie from "@/pages/PerAgenzie";
 import PerHostProfessionali from "@/pages/PerHostProfessionali";
 import PerManutentori from "@/pages/PerManutentori";
+import PerManutentoriDomanda from "@/pages/PerManutentoriDomanda";
 import DashboardRealtime from "@/pages/DashboardRealtime";
 import TicketingGuasti from "@/pages/TicketingGuasti";
 import GestioneTecnici from "@/pages/GestioneTecnici";
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="/per-agenzie" element={<PerAgenzie />} />
         <Route path="/per-host-professionali" element={<PerHostProfessionali />} />
         <Route path="/per-manutentori" element={<PerManutentori />} />
+        <Route path="/per-manutentori-domanda" element={<PerManutentoriDomanda />} />
         <Route path="/dashboard-realtime" element={<DashboardRealtime />} />
         <Route path="/ticketing-guasti" element={<TicketingGuasti />} />
         <Route path="/gestione-tecnici" element={<GestioneTecnici />} />
