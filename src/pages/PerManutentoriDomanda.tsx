@@ -54,6 +54,10 @@ export default function PerManutentoriDomanda() {
   const [citta, setCitta] = useState<string[]>([]);
   const [accettaTermini, setAccettaTermini] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [emailTouched, setEmailTouched] = useState(false);
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailError = emailTouched && email.trim() !== "" && !emailRegex.test(email.trim());
 
   const toggleSpec = (s: string) => {
     setSpecializzazioni((prev) =>
@@ -195,9 +199,13 @@ export default function PerManutentoriDomanda() {
                 placeholder="mario@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onBlur={() => setEmailTouched(true)}
                 maxLength={255}
-                className="rounded-xl"
+                className={`rounded-xl ${emailError ? "border-destructive focus-visible:ring-destructive" : ""}`}
               />
+              {emailError && (
+                <p className="text-sm text-destructive">Inserisci un indirizzo email valido</p>
+              )}
             </div>
 
             {/* Cellulare */}
