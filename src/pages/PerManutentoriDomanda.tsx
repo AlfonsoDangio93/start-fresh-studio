@@ -242,9 +242,9 @@ export default function PerManutentoriDomanda() {
                 {CITTA.map(({ label, img }) => (
                   <div
                     key={label}
-                    onClick={() => toggleCitta(label)}
+                    onClick={() => selectCitta(label)}
                     className={`relative flex flex-col items-center gap-2 p-4 rounded-xl border cursor-pointer transition-all ${
-                      citta.includes(label)
+                      citta === label
                         ? "border-primary bg-primary/5 shadow-sm ring-2 ring-primary/20"
                         : "border-border hover:border-muted-foreground/30"
                     }`}
@@ -256,7 +256,7 @@ export default function PerManutentoriDomanda() {
                       className="w-16 h-16 object-contain"
                     />
                     <span className="text-sm font-medium text-foreground">{label}</span>
-                    {citta.includes(label) && (
+                    {citta === label && (
                       <div className="absolute top-2 right-2 w-5 h-5 rounded-full bg-primary flex items-center justify-center">
                         <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={3}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
