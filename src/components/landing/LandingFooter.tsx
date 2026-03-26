@@ -41,7 +41,7 @@ export default function LandingFooter() {
               <span>Made with</span>
               <span className="text-red-500 text-xs">❤️</span>
               <span>by</span>
-              <a href="https://www.alfonsodangio.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors font-medium">
+              <a href="https://www.alfonsodangio.com" target="_blank" rel="noopener noreferrer" className="text-xs text-foreground hover:text-primary transition-colors font-medium">
                 alfonsodangio.com
               </a>
             </div>
