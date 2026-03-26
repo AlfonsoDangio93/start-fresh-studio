@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/sections/Navbar";
 import LandingFooter from "@/components/landing/LandingFooter";
 import { Button } from "@/components/ui/button";
@@ -28,7 +28,7 @@ const SPECIALIZZAZIONI = [
   { label: "Elettricità", icon: Zap },
   { label: "Sicurezza e video-sorveglianza", icon: ShieldCheck },
   { label: "Riscaldamento / Condizionamento", icon: Thermometer },
-  { label: "Fabbro", icon: KeyRound },
+  { label: "Serrature", icon: KeyRound },
   { label: "Installazioni", icon: Wrench },
   { label: "Tinteggiatura", icon: Paintbrush },
   { label: "Interventi con certificazioni", icon: FileCheck },
@@ -59,6 +59,13 @@ export default function PerManutentoriDomanda() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const emailError = emailTouched && email.trim() !== "" && !emailRegex.test(email.trim());
 
+  // Scroll to top when submitted
+  useEffect(() => {
+    if (submitted) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [submitted]);
+
   const toggleSpec = (s: string) => {
     setSpecializzazioni((prev) =>
       prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]
@@ -69,6 +76,18 @@ export default function PerManutentoriDomanda() {
     setCitta((prev) =>
       prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c]
     );
+  };
+
+  const handleCellulareChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Allow only digits, max 10 chars, must start with 3
+    const digitsOnly = value.replace(/\D/g, "");
+    if (digitsOnly.length === 0) {
+      setCellulare("");
+      return;
+    }
+    if (digitsOnly[0] !== "3") return;
+    setCellulare(digitsOnly.slice(0, 10));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -89,7 +108,6 @@ export default function PerManutentoriDomanda() {
       });
       return;
     }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.trim())) {
       toast({
         title: "Email non valida",
@@ -190,57 +208,60 @@ export default function PerManutentoriDomanda() {
               />
             </div>
 
-            {/* Email */}
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-foreground font-medium">Email *</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="mario@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onBlur={() => setEmailTouched(true)}
-                maxLength={255}
-                className={`rounded-xl ${emailError ? "border-destructive focus-visible:ring-destructive" : ""}`}
-              />
-              {emailError && (
-                <p className="text-sm text-destructive">Inserisci un indirizzo email valido</p>
-              )}
-            </div>
-
-            {/* Cellulare */}
-            <div className="space-y-2">
-              <Label htmlFor="cellulare" className="text-foreground font-medium">Cellulare *</Label>
-              <div className="flex gap-2">
-                <select
-                  value={prefisso}
-                  onChange={(e) => setPrefisso(e.target.value)}
-                  className="flex h-10 w-24 shrink-0 rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                >
-                  <option value="+39">🇮🇹 +39</option>
-                  <option value="+41">🇨🇭 +41</option>
-                  <option value="+43">🇦🇹 +43</option>
-                  <option value="+33">🇫🇷 +33</option>
-                  <option value="+49">🇩🇪 +49</option>
-                  <option value="+44">🇬🇧 +44</option>
-                  <option value="+34">🇪🇸 +34</option>
-                  <option value="+1">🇺🇸 +1</option>
-                </select>
+            {/* Email e Cellulare sulla stessa riga */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-foreground font-medium">Email *</Label>
                 <Input
-                  id="cellulare"
-                  type="tel"
-                  placeholder="333 1234567"
-                  value={cellulare}
-                  onChange={(e) => setCellulare(e.target.value)}
-                  maxLength={15}
-                  className="rounded-xl flex-1"
+                  id="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder="mario@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => setEmailTouched(true)}
+                  maxLength={255}
+                  className={`rounded-xl ${emailError ? "border-destructive focus-visible:ring-destructive" : ""}`}
                 />
+                {emailError && (
+                  <p className="text-sm text-destructive font-medium">Inserisci un indirizzo email valido</p>
+                )}
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="cellulare" className="text-foreground font-medium">Cellulare *</Label>
+                <div className="flex gap-2">
+                  <select
+                    value={prefisso}
+                    onChange={(e) => setPrefisso(e.target.value)}
+                    className="flex h-10 w-24 shrink-0 rounded-xl border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  >
+                    <option value="+39">🇮🇹 +39</option>
+                    <option value="+41">🇨🇭 +41</option>
+                    <option value="+43">🇦🇹 +43</option>
+                    <option value="+33">🇫🇷 +33</option>
+                    <option value="+49">🇩🇪 +49</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+34">🇪🇸 +34</option>
+                    <option value="+1">🇺🇸 +1</option>
+                  </select>
+                  <Input
+                    id="cellulare"
+                    type="tel"
+                    inputMode="numeric"
+                    autoComplete="tel-national"
+                    placeholder="3XX XXXXXXX"
+                    value={cellulare}
+                    onChange={handleCellulareChange}
+                    maxLength={10}
+                    className="rounded-xl flex-1"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Specializzazioni */}
             <div className="space-y-3">
-              <Label className="text-foreground font-medium">Che tipo di manutentore sei? *</Label>
+              <Label className="text-foreground font-medium">Di cosa ti occupi? *</Label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {SPECIALIZZAZIONI.map(({ label, icon: Icon }) => (
                   <label
@@ -317,7 +338,9 @@ export default function PerManutentoriDomanda() {
               type="submit"
               size="lg"
               disabled={!accettaTermini}
-              className="w-full text-base font-semibold rounded-xl h-12"
+              className={`w-full text-base font-semibold rounded-xl h-12 ${
+                !accettaTermini ? "bg-muted text-muted-foreground hover:bg-muted cursor-not-allowed" : ""
+              }`}
             >
               Invia candidatura
             </Button>
