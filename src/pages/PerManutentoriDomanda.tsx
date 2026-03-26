@@ -268,13 +268,6 @@ export default function PerManutentoriDomanda() {
                   </label>
                 ))}
               </div>
-              <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
-                Non trovi la tua città? Hommi non opera ancora nella tua zona, ma stiamo crescendo! Seguici su{" "}
-                <a href="https://www.linkedin.com/company/hommi" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:no-underline">LinkedIn</a>,{" "}
-                <a href="https://www.instagram.com/hommi" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:no-underline">Instagram</a> e{" "}
-                <a href="https://www.facebook.com/hommi" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:no-underline">Facebook</a>{" "}
-                per rimanere aggiornato.
-              </p>
             </div>
 
             {/* Termini e condizioni */}
