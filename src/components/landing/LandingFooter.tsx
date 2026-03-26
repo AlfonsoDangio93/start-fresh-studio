@@ -41,9 +41,9 @@ export default function LandingFooter() {
               <span>Made with</span>
               <span className="text-red-500 text-xs">❤️</span>
               <span>by</span>
-              <a href="https://www.alfonsodangio.com" target="_blank" rel="noopener noreferrer" className="text-xs text-foreground hover:text-primary transition-colors font-medium">
-                alfonsodangio.com
-              </a>
+              <Link to="/" className="flex items-center">
+                <img src="/logos/hommi_logo.png" alt="Hommi" className="h-5 w-auto" />
+              </Link>
             </div>
             <span className="hidden md:inline mx-1 text-border">|</span>
             <div className="flex items-center gap-2">
