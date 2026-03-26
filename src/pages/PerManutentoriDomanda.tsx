@@ -238,7 +238,7 @@ export default function PerManutentoriDomanda() {
             {/* Città */}
             <div className="space-y-3">
               <Label className="text-foreground font-medium">Quali aree geografiche riesci a coprire? *</Label>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
                 {CITTA.map(({ label, img }) => (
                   <div
                     key={label}
