@@ -133,7 +133,7 @@ export default function PerManutentoriDomanda() {
     <>
       <Navbar />
       <main className="min-h-screen bg-background pt-28 pb-20">
-        <div className="max-w-3xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-10">
             <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Unisciti alla rete Hommi
