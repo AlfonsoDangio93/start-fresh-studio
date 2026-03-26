@@ -224,7 +224,7 @@ export default function PerManutentoriDomanda() {
                   className={`rounded-xl ${emailError ? "border-destructive focus-visible:ring-destructive" : ""}`}
                 />
                 {emailError && (
-                  <p className="text-sm text-red-600 font-medium">Inserisci un indirizzo email valido</p>
+                  <p className="text-sm text-destructive font-medium">Inserisci un indirizzo email valido</p>
                 )}
               </div>
               <div className="space-y-2">
