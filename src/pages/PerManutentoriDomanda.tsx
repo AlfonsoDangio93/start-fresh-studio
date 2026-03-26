@@ -29,7 +29,7 @@ const SPECIALIZZAZIONI = [
   { label: "Sicurezza e video-sorveglianza", icon: ShieldCheck },
   { label: "Riscaldamento / Condizionamento", icon: Thermometer },
   { label: "Fabbro", icon: KeyRound },
-  { label: "Installazioni (montaggio arredi/elettrodomestici)", icon: Wrench },
+  { label: "Installazioni", icon: Wrench },
   { label: "Tinteggiatura", icon: Paintbrush },
   { label: "Interventi con certificazioni", icon: FileCheck },
 ];
