@@ -118,7 +118,7 @@ export default function ManutentoriSection() {
         </p>
         <div className="mt-8">
           <Link
-120:             to="/per-manutentori-domanda"
+to="/per-manutentori-domanda"
             className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
           >
             Diventa manutentore Hommi
