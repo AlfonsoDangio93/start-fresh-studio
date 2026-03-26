@@ -221,10 +221,10 @@ export default function PerManutentoriDomanda() {
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={() => setEmailTouched(true)}
                   maxLength={255}
-                  className={`rounded-xl ${emailError ? "border-destructive focus-visible:ring-destructive" : ""}`}
+                  className={`rounded-xl ${emailError ? "border-[hsl(0,84%,50%)] focus-visible:ring-[hsl(0,84%,50%)]" : ""}`}
                 />
                 {emailError && (
-                  <p className="text-sm text-destructive font-medium">Inserisci un indirizzo email valido</p>
+                  <p className="text-sm font-medium" style={{ color: "hsl(0, 84%, 50%)" }}>Inserisci un indirizzo email valido</p>
                 )}
               </div>
               <div className="space-y-2">
