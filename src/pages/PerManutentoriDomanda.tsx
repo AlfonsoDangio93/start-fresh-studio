@@ -51,6 +51,7 @@ export default function PerManutentoriDomanda() {
   const [cellulare, setCellulare] = useState("");
   const [specializzazioni, setSpecializzazioni] = useState<string[]>([]);
   const [citta, setCitta] = useState<string[]>([]);
+  const [accettaTermini, setAccettaTermini] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const toggleSpec = (s: string) => {
