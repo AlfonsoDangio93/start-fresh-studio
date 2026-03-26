@@ -51,6 +51,7 @@ export default function PerManutentoriDomanda() {
   const [cellulare, setCellulare] = useState("");
   const [specializzazioni, setSpecializzazioni] = useState<string[]>([]);
   const [citta, setCitta] = useState<string[]>([]);
+  const [accettaTermini, setAccettaTermini] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const toggleSpec = (s: string) => {
@@ -73,7 +74,8 @@ export default function PerManutentoriDomanda() {
       !email.trim() ||
       !cellulare.trim() ||
       specializzazioni.length === 0 ||
-      citta.length === 0
+      citta.length === 0 ||
+      !accettaTermini
     ) {
       toast({
         title: "Compila tutti i campi",
@@ -274,6 +276,22 @@ export default function PerManutentoriDomanda() {
                 per rimanere aggiornato.
               </p>
             </div>
+
+            {/* Termini e condizioni */}
+            <label className="flex items-start gap-3 cursor-pointer">
+              <Checkbox
+                checked={accettaTermini}
+                onCheckedChange={(checked) => setAccettaTermini(checked === true)}
+                className="mt-0.5"
+              />
+              <span className="text-sm text-muted-foreground leading-relaxed">
+                Accetto i{" "}
+                <a href="/termini-e-condizioni" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:no-underline">
+                  Termini e Condizioni
+                </a>{" "}
+                *
+              </span>
+            </label>
 
             {/* Submit */}
             <Button type="submit" size="lg" className="w-full text-base font-semibold rounded-xl h-12">
