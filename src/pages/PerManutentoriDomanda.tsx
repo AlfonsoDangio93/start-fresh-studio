@@ -168,7 +168,7 @@ export default function PerManutentoriDomanda() {
                 <SelectTrigger className="rounded-xl">
                   <SelectValue placeholder="Seleziona..." />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="z-[70] border-border bg-background shadow-lg">
                   <SelectItem value="1-3">1 – 3</SelectItem>
                   <SelectItem value="4-7">4 – 7</SelectItem>
                   <SelectItem value="8-15">8 – 15</SelectItem>
@@ -207,7 +207,7 @@ export default function PerManutentoriDomanda() {
                 <SelectTrigger className="rounded-xl">
                   <SelectValue placeholder="Seleziona la tua zona..." />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="z-[70] border-border bg-background shadow-lg">
                   {AREE.map((a) => (
                     <SelectItem key={a} value={a}>{a}</SelectItem>
                   ))}
