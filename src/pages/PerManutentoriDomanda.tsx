@@ -117,7 +117,7 @@ export default function PerManutentoriDomanda() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
+          <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm space-y-6 overflow-visible">
             {/* Nome e Cognome */}
             <div className="space-y-2">
               <Label htmlFor="nome" className="text-foreground font-medium">Nome e Cognome *</Label>
