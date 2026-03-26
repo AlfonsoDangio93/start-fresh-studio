@@ -90,28 +90,32 @@ export default function PerManutentoriDomanda() {
     setCellulare(digitsOnly.slice(0, 10));
   };
 
+  const isFormComplete =
+    nome.trim() !== "" &&
+    cognome.trim() !== "" &&
+    email.trim() !== "" &&
+    emailRegex.test(email.trim()) &&
+    cellulare.trim().length >= 9 &&
+    specializzazioni.length > 0 &&
+    citta.length > 0 &&
+    accettaTermini;
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (
-      !nome.trim() ||
-      !cognome.trim() ||
-      !email.trim() ||
-      !cellulare.trim() ||
-      specializzazioni.length === 0 ||
-      citta.length === 0 ||
-      !accettaTermini
-    ) {
+    const missing: string[] = [];
+    if (!nome.trim()) missing.push("Nome");
+    if (!cognome.trim()) missing.push("Cognome");
+    if (!email.trim()) missing.push("Email");
+    else if (!emailRegex.test(email.trim())) missing.push("Email valida");
+    if (!cellulare.trim() || cellulare.trim().length < 9) missing.push("Cellulare");
+    if (specializzazioni.length === 0) missing.push("Specializzazione");
+    if (citta.length === 0) missing.push("Area geografica");
+    if (!accettaTermini) missing.push("Accettazione Termini e Condizioni");
+
+    if (missing.length > 0) {
       toast({
-        title: "Compila tutti i campi",
-        description: "Tutti i campi obbligatori devono essere compilati.",
-        variant: "destructive",
-      });
-      return;
-    }
-    if (!emailRegex.test(email.trim())) {
-      toast({
-        title: "Email non valida",
-        description: "Inserisci un indirizzo email valido.",
+        title: "Campi mancanti",
+        description: `Completa: ${missing.join(", ")}`,
         variant: "destructive",
       });
       return;
@@ -337,9 +341,11 @@ export default function PerManutentoriDomanda() {
             <Button
               type="submit"
               size="lg"
-              disabled={!accettaTermini}
-              className={`w-full text-base font-semibold rounded-xl h-12 ${
-                !accettaTermini ? "bg-muted text-muted-foreground hover:bg-muted cursor-not-allowed" : ""
+              disabled={!isFormComplete}
+              className={`w-full text-base font-semibold rounded-[10px] h-12 transition-colors ${
+                isFormComplete
+                  ? "bg-[#E35210] hover:bg-[#c9470d] text-white"
+                  : "bg-muted text-muted-foreground hover:bg-muted cursor-not-allowed"
               }`}
             >
               Invia candidatura
