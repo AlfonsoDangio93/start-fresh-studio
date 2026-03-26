@@ -50,7 +50,7 @@ export default function PerManutentoriDomanda() {
   const [email, setEmail] = useState("");
   const [cellulare, setCellulare] = useState("");
   const [specializzazioni, setSpecializzazioni] = useState<string[]>([]);
-  const [citta, setCitta] = useState("");
+  const [citta, setCitta] = useState<string[]>([]);
   const [accettaTermini, setAccettaTermini] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -60,8 +60,10 @@ export default function PerManutentoriDomanda() {
     );
   };
 
-  const selectCitta = (c: string) => {
-    setCitta((prev) => (prev === c ? "" : c));
+  const toggleCitta = (c: string) => {
+    setCitta((prev) =>
+      prev.includes(c) ? prev.filter((x) => x !== c) : [...prev, c]
+    );
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -72,7 +74,7 @@ export default function PerManutentoriDomanda() {
       !email.trim() ||
       !cellulare.trim() ||
       specializzazioni.length === 0 ||
-      !citta ||
+      citta.length === 0 ||
       !accettaTermini
     ) {
       toast({
@@ -238,13 +240,14 @@ export default function PerManutentoriDomanda() {
             {/* Città */}
             <div className="space-y-3">
               <Label className="text-foreground font-medium">Quali aree geografiche riesci a coprire? *</Label>
+              <p className="text-sm text-muted-foreground">Puoi scegliere più di una opzione</p>
               <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
                 {CITTA.map(({ label, img }) => (
                   <div
                     key={label}
-                    onClick={() => selectCitta(label)}
+                    onClick={() => toggleCitta(label)}
                     className={`relative flex flex-col items-center gap-2 p-4 rounded-xl border cursor-pointer transition-all ${
-                      citta === label
+                      citta.includes(label)
                         ? "border-primary bg-primary/5 shadow-sm ring-2 ring-primary/20"
                         : "border-border hover:border-muted-foreground/30"
                     }`}
@@ -256,7 +259,7 @@ export default function PerManutentoriDomanda() {
                       className="w-16 h-16 object-contain"
                     />
                     <span className="text-sm font-medium text-foreground">{label}</span>
-                    {citta === label && (
+                    {citta.includes(label) && (
                       <div className="absolute top-2 right-2 w-5 h-5 rounded-full bg-primary flex items-center justify-center">
                         <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={3}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
