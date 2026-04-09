@@ -101,7 +101,9 @@ export default function PerManutentoriDomanda() {
     citta.length > 0 &&
     accettaTermini;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const missing: string[] = [];
     if (!nome.trim()) missing.push("Nome");
@@ -121,6 +123,30 @@ export default function PerManutentoriDomanda() {
       });
       return;
     }
+
+    setIsSubmitting(true);
+    const { error } = await supabase.from("maintenance_applications").insert({
+      nome: nome.trim(),
+      cognome: cognome.trim(),
+      azienda: azienda.trim() || null,
+      email: email.trim(),
+      prefisso,
+      cellulare: cellulare.trim(),
+      specializzazioni,
+      citta,
+    });
+
+    if (error) {
+      toast({
+        title: "Errore",
+        description: "Si è verificato un errore. Riprova più tardi.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    setIsSubmitting(false);
     setSubmitted(true);
   };
 

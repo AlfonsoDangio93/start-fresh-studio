@@ -13,6 +13,7 @@ import PerAgenzie from "@/pages/PerAgenzie";
 import PerHostProfessionali from "@/pages/PerHostProfessionali";
 import PerManutentori from "@/pages/PerManutentori";
 import PerManutentoriDomanda from "@/pages/PerManutentoriDomanda";
+import AdminCandidature from "@/pages/AdminCandidature";
 import DashboardRealtime from "@/pages/DashboardRealtime";
 import TicketingGuasti from "@/pages/TicketingGuasti";
 import GestioneTecnici from "@/pages/GestioneTecnici";
