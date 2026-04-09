@@ -4,8 +4,8 @@ import { useEffect } from "react";
 
 export default function ThankYou() {
   useEffect(() => {
-    if (typeof window.gtag === "function") {
-      window.gtag("event", "conversion", {
+    if (typeof (window as any).gtag === "function") {
+      (window as any).gtag("event", "conversion", {
         send_to: "AW-18076138906/qC_CCPz-5ZgcEJr7r6tD",
         value: 1.0,
         currency: "EUR",
