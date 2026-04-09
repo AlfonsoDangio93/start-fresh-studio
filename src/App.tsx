@@ -22,6 +22,7 @@ import ThankYou from "@/pages/ThankYou";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import CookiePolicy from "@/pages/CookiePolicy";
 import TerminiCondizioni from "@/pages/TerminiCondizioni";
+import NotFound from "@/pages/NotFound";
 
 export default function App() {
   useUtmPersistence();
