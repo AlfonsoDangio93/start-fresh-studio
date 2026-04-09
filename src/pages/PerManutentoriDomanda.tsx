@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/sections/Navbar";
+import { supabase } from "@/integrations/supabase/client";
 import LandingFooter from "@/components/landing/LandingFooter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -100,7 +101,9 @@ export default function PerManutentoriDomanda() {
     citta.length > 0 &&
     accettaTermini;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const missing: string[] = [];
     if (!nome.trim()) missing.push("Nome");
@@ -120,6 +123,30 @@ export default function PerManutentoriDomanda() {
       });
       return;
     }
+
+    setIsSubmitting(true);
+    const { error } = await supabase.from("maintenance_applications").insert({
+      nome: nome.trim(),
+      cognome: cognome.trim(),
+      azienda: azienda.trim() || null,
+      email: email.trim(),
+      prefisso,
+      cellulare: cellulare.trim(),
+      specializzazioni,
+      citta,
+    });
+
+    if (error) {
+      toast({
+        title: "Errore",
+        description: "Si è verificato un errore. Riprova più tardi.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    setIsSubmitting(false);
     setSubmitted(true);
   };
 
@@ -341,14 +368,14 @@ export default function PerManutentoriDomanda() {
             <Button
               type="submit"
               size="lg"
-              disabled={!isFormComplete}
+              disabled={!isFormComplete || isSubmitting}
               className={`w-full text-base font-semibold rounded-[10px] h-12 transition-colors ${
-                isFormComplete
+                isFormComplete && !isSubmitting
                   ? "bg-[#E35210] hover:bg-[#c9470d] text-white"
                   : "bg-muted text-muted-foreground hover:bg-muted cursor-not-allowed"
               }`}
             >
-              Invia candidatura
+              {isSubmitting ? "Invio in corso..." : "Invia candidatura"}
             </Button>
           </form>
         </div>
