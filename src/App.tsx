@@ -40,6 +40,7 @@ export default function App() {
         <Route path="/per-host-professionali" element={<PerHostProfessionali />} />
         <Route path="/per-manutentori" element={<PerManutentori />} />
         <Route path="/per-manutentori-domanda" element={<PerManutentoriDomanda />} />
+        <Route path="/admin-candidature" element={<AdminCandidature />} />
         <Route path="/dashboard-realtime" element={<DashboardRealtime />} />
         <Route path="/ticketing-guasti" element={<TicketingGuasti />} />
         <Route path="/gestione-tecnici" element={<GestioneTecnici />} />
