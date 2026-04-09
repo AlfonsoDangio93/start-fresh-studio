@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/sections/Navbar";
+import { supabase } from "@/integrations/supabase/client";
 import LandingFooter from "@/components/landing/LandingFooter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
