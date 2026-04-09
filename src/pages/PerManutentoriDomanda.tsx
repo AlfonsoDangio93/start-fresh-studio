@@ -368,14 +368,14 @@ export default function PerManutentoriDomanda() {
             <Button
               type="submit"
               size="lg"
-              disabled={!isFormComplete}
+              disabled={!isFormComplete || isSubmitting}
               className={`w-full text-base font-semibold rounded-[10px] h-12 transition-colors ${
-                isFormComplete
+                isFormComplete && !isSubmitting
                   ? "bg-[#E35210] hover:bg-[#c9470d] text-white"
                   : "bg-muted text-muted-foreground hover:bg-muted cursor-not-allowed"
               }`}
             >
-              Invia candidatura
+              {isSubmitting ? "Invio in corso..." : "Invia candidatura"}
             </Button>
           </form>
         </div>
