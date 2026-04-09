@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useEffect } from "react";
 
 export default function ThankYou() {
+  useEffect(() => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "conversion", {
+        send_to: "AW-18076138906/qC_CCPz-5ZgcEJr7r6tD",
+        value: 1.0,
+        currency: "EUR",
+      });
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-6">
       <div className="text-center max-w-lg">
