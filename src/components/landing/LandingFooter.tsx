@@ -4,10 +4,8 @@ import { Linkedin, Instagram, Facebook } from "lucide-react";
 export default function LandingFooter() {
   return (
     <footer className="bg-white border-t border-border">
-      <div className="max-w-site mx-auto pl-4 pr-8 pt-14 pb-8">
-        {/* Top section — logo/social/email left, company info right */}
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 pb-10">
-          {/* Left column */}
+      <div className="max-w-site mx-auto px-6 pt-14 pb-8">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 pb-10 border-b border-border">
           <div className="shrink-0 space-y-3">
             <Link to="/" className="flex items-center cursor-pointer">
               <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 w-auto" />
@@ -29,16 +27,15 @@ export default function LandingFooter() {
             </p>
           </div>
 
-          {/* Right column */}
-          <div className="text-[12px] text-secondary/50 leading-relaxed md:text-right">
+          <div className="text-[12px] text-secondary/50 leading-relaxed max-w-[400px] md:text-right">
             <p className="font-semibold text-dark/60 mb-1">S9 srl Società Benefit</p>
             <p>Partita IVA 13291110016 | REA TO-1352856</p>
             <p>Corso Unione Sovietica, 612/15/C | 10135 Torino | TO</p>
+            
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-6 space-y-3">
+        <div className="border-t border-border py-6 space-y-3">
           <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <span>Made with</span>
