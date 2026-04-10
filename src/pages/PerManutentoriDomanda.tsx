@@ -360,6 +360,10 @@ export default function PerManutentoriDomanda() {
                 <a href="/termini-e-condizioni" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:no-underline">
                   Termini e Condizioni
                 </a>{" "}
+                e la{" "}
+                <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:no-underline">
+                  Privacy Policy
+                </a>{" "}
                 *
               </span>
             </label>
