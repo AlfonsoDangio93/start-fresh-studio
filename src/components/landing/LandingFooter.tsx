@@ -31,7 +31,7 @@ export default function LandingFooter() {
             <p className="font-semibold text-dark/60 mb-1">S9 srl Società Benefit</p>
             <p>Partita IVA 13291110016 | REA TO-1352856</p>
             <p>Corso Unione Sovietica, 612/15/C | 10135 Torino | TO</p>
-            <p>Capitale Sociale &euro; 10.000 i.v.</p>
+            
           </div>
         </div>
 
