@@ -23,6 +23,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import CookiePolicy from "@/pages/CookiePolicy";
 import TerminiCondizioni from "@/pages/TerminiCondizioni";
 import NotFound from "@/pages/NotFound";
+import Ticket from "@/pages/Ticket";
 
 export default function App() {
   useUtmPersistence();
