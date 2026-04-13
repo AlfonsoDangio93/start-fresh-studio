@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Globe, ChevronDown, ArrowLeft } from "lucide-react";
+import { Globe, ChevronDown } from "lucide-react";
 
 const LOGO = "/logos/hommi_logo.png";
 
@@ -278,24 +278,29 @@ export default function Ticket() {
   return <TicketContent lang={lang} onChangeLang={() => setLang(null)} />;
 }
 
+/* ─── Step 1: Language Selector ─── */
 function LanguageSelector({ onSelect }: { onSelect: (l: Lang) => void }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-blue-100 flex flex-col items-center justify-center px-4 py-12">
-      <img src={LOGO} alt="Hommi" className="h-14 mb-6" />
-      <p className="text-muted-foreground mb-8 text-center">
+    <div className="min-h-screen bg-surface flex flex-col items-center justify-center px-4 py-12">
+      <img src={LOGO} alt="Hommi" className="h-12 mb-8" />
+      <p className="text-secondary text-sm mb-8 text-center font-sans">
         Select your language / Seleziona la lingua
       </p>
-      <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-lg">
-        <h2 className="text-xl font-bold text-center mb-6">Choose your language</h2>
+      <div className="bg-background rounded-2xl border border-border shadow-sm p-8 w-full max-w-lg">
+        <h2 className="text-xl font-display font-bold text-dark text-center mb-6">
+          Choose your language
+        </h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {LANGUAGES.map((l) => (
             <button
               key={l.code}
               onClick={() => onSelect(l.code)}
-              className="flex flex-col items-center gap-1 rounded-xl border border-border bg-white hover:bg-blue-50 hover:border-primary/40 transition-colors py-4 px-2 text-center"
+              className="flex flex-col items-center gap-1.5 rounded-xl border border-border bg-background hover:border-primary hover:shadow-md transition-all py-4 px-2 text-center group"
             >
               <span className="text-3xl">{l.flag}</span>
-              <span className="text-sm font-medium">{l.label}</span>
+              <span className="text-sm font-sans font-medium text-dark group-hover:text-primary transition-colors">
+                {l.label}
+              </span>
             </button>
           ))}
         </div>
@@ -304,100 +309,109 @@ function LanguageSelector({ onSelect }: { onSelect: (l: Lang) => void }) {
   );
 }
 
+/* ─── Step 2: Main Content ─── */
 function TicketContent({ lang, onChangeLang }: { lang: Lang; onChangeLang: () => void }) {
   const t = T[lang];
   const currentLang = LANGUAGES.find((l) => l.code === lang)!;
   const isRtl = lang === "ar";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-blue-100" dir={isRtl ? "rtl" : "ltr"}>
+    <div className="min-h-screen bg-surface" dir={isRtl ? "rtl" : "ltr"}>
       {/* Top Bar */}
-      <div className="flex items-center justify-between px-4 sm:px-8 py-4 max-w-4xl mx-auto">
-        <button
-          onClick={onChangeLang}
-          className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
-        >
-          {t.back}
-        </button>
-        <button
-          onClick={onChangeLang}
-          className="flex items-center gap-1.5 text-sm border border-border rounded-full px-3 py-1.5 bg-white hover:bg-blue-50 transition-colors"
-        >
-          <Globe className="w-4 h-4" />
-          <span>{currentLang.flag}</span>
-          <span className="hidden sm:inline">{currentLang.label}</span>
-          <ChevronDown className="w-3 h-3" />
-        </button>
-        <img src={LOGO} alt="Hommi" className="h-8" />
-      </div>
+      <header className="bg-background border-b border-border">
+        <div className="flex items-center justify-between px-6 py-4 max-w-site mx-auto">
+          <button
+            onClick={onChangeLang}
+            className="text-sm text-secondary hover:text-primary transition-colors font-sans font-medium"
+          >
+            {t.back}
+          </button>
+          <button
+            onClick={onChangeLang}
+            className="flex items-center gap-1.5 text-sm border border-border rounded-full px-3 py-1.5 bg-background hover:border-primary transition-colors font-sans"
+          >
+            <Globe className="w-4 h-4 text-secondary" />
+            <span>{currentLang.flag}</span>
+            <span className="hidden sm:inline text-dark">{currentLang.label}</span>
+            <ChevronDown className="w-3 h-3 text-secondary" />
+          </button>
+          <img src={LOGO} alt="Hommi" className="h-8" />
+        </div>
+      </header>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 pb-16 space-y-8">
+      <main className="max-w-site mx-auto px-6 pb-16 pt-8 space-y-10">
         {/* Hero Card */}
-        <div className="bg-blue-100/60 rounded-2xl p-6 sm:p-10">
-          <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">{t.heroTitle}</h1>
-          <p className="text-muted-foreground leading-relaxed">{t.heroSubtitle}</p>
+        <div className="bg-primary/5 border border-primary/10 rounded-2xl p-6 sm:p-10">
+          <h1 className="text-2xl sm:text-3xl font-display font-bold text-dark mb-3">
+            {t.heroTitle}
+          </h1>
+          <p className="text-secondary font-sans leading-relaxed">{t.heroSubtitle}</p>
         </div>
 
         {/* When to contact us */}
-        <div>
-          <h2 className="text-xl font-bold mb-4">{t.whenTitle}</h2>
+        <section>
+          <h2 className="text-xl font-display font-bold text-dark mb-5">{t.whenTitle}</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {/* Urgencies */}
-            <div className="bg-white rounded-2xl border border-red-200 p-5">
-              <div className="flex items-center gap-2 mb-3">
+            <div className="bg-background rounded-2xl border border-error/20 p-6 shadow-sm">
+              <div className="flex items-center gap-2 mb-4">
                 <span className="text-xl">🔺</span>
-                <h3 className="font-bold text-red-600">{t.urgTitle}</h3>
+                <h3 className="font-display font-bold text-error text-sm tracking-wide">
+                  {t.urgTitle}
+                </h3>
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {t.urgItems.map((item, i) => (
-                  <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                    <span className="text-red-400 mt-0.5">•</span>
+                  <li key={i} className="text-sm text-secondary font-sans flex gap-2.5">
+                    <span className="text-error/60 mt-0.5 shrink-0">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
             {/* Minor */}
-            <div className="bg-white rounded-2xl border border-blue-200 p-5">
-              <div className="flex items-center gap-2 mb-3">
+            <div className="bg-background rounded-2xl border border-border p-6 shadow-sm">
+              <div className="flex items-center gap-2 mb-4">
                 <span className="text-xl">🔧</span>
-                <h3 className="font-bold text-blue-600">{t.minorTitle}</h3>
+                <h3 className="font-display font-bold text-primary text-sm tracking-wide">
+                  {t.minorTitle}
+                </h3>
               </div>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {t.minorItems.map((item, i) => (
-                  <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                    <span className="text-blue-400 mt-0.5">•</span>
+                  <li key={i} className="text-sm text-secondary font-sans flex gap-2.5">
+                    <span className="text-primary/50 mt-0.5 shrink-0">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* How it works */}
-        <div>
-          <h2 className="text-xl font-bold mb-3">{t.howTitle}</h2>
-          <p className="text-muted-foreground leading-relaxed mb-6">{t.howText}</p>
+        <section>
+          <h2 className="text-xl font-display font-bold text-dark mb-3">{t.howTitle}</h2>
+          <p className="text-secondary font-sans leading-relaxed mb-8">{t.howText}</p>
 
           <div className="flex flex-col items-center gap-3">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white font-bold text-lg rounded-full px-8 py-4 shadow-lg transition-colors w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 text-white font-sans font-bold text-lg rounded-[10px] px-8 py-4 shadow-lg transition-all hover:shadow-xl w-full sm:w-auto text-center"
             >
               {t.ctaLabel}
             </a>
-            <p className="text-xs text-muted-foreground text-center">{t.ctaCaption}</p>
+            <p className="text-xs text-secondary font-sans text-center">{t.ctaCaption}</p>
           </div>
-        </div>
+        </section>
 
         {/* Footer */}
-        <p className="text-center italic text-muted-foreground pt-8 border-t border-border/50">
+        <p className="text-center italic text-secondary font-sans pt-8 border-t border-border">
           {t.footer}
         </p>
-      </div>
+      </main>
     </div>
   );
 }
