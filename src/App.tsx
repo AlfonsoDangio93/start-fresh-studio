@@ -51,6 +51,7 @@ export default function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/termini-e-condizioni" element={<TerminiCondizioni />} />
+        <Route path="/ticket" element={<Ticket />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
