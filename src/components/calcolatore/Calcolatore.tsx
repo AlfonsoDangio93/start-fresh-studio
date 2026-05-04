@@ -191,12 +191,8 @@ export default function Calcolatore({ onExit }: Props) {
       {/* Header */}
       <header className="sticky top-0 z-10 bg-white border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center gap-4">
-          <a
-            href="/"
-            className="text-xl font-extrabold tracking-tight shrink-0"
-            style={{ color: ORANGE }}
-          >
-            hommi
+          <a href="/calcolatore" className="flex items-center shrink-0">
+            <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 sm:h-9 w-auto" />
           </a>
 
           {step <= TOTAL_QUESTION_STEPS && (

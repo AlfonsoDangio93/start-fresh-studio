@@ -31,7 +31,7 @@ export default function LandingCalcolatore() {
       <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6">
         <div className="w-full max-w-site">
           <div className="flex items-center justify-between bg-white border border-border shadow-sm rounded-xl px-4 md:px-6 py-3">
-            <a href="/" className="flex items-center shrink-0">
+            <a href="/calcolatore" className="flex items-center shrink-0">
               <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 md:h-10 w-auto" />
             </a>
             <button
