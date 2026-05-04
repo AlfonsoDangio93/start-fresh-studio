@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import LandingNavbar from "@/components/landing/LandingNavbar";
+import LandingFooter from "@/components/landing/LandingFooter";
 
 const ORANGE = "#E8501C";
 const ORANGE_HOVER = "#C9410F";
@@ -22,28 +24,11 @@ export default function LandingCalcolatore() {
 
   return (
     <div
-      className="min-h-screen bg-white"
+      className="landing-theme min-h-screen bg-white"
       style={{ fontFamily: "'Inter', system-ui, sans-serif", color: DARK }}
     >
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-          <a
-            href="/"
-            className="text-2xl font-extrabold tracking-tight"
-            style={{ color: ORANGE }}
-          >
-            hommi
-          </a>
-          <a
-            href="#"
-            className="text-sm font-medium hover:opacity-70 transition-opacity"
-            style={{ color: DARK }}
-          >
-            Demo gratuita
-          </a>
-        </div>
-      </header>
+      <LandingNavbar />
+      <div className="h-20" />
 
       {/* Hero */}
       <section className="min-h-[90vh] flex items-center px-5 sm:px-8 py-16 lg:py-24">
@@ -210,6 +195,7 @@ export default function LandingCalcolatore() {
           </div>
         </div>
       </section>
+      <LandingFooter />
     </div>
   );
 }
