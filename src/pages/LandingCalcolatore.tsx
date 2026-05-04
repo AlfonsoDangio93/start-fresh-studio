@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type SyntheticEvent } from "react";
 import LandingFooter from "@/components/landing/LandingFooter";
 import Calcolatore from "@/components/calcolatore/Calcolatore";
 
@@ -14,14 +14,40 @@ export default function LandingCalcolatore() {
   const qaStep = params.get("step") === "7" ? 7 : undefined;
   const shouldStart = params.get("start") === "1";
   const [calcOpen, setCalcOpen] = useState(qaStep === 7 || shouldStart);
-  const openCalculator = () => {
+  const openCalculator = (event?: SyntheticEvent) => {
+    event?.preventDefault();
     setCalcOpen(true);
-    window.history.replaceState(null, "", "/calcolatore?start=1");
   };
 
   useEffect(() => {
     document.body.classList.toggle("calculator-open", calcOpen);
-    return () => document.body.classList.remove("calculator-open");
+    if (!calcOpen) return () => document.body.classList.remove("calculator-open");
+
+    const hiddenElements = new Map<HTMLElement, string>();
+    const hideIubendaBanner = () => {
+      document
+        .querySelectorAll<HTMLElement>(".iubenda-cs-container, .iubenda-cs-overlay")
+        .forEach((element) => {
+          if (!hiddenElements.has(element)) hiddenElements.set(element, element.style.display);
+          if (element.style.display !== "none") {
+            element.style.setProperty("display", "none", "important");
+          }
+        });
+    };
+
+    hideIubendaBanner();
+    const observer = new MutationObserver(hideIubendaBanner);
+    observer.observe(document.body, { childList: true, subtree: true });
+    const interval = window.setInterval(hideIubendaBanner, 1000);
+
+    return () => {
+      observer.disconnect();
+      window.clearInterval(interval);
+      hiddenElements.forEach((display, element) => {
+        element.style.display = display;
+      });
+      document.body.classList.remove("calculator-open");
+    };
   }, [calcOpen]);
 
   useEffect(() => {
@@ -47,18 +73,14 @@ export default function LandingCalcolatore() {
             <a href="/calcolatore" className="flex items-center shrink-0">
               <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 md:h-10 w-auto" />
             </a>
-            <a
-              href="/calcolatore?start=1"
-              role="button"
+            <button
+              type="button"
               onClick={openCalculator}
-              onTouchEnd={(e) => {
-                e.preventDefault();
-                openCalculator();
-              }}
+              onTouchEnd={openCalculator}
               className="text-[12px] md:text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 md:px-5 py-1.5 md:py-2 rounded-[10px] cursor-pointer"
             >
               Inizia il calcolo
-            </a>
+            </button>
           </div>
         </div>
       </nav>
@@ -101,14 +123,10 @@ export default function LandingCalcolatore() {
             </p>
 
             <div className="pt-2 space-y-3">
-              <a
-                href="/calcolatore?start=1"
-                role="button"
+              <button
+                type="button"
                 onClick={openCalculator}
-                onTouchEnd={(e) => {
-                  e.preventDefault();
-                  openCalculator();
-                }}
+                onTouchEnd={openCalculator}
                 className="inline-flex items-center gap-2 text-white font-semibold text-base px-8 py-4 rounded-[12px] transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-orange-500/20"
                 style={{ backgroundColor: ORANGE }}
                 onMouseEnter={(e) =>
@@ -120,7 +138,7 @@ export default function LandingCalcolatore() {
               >
                 Inizia il calcolo
                 <span aria-hidden>→</span>
-              </a>
+              </button>
               <p className="text-sm" style={{ color: "#9CA3AF" }}>
                 Gratis. Nessun impegno. 60 secondi del tuo tempo.
               </p>
