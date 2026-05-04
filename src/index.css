@@ -235,6 +235,23 @@ p {
   animation: slide-up 0.3s ease-out;
 }
 
+@media (max-width: 640px) {
+  body.calculator-step-nav-active .iubenda-tp-btn,
+  body.calculator-step-nav-active [class*="iubenda-tp-btn"] {
+    bottom: calc(0.75rem + env(safe-area-inset-bottom)) !important;
+  }
+
+  body.calculator-form-active .iubenda-tp-btn,
+  body.calculator-form-active [class*="iubenda-tp-btn"] {
+    bottom: calc(0.75rem + env(safe-area-inset-bottom)) !important;
+  }
+
+  body.calculator-form-active [id*="iubenda"]:not(.iubenda-tp-btn),
+  body.calculator-form-active [class*="iubenda"]:not(.iubenda-tp-btn) {
+    max-height: min(34vh, 220px) !important;
+  }
+}
+
 /* ═══════════════════════════════════════════════
    Accessibility — reduced motion
    ═══════════════════════════════════════════════ */
