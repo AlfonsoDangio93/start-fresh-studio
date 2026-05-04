@@ -128,7 +128,7 @@ export default function Calcolatore({ onExit }: Props) {
     oreSettimana: null,
   });
   const [results, setResults] = useState<Results | null>(null);
-  const [formData, setFormData] = useState<ContactForm | null>(null);
+  
 
   const canAdvance = (() => {
     switch (step) {
