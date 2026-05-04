@@ -195,6 +195,7 @@ export default function LandingCalcolatore() {
           </div>
         </div>
       </section>
+      <LandingFooter />
     </div>
   );
 }
