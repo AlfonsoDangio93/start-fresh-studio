@@ -228,7 +228,7 @@ export default function Calcolatore({ onExit }: Props) {
 
       {/* Body */}
       <main className="flex-1 overflow-y-auto">
-        <div className="max-w-[720px] mx-auto px-5 sm:px-8 py-12 sm:py-20 pb-40 sm:pb-20">
+        <div className={`max-w-[720px] mx-auto px-5 sm:px-8 py-12 sm:py-20 ${step === 7 ? "pb-32 sm:pb-20" : ""}`}>
           <div key={step} className="animate-fade-in">
             {step === 1 && <Step1 answers={answers} setAnswers={setAnswers} />}
             {step === 2 && <Step2 answers={answers} setAnswers={setAnswers} />}
