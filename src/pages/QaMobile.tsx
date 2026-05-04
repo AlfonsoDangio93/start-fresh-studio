@@ -30,6 +30,13 @@ function getOverlayStatus(path: string, deviceHeight: number): OverlayResult {
   return protectedActionTop < iubendaZoneTop ? "pass" : "risk";
 }
 
+function withPreviewToken(path: string) {
+  const token = new URLSearchParams(window.location.search).get("__lovable_token");
+  if (!token) return path;
+  const separator = path.includes("?") ? "&" : "?";
+  return `${path}${separator}__lovable_token=${encodeURIComponent(token)}`;
+}
+
 function StatusBadge({ status }: { status: OverlayResult }) {
   const copy = {
     checking: "Rilevo…",
@@ -64,6 +71,7 @@ export default function QaMobile() {
     () => DEVICES.map((device) => getOverlayStatus(path, device.h)),
     [path]
   );
+  const framePath = useMemo(() => withPreviewToken(path), [path]);
 
   const riskCount = results.filter((status) => status === "risk").length;
 
@@ -126,7 +134,7 @@ export default function QaMobile() {
                 >
                   <iframe
                     key={`${renderKey}-${device.name}`}
-                    src={path}
+                    src={framePath}
                     title={`${device.name} — ${path}`}
                     className="block bg-background"
                     style={{ width: device.w, height: frameHeight, border: 0, maxWidth: "100%" }}
