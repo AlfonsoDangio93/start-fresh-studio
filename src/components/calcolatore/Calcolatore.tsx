@@ -277,7 +277,7 @@ export default function Calcolatore({ onExit }: Props) {
 
       {/* Footer nav */}
       {step <= TOTAL_QUESTION_STEPS && (
-        <footer className="sticky bottom-20 sm:bottom-0 bg-white border-t border-gray-100">
+        <footer className="sticky bottom-20 sm:bottom-0 z-20 bg-white border-t border-gray-100">
           <div className="max-w-[720px] mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
             <button
               onClick={goBack}
