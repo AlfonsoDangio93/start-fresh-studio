@@ -237,7 +237,7 @@ export default function Calcolatore({ onExit }: Props) {
             {step === 5 && <Step5 answers={answers} setAnswers={setAnswers} />}
             {step === 6 && <Step6Loading />}
             {step === 7 && results && (
-              <Step7Result
+              <Step7Gate
                 results={results}
                 answers={answers}
                 onSubmitted={(data) => {
@@ -246,9 +246,10 @@ export default function Calcolatore({ onExit }: Props) {
                 }}
               />
             )}
-            {step === 8 && (
-              <Step8ThankYou
-                firstName={formData?.nome.split(" ")[0] ?? ""}
+            {step === 8 && results && (
+              <Step8Report
+                results={results}
+                answers={answers}
                 email={formData?.email ?? ""}
               />
             )}
