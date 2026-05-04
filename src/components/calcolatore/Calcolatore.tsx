@@ -111,14 +111,6 @@ const contactSchema = z.object({
     .boolean()
     .refine((v) => v === true, "Devi accettare la Privacy Policy"),
 });
-  costoGuastiDiretti: number;
-  costoTempoPM: number;
-  costoRecensioni: number;
-  costoTotaleAnnuo: number;
-  costoHommi: number;
-  risparmio: number;
-  risparmioPercentuale: number;
-};
 
 interface Props {
   onExit: () => void;
