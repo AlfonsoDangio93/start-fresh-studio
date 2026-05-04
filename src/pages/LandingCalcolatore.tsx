@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import LandingNavbar from "@/components/landing/LandingNavbar";
 import LandingFooter from "@/components/landing/LandingFooter";
 
 const ORANGE = "#E8501C";
