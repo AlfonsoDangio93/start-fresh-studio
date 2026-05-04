@@ -86,6 +86,10 @@ type ContactForm = {
   email: string;
   telefono: string;
   azienda: string;
+  ruolo: string;
+  sitoWeb?: string;
+  inizio?: string;
+  note?: string;
 };
 
 const SUCCESS = "#10B981";
@@ -108,6 +112,14 @@ const contactSchema = z.object({
     .max(20, "Numero troppo lungo")
     .regex(/^[+\d\s().-]+$/, "Solo numeri e simboli telefonici"),
   azienda: z.string().trim().max(150, "Massimo 150 caratteri").optional(),
+  ruolo: z
+    .string()
+    .trim()
+    .min(1, "Seleziona il tuo ruolo")
+    .max(60, "Massimo 60 caratteri"),
+  sitoWeb: z.string().trim().max(255, "Massimo 255 caratteri").optional(),
+  inizio: z.string().trim().max(60, "Massimo 60 caratteri").optional(),
+  note: z.string().trim().max(1000, "Massimo 1000 caratteri").optional(),
   consent: z
     .boolean()
     .refine((v) => v === true, "Devi accettare la Privacy Policy"),
