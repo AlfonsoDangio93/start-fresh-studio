@@ -214,6 +214,7 @@ export default function LandingCalcolatore() {
         </div>
       </section>
       <LandingFooter />
+      {calcOpen && <Calcolatore onExit={() => setCalcOpen(false)} />}
     </div>
   );
 }
