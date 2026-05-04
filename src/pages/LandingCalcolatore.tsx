@@ -29,14 +29,16 @@ export default function LandingCalcolatore() {
         .querySelectorAll<HTMLElement>(".iubenda-cs-container, .iubenda-cs-overlay")
         .forEach((element) => {
           if (!hiddenElements.has(element)) hiddenElements.set(element, element.style.display);
-          element.style.setProperty("display", "none", "important");
+          if (element.style.display !== "none") {
+            element.style.setProperty("display", "none", "important");
+          }
         });
     };
 
     hideIubendaBanner();
     const observer = new MutationObserver(hideIubendaBanner);
-    observer.observe(document.body, { childList: true, subtree: true, attributes: true });
-    const interval = window.setInterval(hideIubendaBanner, 300);
+    observer.observe(document.body, { childList: true, subtree: true });
+    const interval = window.setInterval(hideIubendaBanner, 1000);
 
     return () => {
       observer.disconnect();
