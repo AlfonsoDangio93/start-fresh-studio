@@ -1,5 +1,14 @@
-import { useState } from "react";
-import { ArrowLeft, ArrowRight, Check, X, Loader2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { z } from "zod";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  X,
+  Loader2,
+  Lock,
+  CheckCircle2,
+} from "lucide-react";
 
 const ORANGE = "#E8501C";
 const ORANGE_HOVER = "#C9410F";
@@ -62,6 +71,46 @@ type Answers = {
 };
 
 type Results = {
+  costoGuastiDiretti: number;
+  costoTempoPM: number;
+  costoRecensioni: number;
+  costoTotaleAnnuo: number;
+  costoHommi: number;
+  risparmio: number;
+  risparmioPercentuale: number;
+};
+
+type ContactForm = {
+  nome: string;
+  email: string;
+  telefono: string;
+  azienda: string;
+};
+
+const SUCCESS = "#10B981";
+
+const contactSchema = z.object({
+  nome: z
+    .string()
+    .trim()
+    .min(2, "Inserisci nome e cognome")
+    .max(100, "Massimo 100 caratteri"),
+  email: z
+    .string()
+    .trim()
+    .email("Email non valida")
+    .max(255, "Massimo 255 caratteri"),
+  telefono: z
+    .string()
+    .trim()
+    .min(8, "Numero non valido")
+    .max(20, "Numero troppo lungo")
+    .regex(/^[+\d\s().-]+$/, "Solo numeri e simboli telefonici"),
+  azienda: z.string().trim().max(150, "Massimo 150 caratteri").optional(),
+  consent: z
+    .boolean()
+    .refine((v) => v === true, "Devi accettare la Privacy Policy"),
+});
   costoGuastiDiretti: number;
   costoTempoPM: number;
   costoRecensioni: number;
