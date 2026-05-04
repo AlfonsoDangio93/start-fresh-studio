@@ -9,7 +9,49 @@ const TEXT_BODY = "#4B5563";
 const BORDER = "#E5E7EB";
 
 const formatEuro = (n: number) =>
-  "€" + new Intl.NumberFormat("it-IT").format(n);
+  new Intl.NumberFormat("it-IT", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(n);
+
+function calculateResults(answers: Answers): Results {
+  const costoMedioIntervento = 130;
+  const valoreOraPM = 35;
+  const impattoRecensione = 400;
+
+  const guastiAnno = (answers.guastiMese ?? 0) * 12;
+  const costoGuastiDiretti = Math.round(
+    guastiAnno * costoMedioIntervento * answers.numImmobili
+  );
+
+  const oreAnnoPM = (answers.oreSettimana ?? 0) * 52;
+  const costoTempoPM = Math.round(oreAnnoPM * valoreOraPM);
+
+  const costoRecensioni = Math.round(
+    (answers.recensioniNegative ?? 0) * impattoRecensione * answers.numImmobili
+  );
+
+  const costoTotaleAnnuo =
+    costoGuastiDiretti + costoTempoPM + costoRecensioni;
+  const costoHommi = Math.round(29.9 * 12 * answers.numImmobili);
+  const risparmio = costoTotaleAnnuo - costoHommi;
+  const risparmioPercentuale =
+    costoTotaleAnnuo > 0
+      ? Math.round((risparmio / costoTotaleAnnuo) * 100)
+      : 0;
+
+  return {
+    costoGuastiDiretti,
+    costoTempoPM,
+    costoRecensioni,
+    costoTotaleAnnuo,
+    costoHommi,
+    risparmio,
+    risparmioPercentuale,
+  };
+}
 
 type Answers = {
   numImmobili: number;
@@ -44,44 +86,7 @@ export default function Calcolatore({ onExit }: Props) {
     recensioniNegative: null,
     oreSettimana: null,
   });
-  const [, setResults] = useState<Results | null>(null);
-
-  // Calculation + auto-advance on step 6
-  useEffect(() => {
-    if (step !== 6) return;
-    const costoMedioIntervento = 130;
-    const valoreOraPM = 35;
-    const impattoRecensione = 400;
-    const guastiAnno = (answers.guastiMese ?? 0) * 12;
-    const costoGuastiDiretti = Math.round(
-      guastiAnno * costoMedioIntervento * answers.numImmobili
-    );
-    const oreAnnoPM = (answers.oreSettimana ?? 0) * 52;
-    const costoTempoPM = Math.round(oreAnnoPM * valoreOraPM);
-    const costoRecensioni = Math.round(
-      (answers.recensioniNegative ?? 0) * impattoRecensione * answers.numImmobili
-    );
-    const costoTotaleAnnuo =
-      costoGuastiDiretti + costoTempoPM + costoRecensioni;
-    const costoHommi = Math.round(29.9 * 12 * answers.numImmobili);
-    const risparmio = costoTotaleAnnuo - costoHommi;
-    const risparmioPercentuale = costoTotaleAnnuo
-      ? Math.round((risparmio / costoTotaleAnnuo) * 100)
-      : 0;
-
-    setResults({
-      costoGuastiDiretti,
-      costoTempoPM,
-      costoRecensioni,
-      costoTotaleAnnuo,
-      costoHommi,
-      risparmio,
-      risparmioPercentuale,
-    });
-
-    const t = setTimeout(() => setStep(7), 2500);
-    return () => clearTimeout(t);
-  }, [step, answers]);
+  const [results, setResults] = useState<Results | null>(null);
 
   const canAdvance = (() => {
     switch (step) {
@@ -100,12 +105,37 @@ export default function Calcolatore({ onExit }: Props) {
     }
   })();
 
+  const handleCalculate = () => {
+    const calculatedResults = calculateResults(answers);
+    console.log("Risposte utente:", answers);
+    console.log("Risultati calcolati:", calculatedResults);
+    setResults(calculatedResults);
+    setStep(6);
+    setTimeout(() => setStep(7), 2500);
+  };
+
   const goNext = () => {
     if (!canAdvance) return;
-    if (step < 6) setStep(step + 1);
+    if (step === 5) {
+      handleCalculate();
+      return;
+    }
+    if (step < 5) setStep(step + 1);
   };
   const goBack = () => {
-    if (step > 1) setStep(step - 1);
+    if (step > 1 && step <= 5) setStep(step - 1);
+  };
+
+  const handleRestart = () => {
+    setAnswers({
+      numImmobili: 5,
+      città: [],
+      guastiMese: null,
+      recensioniNegative: null,
+      oreSettimana: null,
+    });
+    setResults(null);
+    setStep(1);
   };
 
   const progressPct =
