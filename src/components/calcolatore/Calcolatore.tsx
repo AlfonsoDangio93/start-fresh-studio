@@ -65,6 +65,7 @@ function calculateResults(answers: Answers): Results {
 type Answers = {
   numImmobili: number;
   città: string[];
+  altreCitta?: string;
   guastiMese: number | null;
   recensioniNegative: number | null;
   oreSettimana: number | null;
