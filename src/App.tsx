@@ -24,6 +24,7 @@ import CookiePolicy from "@/pages/CookiePolicy";
 import TerminiCondizioni from "@/pages/TerminiCondizioni";
 import NotFound from "@/pages/NotFound";
 import Ticket from "@/pages/Ticket";
+import LandingCalcolatore from "@/pages/LandingCalcolatore";
 
 export default function App() {
   useUtmPersistence();
@@ -52,6 +53,7 @@ export default function App() {
         <Route path="/cookie-policy" element={<CookiePolicy />} />
         <Route path="/termini-e-condizioni" element={<TerminiCondizioni />} />
         <Route path="/ticket" element={<Ticket />} />
+        <Route path="/calcolatore" element={<LandingCalcolatore />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
