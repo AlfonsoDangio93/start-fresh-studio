@@ -601,6 +601,26 @@ function Step6Loading() {
   );
 }
 
+function useCountUp(target: number, durationMs = 1500) {
+  const [value, setValue] = useState(0);
+  const startRef = useRef<number | null>(null);
+  useEffect(() => {
+    let raf = 0;
+    startRef.current = null;
+    const tick = (t: number) => {
+      if (startRef.current === null) startRef.current = t;
+      const elapsed = t - startRef.current;
+      const progress = Math.min(1, elapsed / durationMs);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(target * eased));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [target, durationMs]);
+  return value;
+}
+
 /* ---------- Step 7: Hard-gated form ---------- */
 
 function Step7Gate({
