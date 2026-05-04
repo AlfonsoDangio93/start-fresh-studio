@@ -55,6 +55,7 @@ export default function App() {
         <Route path="/termini-e-condizioni" element={<TerminiCondizioni />} />
         <Route path="/ticket" element={<Ticket />} />
         <Route path="/calcolatore" element={<LandingCalcolatore />} />
+        <Route path="/report" element={<Report />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
