@@ -340,7 +340,7 @@ function ReportContent({
               style={{ borderColor: BORDER }}
             >
               <InlineWidget
-                url="https://calendly.com/hommi/demo"
+                url="https://calendly.com/simone-calderoni-hommi/30min"
                 styles={{
                   height: "700px",
                   width: "100%",

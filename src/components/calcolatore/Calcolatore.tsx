@@ -1100,7 +1100,7 @@ function Step8Report({
           esattamente come Hommi funzionerebbe nel tuo caso specifico.
         </p>
         <a
-          href="https://calendly.com/hommi/demo"
+          href="https://calendly.com/simone-calderoni-hommi/30min"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-6 w-full sm:max-w-md mx-auto flex items-center justify-center gap-2 text-white font-semibold text-base sm:text-lg px-6 py-4 rounded-[12px] transition-all duration-200 hover:-translate-y-0.5"
