@@ -241,16 +241,34 @@ export default function Calcolatore({ onExit }: Props) {
                 results={results}
                 answers={answers}
                 onSubmitted={(data) => {
-                  setFormData(data);
-                  setStep(8);
+                  const reportData = {
+                    formData: data,
+                    answers,
+                    results,
+                    timestamp: Date.now(),
+                  };
+                  sessionStorage.setItem(
+                    "hommi_report_data",
+                    JSON.stringify(reportData)
+                  );
+                  console.log("Lead pronto per HubSpot:", reportData);
+                  // Meta Pixel Lead event
+                  const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
+                  if (typeof fbq === "function") {
+                    fbq("track", "Lead", {
+                      content_name: "Calcolatore Hommi",
+                      value: 0,
+                      currency: "EUR",
+                    });
+                    if (answers.numImmobili >= 3) {
+                      fbq("trackCustom", "LeadQualificato", {
+                        num_immobili: answers.numImmobili,
+                        costo_stimato: results.costoTotaleAnnuo,
+                      });
+                    }
+                  }
+                  window.location.href = "/report";
                 }}
-              />
-            )}
-            {step === 8 && results && (
-              <Step8Report
-                results={results}
-                answers={answers}
-                email={formData?.email ?? ""}
               />
             )}
           </div>
