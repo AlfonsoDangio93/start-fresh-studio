@@ -118,6 +118,8 @@ interface Props {
 }
 
 const TOTAL_QUESTION_STEPS = 5;
+const IUBENDA_SELECTOR =
+  '[id*="iubenda"], [class*="iubenda"], [id*="iub-"], [class*="iub-"]';
 
 const DEFAULT_ANSWERS: Answers = {
   numImmobili: 5,
@@ -216,6 +218,65 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
     };
   }, [step]);
 
+  useEffect(() => {
+    const measureIubendaOverlay = () => {
+      const isMobile = window.matchMedia("(max-width: 640px)").matches;
+      if (!isMobile) {
+        document.documentElement.style.removeProperty("--calculator-iubenda-safe-bottom");
+        document.body.classList.remove("iubenda-overlap-detected");
+        return;
+      }
+
+      const viewportHeight = window.innerHeight;
+      const viewportWidth = window.innerWidth;
+      const overlayDepth = Array.from(
+        document.querySelectorAll<HTMLElement>(IUBENDA_SELECTOR)
+      ).reduce((maxDepth, element) => {
+        const style = window.getComputedStyle(element);
+        const rect = element.getBoundingClientRect();
+        const isVisible =
+          style.display !== "none" &&
+          style.visibility !== "hidden" &&
+          Number(style.opacity) !== 0 &&
+          rect.width > 0 &&
+          rect.height > 0 &&
+          rect.bottom > viewportHeight - 280 &&
+          rect.right > 0 &&
+          rect.left < viewportWidth;
+
+        return isVisible ? Math.max(maxDepth, viewportHeight - rect.top) : maxDepth;
+      }, 0);
+
+      const safeBottom = overlayDepth > 0 ? Math.min(Math.ceil(overlayDepth + 24), 260) : 112;
+      document.documentElement.style.setProperty(
+        "--calculator-iubenda-safe-bottom",
+        `${safeBottom}px`
+      );
+      document.body.classList.toggle("iubenda-overlap-detected", overlayDepth > 0);
+    };
+
+    measureIubendaOverlay();
+    const observer = new MutationObserver(measureIubendaOverlay);
+    observer.observe(document.body, {
+      attributes: true,
+      childList: true,
+      subtree: true,
+      attributeFilter: ["class", "style"],
+    });
+    window.addEventListener("resize", measureIubendaOverlay);
+    window.addEventListener("scroll", measureIubendaOverlay, true);
+    const interval = window.setInterval(measureIubendaOverlay, 600);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measureIubendaOverlay);
+      window.removeEventListener("scroll", measureIubendaOverlay, true);
+      window.clearInterval(interval);
+      document.documentElement.style.removeProperty("--calculator-iubenda-safe-bottom");
+      document.body.classList.remove("iubenda-overlap-detected");
+    };
+  }, []);
+
   return (
     <div
       className="fixed inset-0 z-[100] bg-white flex flex-col animate-fade-in"
@@ -261,7 +322,7 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
 
       {/* Body */}
       <main className="flex-1 overflow-y-auto">
-        <div className={`max-w-[720px] mx-auto px-5 sm:px-8 py-12 sm:py-20 ${step === 7 ? "pb-[calc(14rem+env(safe-area-inset-bottom))] sm:pb-20" : ""}`}>
+        <div className={`max-w-[720px] mx-auto px-5 sm:px-8 py-12 sm:py-20 ${step === 7 ? "pb-[calc(var(--calculator-iubenda-safe-bottom,7rem)+7rem+env(safe-area-inset-bottom))] sm:pb-20" : ""}`}>
           <div key={step} className="animate-fade-in">
             {step === 1 && <Step1 answers={answers} setAnswers={setAnswers} />}
             {step === 2 && <Step2 answers={answers} setAnswers={setAnswers} />}
@@ -310,7 +371,7 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
 
       {/* Footer nav */}
       {step <= TOTAL_QUESTION_STEPS && (
-        <footer className="sticky bottom-20 sm:bottom-0 z-20 bg-white border-t border-gray-100">
+        <footer className="sticky bottom-[var(--calculator-iubenda-safe-bottom,5rem)] sm:bottom-0 z-20 bg-white border-t border-gray-100">
           <div className="max-w-[720px] mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
             <button
               onClick={goBack}
