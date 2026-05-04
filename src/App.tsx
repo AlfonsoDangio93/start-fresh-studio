@@ -25,6 +25,7 @@ import TerminiCondizioni from "@/pages/TerminiCondizioni";
 import NotFound from "@/pages/NotFound";
 import Ticket from "@/pages/Ticket";
 import LandingCalcolatore from "@/pages/LandingCalcolatore";
+import Report from "@/pages/Report";
 
 export default function App() {
   useUtmPersistence();
@@ -54,6 +55,7 @@ export default function App() {
         <Route path="/termini-e-condizioni" element={<TerminiCondizioni />} />
         <Route path="/ticket" element={<Ticket />} />
         <Route path="/calcolatore" element={<LandingCalcolatore />} />
+        <Route path="/report" element={<Report />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

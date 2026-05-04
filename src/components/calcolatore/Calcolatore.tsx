@@ -128,7 +128,7 @@ export default function Calcolatore({ onExit }: Props) {
     oreSettimana: null,
   });
   const [results, setResults] = useState<Results | null>(null);
-  const [formData, setFormData] = useState<ContactForm | null>(null);
+  
 
   const canAdvance = (() => {
     switch (step) {
@@ -241,16 +241,34 @@ export default function Calcolatore({ onExit }: Props) {
                 results={results}
                 answers={answers}
                 onSubmitted={(data) => {
-                  setFormData(data);
-                  setStep(8);
+                  const reportData = {
+                    formData: data,
+                    answers,
+                    results,
+                    timestamp: Date.now(),
+                  };
+                  sessionStorage.setItem(
+                    "hommi_report_data",
+                    JSON.stringify(reportData)
+                  );
+                  console.log("Lead pronto per HubSpot:", reportData);
+                  // Meta Pixel Lead event
+                  const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
+                  if (typeof fbq === "function") {
+                    fbq("track", "Lead", {
+                      content_name: "Calcolatore Hommi",
+                      value: 0,
+                      currency: "EUR",
+                    });
+                    if (answers.numImmobili >= 3) {
+                      fbq("trackCustom", "LeadQualificato", {
+                        num_immobili: answers.numImmobili,
+                        costo_stimato: results.costoTotaleAnnuo,
+                      });
+                    }
+                  }
+                  window.location.href = "/report";
                 }}
-              />
-            )}
-            {step === 8 && results && (
-              <Step8Report
-                results={results}
-                answers={answers}
-                email={formData?.email ?? ""}
               />
             )}
           </div>
@@ -682,7 +700,7 @@ function Step7Gate({
 
   return (
     <div className="max-w-[600px] mx-auto space-y-8 animate-fade-in">
-      {/* TOP teaser */}
+      {/* TOP — Headline */}
       <div className="text-center">
         <div
           className="text-xs font-semibold uppercase tracking-[0.15em]"
@@ -710,42 +728,6 @@ function Step7Gate({
           stima dei costi annui dei guasti nei tuoi {answers.numImmobili}{" "}
           {answers.numImmobili === 1 ? "immobile" : "immobili"}.
         </p>
-      </div>
-
-      {/* Teaser cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-        {teaserCards.map((c) => (
-          <div
-            key={c.title}
-            className="rounded-[12px] p-4 border"
-            style={{
-              backgroundColor: c.highlight ? ACCENT : "#fff",
-              borderColor: c.highlight ? "rgba(232,80,28,0.3)" : BORDER,
-            }}
-          >
-            <div className="text-xl mb-1.5" aria-hidden>
-              {c.icon}
-            </div>
-            <div
-              className="text-sm font-semibold"
-              style={{ color: DARK }}
-            >
-              {c.title}
-            </div>
-            <div
-              className="mt-1 text-2xl tracking-widest"
-              style={{
-                color: "#D1D5DB",
-                fontFamily:
-                  "ui-monospace, SFMono-Regular, Menlo, monospace",
-                fontWeight: 600,
-              }}
-              aria-hidden
-            >
-              € • • • • •
-            </div>
-          </div>
-        ))}
       </div>
 
       {/* Form */}
@@ -863,6 +845,50 @@ function Step7Gate({
             I tuoi dati restano riservati. Mai venduti.
           </p>
         </form>
+      </div>
+
+      {/* Teaser cards (below form) */}
+      <div>
+        <p
+          className="text-center text-sm mb-4"
+          style={{ color: TEXT_BODY }}
+        >
+          Cosa contiene il tuo report:
+        </p>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          {teaserCards.map((c) => (
+            <div
+              key={c.title}
+              className="rounded-[12px] p-4 border"
+              style={{
+                backgroundColor: c.highlight ? ACCENT : "#fff",
+                borderColor: c.highlight ? "rgba(232,80,28,0.3)" : BORDER,
+              }}
+            >
+              <div className="text-xl mb-1.5" aria-hidden>
+                {c.icon}
+              </div>
+              <div
+                className="text-sm font-semibold"
+                style={{ color: DARK }}
+              >
+                {c.title}
+              </div>
+              <div
+                className="mt-1 text-xl tracking-widest"
+                style={{
+                  color: "#D1D5DB",
+                  fontFamily:
+                    "ui-monospace, SFMono-Regular, Menlo, monospace",
+                  fontWeight: 600,
+                }}
+                aria-hidden
+              >
+                € • • • •
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
