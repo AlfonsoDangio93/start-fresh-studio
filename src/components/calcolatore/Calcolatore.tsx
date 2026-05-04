@@ -232,6 +232,10 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
       const overlayDepth = Array.from(
         document.querySelectorAll<HTMLElement>(IUBENDA_SELECTOR)
       ).reduce((maxDepth, element) => {
+        if (element === document.body || element === document.documentElement) {
+          return maxDepth;
+        }
+
         const style = window.getComputedStyle(element);
         const rect = element.getBoundingClientRect();
         const isVisible =
