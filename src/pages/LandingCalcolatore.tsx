@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import LandingFooter from "@/components/landing/LandingFooter";
+import Calcolatore from "@/components/calcolatore/Calcolatore";
 
 const ORANGE = "#E8501C";
 const ORANGE_HOVER = "#C9410F";
@@ -9,6 +10,7 @@ const SUCCESS = "#10B981";
 const TEXT_BODY = "#4B5563";
 
 export default function LandingCalcolatore() {
+  const [calcOpen, setCalcOpen] = useState(false);
   useEffect(() => {
     const id = "google-font-inter";
     if (!document.getElementById(id)) {
@@ -32,12 +34,13 @@ export default function LandingCalcolatore() {
             <a href="/" className="flex items-center shrink-0">
               <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 md:h-10 w-auto" />
             </a>
-            <a
-              href="#calcolo"
+            <button
+              type="button"
+              onClick={() => setCalcOpen(true)}
               className="text-[12px] md:text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 md:px-5 py-1.5 md:py-2 rounded-[10px] cursor-pointer"
             >
               Inizia il calcolo
-            </a>
+            </button>
           </div>
         </div>
       </nav>
