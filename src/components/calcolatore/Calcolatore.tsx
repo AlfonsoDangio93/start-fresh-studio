@@ -575,7 +575,7 @@ function Step1({
   );
 }
 
-const CITTA = ["Milano", "Torino", "Como", "Monza", "Roma", "Altre città"];
+const CITTA = ["Milano", "Torino", "Como", "Monza", "Lecco", "Altre città"];
 
 function Step2({
   answers,
@@ -591,6 +591,8 @@ function Step2({
         ? a.città.filter((x) => x !== c)
         : [...a.città, c],
     }));
+
+  const altreSelected = answers.città.includes("Altre città");
 
   return (
     <>
@@ -609,6 +611,20 @@ function Step2({
           </OptionCard>
         ))}
       </div>
+      {altreSelected && (
+        <div className="mt-4">
+          <input
+            type="text"
+            placeholder="Inserisci la/le città"
+            value={answers.altreCitta ?? ""}
+            onChange={(e) =>
+              setAnswers((a) => ({ ...a, altreCitta: e.target.value }))
+            }
+            maxLength={120}
+            className="w-full h-12 rounded-[10px] border border-[#E5E7EB] px-4 text-base outline-none focus:border-[#E3520F] focus:ring-2 focus:ring-[#E3520F]/20"
+          />
+        </div>
+      )}
     </>
   );
 }
