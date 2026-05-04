@@ -30,16 +30,16 @@ function calculateResults(answers: Answers): Results {
   const valoreOraPM = 35;
   const impattoRecensione = 400;
 
+  // guastiMese, oreSettimana e recensioniNegative sono già totali
+  // aggregati su tutti gli immobili dichiarati: NON moltiplicare per numImmobili.
   const guastiAnno = (answers.guastiMese ?? 0) * 12;
-  const costoGuastiDiretti = Math.round(
-    guastiAnno * costoMedioIntervento * answers.numImmobili
-  );
+  const costoGuastiDiretti = Math.round(guastiAnno * costoMedioIntervento);
 
   const oreAnnoPM = (answers.oreSettimana ?? 0) * 52;
   const costoTempoPM = Math.round(oreAnnoPM * valoreOraPM);
 
   const costoRecensioni = Math.round(
-    (answers.recensioniNegative ?? 0) * impattoRecensione * answers.numImmobili
+    (answers.recensioniNegative ?? 0) * impattoRecensione
   );
 
   const costoTotaleAnnuo =
