@@ -399,7 +399,7 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
 
       {/* Footer nav */}
       {step <= TOTAL_QUESTION_STEPS && (
-        <footer className="sticky bottom-[var(--calculator-iubenda-safe-bottom,5rem)] sm:bottom-0 z-20 bg-white border-t border-gray-100">
+        <footer className="sticky bottom-0 z-20 bg-white border-t border-gray-100" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
           <div className="max-w-[720px] mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
             <button
               onClick={goBack}
