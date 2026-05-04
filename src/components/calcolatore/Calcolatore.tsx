@@ -199,7 +199,20 @@ export default function Calcolatore({ onExit }: Props) {
             {step === 5 && <Step5 answers={answers} setAnswers={setAnswers} />}
             {step === 6 && <Step6Loading />}
             {step === 7 && results && (
-              <Step7Placeholder results={results} onRestart={handleRestart} />
+              <Step7Result
+                results={results}
+                answers={answers}
+                onSubmitted={(data) => {
+                  setFormData(data);
+                  setStep(8);
+                }}
+              />
+            )}
+            {step === 8 && (
+              <Step8ThankYou
+                firstName={formData?.nome.split(" ")[0] ?? ""}
+                email={formData?.email ?? ""}
+              />
             )}
           </div>
         </div>
