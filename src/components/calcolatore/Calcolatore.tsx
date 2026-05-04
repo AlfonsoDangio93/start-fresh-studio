@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowLeft, ArrowRight, Check, X, Loader2 } from "lucide-react";
 
 const ORANGE = "#E8501C";
