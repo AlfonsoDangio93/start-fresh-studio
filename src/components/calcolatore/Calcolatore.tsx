@@ -198,6 +198,9 @@ export default function Calcolatore({ onExit }: Props) {
             {step === 4 && <Step4 answers={answers} setAnswers={setAnswers} />}
             {step === 5 && <Step5 answers={answers} setAnswers={setAnswers} />}
             {step === 6 && <Step6Loading />}
+            {step === 7 && results && (
+              <Step7Placeholder results={results} onRestart={handleRestart} />
+            )}
           </div>
         </div>
       </main>
