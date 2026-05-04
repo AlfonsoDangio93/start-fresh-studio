@@ -26,8 +26,23 @@ export default function LandingCalcolatore() {
       className="landing-theme min-h-screen bg-white"
       style={{ fontFamily: "'Inter', system-ui, sans-serif", color: DARK }}
     >
-      <LandingNavbar />
-      <div className="h-20" />
+      <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6">
+        <div className="w-full max-w-site">
+          <div className="flex items-center justify-between bg-white border border-border shadow-sm rounded-xl px-4 md:px-6 py-3">
+            <a href="/" className="flex items-center shrink-0">
+              <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 md:h-10 w-auto" />
+            </a>
+            <a
+              href="#calcolo"
+              className="text-[12px] md:text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 md:px-5 py-1.5 md:py-2 rounded-[10px] cursor-pointer"
+            >
+              Inizia il calcolo
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div className="h-24" />
+
 
       {/* Hero */}
       <section className="min-h-[90vh] flex items-center px-5 sm:px-8 py-16 lg:py-24">
