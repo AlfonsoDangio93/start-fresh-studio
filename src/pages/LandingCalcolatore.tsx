@@ -12,7 +12,18 @@ const TEXT_BODY = "#4B5563";
 export default function LandingCalcolatore() {
   const params = new URLSearchParams(window.location.search);
   const qaStep = params.get("step") === "7" ? 7 : undefined;
-  const [calcOpen, setCalcOpen] = useState(qaStep === 7);
+  const shouldStart = params.get("start") === "1";
+  const [calcOpen, setCalcOpen] = useState(qaStep === 7 || shouldStart);
+  const openCalculator = () => {
+    setCalcOpen(true);
+    window.history.replaceState(null, "", "/calcolatore?start=1");
+  };
+
+  useEffect(() => {
+    document.body.classList.toggle("calculator-open", calcOpen);
+    return () => document.body.classList.remove("calculator-open");
+  }, [calcOpen]);
+
   useEffect(() => {
     const id = "google-font-inter";
     if (!document.getElementById(id)) {
@@ -36,13 +47,18 @@ export default function LandingCalcolatore() {
             <a href="/calcolatore" className="flex items-center shrink-0">
               <img src="/logos/hommi_logo.png" alt="Hommi" className="h-8 md:h-10 w-auto" />
             </a>
-            <button
-              type="button"
-              onClick={() => setCalcOpen(true)}
+            <a
+              href="/calcolatore?start=1"
+              role="button"
+              onClick={openCalculator}
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                openCalculator();
+              }}
               className="text-[12px] md:text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 md:px-5 py-1.5 md:py-2 rounded-[10px] cursor-pointer"
             >
               Inizia il calcolo
-            </button>
+            </a>
           </div>
         </div>
       </nav>
@@ -85,8 +101,14 @@ export default function LandingCalcolatore() {
             </p>
 
             <div className="pt-2 space-y-3">
-              <button
-                onClick={() => setCalcOpen(true)}
+              <a
+                href="/calcolatore?start=1"
+                role="button"
+                onClick={openCalculator}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  openCalculator();
+                }}
                 className="inline-flex items-center gap-2 text-white font-semibold text-base px-8 py-4 rounded-[12px] transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-orange-500/20"
                 style={{ backgroundColor: ORANGE }}
                 onMouseEnter={(e) =>
@@ -98,7 +120,7 @@ export default function LandingCalcolatore() {
               >
                 Inizia il calcolo
                 <span aria-hidden>→</span>
-              </button>
+              </a>
               <p className="text-sm" style={{ color: "#9CA3AF" }}>
                 Gratis. Nessun impegno. 60 secondi del tuo tempo.
               </p>
