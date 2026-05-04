@@ -114,20 +114,36 @@ const contactSchema = z.object({
 
 interface Props {
   onExit: () => void;
+  initialStep?: number;
 }
 
 const TOTAL_QUESTION_STEPS = 5;
 
-export default function Calcolatore({ onExit }: Props) {
-  const [step, setStep] = useState(1);
-  const [answers, setAnswers] = useState<Answers>({
-    numImmobili: 5,
-    città: [],
-    guastiMese: null,
-    recensioniNegative: null,
-    oreSettimana: null,
-  });
-  const [results, setResults] = useState<Results | null>(null);
+const DEFAULT_ANSWERS: Answers = {
+  numImmobili: 5,
+  città: [],
+  guastiMese: null,
+  recensioniNegative: null,
+  oreSettimana: null,
+};
+
+const QA_FORM_ANSWERS: Answers = {
+  numImmobili: 12,
+  città: ["Milano", "Monza"],
+  guastiMese: 4,
+  recensioniNegative: 1.5,
+  oreSettimana: 4,
+};
+
+export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
+  const safeInitialStep = initialStep === 7 ? 7 : 1;
+  const [step, setStep] = useState(safeInitialStep);
+  const [answers, setAnswers] = useState<Answers>(
+    safeInitialStep === 7 ? QA_FORM_ANSWERS : DEFAULT_ANSWERS
+  );
+  const [results, setResults] = useState<Results | null>(
+    safeInitialStep === 7 ? calculateResults(QA_FORM_ANSWERS) : null
+  );
   
 
   const canAdvance = (() => {
@@ -183,6 +199,23 @@ export default function Calcolatore({ onExit }: Props) {
   const progressPct =
     (Math.min(step, TOTAL_QUESTION_STEPS) / TOTAL_QUESTION_STEPS) * 100;
 
+  useEffect(() => {
+    document.body.classList.add("calculator-open");
+    document.body.classList.toggle("calculator-form-active", step === 7);
+    document.body.classList.toggle(
+      "calculator-step-nav-active",
+      step <= TOTAL_QUESTION_STEPS
+    );
+
+    return () => {
+      document.body.classList.remove(
+        "calculator-open",
+        "calculator-form-active",
+        "calculator-step-nav-active"
+      );
+    };
+  }, [step]);
+
   return (
     <div
       className="fixed inset-0 z-[100] bg-white flex flex-col animate-fade-in"
@@ -228,7 +261,7 @@ export default function Calcolatore({ onExit }: Props) {
 
       {/* Body */}
       <main className="flex-1 overflow-y-auto">
-        <div className={`max-w-[720px] mx-auto px-5 sm:px-8 py-12 sm:py-20 ${step === 7 ? "pb-32 sm:pb-20" : ""}`}>
+        <div className={`max-w-[720px] mx-auto px-5 sm:px-8 py-12 sm:py-20 ${step === 7 ? "pb-[calc(14rem+env(safe-area-inset-bottom))] sm:pb-20" : ""}`}>
           <div key={step} className="animate-fade-in">
             {step === 1 && <Step1 answers={answers} setAnswers={setAnswers} />}
             {step === 2 && <Step2 answers={answers} setAnswers={setAnswers} />}
