@@ -10,7 +10,9 @@ const SUCCESS = "#10B981";
 const TEXT_BODY = "#4B5563";
 
 export default function LandingCalcolatore() {
-  const [calcOpen, setCalcOpen] = useState(false);
+  const params = new URLSearchParams(window.location.search);
+  const qaStep = params.get("step") === "7" ? 7 : undefined;
+  const [calcOpen, setCalcOpen] = useState(qaStep === 7);
   useEffect(() => {
     const id = "google-font-inter";
     if (!document.getElementById(id)) {
@@ -214,7 +216,7 @@ export default function LandingCalcolatore() {
         </div>
       </section>
       <LandingFooter />
-      {calcOpen && <Calcolatore onExit={() => setCalcOpen(false)} />}
+      {calcOpen && <Calcolatore onExit={() => setCalcOpen(false)} initialStep={qaStep} />}
     </div>
   );
 }
