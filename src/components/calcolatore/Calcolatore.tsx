@@ -549,4 +549,43 @@ function Step6Loading() {
   );
 }
 
+function Step7Placeholder({
+  results,
+  onRestart,
+}: {
+  results: Results;
+  onRestart: () => void;
+}) {
+  return (
+    <div className="text-center py-12 animate-fade-in">
+      <h1
+        className="text-3xl sm:text-5xl font-extrabold tracking-tight"
+        style={{ color: "#10B981", lineHeight: 1.1 }}
+      >
+        ✅ Calcolo completato!
+      </h1>
+      <p
+        className="mt-6 text-xl sm:text-2xl font-semibold"
+        style={{ color: DARK }}
+      >
+        Costo totale annuo stimato:{" "}
+        <span style={{ color: ORANGE }}>
+          {formatEuro(results.costoTotaleAnnuo)}
+        </span>
+      </p>
+      <button
+        onClick={onRestart}
+        className="mt-10 inline-flex items-center gap-2 text-white font-semibold text-base px-8 py-3.5 rounded-[12px] transition-all duration-200 hover:-translate-y-0.5"
+        style={{ backgroundColor: ORANGE }}
+        onMouseEnter={(e) =>
+          (e.currentTarget.style.backgroundColor = ORANGE_HOVER)
+        }
+        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ORANGE)}
+      >
+        Ricomincia
+      </button>
+    </div>
+  );
+}
+
 export { formatEuro };
