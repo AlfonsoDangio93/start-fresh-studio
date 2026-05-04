@@ -235,6 +235,16 @@ p {
   animation: slide-up 0.3s ease-out;
 }
 
+.iubenda-cs-container {
+  pointer-events: none !important;
+}
+
+.iubenda-cs-content,
+.iubenda-cs-container button,
+.iubenda-cs-container a {
+  pointer-events: auto !important;
+}
+
 @media (max-width: 640px) {
   body.calculator-step-nav-active .iubenda-tp-btn,
   body.calculator-step-nav-active [class*="iubenda-tp-btn"] {

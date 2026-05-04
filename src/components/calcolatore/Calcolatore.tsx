@@ -283,7 +283,7 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-white flex flex-col animate-fade-in"
+      className="fixed inset-0 z-[2147483647] bg-white flex flex-col animate-fade-in"
       style={{ fontFamily: "'Inter', system-ui, sans-serif", color: DARK }}
     >
       {/* Header */}
