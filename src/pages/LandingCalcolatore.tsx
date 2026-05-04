@@ -13,6 +13,13 @@ export default function LandingCalcolatore() {
   const params = new URLSearchParams(window.location.search);
   const qaStep = params.get("step") === "7" ? 7 : undefined;
   const [calcOpen, setCalcOpen] = useState(qaStep === 7);
+  const openCalculator = () => setCalcOpen(true);
+
+  useEffect(() => {
+    document.body.classList.toggle("calculator-open", calcOpen);
+    return () => document.body.classList.remove("calculator-open");
+  }, [calcOpen]);
+
   useEffect(() => {
     const id = "google-font-inter";
     if (!document.getElementById(id)) {
@@ -38,7 +45,11 @@ export default function LandingCalcolatore() {
             </a>
             <button
               type="button"
-              onClick={() => setCalcOpen(true)}
+              onClick={openCalculator}
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                openCalculator();
+              }}
               className="text-[12px] md:text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-4 md:px-5 py-1.5 md:py-2 rounded-[10px] cursor-pointer"
             >
               Inizia il calcolo
@@ -86,7 +97,12 @@ export default function LandingCalcolatore() {
 
             <div className="pt-2 space-y-3">
               <button
-                onClick={() => setCalcOpen(true)}
+                type="button"
+                onClick={openCalculator}
+                onTouchEnd={(e) => {
+                  e.preventDefault();
+                  openCalculator();
+                }}
                 className="inline-flex items-center gap-2 text-white font-semibold text-base px-8 py-4 rounded-[12px] transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-orange-500/20"
                 style={{ backgroundColor: ORANGE }}
                 onMouseEnter={(e) =>

@@ -245,6 +245,11 @@ p {
   pointer-events: auto !important;
 }
 
+body.calculator-open .iubenda-cs-container,
+body.calculator-open .iubenda-cs-overlay {
+  display: none !important;
+}
+
 @media (max-width: 640px) {
   body.calculator-step-nav-active .iubenda-tp-btn,
   body.calculator-step-nav-active [class*="iubenda-tp-btn"] {
