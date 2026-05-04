@@ -793,6 +793,10 @@ function Step7Gate({
     email: "",
     telefono: "",
     azienda: "",
+    ruolo: "",
+    sitoWeb: "",
+    inizio: "",
+    note: "",
     consent: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -821,6 +825,10 @@ function Step7Gate({
       email: form.email.trim(),
       telefono: form.telefono.trim(),
       azienda: (form.azienda || "").trim(),
+      ruolo: form.ruolo.trim(),
+      sitoWeb: (form.sitoWeb || "").trim(),
+      inizio: (form.inizio || "").trim(),
+      note: (form.note || "").trim(),
     };
     console.log("Lead submitted:", { formData: data, results, answers });
     setTimeout(() => {
@@ -916,6 +924,34 @@ function Step7Gate({
             error={errors.telefono}
             required
           />
+          <div>
+            <label
+              htmlFor="ruolo"
+              className="block text-sm font-semibold mb-1.5"
+              style={{ color: DARK }}
+            >
+              Ruolo *
+            </label>
+            <select
+              id="ruolo"
+              value={form.ruolo}
+              onChange={(e) => update("ruolo", e.target.value)}
+              required
+              className="w-full min-h-[48px] px-4 py-3 rounded-[12px] border bg-white text-base outline-none transition-colors focus:border-[#E8501C]"
+              style={{ borderColor: errors.ruolo ? "#EF4444" : BORDER }}
+            >
+              <option value="">Seleziona...</option>
+              <option value="Property Manager">Property Manager</option>
+              <option value="Host">Host</option>
+              <option value="Agenzia">Agenzia</option>
+              <option value="Altro">Altro</option>
+            </select>
+            {errors.ruolo && (
+              <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>
+                {errors.ruolo}
+              </p>
+            )}
+          </div>
           <FormField
             id="azienda"
             label="Nome azienda (opzionale)"
@@ -924,6 +960,54 @@ function Step7Gate({
             onChange={(v) => update("azienda", v)}
             error={errors.azienda}
           />
+          <FormField
+            id="sitoWeb"
+            label="Sito web o link annuncio (opzionale)"
+            placeholder="https://..."
+            value={form.sitoWeb}
+            onChange={(v) => update("sitoWeb", v)}
+            error={errors.sitoWeb}
+          />
+          <div>
+            <label
+              htmlFor="inizio"
+              className="block text-sm font-semibold mb-1.5"
+              style={{ color: DARK }}
+            >
+              Quando vorresti iniziare? (opzionale)
+            </label>
+            <select
+              id="inizio"
+              value={form.inizio}
+              onChange={(e) => update("inizio", e.target.value)}
+              className="w-full min-h-[48px] px-4 py-3 rounded-[12px] border bg-white text-base outline-none transition-colors focus:border-[#E8501C]"
+              style={{ borderColor: BORDER }}
+            >
+              <option value="">Seleziona...</option>
+              <option value="Subito">Subito</option>
+              <option value="Entro 1 mese">Entro 1 mese</option>
+              <option value="Sto valutando">Sto valutando</option>
+            </select>
+          </div>
+          <div>
+            <label
+              htmlFor="note"
+              className="block text-sm font-semibold mb-1.5"
+              style={{ color: DARK }}
+            >
+              Note (opzionale)
+            </label>
+            <textarea
+              id="note"
+              value={form.note}
+              onChange={(e) => update("note", e.target.value)}
+              rows={3}
+              maxLength={1000}
+              placeholder="Esigenze specifiche, domande..."
+              className="w-full min-h-[96px] px-4 py-3 rounded-[12px] border bg-white text-base outline-none transition-colors focus:border-[#E8501C] resize-y"
+              style={{ borderColor: BORDER }}
+            />
+          </div>
 
           <label
             className="flex items-start gap-2.5 cursor-pointer text-xs"
