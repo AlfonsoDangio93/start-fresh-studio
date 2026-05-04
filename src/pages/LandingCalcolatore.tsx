@@ -84,6 +84,7 @@ export default function LandingCalcolatore() {
 
             <div className="pt-2 space-y-3">
               <button
+                onClick={() => setCalcOpen(true)}
                 className="inline-flex items-center gap-2 text-white font-semibold text-base px-8 py-4 rounded-[12px] transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-orange-500/20"
                 style={{ backgroundColor: ORANGE }}
                 onMouseEnter={(e) =>
