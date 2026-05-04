@@ -274,78 +274,7 @@ function ReportContent({
             </p>
           </section>
 
-          {/* SECTION 2 — Breakdown */}
-          <section className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            {cards.map((c) => (
-              <div
-                key={c.title}
-                className="rounded-[12px] p-6 border bg-white"
-                style={{ borderColor: BORDER }}
-              >
-                <div className="text-2xl mb-2" aria-hidden>
-                  {c.icon}
-                </div>
-                <div
-                  className="text-sm font-semibold"
-                  style={{ color: DARK }}
-                >
-                  {c.title}
-                </div>
-                <div
-                  className="mt-1.5 text-2xl font-bold"
-                  style={{ color: DARK, fontWeight: 700 }}
-                >
-                  {c.value}
-                </div>
-                <div className="mt-1.5 text-xs" style={{ color: TEXT_BODY }}>
-                  {c.micro}
-                </div>
-              </div>
-            ))}
-
-            {/* Highlight card */}
-            <div
-              className="rounded-[12px] p-6 border-2 sm:col-span-2"
-              style={{
-                backgroundColor: ACCENT,
-                borderColor: ORANGE,
-              }}
-            >
-              <div className="flex items-start justify-between gap-4 flex-wrap">
-                <div>
-                  <div className="text-2xl mb-2" aria-hidden>
-                    💰
-                  </div>
-                  <div
-                    className="text-sm font-semibold"
-                    style={{ color: ORANGE }}
-                  >
-                    Risparmio con Hommi
-                  </div>
-                  <div
-                    className="mt-1.5 text-3xl font-extrabold"
-                    style={{ color: ORANGE, fontWeight: 800 }}
-                  >
-                    {formatEuro(results.risparmio)}/anno
-                  </div>
-                  <div
-                    className="mt-1.5 text-xs"
-                    style={{ color: TEXT_BODY }}
-                  >
-                    Costo Hommi: {formatEuro(results.costoHommi)}/anno
-                  </div>
-                </div>
-                <span
-                  className="text-xs font-bold px-3 py-1.5 rounded-full text-white whitespace-nowrap"
-                  style={{ backgroundColor: ORANGE }}
-                >
-                  {results.risparmioPercentuale}% di risparmio
-                </span>
-              </div>
-            </div>
-          </section>
-
-          {/* SECTION 3 — CTA + Calendly */}
+          {/* SECTION 2 — CTA + Calendly (in alto) */}
           <section
             className="rounded-[16px] p-6 sm:p-8 border-2"
             style={{
@@ -387,6 +316,7 @@ function ReportContent({
                 "Audit gratuito del tuo primo immobile (valore €150)",
                 "Stima personalizzata risparmio annuo",
                 "Demo della piattaforma in tempo reale",
+                "Ti presentiamo la nostra offerta in modo dettagliato",
               ].map((b) => (
                 <li
                   key={b}
@@ -465,14 +395,76 @@ function ReportContent({
             </p>
           </section>
 
-          {/* SECTION 4 — Social proof */}
-          <p
-            className="text-center text-sm"
-            style={{ color: DARK }}
-          >
-            ✓ 6 property manager attivi &nbsp;·&nbsp; ✓ 90 immobili gestiti
-            &nbsp;·&nbsp; ✓ Attivi a Milano, Torino, Como, Monza
-          </p>
+          {/* SECTION 3 — Breakdown */}
+          <section className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            {cards.map((c) => (
+              <div
+                key={c.title}
+                className="rounded-[12px] p-6 border bg-white"
+                style={{ borderColor: BORDER }}
+              >
+                <div className="text-2xl mb-2" aria-hidden>
+                  {c.icon}
+                </div>
+                <div
+                  className="text-sm font-semibold"
+                  style={{ color: DARK }}
+                >
+                  {c.title}
+                </div>
+                <div
+                  className="mt-1.5 text-2xl font-bold"
+                  style={{ color: DARK, fontWeight: 700 }}
+                >
+                  {c.value}
+                </div>
+                <div className="mt-1.5 text-xs" style={{ color: TEXT_BODY }}>
+                  {c.micro}
+                </div>
+              </div>
+            ))}
+
+            {/* Highlight card */}
+            <div
+              className="rounded-[12px] p-6 border-2 sm:col-span-2"
+              style={{
+                backgroundColor: ACCENT,
+                borderColor: ORANGE,
+              }}
+            >
+              <div className="flex items-start justify-between gap-4 flex-wrap">
+                <div>
+                  <div className="text-2xl mb-2" aria-hidden>
+                    💰
+                  </div>
+                  <div
+                    className="text-sm font-semibold"
+                    style={{ color: ORANGE }}
+                  >
+                    Risparmio con Hommi
+                  </div>
+                  <div
+                    className="mt-1.5 text-3xl font-extrabold"
+                    style={{ color: ORANGE, fontWeight: 800 }}
+                  >
+                    {formatEuro(results.risparmio)}/anno
+                  </div>
+                  <div
+                    className="mt-1.5 text-xs"
+                    style={{ color: TEXT_BODY }}
+                  >
+                    Costo Hommi: {formatEuro(results.costoHommi)}/anno
+                  </div>
+                </div>
+                <span
+                  className="text-xs font-bold px-3 py-1.5 rounded-full text-white whitespace-nowrap"
+                  style={{ backgroundColor: ORANGE }}
+                >
+                  {results.risparmioPercentuale}% di risparmio
+                </span>
+              </div>
+            </div>
+          </section>
         </div>
       </main>
     </>
