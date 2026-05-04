@@ -25,6 +25,7 @@ import TerminiCondizioni from "@/pages/TerminiCondizioni";
 import NotFound from "@/pages/NotFound";
 import Ticket from "@/pages/Ticket";
 import LandingCalcolatore from "@/pages/LandingCalcolatore";
+import Report from "@/pages/Report";
 
 export default function App() {
   useUtmPersistence();
