@@ -260,16 +260,21 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
     };
 
     measureIubendaOverlay();
-    const observer = new MutationObserver(measureIubendaOverlay);
+    const observer = new MutationObserver((mutations) => {
+      // Ignora le mutazioni causate da noi stessi sul <body>
+      const onlySelf = mutations.every(
+        (m) => m.target === document.body && m.type === "attributes"
+      );
+      if (onlySelf) return;
+      measureIubendaOverlay();
+    });
     observer.observe(document.body, {
-      attributes: true,
       childList: true,
       subtree: true,
-      attributeFilter: ["class", "style"],
     });
     window.addEventListener("resize", measureIubendaOverlay);
     window.addEventListener("scroll", measureIubendaOverlay, true);
-    const interval = window.setInterval(measureIubendaOverlay, 600);
+    const interval = window.setInterval(measureIubendaOverlay, 1500);
 
     return () => {
       observer.disconnect();
