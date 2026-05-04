@@ -237,7 +237,7 @@ export default function Calcolatore({ onExit }: Props) {
             {step === 5 && <Step5 answers={answers} setAnswers={setAnswers} />}
             {step === 6 && <Step6Loading />}
             {step === 7 && results && (
-              <Step7Result
+              <Step7Gate
                 results={results}
                 answers={answers}
                 onSubmitted={(data) => {
@@ -246,9 +246,10 @@ export default function Calcolatore({ onExit }: Props) {
                 }}
               />
             )}
-            {step === 8 && (
-              <Step8ThankYou
-                firstName={formData?.nome.split(" ")[0] ?? ""}
+            {step === 8 && results && (
+              <Step8Report
+                results={results}
+                answers={answers}
                 email={formData?.email ?? ""}
               />
             )}
@@ -600,18 +601,16 @@ function Step6Loading() {
   );
 }
 
-/* ---------- Step 7: Result + gated form ---------- */
-
 function useCountUp(target: number, durationMs = 1500) {
   const [value, setValue] = useState(0);
   const startRef = useRef<number | null>(null);
   useEffect(() => {
     let raf = 0;
+    startRef.current = null;
     const tick = (t: number) => {
       if (startRef.current === null) startRef.current = t;
       const elapsed = t - startRef.current;
       const progress = Math.min(1, elapsed / durationMs);
-      // ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setValue(Math.round(target * eased));
       if (progress < 1) raf = requestAnimationFrame(tick);
@@ -622,7 +621,9 @@ function useCountUp(target: number, durationMs = 1500) {
   return value;
 }
 
-function Step7Result({
+/* ---------- Step 7: Hard-gated form ---------- */
+
+function Step7Gate({
   results,
   answers,
   onSubmitted,
@@ -631,8 +632,6 @@ function Step7Result({
   answers: Answers;
   onSubmitted: (data: ContactForm) => void;
 }) {
-  const animatedTotal = useCountUp(results.costoTotaleAnnuo, 1500);
-
   const [form, setForm] = useState({
     nome: "",
     email: "",
@@ -667,35 +666,325 @@ function Step7Result({
       telefono: form.telefono.trim(),
       azienda: (form.azienda || "").trim(),
     };
-    console.log("Form submission:", { ...data, ...results, answers });
+    console.log("Lead submitted:", { formData: data, results, answers });
     setTimeout(() => {
       setSubmitting(false);
       onSubmitted(data);
-    }, 1000);
+    }, 1500);
   };
 
-  const fieldClass =
-    "w-full min-h-[44px] px-4 py-3 rounded-[12px] border bg-white text-base outline-none transition-colors focus:border-[color:var(--orange)]";
+  const teaserCards = [
+    { icon: "💸", title: "Costo annuo guasti" },
+    { icon: "⏱️", title: "Tempo perso valorizzato" },
+    { icon: "⭐", title: "Impatto recensioni" },
+    { icon: "💰", title: "Risparmio con Hommi", highlight: true },
+  ];
 
   return (
-    <div
-      style={{ ["--orange" as string]: ORANGE }}
-      className="space-y-8"
-    >
-      {/* SECTION 1 — Numero shock */}
-      <section
-        className="text-center animate-fade-in"
-        style={{ animationDelay: "0ms", animationFillMode: "both" }}
-      >
+    <div className="max-w-[600px] mx-auto space-y-8 animate-fade-in">
+      {/* TOP teaser */}
+      <div className="text-center">
         <div
           className="text-xs font-semibold uppercase tracking-[0.15em]"
           style={{ color: ORANGE }}
         >
-          Il tuo risultato preliminare
+          Il tuo report è pronto
         </div>
         <h1
           className="mt-3 font-bold tracking-tight"
-          style={{ color: DARK, fontWeight: 700, fontSize: "clamp(28px, 4vw, 32px)", lineHeight: 1.2 }}
+          style={{
+            color: DARK,
+            fontWeight: 700,
+            fontSize: "clamp(28px, 5vw, 40px)",
+            lineHeight: 1.15,
+          }}
+        >
+          Abbiamo <span style={{ color: ORANGE }}>calcolato</span> il tuo
+          profilo costi
+        </h1>
+        <p
+          className="mt-4 text-base sm:text-lg max-w-[480px] mx-auto"
+          style={{ color: TEXT_BODY, lineHeight: 1.6 }}
+        >
+          Lascia i tuoi contatti per accedere al report personalizzato con la
+          stima dei costi annui dei guasti nei tuoi {answers.numImmobili}{" "}
+          {answers.numImmobili === 1 ? "immobile" : "immobili"}.
+        </p>
+      </div>
+
+      {/* Teaser cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+        {teaserCards.map((c) => (
+          <div
+            key={c.title}
+            className="rounded-[12px] p-4 border"
+            style={{
+              backgroundColor: c.highlight ? ACCENT : "#fff",
+              borderColor: c.highlight ? "rgba(232,80,28,0.3)" : BORDER,
+            }}
+          >
+            <div className="text-xl mb-1.5" aria-hidden>
+              {c.icon}
+            </div>
+            <div
+              className="text-sm font-semibold"
+              style={{ color: DARK }}
+            >
+              {c.title}
+            </div>
+            <div
+              className="mt-1 text-2xl tracking-widest"
+              style={{
+                color: "#D1D5DB",
+                fontFamily:
+                  "ui-monospace, SFMono-Regular, Menlo, monospace",
+                fontWeight: 600,
+              }}
+              aria-hidden
+            >
+              € • • • • •
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Form */}
+      <div
+        className="rounded-[16px] p-6 sm:p-8 border bg-white"
+        style={{
+          borderColor: BORDER,
+          boxShadow: "0 10px 30px -12px rgba(0,0,0,0.08)",
+        }}
+      >
+        <h3
+          className="text-[22px] font-bold"
+          style={{ color: DARK, fontWeight: 700 }}
+        >
+          Sblocca il tuo report
+        </h3>
+        <p className="mt-2 text-[15px]" style={{ color: TEXT_BODY }}>
+          Ricevilo via email entro 5 minuti. Niente spam, promesso.
+        </p>
+
+        <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>
+          <FormField
+            id="nome"
+            label="Nome e cognome"
+            placeholder="Mario Rossi"
+            value={form.nome}
+            onChange={(v) => update("nome", v)}
+            error={errors.nome}
+            required
+          />
+          <FormField
+            id="email"
+            type="email"
+            label="Email aziendale"
+            placeholder="mario@tuaazienda.it"
+            value={form.email}
+            onChange={(v) => update("email", v)}
+            error={errors.email}
+            required
+          />
+          <FormField
+            id="telefono"
+            type="tel"
+            label="Telefono"
+            placeholder="+39 333 1234567"
+            value={form.telefono}
+            onChange={(v) => update("telefono", v)}
+            error={errors.telefono}
+            required
+          />
+          <FormField
+            id="azienda"
+            label="Nome azienda (opzionale)"
+            placeholder="Es. Rossi Property Management"
+            value={form.azienda}
+            onChange={(v) => update("azienda", v)}
+            error={errors.azienda}
+          />
+
+          <label
+            className="flex items-start gap-2.5 cursor-pointer text-xs"
+            style={{ color: DARK }}
+          >
+            <input
+              type="checkbox"
+              checked={form.consent}
+              onChange={(e) => update("consent", e.target.checked)}
+              className="mt-0.5 w-4 h-4 cursor-pointer accent-[color:var(--orange,#E8501C)]"
+            />
+            <span>
+              Acconsento al trattamento dei dati personali secondo la{" "}
+              <a
+                href="#"
+                className="font-semibold underline"
+                style={{ color: ORANGE }}
+              >
+                Privacy Policy
+              </a>
+              .
+            </span>
+          </label>
+          {errors.consent && (
+            <p className="text-xs" style={{ color: "#EF4444" }}>
+              {errors.consent}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={submitting}
+            className="w-full min-h-[56px] flex items-center justify-center gap-2 text-white px-6 py-4 rounded-[12px] transition-all duration-200 disabled:opacity-70 enabled:hover:-translate-y-0.5"
+            style={{
+              backgroundColor: ORANGE,
+              fontSize: 18,
+              fontWeight: 600,
+            }}
+            onMouseEnter={(e) => {
+              if (submitting) return;
+              e.currentTarget.style.backgroundColor = ORANGE_HOVER;
+            }}
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = ORANGE)
+            }
+          >
+            {submitting ? (
+              <>
+                <Loader2 size={18} className="animate-spin" />
+                Sblocco in corso...
+              </>
+            ) : (
+              <>🔓 Sblocca il report personalizzato →</>
+            )}
+          </button>
+          <p className="text-xs text-center" style={{ color: TEXT_BODY }}>
+            I tuoi dati restano riservati. Mai venduti.
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+function FormField({
+  id,
+  label,
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+  error,
+  required,
+}: {
+  id: string;
+  label: string;
+  type?: string;
+  placeholder?: string;
+  value: string;
+  onChange: (v: string) => void;
+  error?: string;
+  required?: boolean;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="block text-sm font-semibold mb-1.5"
+        style={{ color: DARK }}
+      >
+        {label}
+        {required && " *"}
+      </label>
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        required={required}
+        className="w-full min-h-[48px] px-4 py-3 rounded-[12px] border bg-white text-base outline-none transition-colors focus:border-[#E8501C]"
+        style={{ borderColor: error ? "#EF4444" : BORDER }}
+      />
+      {error && (
+        <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+/* ---------- Step 8: Full report ---------- */
+
+function Step8Report({
+  results,
+  answers,
+  email,
+}: {
+  results: Results;
+  answers: Answers;
+  email: string;
+}) {
+  const animatedTotal = useCountUp(results.costoTotaleAnnuo, 1500);
+  const guastiAnno = (answers.guastiMese ?? 0) * 12;
+  const oreAnnoPM = (answers.oreSettimana ?? 0) * 52;
+
+  const cards = [
+    {
+      icon: "💸",
+      title: "Costi diretti guasti",
+      value: `${formatEuro(results.costoGuastiDiretti)}/anno`,
+      micro: `${guastiAnno} interventi × €130 medio`,
+    },
+    {
+      icon: "⏱️",
+      title: "Tempo perso valorizzato",
+      value: `${formatEuro(results.costoTempoPM)}/anno`,
+      micro: `${oreAnnoPM} ore × €35/h`,
+    },
+    {
+      icon: "⭐",
+      title: "Impatto recensioni negative",
+      value: `${formatEuro(results.costoRecensioni)}/anno`,
+      micro: `${answers.recensioniNegative ?? 0} recensioni × €400`,
+    },
+    {
+      icon: "💰",
+      title: "Risparmio con Hommi",
+      value: `${formatEuro(results.risparmio)}/anno (${results.risparmioPercentuale}%)`,
+      micro: `Costo Hommi: ${formatEuro(results.costoHommi)}/anno`,
+      highlight: true,
+    },
+  ];
+
+  return (
+    <div className="max-w-[720px] mx-auto space-y-10 animate-fade-in">
+      {/* Banner success */}
+      <div
+        className="-mx-5 sm:-mx-8 px-5 sm:px-8 py-3 text-sm sm:text-base text-center font-medium"
+        style={{ backgroundColor: "#D1FAE5", color: "#065F46" }}
+      >
+        ✓ Report sbloccato. Ti abbiamo inviato una copia via email.
+      </div>
+
+      {/* Hero result */}
+      <section className="text-center">
+        <div
+          className="text-xs font-semibold uppercase tracking-[0.15em]"
+          style={{ color: ORANGE }}
+        >
+          Il tuo risultato personalizzato
+        </div>
+        <h1
+          className="mt-3 font-bold tracking-tight"
+          style={{
+            color: DARK,
+            fontWeight: 700,
+            fontSize: "clamp(26px, 4vw, 32px)",
+            lineHeight: 1.2,
+          }}
         >
           Ecco quanto ti costano davvero i guasti
         </h1>
@@ -710,330 +999,75 @@ function Step7Result({
         >
           {formatEuro(animatedTotal)}
         </div>
-        <div className="mt-2 text-xl" style={{ color: TEXT_BODY }}>
+        <div className="mt-2 text-2xl" style={{ color: TEXT_BODY }}>
           all'anno
         </div>
         <p
-          className="mt-5 text-base max-w-[560px] mx-auto"
+          className="mt-4 text-base max-w-[520px] mx-auto"
           style={{ color: TEXT_BODY, lineHeight: 1.6 }}
         >
-          Stima personalizzata basata sui tuoi {answers.numImmobili}{" "}
-          {answers.numImmobili === 1 ? "immobile" : "immobili"}
-          {answers.città.length > 0 && <> a {answers.città.join(", ")}</>},
-          considerando guasti, tempo perso e impatto su recensioni.
+          Stima personalizzata sui tuoi {answers.numImmobili} immobili
+          {answers.città.length > 0 && <> a {answers.città.join(", ")}</>}.
         </p>
       </section>
 
-      {/* SECTION 2 — Teaser sfocato */}
+      {/* Breakdown */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+        {cards.map((c) => (
+          <div
+            key={c.title}
+            className="rounded-[12px] p-5 border"
+            style={{
+              backgroundColor: c.highlight ? ACCENT : "#fff",
+              borderColor: c.highlight ? ORANGE : BORDER,
+            }}
+          >
+            <div className="text-xl mb-1.5" aria-hidden>
+              {c.icon}
+            </div>
+            <div
+              className="text-sm font-semibold"
+              style={{ color: c.highlight ? ORANGE : DARK }}
+            >
+              {c.title}
+            </div>
+            <div
+              className="mt-1.5 text-2xl font-bold"
+              style={{
+                color: c.highlight ? ORANGE : DARK,
+                fontWeight: 700,
+              }}
+            >
+              {c.value}
+            </div>
+            <div className="mt-1.5 text-xs" style={{ color: TEXT_BODY }}>
+              {c.micro}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* CTA Demo */}
       <section
-        className="rounded-[16px] p-6 sm:p-8 border-2 animate-fade-in"
+        className="rounded-[16px] p-7 sm:p-10 border-2 text-center"
         style={{
           backgroundColor: ACCENT,
-          borderColor: "rgba(232,80,28,0.25)",
-          animationDelay: "200ms",
-          animationFillMode: "both",
+          borderColor: ORANGE,
         }}
       >
-        <h3
-          className="text-xl sm:text-2xl font-bold"
-          style={{ color: DARK, fontWeight: 700 }}
-        >
-          📊 Vuoi vedere il dettaglio completo?
-        </h3>
-        <p className="mt-2 text-base" style={{ color: TEXT_BODY }}>
-          Sblocca il report con il breakdown dei costi e il piano di
-          ottimizzazione personalizzato.
-        </p>
-
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          <BlurCard label="Costi diretti guasti" value={formatEuro(results.costoGuastiDiretti)} />
-          <BlurCard label="Tempo perso valorizzato" value={formatEuro(results.costoTempoPM)} />
-          <BlurCard label="Impatto recensioni" value={formatEuro(results.costoRecensioni)} />
-          <BlurCard
-            label="💰 Risparmio annuo con Hommi"
-            value={`${formatEuro(results.risparmio)} (${results.risparmioPercentuale}%)`}
-            highlight
-          />
-        </div>
-
-        <div
-          className="mt-5 flex items-center gap-2 text-sm"
-          style={{ color: DARK }}
-        >
-          <Lock size={16} style={{ color: ORANGE }} />
-          <span>Compila il form qui sotto per sbloccare il report completo.</span>
-        </div>
-      </section>
-
-      {/* SECTION 3 — Form */}
-      <section
-        className="rounded-[16px] p-6 sm:p-8 border bg-white animate-fade-in"
-        style={{
-          borderColor: BORDER,
-          boxShadow: "0 10px 30px -12px rgba(0,0,0,0.08)",
-          animationDelay: "400ms",
-          animationFillMode: "both",
-        }}
-      >
-        <h3
-          className="text-xl sm:text-2xl font-bold"
-          style={{ color: DARK, fontWeight: 700 }}
-        >
-          Ricevi il tuo report personalizzato
-        </h3>
-        <p className="mt-2 text-base" style={{ color: TEXT_BODY }}>
-          Te lo inviamo via email entro 5 minuti, insieme a una proposta di
-          audit gratuito sul tuo primo immobile.
-        </p>
-
-        <form onSubmit={handleSubmit} className="mt-6 space-y-4" noValidate>
-          <FormField
-            label="Nome e cognome"
-            id="nome"
-            placeholder="Mario Rossi"
-            value={form.nome}
-            onChange={(v) => update("nome", v)}
-            error={errors.nome}
-            inputClass={fieldClass}
-            required
-          />
-          <FormField
-            label="Email aziendale"
-            id="email"
-            type="email"
-            placeholder="mario@tuaazienda.it"
-            value={form.email}
-            onChange={(v) => update("email", v)}
-            error={errors.email}
-            inputClass={fieldClass}
-            required
-          />
-          <FormField
-            label="Telefono"
-            id="telefono"
-            type="tel"
-            placeholder="+39 333 1234567"
-            value={form.telefono}
-            onChange={(v) => update("telefono", v)}
-            error={errors.telefono}
-            inputClass={fieldClass}
-            required
-          />
-          <FormField
-            label="Nome azienda (opzionale)"
-            id="azienda"
-            placeholder="Es. Rossi Property Management"
-            value={form.azienda}
-            onChange={(v) => update("azienda", v)}
-            error={errors.azienda}
-            inputClass={fieldClass}
-          />
-
-          <label className="flex items-start gap-3 cursor-pointer text-sm" style={{ color: DARK }}>
-            <input
-              type="checkbox"
-              checked={form.consent}
-              onChange={(e) => update("consent", e.target.checked)}
-              className="mt-0.5 w-4 h-4 cursor-pointer accent-[color:var(--orange)]"
-            />
-            <span>
-              Acconsento al trattamento dei dati personali secondo la{" "}
-              <a href="#" className="font-semibold underline" style={{ color: ORANGE }}>
-                Privacy Policy
-              </a>
-              .
-            </span>
-          </label>
-          {errors.consent && (
-            <p className="text-sm" style={{ color: "#DC2626" }}>
-              {errors.consent}
-            </p>
-          )}
-
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full min-h-[52px] flex items-center justify-center gap-2 text-white font-semibold text-base px-6 py-4 rounded-[12px] transition-all duration-200 disabled:opacity-70 enabled:hover:-translate-y-0.5"
-            style={{ backgroundColor: ORANGE }}
-            onMouseEnter={(e) => {
-              if (submitting) return;
-              e.currentTarget.style.backgroundColor = ORANGE_HOVER;
-            }}
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = ORANGE)
-            }
-          >
-            {submitting ? (
-              <>
-                <Loader2 size={18} className="animate-spin" />
-                Invio in corso...
-              </>
-            ) : (
-              <>🔓 Sblocca il report →</>
-            )}
-          </button>
-          <p className="text-xs text-center" style={{ color: TEXT_BODY }}>
-            Niente spam. Mai. I tuoi dati sono al sicuro.
-          </p>
-        </form>
-      </section>
-    </div>
-  );
-}
-
-function BlurCard({
-  label,
-  value,
-  highlight,
-}: {
-  label: string;
-  value: string;
-  highlight?: boolean;
-}) {
-  return (
-    <div
-      className="rounded-[12px] p-5 border bg-white"
-      style={{
-        borderColor: highlight ? ORANGE : BORDER,
-        backgroundColor: highlight ? "#FFFFFF" : "#FFFFFF",
-      }}
-    >
-      <div
-        className="text-sm font-medium"
-        style={{ color: highlight ? ORANGE : TEXT_BODY }}
-      >
-        {label}
-      </div>
-      <div
-        className="mt-2 text-2xl font-bold select-none"
-        style={{
-          color: highlight ? ORANGE : DARK,
-          filter: "blur(8px)",
-          fontWeight: 700,
-        }}
-        aria-hidden
-      >
-        {value}
-      </div>
-    </div>
-  );
-}
-
-function FormField({
-  label,
-  id,
-  type = "text",
-  placeholder,
-  value,
-  onChange,
-  error,
-  required,
-  inputClass,
-}: {
-  label: string;
-  id: string;
-  type?: string;
-  placeholder?: string;
-  value: string;
-  onChange: (v: string) => void;
-  error?: string;
-  required?: boolean;
-  inputClass: string;
-}) {
-  return (
-    <div>
-      <label
-        htmlFor={id}
-        className="block text-sm font-semibold mb-1.5"
-        style={{ color: DARK }}
-      >
-        {label}
-        {required && <span style={{ color: ORANGE }}> *</span>}
-      </label>
-      <input
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className={inputClass}
-        style={{ borderColor: error ? "#DC2626" : BORDER }}
-      />
-      {error && (
-        <p className="mt-1 text-sm" style={{ color: "#DC2626" }}>
-          {error}
-        </p>
-      )}
-    </div>
-  );
-}
-
-/* ---------- Step 8: Thank you ---------- */
-
-function Step8ThankYou({
-  firstName,
-  email,
-}: {
-  firstName: string;
-  email: string;
-}) {
-  return (
-    <div
-      className="text-center space-y-8"
-      style={{ animation: "fade-in 0.5s ease-out" }}
-    >
-      <div className="flex justify-center">
-        <CheckCircle2 size={72} style={{ color: SUCCESS }} strokeWidth={1.5} />
-      </div>
-      <div>
-        <h1
+        <h2
           className="font-bold tracking-tight"
           style={{
             color: DARK,
             fontWeight: 700,
-            fontSize: "clamp(28px, 5vw, 40px)",
-            lineHeight: 1.15,
+            fontSize: "clamp(22px, 3vw, 28px)",
+            lineHeight: 1.2,
           }}
         >
-          Perfetto{firstName ? `, ${firstName}` : ""}! Il report è in arrivo. 📩
-        </h1>
-        <p
-          className="mt-4 text-lg max-w-[540px] mx-auto"
-          style={{ color: TEXT_BODY, lineHeight: 1.6 }}
-        >
-          Te lo abbiamo inviato all'indirizzo{" "}
-          <span style={{ color: DARK, fontWeight: 600 }}>{email}</span>.
-          Controlla la tua casella nei prossimi 5 minuti (anche lo spam,
-          capita).
-        </p>
-      </div>
-
-      <div className="flex items-center gap-4 max-w-sm mx-auto">
-        <div className="flex-1 h-px" style={{ backgroundColor: BORDER }} />
-        <span
-          className="text-xs font-semibold tracking-[0.2em]"
-          style={{ color: TEXT_BODY }}
-        >
-          OPPURE
-        </span>
-        <div className="flex-1 h-px" style={{ backgroundColor: BORDER }} />
-      </div>
-
-      <div
-        className="rounded-[16px] p-6 sm:p-8 border-2 text-left"
-        style={{
-          backgroundColor: ACCENT,
-          borderColor: "rgba(232,80,28,0.25)",
-        }}
-      >
-        <h2
-          className="text-xl sm:text-2xl font-bold"
-          style={{ color: DARK, fontWeight: 700 }}
-        >
-          🚀 Vuoi accelerare? Parliamone 30 minuti.
+          🚀 Vuoi azzerare questi costi?
         </h2>
         <p
-          className="mt-3 text-base"
+          className="mt-3 text-base max-w-[520px] mx-auto"
           style={{ color: TEXT_BODY, lineHeight: 1.6 }}
         >
           Ti facciamo un audit gratuito del tuo primo immobile e ti mostriamo
@@ -1043,7 +1077,7 @@ function Step8ThankYou({
           href="https://calendly.com/hommi/demo"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-5 inline-flex items-center gap-2 text-white font-semibold text-base px-7 py-3.5 rounded-[12px] transition-all duration-200 hover:-translate-y-0.5"
+          className="mt-6 w-full sm:max-w-md mx-auto flex items-center justify-center gap-2 text-white font-semibold text-base sm:text-lg px-6 py-4 rounded-[12px] transition-all duration-200 hover:-translate-y-0.5"
           style={{ backgroundColor: ORANGE }}
           onMouseEnter={(e) =>
             (e.currentTarget.style.backgroundColor = ORANGE_HOVER)
@@ -1054,64 +1088,21 @@ function Step8ThankYou({
         >
           Prenota la tua demo gratuita →
         </a>
-      </div>
-
-      <div className="text-left">
         <p
-          className="text-sm font-semibold mb-4 text-center"
+          className="mt-4 text-sm"
           style={{ color: TEXT_BODY }}
         >
-          Si fidano di noi:
+          ✓ 6 property manager ci hanno scelto · ✓ 90 immobili gestiti · ✓ 4
+          città attive
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {[
-            {
-              name: "Luca Bianchi",
-              role: "Property Manager, Milano",
-              quote:
-                "Da quando uso Hommi ho dimezzato il tempo passato a gestire guasti.",
-            },
-            {
-              name: "Sara Conti",
-              role: "Host professionale, Como",
-              quote:
-                "Recensioni a 5 stelle in costante aumento. Tutto sotto controllo.",
-            },
-          ].map((t) => (
-            <div
-              key={t.name}
-              className="rounded-[12px] p-5 border bg-white"
-              style={{ borderColor: BORDER }}
-            >
-              <p
-                className="text-sm italic"
-                style={{ color: DARK, lineHeight: 1.5 }}
-              >
-                "{t.quote}"
-              </p>
-              <div className="mt-3 flex items-center gap-3">
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm"
-                  style={{ backgroundColor: ACCENT, color: ORANGE }}
-                >
-                  {t.name.charAt(0)}
-                </div>
-                <div>
-                  <div
-                    className="text-sm font-semibold"
-                    style={{ color: DARK }}
-                  >
-                    {t.name}
-                  </div>
-                  <div className="text-xs" style={{ color: TEXT_BODY }}>
-                    {t.role}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      </section>
+
+      {/* Reassurance */}
+      <p className="text-sm text-center pb-6" style={{ color: TEXT_BODY }}>
+        Il report dettagliato in PDF è arrivato all'indirizzo{" "}
+        <span style={{ color: DARK, fontWeight: 600 }}>{email}</span>. Controlla
+        anche lo spam.
+      </p>
     </div>
   );
 }
