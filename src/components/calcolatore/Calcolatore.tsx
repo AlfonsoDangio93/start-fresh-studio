@@ -29,6 +29,7 @@ async function sendToGoogleSheets(reportData: unknown) {
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reportData),
+      keepalive: true,
     });
     console.log("✅ Sheets: chiamata inviata");
     return { ok: true };
