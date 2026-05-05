@@ -9,6 +9,7 @@ import {
   Lock,
   CheckCircle2,
 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const ORANGE = "#E8501C";
 const ORANGE_HOVER = "#C9410F";
@@ -414,6 +415,32 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
                     timestamp: Date.now(),
                   };
                   await sendToGoogleSheets(reportData);
+
+                  // Invia il report via email al lead
+                  try {
+                    const leadId = `${data.email}-${reportData.timestamp}`;
+                    await supabase.functions.invoke("send-transactional-email", {
+                      body: {
+                        templateName: "report-calcolatore",
+                        recipientEmail: data.email,
+                        idempotencyKey: `report-calcolatore-${leadId}`,
+                        templateData: {
+                          nome: data.nome?.split(" ")[0] || "",
+                          numImmobili: answers.numImmobili,
+                          costoGuastiDiretti: results.costoGuastiDiretti,
+                          costoTempoPM: results.costoTempoPM,
+                          costoRecensioni: results.costoRecensioni,
+                          costoTotaleAnnuo: results.costoTotaleAnnuo,
+                          costoHommi: results.costoHommi,
+                          risparmio: results.risparmio,
+                          risparmioPercentuale: results.risparmioPercentuale,
+                        },
+                      },
+                    });
+                  } catch (err) {
+                    console.error("❌ Errore invio email report:", err);
+                  }
+
                   sessionStorage.setItem(
                     "hommi_report_data",
                     JSON.stringify(reportData)

@@ -26,6 +26,7 @@ import NotFound from "@/pages/NotFound";
 import Ticket from "@/pages/Ticket";
 import LandingCalcolatore from "@/pages/LandingCalcolatore";
 import Report from "@/pages/Report";
+import Unsubscribe from "@/pages/Unsubscribe";
 
 
 export default function App() {
@@ -57,6 +58,7 @@ export default function App() {
         <Route path="/ticket" element={<Ticket />} />
         <Route path="/calcolatore" element={<LandingCalcolatore />} />
         <Route path="/report" element={<Report />} />
+        <Route path="/unsubscribe" element={<Unsubscribe />} />
         
         <Route path="*" element={<NotFound />} />
       </Routes>
