@@ -58,6 +58,7 @@ export default function App() {
         <Route path="/ticket" element={<Ticket />} />
         <Route path="/calcolatore" element={<LandingCalcolatore />} />
         <Route path="/report" element={<Report />} />
+        <Route path="/unsubscribe" element={<Unsubscribe />} />
         
         <Route path="*" element={<NotFound />} />
       </Routes>
