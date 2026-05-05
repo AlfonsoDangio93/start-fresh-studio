@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { InlineWidget } from "react-calendly";
+
 import LandingFooter from "@/components/landing/LandingFooter";
 
 const ORANGE = "#E8501C";
