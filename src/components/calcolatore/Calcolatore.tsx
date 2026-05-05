@@ -17,6 +17,27 @@ const ACCENT = "#FFF4ED";
 const TEXT_BODY = "#4B5563";
 const BORDER = "#E5E7EB";
 
+// ⚠️ Sostituire con l'URL /exec del Web App Apps Script (es. https://script.google.com/macros/s/AKfycbx.../exec)
+const GOOGLE_SHEETS_WEBHOOK_URL =
+  "https://script.google.com/home/projects/1j-6bOBtK72UcJ9w6KWRE5mBFvh_eBFE2LQkRRWvweTgcZ12g7dDnxsK4/edit";
+
+async function sendToGoogleSheets(reportData: unknown) {
+  console.log("📤 Invio a Google Sheets:", reportData);
+  try {
+    await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(reportData),
+    });
+    console.log("✅ Sheets: chiamata inviata");
+    return { ok: true };
+  } catch (error) {
+    console.error("❌ Sheets: errore", error);
+    return { ok: false, error };
+  }
+}
+
 const formatEuro = (n: number) =>
   new Intl.NumberFormat("it-IT", {
     style: "currency",
@@ -362,18 +383,42 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
               <Step7Gate
                 results={results}
                 answers={answers}
-                onSubmitted={(data) => {
+                onSubmitted={async (data) => {
                   const reportData = {
-                    formData: data,
-                    answers,
-                    results,
+                    formData: {
+                      nome: data.nome,
+                      email: data.email,
+                      telefono: data.telefono,
+                      azienda: data.azienda || "",
+                      ruolo: data.ruolo,
+                      sitoWeb: data.sitoWeb || "",
+                      inizio: data.inizio || "",
+                      note: data.note || "",
+                    },
+                    answers: {
+                      numImmobili: answers.numImmobili,
+                      città: answers.città,
+                      altreCitta: answers.altreCitta || "",
+                      guastiMese: answers.guastiMese,
+                      recensioniNegative: answers.recensioniNegative,
+                      oreSettimana: answers.oreSettimana,
+                    },
+                    results: {
+                      costoGuastiDiretti: results.costoGuastiDiretti,
+                      costoTempoPM: results.costoTempoPM,
+                      costoRecensioni: results.costoRecensioni,
+                      costoTotaleAnnuo: results.costoTotaleAnnuo,
+                      costoHommi: results.costoHommi,
+                      risparmio: results.risparmio,
+                      risparmioPercentuale: results.risparmioPercentuale,
+                    },
                     timestamp: Date.now(),
                   };
+                  await sendToGoogleSheets(reportData);
                   sessionStorage.setItem(
                     "hommi_report_data",
                     JSON.stringify(reportData)
                   );
-                  console.log("Lead pronto per HubSpot:", reportData);
                   // Meta Pixel Lead event
                   const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
                   if (typeof fbq === "function") {
