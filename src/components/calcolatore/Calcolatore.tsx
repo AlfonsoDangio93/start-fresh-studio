@@ -446,17 +446,41 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
                     JSON.stringify(reportData)
                   );
                   // Meta Pixel Lead event
+                  const eventID =
+                    typeof crypto !== "undefined" && "randomUUID" in crypto
+                      ? crypto.randomUUID()
+                      : `${Date.now()}-${Math.random()}`;
+                  (window as unknown as { _lastEventID?: string })._lastEventID = eventID;
                   const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
-                  if (typeof fbq === "function") {
-                    fbq("track", "Lead", {
-                      content_name: "Calcolatore Hommi",
-                      value: 0,
-                      currency: "EUR",
-                    });
+                  if (typeof fbq !== "undefined" && typeof fbq === "function") {
+                    fbq(
+                      "track",
+                      "Lead",
+                      {
+                        content_name: "Calcolatore Hommi",
+                        content_category: "Lead Generation",
+                        value: 0,
+                        currency: "EUR",
+                      },
+                      { eventID }
+                    );
                     if (answers.numImmobili >= 3) {
-                      fbq("trackCustom", "LeadQualificato", {
+                      fbq(
+                        "trackCustom",
+                        "LeadQualificato",
+                        {
+                          num_immobili: answers.numImmobili,
+                          citta: answers.città.join(","),
+                          costo_stimato: results.costoTotaleAnnuo,
+                          content_name: "Lead PM con 3+ immobili",
+                        },
+                        { eventID }
+                      );
+                      console.log("🎯 Pixel: Lead + LeadQualificato fired", { eventID });
+                    } else {
+                      console.log("🎯 Pixel: Lead fired (non qualificato)", {
+                        eventID,
                         num_immobili: answers.numImmobili,
-                        costo_stimato: results.costoTotaleAnnuo,
                       });
                     }
                   }

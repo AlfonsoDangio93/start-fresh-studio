@@ -16,6 +16,14 @@ export default function LandingCalcolatore() {
   const [calcOpen, setCalcOpen] = useState(qaStep === 7 || shouldStart);
   const openCalculator = (event?: SyntheticEvent) => {
     event?.preventDefault();
+    const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
+    if (typeof fbq !== "undefined" && typeof fbq === "function") {
+      fbq("track", "InitiateCheckout", {
+        content_name: "Calcolatore Hommi - Start",
+        content_category: "Lead Generation",
+      });
+      console.log("🎯 Pixel: InitiateCheckout fired");
+    }
     setCalcOpen(true);
   };
 
