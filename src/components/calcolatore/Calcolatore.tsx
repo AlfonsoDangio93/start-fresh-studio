@@ -17,6 +17,27 @@ const ACCENT = "#FFF4ED";
 const TEXT_BODY = "#4B5563";
 const BORDER = "#E5E7EB";
 
+// ⚠️ Sostituire con l'URL /exec del Web App Apps Script (es. https://script.google.com/macros/s/AKfycbx.../exec)
+const GOOGLE_SHEETS_WEBHOOK_URL =
+  "https://script.google.com/home/projects/1j-6bOBtK72UcJ9w6KWRE5mBFvh_eBFE2LQkRRWvweTgcZ12g7dDnxsK4/edit";
+
+async function sendToGoogleSheets(reportData: unknown) {
+  console.log("📤 Invio a Google Sheets:", reportData);
+  try {
+    await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(reportData),
+    });
+    console.log("✅ Sheets: chiamata inviata");
+    return { ok: true };
+  } catch (error) {
+    console.error("❌ Sheets: errore", error);
+    return { ok: false, error };
+  }
+}
+
 const formatEuro = (n: number) =>
   new Intl.NumberFormat("it-IT", {
     style: "currency",
