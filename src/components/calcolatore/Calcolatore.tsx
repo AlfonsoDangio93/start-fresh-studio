@@ -17,9 +17,8 @@ const ACCENT = "#FFF4ED";
 const TEXT_BODY = "#4B5563";
 const BORDER = "#E5E7EB";
 
-// ⚠️ Sostituire con l'URL /exec del Web App Apps Script (es. https://script.google.com/macros/s/AKfycbx.../exec)
 const GOOGLE_SHEETS_WEBHOOK_URL =
-  "https://script.google.com/home/projects/1j-6bOBtK72UcJ9w6KWRE5mBFvh_eBFE2LQkRRWvweTgcZ12g7dDnxsK4/edit";
+  "https://script.google.com/macros/s/AKfycbyJTpjQ-UVFpCKddhQGKI6oG6Cm-iiLl8J9rd_MC_QK/dev";
 
 async function sendToGoogleSheets(reportData: unknown) {
   console.log("📤 Invio a Google Sheets:", reportData);
