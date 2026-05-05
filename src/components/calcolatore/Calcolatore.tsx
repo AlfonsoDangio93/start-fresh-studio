@@ -926,10 +926,8 @@ function Step7Gate({
       note: (form.note || "").trim(),
     };
     console.log("Lead submitted:", { formData: data, results, answers });
-    setTimeout(() => {
-      setSubmitting(false);
-      onSubmitted(data);
-    }, 1500);
+    setSubmitting(false);
+    onSubmitted(data);
   };
 
   const teaserCards = [
