@@ -426,28 +426,35 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
                      console.error("❌ Errore invio Google Sheets:", err)
                    );
                    const leadId = `${data.email}-${reportData.timestamp}`;
-                   supabase.functions
-                     .invoke("send-transactional-email", {
-                       body: {
-                         templateName: "report-calcolatore",
-                         recipientEmail: data.email,
-                         idempotencyKey: `report-calcolatore-${leadId}`,
-                         templateData: {
-                           nome: data.nome?.split(" ")[0] || "",
-                           numImmobili: answers.numImmobili,
-                           costoGuastiDiretti: results.costoGuastiDiretti,
-                           costoTempoPM: results.costoTempoPM,
-                           costoRecensioni: results.costoRecensioni,
-                           costoTotaleAnnuo: results.costoTotaleAnnuo,
-                           costoHommi: results.costoHommi,
-                           risparmio: results.risparmio,
-                           risparmioPercentuale: results.risparmioPercentuale,
-                         },
+                   const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+                   const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+                   fetch(`${SUPABASE_URL}/functions/v1/send-transactional-email`, {
+                     method: "POST",
+                     keepalive: true,
+                     headers: {
+                       "Content-Type": "application/json",
+                       Authorization: `Bearer ${SUPABASE_KEY}`,
+                       apikey: SUPABASE_KEY,
+                     },
+                     body: JSON.stringify({
+                       templateName: "report-calcolatore",
+                       recipientEmail: data.email,
+                       idempotencyKey: `report-calcolatore-${leadId}`,
+                       templateData: {
+                         nome: data.nome?.split(" ")[0] || "",
+                         numImmobili: answers.numImmobili,
+                         costoGuastiDiretti: results.costoGuastiDiretti,
+                         costoTempoPM: results.costoTempoPM,
+                         costoRecensioni: results.costoRecensioni,
+                         costoTotaleAnnuo: results.costoTotaleAnnuo,
+                         costoHommi: results.costoHommi,
+                         risparmio: results.risparmio,
+                         risparmioPercentuale: results.risparmioPercentuale,
                        },
-                     })
-                     .catch((err) =>
-                       console.error("❌ Errore invio email report:", err)
-                     );
+                     }),
+                   }).catch((err) =>
+                     console.error("❌ Errore invio email report:", err)
+                   );
                   // Meta Pixel Lead event
                   const eventID =
                     typeof crypto !== "undefined" && "randomUUID" in crypto
