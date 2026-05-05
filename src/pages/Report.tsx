@@ -109,13 +109,15 @@ export default function Report() {
   useEffect(() => {
     if (!data) return;
     const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
-    if (typeof fbq === "function") {
+    if (typeof fbq !== "undefined" && typeof fbq === "function") {
       fbq("track", "ViewContent", {
         content_name: "Report Calcolatore Hommi",
-        content_category: "Report",
-        value: 0,
+        content_category: "Report Personalizzato",
+        content_ids: [`report_${data.timestamp}`],
+        value: data.results.costoTotaleAnnuo,
         currency: "EUR",
       });
+      console.log("🎯 Pixel: ViewContent fired");
     }
   }, [data]);
 
