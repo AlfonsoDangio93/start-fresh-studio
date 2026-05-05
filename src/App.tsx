@@ -26,6 +26,7 @@ import NotFound from "@/pages/NotFound";
 import Ticket from "@/pages/Ticket";
 import LandingCalcolatore from "@/pages/LandingCalcolatore";
 import Report from "@/pages/Report";
+import Unsubscribe from "@/pages/Unsubscribe";
 
 
 export default function App() {
