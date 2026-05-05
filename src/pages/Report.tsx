@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { InlineWidget } from "react-calendly";
+
 import LandingFooter from "@/components/landing/LandingFooter";
 
 const ORANGE = "#E8501C";
@@ -334,41 +334,17 @@ function ReportContent({
               ))}
             </ul>
 
-            {/* Calendly */}
-            <div
-              className="mt-8 rounded-[12px] overflow-hidden bg-white border"
-              style={{ borderColor: BORDER }}
-            >
-              <InlineWidget
-                url="https://calendly.com/simone-calderoni-hommi/30min"
-                styles={{
-                  height: "700px",
-                  width: "100%",
-                  minWidth: "320px",
-                }}
-                pageSettings={{
-                  backgroundColor: "ffffff",
-                  hideEventTypeDetails: false,
-                  hideLandingPageDetails: false,
-                  primaryColor: "E8501C",
-                  textColor: "2C2C2C",
-                }}
-                prefill={{
-                  email: formData.email,
-                  firstName,
-                  lastName,
-                  name: formData.nome,
-                  customAnswers: {
-                    a1: formData.telefono,
-                    a2: formData.azienda || "",
-                  },
-                }}
-                utm={{
-                  utmSource: "calcolatore",
-                  utmMedium: "lovable",
-                  utmCampaign: "meta-ads",
-                }}
-              />
+            {/* Calendly CTA */}
+            <div className="mt-8 flex justify-center">
+              <a
+                href={`https://calendly.com/simone-calderoni-hommi/30min?name=${encodeURIComponent(formData.nome || "")}&email=${encodeURIComponent(formData.email || "")}&a1=${encodeURIComponent(formData.telefono || "")}&a2=${encodeURIComponent(formData.azienda || "")}&utm_source=calcolatore&utm_medium=lovable&utm_campaign=meta-ads`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full md:w-auto px-10 py-5 rounded-[12px] text-white text-lg md:text-xl font-bold shadow-lg transition-transform hover:scale-[1.02]"
+                style={{ backgroundColor: "#E35210" }}
+              >
+                📅 Prenota una demo
+              </a>
             </div>
 
             <p
