@@ -8,7 +8,7 @@ export default function SeoHost() {
       title="Manutenzione Case Vacanza e Airbnb per Host Professionali | Hommi"
       description="Hommi è il servizio di manutenzione per host Airbnb e case vacanza a Milano, Monza, Como, Torino e Lecco. Interventi rapidi, tecnici verificati, zero recensioni negative."
       ogImage="/og/seo-host.jpg"
-      ogImageAlt=Banner Hommi - Manutenzione Airbnb e Host Professionali
+      ogImageAlt="Banner Hommi - Manutenzione Airbnb e Host Professionali"
       keywords="manutenzione airbnb, host professionali, case vacanza, short rental, manutenzione affitti brevi"
       h1="Manutenzione per host Airbnb e case vacanza"
       intro="Una doccia che non funziona può costare 200 € di rimborsi e una recensione a 3 stelle. Hommi ti permette di risolvere i problemi dei tuoi ospiti in poche ore, mantenendo la valutazione del tuo annuncio sopra il 4,8."
