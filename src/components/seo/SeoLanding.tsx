@@ -11,6 +11,8 @@ export type SeoLandingProps = {
   title: string;
   description: string;
   keywords: string;
+  ogImage: string;
+  ogImageAlt: string;
   h1: string;
   intro: string;
   badge: string;
@@ -61,6 +63,8 @@ export default function SeoLanding(p: SeoLandingProps) {
     description: p.description,
     canonical,
     keywords: p.keywords,
+    ogImage: p.ogImage,
+    ogImageAlt: p.ogImageAlt,
     jsonLd,
   });
 
