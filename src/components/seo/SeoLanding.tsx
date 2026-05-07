@@ -63,6 +63,8 @@ export default function SeoLanding(p: SeoLandingProps) {
     description: p.description,
     canonical,
     keywords: p.keywords,
+    ogImage: p.ogImage,
+    ogImageAlt: p.ogImageAlt,
     jsonLd,
   });
 
