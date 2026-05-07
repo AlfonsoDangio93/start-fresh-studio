@@ -83,6 +83,42 @@ function deliverReportInBackground(reportData: ReportData) {
   }).catch((err) => console.error("❌ Errore invio email report:", err));
 }
 
+function trackLeadFromReport(reportData: ReportData) {
+  const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
+  if (typeof fbq !== "function") return;
+
+  const eventID =
+    typeof crypto !== "undefined" && "randomUUID" in crypto
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random()}`;
+
+  fbq(
+    "track",
+    "Lead",
+    {
+      content_name: "Calcolatore Hommi",
+      content_category: "Lead Generation",
+      value: 0,
+      currency: "EUR",
+    },
+    { eventID }
+  );
+
+  if (reportData.answers.numImmobili >= 3) {
+    fbq(
+      "trackCustom",
+      "LeadQualificato",
+      {
+        num_immobili: reportData.answers.numImmobili,
+        citta: reportData.answers.città.join(","),
+        costo_stimato: reportData.results.costoTotaleAnnuo,
+        content_name: "Lead PM con 3+ immobili",
+      },
+      { eventID }
+    );
+  }
+}
+
 const formatEuro = (n: number) =>
   new Intl.NumberFormat("it-IT", {
     style: "currency",
@@ -146,7 +182,11 @@ export default function Report() {
       const pending = sessionStorage.getItem("hommi_report_pending_delivery");
       if (pending) {
         sessionStorage.removeItem("hommi_report_pending_delivery");
-        window.setTimeout(() => deliverReportInBackground(JSON.parse(pending)), 0);
+        window.setTimeout(() => {
+          const pendingReport = JSON.parse(pending) as ReportData;
+          deliverReportInBackground(pendingReport);
+          trackLeadFromReport(pendingReport);
+        }, 0);
       }
     } catch {
       sessionStorage.removeItem("hommi_report_data");
