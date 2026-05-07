@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.hommi.it/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.hommi.it/prezzi</loc><priority>0.9</priority></url>
+  <url><loc>https://www.hommi.it/per-property-manager</loc><priority>0.8</priority></url>
+  <url><loc>https://www.hommi.it/per-agenzie</loc><priority>0.8</priority></url>
+  <url><loc>https://www.hommi.it/per-host-professionali</loc><priority>0.8</priority></url>
+  <url><loc>https://www.hommi.it/per-manutentori</loc><priority>0.8</priority></url>
+  <url><loc>https://www.hommi.it/gestione-tecnici</loc><priority>0.7</priority></url>
+  <url><loc>https://www.hommi.it/ticketing-guasti</loc><priority>0.7</priority></url>
+  <url><loc>https://www.hommi.it/faq</loc><priority>0.6</priority></url>
+  <url><loc>https://www.hommi.it/privacy-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://www.hommi.it/cookie-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://www.hommi.it/termini-condizioni</loc><priority>0.3</priority></url>
+</urlset>
