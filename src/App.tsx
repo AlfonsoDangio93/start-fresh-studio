@@ -27,6 +27,12 @@ import Ticket from "@/pages/Ticket";
 import LandingCalcolatore from "@/pages/LandingCalcolatore";
 import Report from "@/pages/Report";
 import Unsubscribe from "@/pages/Unsubscribe";
+import SeoPropertyManager from "@/pages/seo/SeoPropertyManager";
+import SeoAgenzie from "@/pages/seo/SeoAgenzie";
+import SeoHost from "@/pages/seo/SeoHost";
+import SeoTicketing from "@/pages/seo/SeoTicketing";
+import SeoTecnici from "@/pages/seo/SeoTecnici";
+import SeoManutenzione from "@/pages/seo/SeoManutenzione";
 
 
 export default function App() {
@@ -59,6 +65,14 @@ export default function App() {
         <Route path="/calcolatore" element={<LandingCalcolatore />} />
         <Route path="/report" element={<Report />} />
         <Route path="/unsubscribe" element={<Unsubscribe />} />
+
+        {/* SEO landing pages */}
+        <Route path="/seo/gestione-manutenzione-property-manager" element={<SeoPropertyManager />} />
+        <Route path="/seo/gestione-manutenzione-agenzie-immobiliari" element={<SeoAgenzie />} />
+        <Route path="/seo/gestione-manutenzione-host-airbnb" element={<SeoHost />} />
+        <Route path="/seo/ticketing-guasti-immobili" element={<SeoTicketing />} />
+        <Route path="/seo/gestione-tecnici-manutentori" element={<SeoTecnici />} />
+        <Route path="/seo/gestione-manutenzione-immobili" element={<SeoManutenzione />} />
         
         <Route path="*" element={<NotFound />} />
       </Routes>
