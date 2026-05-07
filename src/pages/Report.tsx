@@ -8,6 +8,8 @@ const ACCENT = "#FFF4ED";
 const TEXT_BODY = "#4B5563";
 const BORDER = "#E5E7EB";
 const SUCCESS = "#10B981";
+const GOOGLE_SHEETS_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbwH0MP4BcOH22jXkljNKUXNWGeoxCVMfPr1A4kt_nYmnFFevWP3TMFXag4q-NBD1FfjOw/exec";
 
 type ContactForm = {
   nome: string;
@@ -40,6 +42,82 @@ type ReportData = {
   results: Results;
   timestamp: number;
 };
+
+function deliverReportInBackground(reportData: ReportData) {
+  const leadId = `${reportData.formData.email}-${reportData.timestamp}`;
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+  const supabaseKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
+  fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(reportData),
+    keepalive: true,
+  }).catch((err) => console.error("❌ Errore invio Google Sheets:", err));
+
+  fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
+    method: "POST",
+    keepalive: true,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${supabaseKey}`,
+      apikey: supabaseKey,
+    },
+    body: JSON.stringify({
+      templateName: "report-calcolatore",
+      recipientEmail: reportData.formData.email,
+      idempotencyKey: `report-calcolatore-${leadId}`,
+      templateData: {
+        nome: reportData.formData.nome?.split(" ")[0] || "",
+        numImmobili: reportData.answers.numImmobili,
+        costoGuastiDiretti: reportData.results.costoGuastiDiretti,
+        costoTempoPM: reportData.results.costoTempoPM,
+        costoRecensioni: reportData.results.costoRecensioni,
+        costoTotaleAnnuo: reportData.results.costoTotaleAnnuo,
+        costoHommi: reportData.results.costoHommi,
+        risparmio: reportData.results.risparmio,
+        risparmioPercentuale: reportData.results.risparmioPercentuale,
+      },
+    }),
+  }).catch((err) => console.error("❌ Errore invio email report:", err));
+}
+
+function trackLeadFromReport(reportData: ReportData) {
+  const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
+  if (typeof fbq !== "function") return;
+
+  const eventID =
+    typeof crypto !== "undefined" && "randomUUID" in crypto
+      ? crypto.randomUUID()
+      : `${Date.now()}-${Math.random()}`;
+
+  fbq(
+    "track",
+    "Lead",
+    {
+      content_name: "Calcolatore Hommi",
+      content_category: "Lead Generation",
+      value: 0,
+      currency: "EUR",
+    },
+    { eventID }
+  );
+
+  if (reportData.answers.numImmobili >= 3) {
+    fbq(
+      "trackCustom",
+      "LeadQualificato",
+      {
+        num_immobili: reportData.answers.numImmobili,
+        citta: reportData.answers.città.join(","),
+        costo_stimato: reportData.results.costoTotaleAnnuo,
+        content_name: "Lead PM con 3+ immobili",
+      },
+      { eventID }
+    );
+  }
+}
 
 const formatEuro = (n: number) =>
   new Intl.NumberFormat("it-IT", {
@@ -95,12 +173,24 @@ export default function Report() {
       const oneHour = 60 * 60 * 1000;
       if (Date.now() - parsed.timestamp > oneHour) {
         sessionStorage.removeItem("hommi_report_data");
+        sessionStorage.removeItem("hommi_report_pending_delivery");
         window.location.href = "/";
         return;
       }
       setData(parsed);
+
+      const pending = sessionStorage.getItem("hommi_report_pending_delivery");
+      if (pending) {
+        sessionStorage.removeItem("hommi_report_pending_delivery");
+        window.setTimeout(() => {
+          const pendingReport = JSON.parse(pending) as ReportData;
+          deliverReportInBackground(pendingReport);
+          trackLeadFromReport(pendingReport);
+        }, 0);
+      }
     } catch {
       sessionStorage.removeItem("hommi_report_data");
+      sessionStorage.removeItem("hommi_report_pending_delivery");
       window.location.href = "/";
     }
   }, []);

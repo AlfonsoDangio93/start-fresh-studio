@@ -9,7 +9,6 @@ import {
   Lock,
   CheckCircle2,
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 
 const ORANGE = "#E8501C";
 const ORANGE_HOVER = "#C9410F";
@@ -17,27 +16,6 @@ const DARK = "#2C2C2C";
 const ACCENT = "#FFF4ED";
 const TEXT_BODY = "#4B5563";
 const BORDER = "#E5E7EB";
-
-const GOOGLE_SHEETS_WEBHOOK_URL =
-  "https://script.google.com/macros/s/AKfycbwH0MP4BcOH22jXkljNKUXNWGeoxCVMfPr1A4kt_nYmnFFevWP3TMFXag4q-NBD1FfjOw/exec";
-
-async function sendToGoogleSheets(reportData: unknown) {
-  console.log("📤 Invio a Google Sheets:", reportData);
-  try {
-    await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(reportData),
-      keepalive: true,
-    });
-    console.log("✅ Sheets: chiamata inviata");
-    return { ok: true };
-  } catch (error) {
-    console.error("❌ Sheets: errore", error);
-    return { ok: false, error };
-  }
-}
 
 const formatEuro = (n: number) =>
   new Intl.NumberFormat("it-IT", {
@@ -421,79 +399,12 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
                      JSON.stringify(reportData)
                    );
 
-                   // Fire-and-forget: invio Google Sheets + email in background (non blocca la redirect)
-                   sendToGoogleSheets(reportData).catch((err) =>
-                     console.error("❌ Errore invio Google Sheets:", err)
+                   // Salva l'invio da completare dopo l'apertura del report, così il click resta istantaneo.
+                   sessionStorage.setItem(
+                     "hommi_report_pending_delivery",
+                     JSON.stringify(reportData)
                    );
-                   const leadId = `${data.email}-${reportData.timestamp}`;
-                   const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-                   const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-                   fetch(`${SUPABASE_URL}/functions/v1/send-transactional-email`, {
-                     method: "POST",
-                     keepalive: true,
-                     headers: {
-                       "Content-Type": "application/json",
-                       Authorization: `Bearer ${SUPABASE_KEY}`,
-                       apikey: SUPABASE_KEY,
-                     },
-                     body: JSON.stringify({
-                       templateName: "report-calcolatore",
-                       recipientEmail: data.email,
-                       idempotencyKey: `report-calcolatore-${leadId}`,
-                       templateData: {
-                         nome: data.nome?.split(" ")[0] || "",
-                         numImmobili: answers.numImmobili,
-                         costoGuastiDiretti: results.costoGuastiDiretti,
-                         costoTempoPM: results.costoTempoPM,
-                         costoRecensioni: results.costoRecensioni,
-                         costoTotaleAnnuo: results.costoTotaleAnnuo,
-                         costoHommi: results.costoHommi,
-                         risparmio: results.risparmio,
-                         risparmioPercentuale: results.risparmioPercentuale,
-                       },
-                     }),
-                   }).catch((err) =>
-                     console.error("❌ Errore invio email report:", err)
-                   );
-                  // Meta Pixel Lead event
-                  const eventID =
-                    typeof crypto !== "undefined" && "randomUUID" in crypto
-                      ? crypto.randomUUID()
-                      : `${Date.now()}-${Math.random()}`;
-                  (window as unknown as { _lastEventID?: string })._lastEventID = eventID;
-                  const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
-                  if (typeof fbq !== "undefined" && typeof fbq === "function") {
-                    fbq(
-                      "track",
-                      "Lead",
-                      {
-                        content_name: "Calcolatore Hommi",
-                        content_category: "Lead Generation",
-                        value: 0,
-                        currency: "EUR",
-                      },
-                      { eventID }
-                    );
-                    if (answers.numImmobili >= 3) {
-                      fbq(
-                        "trackCustom",
-                        "LeadQualificato",
-                        {
-                          num_immobili: answers.numImmobili,
-                          citta: answers.città.join(","),
-                          costo_stimato: results.costoTotaleAnnuo,
-                          content_name: "Lead PM con 3+ immobili",
-                        },
-                        { eventID }
-                      );
-                      console.log("🎯 Pixel: Lead + LeadQualificato fired", { eventID });
-                    } else {
-                      console.log("🎯 Pixel: Lead fired (non qualificato)", {
-                        eventID,
-                        num_immobili: answers.numImmobili,
-                      });
-                    }
-                  }
+
                   window.location.href = "/report";
                 }}
               />
