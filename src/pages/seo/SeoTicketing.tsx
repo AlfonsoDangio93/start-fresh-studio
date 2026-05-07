@@ -7,6 +7,8 @@ export default function SeoTicketing() {
       badge="Servizio Ticketing"
       title="Software Ticketing Guasti per Immobili | Hommi"
       description="Sistema di ticketing guasti per property manager, agenzie e host. Apertura ticket via WhatsApp, assegnazione automatica al tecnico, tracciabilità completa."
+      ogImage="/og/seo-ticketing.jpg"
+      ogImageAlt=Banner Hommi - Ticketing Guasti per Immobili
       keywords="ticketing guasti, software manutenzione immobili, gestione segnalazioni, ticket WhatsApp, helpdesk immobiliare"
       h1="Ticketing guasti per la gestione immobiliare"
       intro="Hommi ti offre un sistema di ticketing pensato per chi gestisce immobili: niente app da installare, tutto su WhatsApp, ma con la potenza di un helpdesk professionale alle spalle."

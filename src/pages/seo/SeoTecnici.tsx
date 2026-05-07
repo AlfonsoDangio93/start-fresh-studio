@@ -7,6 +7,8 @@ export default function SeoTecnici() {
       badge="Network Tecnici"
       title="Gestione Tecnici e Manutentori per Immobili | Hommi"
       description="Hommi seleziona, coordina e valuta tecnici e manutentori per property manager, agenzie e host a Milano, Monza, Como, Torino e Lecco."
+      ogImage="/og/seo-tecnici.jpg"
+      ogImageAlt=Banner Hommi - Gestione Tecnici e Manutentori
       keywords="gestione tecnici, manutentori immobiliari, idraulico, elettricista, fabbro, piattaforma manutentori"
       h1="Gestione tecnici e manutentori"
       intro="Trovare un buon idraulico o elettricista è difficile. Coordinarne dieci, su città diverse e con SLA chiari, è quasi impossibile. Hommi lo fa per te con un network selezionato di manutentori certificati."

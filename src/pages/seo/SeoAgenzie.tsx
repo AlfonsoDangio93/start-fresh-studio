@@ -7,6 +7,8 @@ export default function SeoAgenzie() {
       badge="Per Agenzie Immobiliari"
       title="Gestione Manutenzione per Agenzie Immobiliari | Hommi"
       description="Hommi supporta agenzie immobiliari nella gestione della manutenzione di affitti residenziali e brevi a Milano, Monza, Como, Torino e Lecco. Servizio chiavi in mano per inquilini e proprietari."
+      ogImage="/og/seo-agenzie.jpg"
+      ogImageAlt=Banner Hommi - Gestione manutenzione per Agenzie Immobiliari
       keywords="manutenzione agenzia immobiliare, gestione affitti, post-vendita immobiliare, servizio inquilini, manutenzione locazioni"
       h1="Gestione manutenzione per agenzie immobiliari"
       intro="Le agenzie immobiliari oggi non vendono solo case: gestiscono relazioni continuative con proprietari e inquilini. Hommi ti permette di offrire un servizio post-vendita e post-locazione professionale, senza mettere in piedi un ufficio tecnico interno."

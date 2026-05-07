@@ -7,6 +7,8 @@ export default function SeoPropertyManager() {
       badge="Per Property Manager"
       title="Gestione Manutenzione per Property Manager | Hommi"
       description="Hommi è la piattaforma di gestione manutenzione per property manager a Milano, Monza, Como, Torino e Lecco. Tecnici verificati, ticketing su WhatsApp, costi trasparenti."
+      ogImage="/og/seo-property-manager.jpg"
+      ogImageAlt=Banner Hommi - Gestione manutenzione per Property Manager
       keywords="gestione manutenzione property manager, software property manager, manutenzione short rental, ticketing guasti, Milano, Monza, Como, Torino, Lecco"
       h1="Gestione manutenzione per Property Manager"
       intro="Gestire la manutenzione di decine di immobili in affitto breve significa coordinare guasti, tecnici, ospiti e proprietari ogni giorno. Hommi ti permette di automatizzare l'intero processo: ticket aperti via WhatsApp, tecnici verificati, prezzi trasparenti e zero telefonate fuori orario."

@@ -7,6 +7,8 @@ export default function SeoManutenzione() {
       badge="Servizio Manutenzione"
       title="Gestione Manutenzione Immobili a Milano, Torino e Como | Hommi"
       description="Hommi è il servizio completo di gestione manutenzione immobiliare a Milano, Monza, Como, Torino e Lecco. Per property manager, agenzie e host professionali."
+      ogImage="/og/seo-manutenzione.jpg"
+      ogImageAlt=Banner Hommi - Gestione Manutenzione Immobili
       keywords="gestione manutenzione immobili, manutenzione appartamenti, servizio manutenzione Milano, manutenzione Torino, manutenzione Como"
       h1="Gestione manutenzione immobili chiavi in mano"
       intro="Hommi è il servizio integrato di gestione della manutenzione per chi opera nel mondo immobiliare professionale: tecnici verificati, ticketing su WhatsApp, costi trasparenti e copertura sulle principali città del Nord Italia."
