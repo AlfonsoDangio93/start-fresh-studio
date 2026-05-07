@@ -11,6 +11,8 @@ export type SeoLandingProps = {
   title: string;
   description: string;
   keywords: string;
+  ogImage: string;
+  ogImageAlt: string;
   h1: string;
   intro: string;
   badge: string;

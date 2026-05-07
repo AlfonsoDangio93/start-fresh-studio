@@ -5,6 +5,8 @@ type SeoOptions = {
   description: string;
   canonical: string;
   keywords?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 };
 
@@ -28,19 +30,46 @@ function upsertLink(rel: string, href: string) {
   el.setAttribute("href", href);
 }
 
-export function useSeo({ title, description, canonical, keywords, jsonLd }: SeoOptions) {
+export function useSeo({
+  title,
+  description,
+  canonical,
+  keywords,
+  ogImage,
+  ogImageAlt,
+  jsonLd,
+}: SeoOptions) {
   useEffect(() => {
     document.title = title;
     upsertMeta("name", "description", description);
     if (keywords) upsertMeta("name", "keywords", keywords);
     upsertLink("canonical", canonical);
+
     upsertMeta("property", "og:title", title);
     upsertMeta("property", "og:description", description);
     upsertMeta("property", "og:url", canonical);
     upsertMeta("property", "og:type", "website");
+    upsertMeta("property", "og:site_name", "Hommi");
+    upsertMeta("property", "og:locale", "it_IT");
+
+    upsertMeta("name", "twitter:card", "summary_large_image");
     upsertMeta("name", "twitter:title", title);
     upsertMeta("name", "twitter:description", description);
-    upsertMeta("name", "twitter:card", "summary_large_image");
+
+    if (ogImage) {
+      const absolute = ogImage.startsWith("http")
+        ? ogImage
+        : `https://www.hommi.it${ogImage}`;
+      upsertMeta("property", "og:image", absolute);
+      upsertMeta("property", "og:image:width", "1200");
+      upsertMeta("property", "og:image:height", "630");
+      upsertMeta("property", "og:image:type", "image/jpeg");
+      upsertMeta("name", "twitter:image", absolute);
+      if (ogImageAlt) {
+        upsertMeta("property", "og:image:alt", ogImageAlt);
+        upsertMeta("name", "twitter:image:alt", ogImageAlt);
+      }
+    }
 
     const scripts: HTMLScriptElement[] = [];
     if (jsonLd) {
@@ -57,5 +86,6 @@ export function useSeo({ title, description, canonical, keywords, jsonLd }: SeoO
     return () => {
       scripts.forEach((s) => s.remove());
     };
-  }, [title, description, canonical, keywords, jsonLd]);
+  }, [title, description, canonical, keywords, ogImage, ogImageAlt, jsonLd]);
 }
+
