@@ -9,7 +9,6 @@ import {
   Lock,
   CheckCircle2,
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 
 const ORANGE = "#E8501C";
 const ORANGE_HOVER = "#C9410F";
