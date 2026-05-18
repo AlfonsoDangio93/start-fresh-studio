@@ -6,6 +6,8 @@ const ORANGE = "#E8501C";
 const DARK = "#2C2C2C";
 const ACCENT = "#FFF4ED";
 const TEXT_BODY = "#4B5563";
+const BORDER = "#E5E7EB";
+const SUCCESS = "#10B981";
 const GOOGLE_SHEETS_WEBHOOK_URL =
   "https://script.google.com/macros/s/AKfycbwH0MP4BcOH22jXkljNKUXNWGeoxCVMfPr1A4kt_nYmnFFevWP3TMFXag4q-NBD1FfjOw/exec";
 
@@ -117,6 +119,33 @@ function trackLeadFromReport(reportData: ReportData) {
   }
 }
 
+const formatEuro = (n: number) =>
+  new Intl.NumberFormat("it-IT", {
+    style: "currency",
+    currency: "EUR",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(n);
+
+function useCountUp(target: number, durationMs = 1500) {
+  const [value, setValue] = useState(0);
+  const startRef = useRef<number | null>(null);
+  useEffect(() => {
+    let raf = 0;
+    startRef.current = null;
+    const tick = (t: number) => {
+      if (startRef.current === null) startRef.current = t;
+      const elapsed = t - startRef.current;
+      const progress = Math.min(1, elapsed / durationMs);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(target * eased));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [target, durationMs]);
+  return value;
+}
 
 export default function Report() {
   const [data, setData] = useState<ReportData | null>(null);
@@ -193,15 +222,26 @@ export default function Report() {
     );
   }
 
-  const { formData } = data;
+  const { formData, answers, results } = data;
   const firstName = formData.nome.split(" ")[0] ?? "";
+  const lastName = formData.nome.split(" ").slice(1).join(" ");
+  const guastiAnno = (answers.guastiMese ?? 0) * 12;
+  const oreAnnoPM = (answers.oreSettimana ?? 0) * 52;
 
   return (
     <div
       className="min-h-screen bg-white flex flex-col"
       style={{ fontFamily: "'Inter', system-ui, sans-serif", color: DARK }}
     >
-      <ReportContent firstName={firstName} formData={formData} />
+      <ReportContent
+        firstName={firstName}
+        lastName={lastName}
+        formData={formData}
+        answers={answers}
+        results={results}
+        guastiAnno={guastiAnno}
+        oreAnnoPM={oreAnnoPM}
+      />
       <LandingFooter />
     </div>
   );
@@ -209,10 +249,20 @@ export default function Report() {
 
 function ReportContent({
   firstName,
+  lastName,
   formData,
+  answers,
+  results,
+  guastiAnno,
+  oreAnnoPM,
 }: {
   firstName: string;
+  lastName: string;
   formData: ContactForm;
+  answers: Answers;
+  results: Results;
+  guastiAnno: number;
+  oreAnnoPM: number;
 }) {
   return (
     <>
