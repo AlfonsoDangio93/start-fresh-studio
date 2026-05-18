@@ -119,33 +119,6 @@ function trackLeadFromReport(reportData: ReportData) {
   }
 }
 
-const formatEuro = (n: number) =>
-  new Intl.NumberFormat("it-IT", {
-    style: "currency",
-    currency: "EUR",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(n);
-
-function useCountUp(target: number, durationMs = 1500) {
-  const [value, setValue] = useState(0);
-  const startRef = useRef<number | null>(null);
-  useEffect(() => {
-    let raf = 0;
-    startRef.current = null;
-    const tick = (t: number) => {
-      if (startRef.current === null) startRef.current = t;
-      const elapsed = t - startRef.current;
-      const progress = Math.min(1, elapsed / durationMs);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(Math.round(target * eased));
-      if (progress < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [target, durationMs]);
-  return value;
-}
 
 export default function Report() {
   const [data, setData] = useState<ReportData | null>(null);
