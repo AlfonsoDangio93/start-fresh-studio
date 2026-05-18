@@ -126,7 +126,7 @@ const ReportCalcolatoreEmail = ({
               demo gratuita di 30 minuti con il nostro team.
             </Text>
             <Button href={CALENDLY_URL} style={button}>
-              📅 Prenota una demo
+              Prenota call
             </Button>
           </Section>
 
