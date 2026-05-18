@@ -45,17 +45,7 @@ const fmt = (n?: number) =>
       }).format(n)
     : '—'
 
-const ReportCalcolatoreEmail = ({
-  nome,
-  numImmobili,
-  costoGuastiDiretti,
-  costoTempoPM,
-  costoRecensioni,
-  costoTotaleAnnuo,
-  costoHommi,
-  risparmio,
-  risparmioPercentuale,
-}: ReportCalcolatoreProps) => (
+const ReportCalcolatoreEmail = ({ nome }: ReportCalcolatoreProps) => (
   <Html lang="it" dir="ltr">
     <Head />
     <Preview>
@@ -74,59 +64,17 @@ const ReportCalcolatoreEmail = ({
 
         <Section style={card}>
           <Heading style={h1}>
-            {nome ? `Ciao ${nome},` : 'Ciao,'} ecco il tuo report 📊
+            {nome ? `Ciao ${nome},` : 'Ciao,'} prenotiamo una call?
           </Heading>
           <Text style={text}>
-            Abbiamo analizzato i dati che ci hai fornito
-            {numImmobili ? ` sui tuoi ${numImmobili} immobili` : ''} per
-            calcolare il costo reale della manutenzione e quanto potresti
-            risparmiare con {SITE_NAME}.
+            Grazie per aver compilato il calcolatore Hommi. Il prossimo passo è
+            una call di 30 minuti con il nostro team: audit gratuito del tuo
+            primo immobile, demo della piattaforma, zero impegno.
           </Text>
 
-          <Section style={savingsBox}>
-            <Text style={savingsLabel}>Risparmio stimato annuo</Text>
-            <Text style={savingsAmount}>{fmt(risparmio)}</Text>
-            {typeof risparmioPercentuale === 'number' && (
-              <Text style={savingsPct}>
-                -{risparmioPercentuale}% sui costi attuali
-              </Text>
-            )}
-          </Section>
-
-          <Heading style={h2}>Dettaglio costi attuali</Heading>
-
-          <Section style={row}>
-            <Text style={rowLabel}>🔧 Guasti & manutenzione</Text>
-            <Text style={rowValue}>{fmt(costoGuastiDiretti)}/anno</Text>
-          </Section>
-          <Hr style={hr} />
-          <Section style={row}>
-            <Text style={rowLabel}>⏱️ Tempo PM dedicato</Text>
-            <Text style={rowValue}>{fmt(costoTempoPM)}/anno</Text>
-          </Section>
-          <Hr style={hr} />
-          <Section style={row}>
-            <Text style={rowLabel}>⭐ Impatto recensioni negative</Text>
-            <Text style={rowValue}>{fmt(costoRecensioni)}/anno</Text>
-          </Section>
-          <Hr style={hr} />
-          <Section style={rowTotal}>
-            <Text style={rowLabelTotal}>Totale attuale</Text>
-            <Text style={rowValueTotal}>{fmt(costoTotaleAnnuo)}/anno</Text>
-          </Section>
-
-          <Section style={hommiBox}>
-            <Text style={rowLabel}>Con Hommi pagheresti</Text>
-            <Text style={hommiAmount}>{fmt(costoHommi)}/anno</Text>
-          </Section>
-
-          <Section style={{ textAlign: 'center', padding: '32px 0 16px' }}>
-            <Text style={text}>
-              Vuoi vedere come funziona Hommi per la tua attività? Prenota una
-              demo gratuita di 30 minuti con il nostro team.
-            </Text>
+          <Section style={{ textAlign: 'center', padding: '24px 0 8px' }}>
             <Button href={CALENDLY_URL} style={button}>
-              📅 Prenota una demo
+              📅 Prenota una call
             </Button>
           </Section>
 
@@ -147,10 +95,8 @@ const ReportCalcolatoreEmail = ({
 
 export const template = {
   component: ReportCalcolatoreEmail,
-  subject: (data: Record<string, any>) =>
-    data?.risparmio
-      ? `Il tuo report Hommi: risparmio stimato ${fmt(data.risparmio)}/anno`
-      : 'Il tuo report Hommi è pronto',
+  subject: () => 'Prenota una call con il team Hommi',
+      
   displayName: 'Report Calcolatore',
   previewData: {
     nome: 'Marco',
