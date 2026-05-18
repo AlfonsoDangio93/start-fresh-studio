@@ -264,29 +264,6 @@ function ReportContent({
   guastiAnno: number;
   oreAnnoPM: number;
 }) {
-  const animatedTotal = useCountUp(results.costoTotaleAnnuo, 1500);
-
-  const cards = [
-    {
-      icon: "💸",
-      title: "Costi diretti guasti",
-      value: `${formatEuro(results.costoGuastiDiretti)}/anno`,
-      micro: `${guastiAnno} interventi × €130 medio`,
-    },
-    {
-      icon: "⏱️",
-      title: "Tempo perso valorizzato",
-      value: `${formatEuro(results.costoTempoPM)}/anno`,
-      micro: `${oreAnnoPM} ore × €35/h`,
-    },
-    {
-      icon: "⭐",
-      title: "Impatto recensioni negative",
-      value: `${formatEuro(results.costoRecensioni)}/anno`,
-      micro: `${answers.recensioniNegative ?? 0} recensioni × €400`,
-    },
-  ];
-
   return (
     <>
       {/* Sticky success banner */}
@@ -319,60 +296,10 @@ function ReportContent({
       </header>
 
       <main className="flex-1">
-        <div className="max-w-[720px] mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-12">
-          {/* SECTION 1 — Hero */}
-          <section className="text-center animate-fade-in">
-            <div
-              className="text-xs font-semibold uppercase tracking-[0.15em]"
-              style={{ color: ORANGE }}
-            >
-              Il tuo report personalizzato
-            </div>
-            <h1
-              className="mt-3 font-bold tracking-tight"
-              style={{
-                color: DARK,
-                fontWeight: 700,
-                fontSize: "clamp(28px, 5vw, 40px)",
-                lineHeight: 1.15,
-              }}
-            >
-              {firstName ? `${firstName}, ` : ""}ecco quanto ti costano davvero
-              i guasti
-            </h1>
-            <div
-              className="mt-8 font-extrabold leading-none"
-              style={{
-                color: ORANGE,
-                fontWeight: 800,
-                fontSize: "clamp(56px, 11vw, 96px)",
-                letterSpacing: "-0.04em",
-              }}
-            >
-              {formatEuro(animatedTotal)}
-            </div>
-            <div className="mt-2 text-2xl" style={{ color: TEXT_BODY }}>
-              all'anno
-            </div>
-            <p
-              className="mt-5 text-base max-w-[520px] mx-auto"
-              style={{ color: TEXT_BODY, lineHeight: 1.6 }}
-            >
-              Stima personalizzata sui tuoi {answers.numImmobili} immobili
-              {answers.città.length > 0 && (
-                <> a {answers.città.join(", ")}</>
-              )}
-              .
-            </p>
-          </section>
-
-          {/* SECTION 2 — CTA + Calendly (in alto) */}
+        <div className="max-w-[640px] mx-auto px-5 sm:px-8 py-16 sm:py-24">
           <section
-            className="rounded-[16px] p-6 sm:p-8 border-2"
-            style={{
-              backgroundColor: ACCENT,
-              borderColor: ORANGE,
-            }}
+            className="rounded-[16px] p-8 sm:p-10 border-2 text-center animate-fade-in"
+            style={{ backgroundColor: ACCENT, borderColor: ORANGE }}
           >
             <div
               className="text-xs font-semibold uppercase tracking-[0.15em]"
@@ -380,157 +307,35 @@ function ReportContent({
             >
               Prossimo passo
             </div>
-            <h2
+            <h1
               className="mt-3 font-bold tracking-tight"
               style={{
                 color: DARK,
                 fontWeight: 700,
-                fontSize: "clamp(24px, 4vw, 32px)",
+                fontSize: "clamp(26px, 4.5vw, 34px)",
                 lineHeight: 1.2,
               }}
             >
-              Vuoi azzerare questi{" "}
-              <span style={{ color: ORANGE }}>
-                {formatEuro(results.costoTotaleAnnuo)}
-              </span>{" "}
-              di costi nascosti?
-            </h2>
+              {firstName ? `${firstName}, ` : ""}prenota una call con noi
+            </h1>
             <p
-              className="mt-3 text-base max-w-[540px]"
+              className="mt-4 text-base"
               style={{ color: TEXT_BODY, lineHeight: 1.6 }}
             >
-              Prenota 30 minuti con noi. Audit gratuito del tuo primo immobile,
-              demo della piattaforma, zero impegno.
+              30 minuti, audit gratuito del tuo primo immobile e demo della
+              piattaforma. Zero impegno.
             </p>
 
-            <ul className="mt-6 space-y-2.5">
-              {[
-                "Audit gratuito del tuo primo immobile (valore €150)",
-                "Stima personalizzata risparmio annuo",
-                "Demo della piattaforma in tempo reale",
-                "Ti presentiamo la nostra offerta in modo dettagliato",
-              ].map((b) => (
-                <li
-                  key={b}
-                  className="flex items-start gap-2.5 text-sm sm:text-base"
-                  style={{ color: DARK }}
-                >
-                  <span
-                    className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5"
-                    style={{ backgroundColor: SUCCESS }}
-                  >
-                    ✓
-                  </span>
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Calendly CTA */}
             <div className="mt-8 flex justify-center">
               <a
                 href={`https://calendly.com/simone-calderoni-hommi/30min?name=${encodeURIComponent(formData.nome || "")}&email=${encodeURIComponent(formData.email || "")}&a1=${encodeURIComponent(formData.telefono || "")}&a2=${encodeURIComponent(formData.azienda || "")}&utm_source=calcolatore&utm_medium=lovable&utm_campaign=meta-ads`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full md:w-auto px-10 py-5 rounded-[12px] text-white text-lg md:text-xl font-bold shadow-lg transition-transform hover:scale-[1.02]"
-                style={{ backgroundColor: "#E35210" }}
+                style={{ backgroundColor: ORANGE }}
               >
                 📅 Prenota una call
               </a>
-            </div>
-
-            <p
-              className="mt-6 text-sm text-center"
-              style={{ color: TEXT_BODY }}
-            >
-              💬 Preferisci parlarci direttamente? Chiamaci al{" "}
-              <a
-                href="tel:+393759752657"
-                className="font-semibold"
-                style={{ color: ORANGE }}
-              >
-                +39 375 975 2657
-              </a>{" "}
-              (Simone) o{" "}
-              <a
-                href="tel:+393759752688"
-                className="font-semibold"
-                style={{ color: ORANGE }}
-              >
-                +39 375 975 2688
-              </a>{" "}
-              (Alessandro)
-            </p>
-          </section>
-
-          {/* SECTION 3 — Breakdown */}
-          <section className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-            {cards.map((c) => (
-              <div
-                key={c.title}
-                className="rounded-[12px] p-6 border bg-white"
-                style={{ borderColor: BORDER }}
-              >
-                <div className="text-2xl mb-2" aria-hidden>
-                  {c.icon}
-                </div>
-                <div
-                  className="text-sm font-semibold"
-                  style={{ color: DARK }}
-                >
-                  {c.title}
-                </div>
-                <div
-                  className="mt-1.5 text-2xl font-bold"
-                  style={{ color: DARK, fontWeight: 700 }}
-                >
-                  {c.value}
-                </div>
-                <div className="mt-1.5 text-xs" style={{ color: TEXT_BODY }}>
-                  {c.micro}
-                </div>
-              </div>
-            ))}
-
-            {/* Highlight card */}
-            <div
-              className="rounded-[12px] p-6 border-2 sm:col-span-2"
-              style={{
-                backgroundColor: ACCENT,
-                borderColor: ORANGE,
-              }}
-            >
-              <div className="flex items-start justify-between gap-4 flex-wrap">
-                <div>
-                  <div className="text-2xl mb-2" aria-hidden>
-                    💰
-                  </div>
-                  <div
-                    className="text-sm font-semibold"
-                    style={{ color: ORANGE }}
-                  >
-                    Risparmio con Hommi
-                  </div>
-                  <div
-                    className="mt-1.5 text-3xl font-extrabold"
-                    style={{ color: ORANGE, fontWeight: 800 }}
-                  >
-                    {formatEuro(results.risparmio)}/anno
-                  </div>
-                  <div
-                    className="mt-1.5 text-xs"
-                    style={{ color: TEXT_BODY }}
-                  >
-                    Costo Hommi: {formatEuro(results.costoHommi)}/anno
-                  </div>
-                </div>
-                <span
-                  className="text-xs font-bold px-3 py-1.5 rounded-full text-white whitespace-nowrap"
-                  style={{ backgroundColor: ORANGE }}
-                >
-                  {results.risparmioPercentuale}% di risparmio
-                </span>
-              </div>
             </div>
           </section>
         </div>
