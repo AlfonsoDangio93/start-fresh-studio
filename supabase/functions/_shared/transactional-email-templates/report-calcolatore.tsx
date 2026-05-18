@@ -95,9 +95,7 @@ const ReportCalcolatoreEmail = ({ nome }: ReportCalcolatoreProps) => (
 
 export const template = {
   component: ReportCalcolatoreEmail,
-  subject: (data: Record<string, any>) =>
-    data?.risparmio
-      ? `Il tuo report Hommi: risparmio stimato ${fmt(data.risparmio)}/anno`
+  subject: () => 'Prenota una call con il team Hommi',
       : 'Il tuo report Hommi è pronto',
   displayName: 'Report Calcolatore',
   previewData: {
