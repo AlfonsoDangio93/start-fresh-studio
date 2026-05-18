@@ -130,13 +130,6 @@ const ReportCalcolatoreEmail = ({
             </Button>
           </Section>
 
-          <Text style={footerText}>
-            Hai domande? Rispondi a questa email o scrivici su WhatsApp al{' '}
-            <a href="https://wa.me/393759752657" style={link}>
-              +39 375 975 2657
-            </a>
-            .
-          </Text>
         </Section>
 
         <Text style={signature}>Il team {SITE_NAME}</Text>
