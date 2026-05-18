@@ -126,10 +126,17 @@ const ReportCalcolatoreEmail = ({
               demo gratuita di 30 minuti con il nostro team.
             </Text>
             <Button href={CALENDLY_URL} style={button}>
-              Prenota call
+              📅 Prenota una demo
             </Button>
           </Section>
 
+          <Text style={footerText}>
+            Hai domande? Rispondi a questa email o scrivici su WhatsApp al{' '}
+            <a href="https://wa.me/393759752657" style={link}>
+              +39 375 975 2657
+            </a>
+            .
+          </Text>
         </Section>
 
         <Text style={signature}>Il team {SITE_NAME}</Text>
