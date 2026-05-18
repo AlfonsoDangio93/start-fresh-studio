@@ -45,17 +45,7 @@ const fmt = (n?: number) =>
       }).format(n)
     : '—'
 
-const ReportCalcolatoreEmail = ({
-  nome,
-  numImmobili,
-  costoGuastiDiretti,
-  costoTempoPM,
-  costoRecensioni,
-  costoTotaleAnnuo,
-  costoHommi,
-  risparmio,
-  risparmioPercentuale,
-}: ReportCalcolatoreProps) => (
+const ReportCalcolatoreEmail = ({ nome }: ReportCalcolatoreProps) => (
   <Html lang="it" dir="ltr">
     <Head />
     <Preview>
