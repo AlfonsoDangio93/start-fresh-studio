@@ -6,8 +6,6 @@ const ORANGE = "#E8501C";
 const DARK = "#2C2C2C";
 const ACCENT = "#FFF4ED";
 const TEXT_BODY = "#4B5563";
-const BORDER = "#E5E7EB";
-const SUCCESS = "#10B981";
 const GOOGLE_SHEETS_WEBHOOK_URL =
   "https://script.google.com/macros/s/AKfycbwH0MP4BcOH22jXkljNKUXNWGeoxCVMfPr1A4kt_nYmnFFevWP3TMFXag4q-NBD1FfjOw/exec";
 
