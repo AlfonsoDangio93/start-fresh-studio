@@ -195,26 +195,15 @@ export default function Report() {
     );
   }
 
-  const { formData, answers, results } = data;
+  const { formData } = data;
   const firstName = formData.nome.split(" ")[0] ?? "";
-  const lastName = formData.nome.split(" ").slice(1).join(" ");
-  const guastiAnno = (answers.guastiMese ?? 0) * 12;
-  const oreAnnoPM = (answers.oreSettimana ?? 0) * 52;
 
   return (
     <div
       className="min-h-screen bg-white flex flex-col"
       style={{ fontFamily: "'Inter', system-ui, sans-serif", color: DARK }}
     >
-      <ReportContent
-        firstName={firstName}
-        lastName={lastName}
-        formData={formData}
-        answers={answers}
-        results={results}
-        guastiAnno={guastiAnno}
-        oreAnnoPM={oreAnnoPM}
-      />
+      <ReportContent firstName={firstName} formData={formData} />
       <LandingFooter />
     </div>
   );
@@ -222,20 +211,10 @@ export default function Report() {
 
 function ReportContent({
   firstName,
-  lastName,
   formData,
-  answers,
-  results,
-  guastiAnno,
-  oreAnnoPM,
 }: {
   firstName: string;
-  lastName: string;
   formData: ContactForm;
-  answers: Answers;
-  results: Results;
-  guastiAnno: number;
-  oreAnnoPM: number;
 }) {
   return (
     <>
