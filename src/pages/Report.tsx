@@ -106,9 +106,8 @@ function trackLeadFromReport(reportData: ReportData) {
 
   const ALLOWED_CITIES = ["Milano", "Torino", "Como", "Monza", "Lecco"];
   const selectedCities = reportData.answers.città ?? [];
-  const hasAltreCitta = selectedCities.includes("Altre città");
   const hasAllowedCity = selectedCities.some((c) => ALLOWED_CITIES.includes(c));
-  const isQualified = hasAllowedCity && !hasAltreCitta;
+  const isQualified = hasAllowedCity;
 
   if (isQualified) {
     fbq(
