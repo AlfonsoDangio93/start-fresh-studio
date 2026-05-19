@@ -104,19 +104,26 @@ function trackLeadFromReport(reportData: ReportData) {
     { eventID }
   );
 
-  if (reportData.answers.numImmobili >= 3) {
+  const ALLOWED_CITIES = ["Milano", "Torino", "Como", "Monza", "Lecco"];
+  const selectedCities = reportData.answers.città ?? [];
+  const hasAltreCitta = selectedCities.includes("Altre città");
+  const hasAllowedCity = selectedCities.some((c) => ALLOWED_CITIES.includes(c));
+  const isQualified = hasAllowedCity && !hasAltreCitta;
+
+  if (isQualified) {
     fbq(
       "trackCustom",
       "LeadQualificato",
       {
         num_immobili: reportData.answers.numImmobili,
-        citta: reportData.answers.città.join(","),
+        citta: selectedCities.join(","),
         costo_stimato: reportData.results.costoTotaleAnnuo,
-        content_name: "Lead PM con 3+ immobili",
+        content_name: "Lead PM in zona coperta (MI/CO/MB/TO/LC)",
       },
       { eventID }
     );
   }
+
 }
 
 const formatEuro = (n: number) =>
