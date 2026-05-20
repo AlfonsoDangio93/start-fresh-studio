@@ -84,45 +84,61 @@ function deliverReportInBackground(reportData: ReportData) {
 }
 
 function trackLeadFromReport(reportData: ReportData) {
-  const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
-  if (typeof fbq !== "function") return;
+  const maxRetries = 50; // 5 secondi totali (50 * 100ms)
+  let retries = 0;
 
-  const eventID =
-    typeof crypto !== "undefined" && "randomUUID" in crypto
-      ? crypto.randomUUID()
-      : `${Date.now()}-${Math.random()}`;
+  const attemptTrack = () => {
+    const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
 
-  fbq(
-    "track",
-    "Lead",
-    {
-      content_name: "Calcolatore Hommi",
-      content_category: "Lead Generation",
-      value: 0,
-      currency: "EUR",
-    },
-    { eventID }
-  );
+    if (typeof fbq !== "function") {
+      retries++;
+      if (retries < maxRetries) {
+        setTimeout(attemptTrack, 100);
+        return;
+      }
+      console.warn("Meta Pixel fbq non disponibile dopo 5s, evento Lead perso");
+      return;
+    }
 
-  const ALLOWED_CITIES = ["Milano", "Torino", "Como", "Monza", "Lecco"];
-  const selectedCities = reportData.answers.città ?? [];
-  const hasAllowedCity = selectedCities.some((c) => ALLOWED_CITIES.includes(c));
-  const isQualified = hasAllowedCity;
+    const eventID =
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random()}`;
 
-  if (isQualified) {
     fbq(
-      "trackCustom",
-      "LeadQualificato",
+      "track",
+      "Lead",
       {
-        num_immobili: reportData.answers.numImmobili,
-        citta: selectedCities.join(","),
-        costo_stimato: reportData.results.costoTotaleAnnuo,
-        content_name: "Lead PM in zona coperta (MI/CO/MB/TO/LC)",
+        content_name: "Calcolatore Hommi",
+        content_category: "Lead Generation",
+        value: 0,
+        currency: "EUR",
       },
       { eventID }
     );
-  }
 
+    const ALLOWED_CITIES = ["Milano", "Torino", "Como", "Monza", "Lecco"];
+    const selectedCities = reportData.answers.città ?? [];
+    const hasAllowedCity = selectedCities.some((c) => ALLOWED_CITIES.includes(c));
+
+    if (hasAllowedCity) {
+      fbq(
+        "trackCustom",
+        "LeadQualificato",
+        {
+          num_immobili: reportData.answers.numImmobili,
+          citta: selectedCities.join(","),
+          costo_stimato: reportData.results.costoTotaleAnnuo,
+          content_name: "Lead PM in zona coperta (MI/CO/MB/TO/LC)",
+        },
+        { eventID }
+      );
+    }
+
+    console.log("Lead tracked successfully", { hasAllowedCity, eventID });
+  };
+
+  attemptTrack();
 }
 
 const formatEuro = (n: number) =>
