@@ -9,7 +9,7 @@ const TEXT_BODY = "#4B5563";
 const BORDER = "#E5E7EB";
 const SUCCESS = "#10B981";
 const GOOGLE_SHEETS_WEBHOOK_URL =
-  "https://script.google.com/macros/s/AKfycbwH0MP4BcOH22jXkljNKUXNWGeoxCVMfPr1A4kt_nYmnFFevWP3TMFXag4q-NBD1FfjOw/exec";
+  "https://script.google.com/macros/s/AKfycbwQurByRRtnLi2dTdLQcH-pTMa6fVYKdkhmOwNDB30BT6yGbLM3BFSmngbo9Kke0Gn-/exec";
 
 type ContactForm = {
   nome: string;
