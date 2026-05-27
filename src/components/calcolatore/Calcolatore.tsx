@@ -631,7 +631,7 @@ function Step1({
 
 const CITTA = ["Milano", "Torino", "Como", "Monza", "Lecco", "Altre città"];
 
-function Step2({
+function StepCityGate({
   answers,
   setAnswers,
 }: {
@@ -651,8 +651,8 @@ function Step2({
   return (
     <>
       <Question
-        title="In quali città operi principalmente?"
-        subtitle="Seleziona tutte quelle in cui hai immobili"
+        title="In quale città gestisci i tuoi immobili?"
+        subtitle="Per offrirti una stima accurata, dicci dove operi"
       />
       <div className="grid grid-cols-2 gap-3 sm:gap-4">
         {CITTA.map((c) => (
