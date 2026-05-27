@@ -131,6 +131,11 @@ interface Props {
 }
 
 const TOTAL_QUESTION_STEPS = 5;
+const ALLOWED_CITIES = ["Milano", "Torino", "Como", "Monza", "Lecco"];
+const INTEREST_STEP = 99;
+const INTEREST_THANKS_STEP = 100;
+const GOOGLE_SHEETS_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbwQurByRRtnLi2dTdLQcH-pTMa6fVYKdkhmOwNDB30BT6yGbLM3BFSmngbo9Kke0Gn-/exec";
 const IUBENDA_SELECTOR =
   '[id*="iubenda"], [class*="iubenda"], [id*="iub-"], [class*="iub-"]';
 
@@ -164,9 +169,9 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
   const canAdvance = (() => {
     switch (step) {
       case 1:
-        return answers.numImmobili > 0;
-      case 2:
         return answers.città.length > 0;
+      case 2:
+        return answers.numImmobili > 0;
       case 3:
         return answers.guastiMese !== null;
       case 4:
@@ -189,6 +194,15 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
 
   const goNext = () => {
     if (!canAdvance) return;
+    if (step === 1) {
+      const hasAllowed = answers.città.some((c) => ALLOWED_CITIES.includes(c));
+      if (!hasAllowed) {
+        setStep(INTEREST_STEP);
+        return;
+      }
+      setStep(2);
+      return;
+    }
     if (step === 5) {
       handleCalculate();
       return;
@@ -196,6 +210,10 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
     if (step < 5) setStep(step + 1);
   };
   const goBack = () => {
+    if (step === INTEREST_STEP) {
+      setStep(1);
+      return;
+    }
     if (step > 1 && step <= 5) setStep(step - 1);
   };
 
@@ -352,11 +370,18 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
               : ""
         }`}>
           <div key={step} className="animate-fade-in">
-            {step === 1 && <Step1 answers={answers} setAnswers={setAnswers} />}
-            {step === 2 && <Step2 answers={answers} setAnswers={setAnswers} />}
+            {step === 1 && <StepCityGate answers={answers} setAnswers={setAnswers} />}
+            {step === 2 && <Step1 answers={answers} setAnswers={setAnswers} />}
             {step === 3 && <Step3 answers={answers} setAnswers={setAnswers} />}
             {step === 4 && <Step4 answers={answers} setAnswers={setAnswers} />}
             {step === 5 && <Step5 answers={answers} setAnswers={setAnswers} />}
+            {step === INTEREST_STEP && (
+              <StepInterestList
+                answers={answers}
+                onSubmitted={() => setStep(INTEREST_THANKS_STEP)}
+              />
+            )}
+            {step === INTEREST_THANKS_STEP && <StepInterestThanks onExit={onExit} />}
             {step === 6 && <Step6Loading />}
             {step === 7 && results && (
               <Step7Gate
@@ -606,7 +631,7 @@ function Step1({
 
 const CITTA = ["Milano", "Torino", "Como", "Monza", "Lecco", "Altre città"];
 
-function Step2({
+function StepCityGate({
   answers,
   setAnswers,
 }: {
@@ -626,8 +651,8 @@ function Step2({
   return (
     <>
       <Question
-        title="In quali città operi principalmente?"
-        subtitle="Seleziona tutte quelle in cui hai immobili"
+        title="In quale città gestisci i tuoi immobili?"
+        subtitle="Per offrirti una stima accurata, dicci dove operi"
       />
       <div className="grid grid-cols-2 gap-3 sm:gap-4">
         {CITTA.map((c) => (
@@ -1370,3 +1395,222 @@ function Step8Report({
 }
 
 export { formatEuro };
+
+/* ---------- Interest List (CASO B) ---------- */
+
+function StepInterestList({
+  answers,
+  onSubmitted,
+}: {
+  answers: Answers;
+  onSubmitted: () => void;
+}) {
+  const [email, setEmail] = useState("");
+  const [nome, setNome] = useState("");
+  const [cittaNote, setCittaNote] = useState(answers.altreCitta ?? "");
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleanEmail = email.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      setError("Inserisci un'email valida");
+      return;
+    }
+    setError("");
+    setSubmitting(true);
+
+    const payload = {
+      fonte_lead: "INTEREST_LIST",
+      timestamp: Date.now(),
+      formData: {
+        nome: nome.trim(),
+        email: cleanEmail,
+        telefono: "",
+        azienda: "",
+        ruolo: "",
+        sitoWeb: "",
+        inizio: "",
+        note: cittaNote.trim(),
+      },
+      answers: {
+        numImmobili: 0,
+        città: ["INTEREST_LIST_OUTSIDE_TARGET"],
+        altreCitta: cittaNote.trim(),
+        guastiMese: null,
+        recensioniNegative: null,
+        oreSettimana: null,
+      },
+      results: null,
+    };
+
+    try {
+      await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        keepalive: true,
+      });
+    } catch (err) {
+      console.error("❌ Errore invio Interest List:", err);
+    }
+
+    // Meta Pixel: Lead standard sì, LeadQualificato NO
+    const fbq = (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq;
+    if (typeof fbq === "function") {
+      const eventID =
+        typeof crypto !== "undefined" && "randomUUID" in crypto
+          ? crypto.randomUUID()
+          : `${Date.now()}-${Math.random()}`;
+      fbq(
+        "track",
+        "Lead",
+        {
+          content_name: "Interest List - Città fuori target",
+          content_category: "Lead Generation",
+          value: 0,
+          currency: "EUR",
+        },
+        { eventID }
+      );
+    }
+
+    setSubmitting(false);
+    onSubmitted();
+  };
+
+  return (
+    <div className="max-w-[560px] mx-auto animate-fade-in">
+      <Question
+        title="Grazie per il tuo interesse!"
+        subtitle="Al momento Hommi opera solo a Milano, Torino, Como, Monza e Lecco. Stiamo per espanderci in altre città italiane. Lasciaci la tua email e ti contatteremo appena saremo operativi nella tua zona."
+      />
+      <form
+        onSubmit={handleSubmit}
+        className="rounded-[16px] p-6 sm:p-8 border bg-white space-y-4"
+        style={{
+          borderColor: BORDER,
+          boxShadow: "0 10px 30px -12px rgba(0,0,0,0.08)",
+        }}
+        noValidate
+      >
+        <div>
+          <label
+            htmlFor="il-email"
+            className="block text-sm font-semibold mb-1.5"
+            style={{ color: DARK }}
+          >
+            Email *
+          </label>
+          <input
+            id="il-email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setError("");
+            }}
+            placeholder="mario@tuaazienda.it"
+            className="w-full min-h-[48px] px-4 py-3 rounded-[12px] border bg-white text-base outline-none transition-colors focus:border-[#E8501C]"
+            style={{ borderColor: error ? "#EF4444" : BORDER }}
+          />
+          {error && (
+            <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>
+              {error}
+            </p>
+          )}
+        </div>
+        <div>
+          <label
+            htmlFor="il-nome"
+            className="block text-sm font-semibold mb-1.5"
+            style={{ color: DARK }}
+          >
+            Nome (opzionale)
+          </label>
+          <input
+            id="il-nome"
+            type="text"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            placeholder="Mario Rossi"
+            maxLength={100}
+            className="w-full min-h-[48px] px-4 py-3 rounded-[12px] border bg-white text-base outline-none transition-colors focus:border-[#E8501C]"
+            style={{ borderColor: BORDER }}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="il-citta"
+            className="block text-sm font-semibold mb-1.5"
+            style={{ color: DARK }}
+          >
+            Su quali città gestisci immobili? (opzionale)
+          </label>
+          <input
+            id="il-citta"
+            type="text"
+            value={cittaNote}
+            onChange={(e) => setCittaNote(e.target.value)}
+            placeholder="Es. Roma, Firenze..."
+            maxLength={200}
+            className="w-full min-h-[48px] px-4 py-3 rounded-[12px] border bg-white text-base outline-none transition-colors focus:border-[#E8501C]"
+            style={{ borderColor: BORDER }}
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={submitting}
+          className="w-full min-h-[56px] flex items-center justify-center gap-2 text-white px-6 py-4 rounded-[12px] transition-all duration-200 disabled:opacity-70 enabled:hover:-translate-y-0.5"
+          style={{ backgroundColor: ORANGE, fontSize: 18, fontWeight: 600 }}
+        >
+          {submitting ? (
+            <>
+              <Loader2 size={18} className="animate-spin" />
+              Invio in corso...
+            </>
+          ) : (
+            "Iscrivimi alla waiting list"
+          )}
+        </button>
+      </form>
+    </div>
+  );
+}
+
+function StepInterestThanks({ onExit }: { onExit: () => void }) {
+  return (
+    <div className="max-w-[560px] mx-auto text-center py-10 animate-fade-in">
+      <div
+        className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6"
+        style={{ backgroundColor: "#D1FAE5" }}
+      >
+        <CheckCircle2 size={36} style={{ color: SUCCESS }} />
+      </div>
+      <h2
+        className="text-2xl sm:text-[32px] font-bold tracking-tight"
+        style={{ color: DARK, lineHeight: 1.2 }}
+      >
+        Iscrizione confermata!
+      </h2>
+      <p
+        className="mt-4 text-base sm:text-lg max-w-[460px] mx-auto"
+        style={{ color: TEXT_BODY, lineHeight: 1.6 }}
+      >
+        Ti contatteremo appena Hommi sarà operativa nella tua zona. Nel
+        frattempo, grazie per averci scelto.
+      </p>
+      <button
+        type="button"
+        onClick={onExit}
+        className="mt-8 inline-flex items-center gap-2 text-white font-semibold text-base px-8 py-4 rounded-[12px] transition-all duration-200 hover:-translate-y-0.5"
+        style={{ backgroundColor: ORANGE }}
+      >
+        Chiudi
+      </button>
+    </div>
+  );
+}
