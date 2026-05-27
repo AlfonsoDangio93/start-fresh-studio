@@ -131,6 +131,11 @@ interface Props {
 }
 
 const TOTAL_QUESTION_STEPS = 5;
+const ALLOWED_CITIES = ["Milano", "Torino", "Como", "Monza", "Lecco"];
+const INTEREST_STEP = 99;
+const INTEREST_THANKS_STEP = 100;
+const GOOGLE_SHEETS_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbwQurByRRtnLi2dTdLQcH-pTMa6fVYKdkhmOwNDB30BT6yGbLM3BFSmngbo9Kke0Gn-/exec";
 const IUBENDA_SELECTOR =
   '[id*="iubenda"], [class*="iubenda"], [id*="iub-"], [class*="iub-"]';
 
@@ -164,9 +169,9 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
   const canAdvance = (() => {
     switch (step) {
       case 1:
-        return answers.numImmobili > 0;
-      case 2:
         return answers.città.length > 0;
+      case 2:
+        return answers.numImmobili > 0;
       case 3:
         return answers.guastiMese !== null;
       case 4:
@@ -189,6 +194,15 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
 
   const goNext = () => {
     if (!canAdvance) return;
+    if (step === 1) {
+      const hasAllowed = answers.città.some((c) => ALLOWED_CITIES.includes(c));
+      if (!hasAllowed) {
+        setStep(INTEREST_STEP);
+        return;
+      }
+      setStep(2);
+      return;
+    }
     if (step === 5) {
       handleCalculate();
       return;
@@ -196,6 +210,10 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
     if (step < 5) setStep(step + 1);
   };
   const goBack = () => {
+    if (step === INTEREST_STEP) {
+      setStep(1);
+      return;
+    }
     if (step > 1 && step <= 5) setStep(step - 1);
   };
 
