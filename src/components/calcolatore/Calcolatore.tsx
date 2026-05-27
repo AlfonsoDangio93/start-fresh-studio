@@ -370,11 +370,18 @@ export default function Calcolatore({ onExit, initialStep = 1 }: Props) {
               : ""
         }`}>
           <div key={step} className="animate-fade-in">
-            {step === 1 && <Step1 answers={answers} setAnswers={setAnswers} />}
-            {step === 2 && <Step2 answers={answers} setAnswers={setAnswers} />}
+            {step === 1 && <StepCityGate answers={answers} setAnswers={setAnswers} />}
+            {step === 2 && <Step1 answers={answers} setAnswers={setAnswers} />}
             {step === 3 && <Step3 answers={answers} setAnswers={setAnswers} />}
             {step === 4 && <Step4 answers={answers} setAnswers={setAnswers} />}
             {step === 5 && <Step5 answers={answers} setAnswers={setAnswers} />}
+            {step === INTEREST_STEP && (
+              <StepInterestList
+                answers={answers}
+                onSubmitted={() => setStep(INTEREST_THANKS_STEP)}
+              />
+            )}
+            {step === INTEREST_THANKS_STEP && <StepInterestThanks onExit={onExit} />}
             {step === 6 && <Step6Loading />}
             {step === 7 && results && (
               <Step7Gate
