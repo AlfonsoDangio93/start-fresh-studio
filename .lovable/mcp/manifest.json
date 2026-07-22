@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "hommi-mcp",
+      "version": "0.1.0",
+      "title": "Hommi MCP"
+    },
+    "tools": [
+      {
+        "name": "get_service_info",
+        "title": "Get Hommi service info",
+        "description": "Restituisce informazioni generali sul servizio Hommi: descrizione, target, servizi offerti, città coperte (Milano, Monza, Como, Torino, Lecco) e canali operativi.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_pricing",
+        "title": "Get Hommi pricing plans",
+        "description": "Restituisce i piani di abbonamento Hommi (Base, Premium, Plus) con prezzo mensile in euro per immobile, descrizione e profilo target.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "stima_costo_manutenzione",
+        "title": "Stima costo manutenzione annuo",
+        "description": "Fornisce una stima indicativa del costo annuo di manutenzione di un portfolio immobiliare, in base al numero di immobili e al tipo di locazione (breve termine o medio-lungo termine). I risultati sono approssimativi e riflettono medie di mercato Hommi.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "numero_immobili": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 500,
+              "description": "Numero di immobili gestiti"
+            },
+            "tipo_locazione": {
+              "type": "string",
+              "enum": [
+                "breve_termine",
+                "medio_lungo_termine"
+              ],
+              "description": "Tipo di locazione: breve termine (Airbnb) o medio-lungo termine"
+            }
+          },
+          "required": [
+            "numero_immobili",
+            "tipo_locazione"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_faq",
+        "title": "List Hommi FAQ",
+        "description": "Restituisce le domande frequenti pubbliche su Hommi: città coperte, ticketing, prezzi, selezione tecnici, garanzie, trasparenza costi.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_contact_info",
+        "title": "Get Hommi contact links",
+        "description": "Restituisce i principali link di contatto Hommi: sito, calcolatore costi, prenotazione call demo, form candidatura manutentori, apertura ticket.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
