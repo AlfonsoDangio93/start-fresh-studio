@@ -76,10 +76,10 @@ export default function LandingNavbar({ ctaLabel = "Inizia", ctaHref = DEFAULT_C
               </a>
               )}
             <a
-                href={CTA_URL} target="_blank" rel="noopener noreferrer"
+                href={ctaHref} target="_blank" rel="noopener noreferrer"
                 className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-5 py-2 rounded-[10px] cursor-pointer ml-2">
                 
-              Inizia ora 
+              {ctaLabel}
             </a>
           </div>
         </div>
