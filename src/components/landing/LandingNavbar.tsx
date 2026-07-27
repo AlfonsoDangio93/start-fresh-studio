@@ -107,11 +107,11 @@ export default function LandingNavbar({ ctaLabel = "Inizia", ctaHref = DEFAULT_C
             </div>
             <div className="p-3 pt-0">
               <a
-                href={CTA_URL} target="_blank" rel="noopener noreferrer"
+                href={ctaHref} target="_blank" rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
                 onClick={() => setMobileOpen(false)}>
                 
-                Inizia
+                {ctaLabel}
               </a>
             </div>
           </div>
