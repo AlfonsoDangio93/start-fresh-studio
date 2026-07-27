@@ -13,8 +13,8 @@ import LandingFooter from "@/components/landing/LandingFooter";
 import Landing2MobileBottomCTA from "@/components/landing/Landing2MobileBottomCTA";
 import { useSeo } from "@/hooks/useSeo";
 
-const CALL_URL =
-  "https://calendly.com/simone-calderoni-hommi/30min?utm_source=landing-2&utm_medium=meta&utm_campaign=affitti-brevi";
+const CALL_URL = "https://prenota.hommi.it/richiedi-accesso";
+
 
 export default function Landing2() {
   useSeo({
