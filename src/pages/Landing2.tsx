@@ -26,7 +26,7 @@ export default function Landing2() {
 
   return (
     <div className="landing-theme">
-      <LandingNavbar />
+      <LandingNavbar ctaLabel="Prenota una call" ctaHref={CALL_URL} />
       <HeroSection
         lines={["Negli affitti brevi", "i problemi si risolvono", "in ore, non in giorni."]}
         subtitle={
@@ -45,11 +45,11 @@ export default function Landing2() {
         }}
       />
       <PressBar />
-      <FeatureShowcase />
-      <HowItWorksSection />
-      <ServicesSection />
-      <Landing1Pricing />
-      <ComparisonSection />
+      <FeatureShowcase ctaLabel="Prenota una call" ctaHref={CALL_URL} />
+      <HowItWorksSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
+      <ServicesSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
+      <Landing1Pricing ctaLabel="Prenota una call" ctaHref={CALL_URL} />
+      <ComparisonSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
       <LandingTestimonials />
       <LandingFAQ />
       <CTASection

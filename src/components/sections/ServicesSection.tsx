@@ -1,9 +1,14 @@
-
-
-
 import { useEffect, useRef, useState } from "react";
 import { Flame, Zap, Wrench, WashingMachine, Lock } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
+
+const DEFAULT_CTA_URL = "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+
+interface ServicesSectionProps {
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
 
 const SERVICES = [
 {
@@ -33,7 +38,7 @@ const SERVICES = [
 }];
 
 
-export default function ServicesSection() {
+export default function ServicesSection({ ctaLabel = "Inizia ora", ctaHref = DEFAULT_CTA_URL }: ServicesSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
 
@@ -88,10 +93,10 @@ export default function ServicesSection() {
             </div>
 
             <a
-              href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
+              href={ctaHref}
               className="inline-flex items-center justify-center bg-dark text-white font-semibold text-[14px] rounded-xl px-7 py-3.5 transition-all duration-200 hover:bg-primary hover:shadow-lg hover:shadow-primary/20 cursor-pointer">
               
-              Inizia ora
+              {ctaLabel}
             </a>
           </div>
 

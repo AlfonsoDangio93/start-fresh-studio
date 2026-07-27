@@ -592,7 +592,12 @@ export default function HeroSection({
               
               {LINES.map((line, i) =>
               <span key={i} className="block relative">
-                  <span className="invisible" aria-hidden="true">{line}</span>
+                  <span className="invisible" aria-hidden="true">
+                    {line}
+                    {cursorLine === i && (
+                      <span className="inline-block w-[3px] h-[0.85em] ml-1 align-baseline relative top-[0.05em]" />
+                    )}
+                  </span>
                   <span className="absolute inset-0">
                     {i === 0 ? typed1 : i === 1 ? typed2 : typed3}
                     {cursorLine === i && cursor}

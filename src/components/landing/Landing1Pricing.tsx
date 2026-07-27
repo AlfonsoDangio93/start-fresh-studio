@@ -2,8 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { Check } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
 
-const CTA_URL =
+const DEFAULT_CTA_URL =
   "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+
+interface Landing1PricingProps {
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
 
 const KEY_SERVICES = [
   "Accesso alla rete: manutentori, idraulici, elettricisti, fabbri, caldaisti",
@@ -14,7 +20,7 @@ const KEY_SERVICES = [
   "Ticket annuali per interventi di riparazione o prevenzione",
 ];
 
-export default function Landing1Pricing() {
+export default function Landing1Pricing({ ctaLabel = "RICHIEDI ACCESSO PRIORITARIO", ctaHref = DEFAULT_CTA_URL }: Landing1PricingProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
 
@@ -75,12 +81,12 @@ export default function Landing1Pricing() {
             </div>
 
             <a
-              href={CTA_URL}
+              href={ctaHref}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3.5 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
             >
-              RICHIEDI ACCESSO PRIORITARIO
+              {ctaLabel}
             </a>
           </div>
         </div>

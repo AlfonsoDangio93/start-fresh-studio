@@ -1,6 +1,3 @@
-
-
-
 import { useEffect, useRef, useState, useCallback } from "react";
 import TypingHeading from "@/components/TypingHeading";
 import {
@@ -14,8 +11,14 @@ import {
   ChevronRight } from
 "lucide-react";
 
-const CTA_URL =
+const DEFAULT_CTA_URL =
 "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+
+interface HowItWorksSectionProps {
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
 
 const FEATURES = [
 {
@@ -206,7 +209,7 @@ const VISUAL_MAP: Record<string, React.FC> = {
   control: ControlVisual
 };
 
-export default function HowItWorksSection() {
+export default function HowItWorksSection({ ctaLabel = "Richiedi accesso prioritario", ctaHref = DEFAULT_CTA_URL }: HowItWorksSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
@@ -384,10 +387,10 @@ export default function HowItWorksSection() {
           style={{ transitionDelay: "0.2s" }}>
           
           <a
-            href={CTA_URL}
+            href={ctaHref}
             className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-xl px-7 py-3.5 transition-all duration-200 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20 cursor-pointer">
             
-            Richiedi accesso prioritario
+            {ctaLabel}
           </a>
         </div>
       </div>

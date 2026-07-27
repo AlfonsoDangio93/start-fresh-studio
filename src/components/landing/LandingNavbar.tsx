@@ -1,11 +1,14 @@
-
-
-
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
-const CTA_URL =
-"https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+const DEFAULT_CTA_URL =
+"https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkajYwJGwwJGgw";
+
+interface LandingNavbarProps {
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
 
 const NAV_LINKS = [
 { label: "Servizi", href: "#servizi" },
@@ -16,7 +19,7 @@ const NAV_LINKS = [
 
 const LOGO = "/logos/hommi_logo.png";
 
-export default function LandingNavbar() {
+export default function LandingNavbar({ ctaLabel = "Inizia", ctaHref = DEFAULT_CTA_URL }: LandingNavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
@@ -48,10 +51,10 @@ export default function LandingNavbar() {
         </div>
 
         <a
-            href={CTA_URL} target="_blank" rel="noopener noreferrer"
+            href={ctaHref} target="_blank" rel="noopener noreferrer"
             className="text-[12px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-3.5 py-1.5 rounded-[10px] cursor-pointer">
             
-          Inizia
+          {ctaLabel}
         </a>
       </div>
 
@@ -73,10 +76,10 @@ export default function LandingNavbar() {
               </a>
               )}
             <a
-                href={CTA_URL} target="_blank" rel="noopener noreferrer"
+                href={ctaHref} target="_blank" rel="noopener noreferrer"
                 className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-5 py-2 rounded-[10px] cursor-pointer ml-2">
                 
-              Inizia ora 
+              {ctaLabel}
             </a>
           </div>
         </div>
@@ -104,11 +107,11 @@ export default function LandingNavbar() {
             </div>
             <div className="p-3 pt-0">
               <a
-                href={CTA_URL} target="_blank" rel="noopener noreferrer"
+                href={ctaHref} target="_blank" rel="noopener noreferrer"
                 className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
                 onClick={() => setMobileOpen(false)}>
                 
-                Inizia
+                {ctaLabel}
               </a>
             </div>
           </div>
