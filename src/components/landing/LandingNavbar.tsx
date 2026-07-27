@@ -28,7 +28,7 @@ export default function LandingNavbar({ ctaLabel = "Inizia", ctaHref = DEFAULT_C
     } else {
       document.body.style.overflow = "";
     }
-    return () => {document.body.style.overflow = "";},
+    return () => {document.body.style.overflow = "";}
   }, [mobileOpen]);
 
   return (
