@@ -8,6 +8,7 @@ import Landing from "@/pages/Landing";
 import Landing1 from "@/pages/Landing1";
 import Landing2 from "@/pages/Landing2";
 import Landing3 from "@/pages/Landing3";
+import Landing4 from "@/pages/Landing4";
 import Prezzi from "@/pages/Prezzi";
 import Faq from "@/pages/Faq";
 import PerPropertyManager from "@/pages/PerPropertyManager";
