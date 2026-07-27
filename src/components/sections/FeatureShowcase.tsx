@@ -136,7 +136,7 @@ const BENEFITS = [
   },
 ];
 
-export default function FeatureShowcase() {
+export default function FeatureShowcase({ ctaLabel = "Richiedi accesso prioritario", ctaHref = DEFAULT_CTA_URL }: FeatureShowcaseProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -258,10 +258,10 @@ export default function FeatureShowcase() {
         {/* CTA */}
         <div ref={ctaRef} className={`text-center reveal ${ctaVis ? "revealed" : ""}`}>
           <a
-            href={CTA_URL}
+            href={ctaHref}
             className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-xl px-7 py-3.5 transition-all duration-200 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
           >
-            Richiedi accesso prioritario
+            {ctaLabel}
           </a>
         </div>
       </div>
