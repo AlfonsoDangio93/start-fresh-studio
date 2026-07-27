@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
-const DEFAULT_CTA_URL =
-"https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkajYwJGwwJGgw";
+const DEFAULT_CTA_URL = "https://prenota.hommi.it/richiedi-accesso";
 
 interface LandingNavbarProps {
   ctaLabel?: string;
@@ -29,7 +28,7 @@ export default function LandingNavbar({ ctaLabel = "Inizia", ctaHref = DEFAULT_C
     } else {
       document.body.style.overflow = "";
     }
-    return () => {document.body.style.overflow = "";};
+    return () => {document.body.style.overflow = "";}
   }, [mobileOpen]);
 
   return (

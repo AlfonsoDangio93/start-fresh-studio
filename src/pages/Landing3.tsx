@@ -13,8 +13,8 @@ import LandingFooter from "@/components/landing/LandingFooter";
 import Landing3MobileBottomCTA from "@/components/landing/Landing3MobileBottomCTA";
 import { useSeo } from "@/hooks/useSeo";
 
-const CALL_URL =
-  "https://calendly.com/simone-calderoni-hommi/30min?utm_source=landing-3&utm_medium=meta&utm_campaign=guasto-sabato-sera";
+const CALL_URL = "https://prenota.hommi.it/richiedi-accesso";
+
 
 export default function Landing3() {
   useSeo({

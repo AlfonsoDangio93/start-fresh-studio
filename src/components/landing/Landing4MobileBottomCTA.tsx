@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 
-const CALL_URL =
-  "https://calendly.com/simone-calderoni-hommi/30min?utm_source=landing-4&utm_medium=meta&utm_campaign=manutentore-solo";
+const CALL_URL = "https://prenota.hommi.it/richiedi-accesso";
+
 
 export default function Landing4MobileBottomCTA() {
   const [show, setShow] = useState(false);
