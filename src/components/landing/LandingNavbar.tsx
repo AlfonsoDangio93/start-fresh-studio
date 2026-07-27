@@ -19,7 +19,7 @@ const NAV_LINKS = [
 
 const LOGO = "/logos/hommi_logo.png";
 
-export default function LandingNavbar() {
+export default function LandingNavbar({ ctaLabel = "Inizia", ctaHref = DEFAULT_CTA_URL }: LandingNavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
