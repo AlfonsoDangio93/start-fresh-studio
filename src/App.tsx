@@ -6,6 +6,7 @@ import { useUtmPersistence } from "@/hooks/useUtmPersistence";
 import Home from "@/pages/Home";
 import Landing from "@/pages/Landing";
 import Landing1 from "@/pages/Landing1";
+import Landing2 from "@/pages/Landing2";
 import Prezzi from "@/pages/Prezzi";
 import Faq from "@/pages/Faq";
 import PerPropertyManager from "@/pages/PerPropertyManager";
@@ -45,6 +46,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/landing" element={<Landing />} />
         <Route path="/landing-1" element={<Landing1 />} />
+        <Route path="/landing-2" element={<Landing2 />} />
         <Route path="/prezzi" element={<Prezzi />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/per-property-manager" element={<PerPropertyManager />} />

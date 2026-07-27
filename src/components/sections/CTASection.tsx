@@ -8,13 +8,18 @@ interface CTASectionProps {
   title?: React.ReactNode;
   subtitle?: string;
   image?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
 }
 
 export default function CTASection({
   title = <>Pronto a dormire tranquillo<br />anche con 50 alloggi?</>,
   subtitle = "Unisciti ai property manager che hanno già scelto Hommi.",
   image = "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2970&auto=format&fit=crop",
+  ctaLabel = "Richiedi accesso prioritario",
+  ctaHref = CTA_URL,
 }: CTASectionProps) {
+
   return (
     <div className="max-w-site mx-auto px-6 my-0 py-[31px]">
       <div className="relative rounded-[10px] overflow-hidden px-8 py-20 md:px-16 md:py-24 text-center">
@@ -35,9 +40,11 @@ export default function CTASection({
           </p>
           <div className="mt-8">
             <a
-              href={CTA_URL}
+              href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer">
-              Richiedi accesso prioritario
+              {ctaLabel}
             </a>
           </div>
         </div>

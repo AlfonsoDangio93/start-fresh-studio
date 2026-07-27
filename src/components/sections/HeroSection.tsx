@@ -540,12 +540,34 @@ function DashboardMockup() {
 
 }
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  lines?: string[];
+  subtitle?: React.ReactNode;
+  ctaLabel?: string;
+  ctaHref?: string;
+  testimonial?: { quote: string; author: string; role: string };
+}
+
+const DEFAULT_CTA_HREF =
+  "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+
+export default function HeroSection({
+  lines,
+  subtitle,
+  ctaLabel = "Richiedi accesso prioritario",
+  ctaHref = DEFAULT_CTA_HREF,
+  testimonial = {
+    quote: "In 2 ore era tutto risolto — senza dover chiamare nessuno.",
+    author: "Francesca",
+    role: "PM, 12 case a Torino",
+  },
+}: HeroSectionProps) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {const t = setTimeout(() => setMounted(true), 100);return () => clearTimeout(t);}, []);
 
-  const LINES = ["Ogni guasto nei tuoi", "immobili risolto", "in giornata."];
+  const LINES = lines ?? ["Ogni guasto nei tuoi", "immobili risolto", "in giornata."];
   const FULL = LINES.join(" ");
+
   const { displayed, done } = useTypingEffect(FULL, 45, 400);
 
   // Map typed chars to the 3 fixed lines
@@ -583,7 +605,7 @@ export default function HeroSection() {
               className={`mt-6 text-secondary text-[15px] md:text-[18px] max-w-[500px] mx-auto lg:mx-0 leading-[1.7] hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
               style={{ transitionDelay: "0.1s" }}>
               
-              Hommi è il servizio per property manager che vogliono zero stress e interventi risolti in giornata. Gestiamo ogni guasto e imprevisto al posto tuo: intervento, supervisione, report con foto e costi, anche con ospiti presenti.
+              {subtitle ?? "Hommi è il servizio per property manager che vogliono zero stress e interventi risolti in giornata. Gestiamo ogni guasto e imprevisto al posto tuo: intervento, supervisione, report con foto e costi, anche con ospiti presenti."}
             </p>
 
             {/* Testimonial (inline, desktop) */}
@@ -599,10 +621,10 @@ export default function HeroSection() {
                 
                 <div>
                   <p className="text-[14px] text-secondary leading-relaxed">
-                    &ldquo;In 2 ore era tutto risolto — senza dover chiamare nessuno.&rdquo;
+                    &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   <p className="text-[11px] text-secondary/50 mt-1">
-                    <span className="font-semibold text-dark/70">Francesca</span> · PM, 12 case a Torino
+                    <span className="font-semibold text-dark/70">{testimonial.author}</span> · {testimonial.role}
                   </p>
                 </div>
               </div>
@@ -614,10 +636,10 @@ export default function HeroSection() {
               style={{ transitionDelay: "0.3s" }}>
               
               <a
-                href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
+                href={ctaHref}
                 className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer rounded-xl">
                 
-                Richiedi accesso prioritario
+                {ctaLabel}
               </a>
               <a
                 href="#come-funziona"
@@ -654,10 +676,10 @@ export default function HeroSection() {
           
           <div>
             <p className="text-[13px] text-secondary leading-relaxed">
-              &ldquo;In 2 ore era tutto risolto — senza dover chiamare nessuno.&rdquo;
+              &ldquo;{testimonial.quote}&rdquo;
             </p>
             <p className="text-[11px] text-secondary/50 mt-1">
-              <span className="font-semibold text-dark/70">Francesca</span> · PM, 12 case a Torino
+              <span className="font-semibold text-dark/70">{testimonial.author}</span> · {testimonial.role}
             </p>
           </div>
         </div>
@@ -668,10 +690,10 @@ export default function HeroSection() {
           style={{ transitionDelay: "0.3s" }}>
           
           <a
-            href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
+            href={ctaHref}
             className="flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-[10px] px-5 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer">
             
-            Richiedi accesso prioritario
+            {ctaLabel}
           </a>
           <a
             href="#come-funziona"
