@@ -3,8 +3,8 @@
 
 import { useEffect, useState, useCallback } from "react";
 
-const CTA_URL =
-"https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+const CTA_URL = "https://prenota.hommi.it/richiedi-accesso";
+
 
 const CONTEXTUAL_CTA: Record<string, {label: string;href: string;}> = {
   "come-funziona": { label: "Scopri i piani", href: "#prezzi" },
