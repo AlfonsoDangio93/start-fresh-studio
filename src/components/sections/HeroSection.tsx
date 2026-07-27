@@ -540,12 +540,34 @@ function DashboardMockup() {
 
 }
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  lines?: string[];
+  subtitle?: React.ReactNode;
+  ctaLabel?: string;
+  ctaHref?: string;
+  testimonial?: { quote: string; author: string; role: string };
+}
+
+const DEFAULT_CTA_HREF =
+  "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+
+export default function HeroSection({
+  lines,
+  subtitle,
+  ctaLabel = "Richiedi accesso prioritario",
+  ctaHref = DEFAULT_CTA_HREF,
+  testimonial = {
+    quote: "In 2 ore era tutto risolto — senza dover chiamare nessuno.",
+    author: "Francesca",
+    role: "PM, 12 case a Torino",
+  },
+}: HeroSectionProps) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {const t = setTimeout(() => setMounted(true), 100);return () => clearTimeout(t);}, []);
 
-  const LINES = ["Ogni guasto nei tuoi", "immobili risolto", "in giornata."];
+  const LINES = lines ?? ["Ogni guasto nei tuoi", "immobili risolto", "in giornata."];
   const FULL = LINES.join(" ");
+
   const { displayed, done } = useTypingEffect(FULL, 45, 400);
 
   // Map typed chars to the 3 fixed lines
