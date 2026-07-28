@@ -264,12 +264,23 @@ export default function ManutentoriSection({
           </div>
 
           <div className="text-center mt-10">
-            <a
-              href="/prezzi"
-              className="text-[14px] font-semibold text-primary hover:text-primary-hover transition-colors duration-200"
-            >
-              Vedi i piani e i prezzi &rarr;
-            </a>
+            {isExternalCta ? (
+              <a
+                href={ctaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[14px] font-semibold text-primary hover:text-primary-hover transition-colors duration-200"
+              >
+                Candidati ora &rarr;
+              </a>
+            ) : (
+              <a
+                href="/prezzi"
+                className="text-[14px] font-semibold text-primary hover:text-primary-hover transition-colors duration-200"
+              >
+                Vedi i piani e i prezzi &rarr;
+              </a>
+            )}
           </div>
         </div>
       </div>
