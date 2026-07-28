@@ -9,6 +9,7 @@ import Landing1 from "@/pages/Landing1";
 import Landing2 from "@/pages/Landing2";
 import Landing3 from "@/pages/Landing3";
 import Landing4 from "@/pages/Landing4";
+import Landing5 from "@/pages/Landing5";
 import Prezzi from "@/pages/Prezzi";
 import Faq from "@/pages/Faq";
 import PerPropertyManager from "@/pages/PerPropertyManager";
@@ -51,6 +52,7 @@ export default function App() {
         <Route path="/landing-2" element={<Landing2 />} />
         <Route path="/landing-3" element={<Landing3 />} />
         <Route path="/landing-4" element={<Landing4 />} />
+        <Route path="/landing-5" element={<Landing5 />} />
         <Route path="/prezzi" element={<Prezzi />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/per-property-manager" element={<PerPropertyManager />} />

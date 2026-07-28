@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import TypingHeading from "@/components/TypingHeading";
 
-const CTA_URL =
-  "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
 
 /* ─── Pain points ─── */
 const PAINS = [
@@ -90,9 +88,21 @@ const NUMBERS = [
 ];
 
 /* ─── Main Section ─── */
-export default function ManutentoriSection() {
+interface ManutentoriSectionProps {
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+
+export default function ManutentoriSection({
+  ctaHref = "/per-manutentori-domanda",
+  ctaLabel = "Diventa manutentore Hommi",
+}: ManutentoriSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
+  const isExternalCta = ctaHref.startsWith("http");
+
+  const ctaClass =
+    "inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer";
 
   useEffect(() => {
     if (!ref.current) return;
@@ -103,6 +113,7 @@ export default function ManutentoriSection() {
     obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
+
 
   return (
     <div ref={ref} className="pt-32 md:pt-40">
@@ -117,13 +128,25 @@ export default function ManutentoriSection() {
           gestisci tutto dall&apos;app e vieni pagato puntualmente.
         </p>
         <div className="mt-8">
-          <Link
-to="/per-manutentori-domanda"
-            className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
-          >
-            Diventa manutentore Hommi
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
+          {isExternalCta ? (
+            <a
+              href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={ctaClass}
+            >
+              {ctaLabel}
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </a>
+          ) : (
+            <Link
+              to={ctaHref}
+              className={ctaClass}
+            >
+              {ctaLabel}
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
+          )}
         </div>
       </div>
 
@@ -241,12 +264,23 @@ to="/per-manutentori-domanda"
           </div>
 
           <div className="text-center mt-10">
-            <a
-              href="/prezzi"
-              className="text-[14px] font-semibold text-primary hover:text-primary-hover transition-colors duration-200"
-            >
-              Vedi i piani e i prezzi &rarr;
-            </a>
+            {isExternalCta ? (
+              <a
+                href={ctaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[14px] font-semibold text-primary hover:text-primary-hover transition-colors duration-200"
+              >
+                Candidati ora &rarr;
+              </a>
+            ) : (
+              <a
+                href="/prezzi"
+                className="text-[14px] font-semibold text-primary hover:text-primary-hover transition-colors duration-200"
+              >
+                Vedi i piani e i prezzi &rarr;
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -273,13 +307,25 @@ to="/per-manutentori-domanda"
               Iscrizione gratuita, primi incarichi entro 48 ore.
             </p>
             <div className="mt-8">
-              <a
-                href={CTA_URL}
-                className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
-              >
-                Diventa manutentore Hommi
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
+              {isExternalCta ? (
+                <a
+                  href={ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
+                >
+                  {ctaLabel}
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
+              ) : (
+                <Link
+                  to={ctaHref}
+                  className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
+                >
+                  {ctaLabel}
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              )}
             </div>
           </div>
         </div>
