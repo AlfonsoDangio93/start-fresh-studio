@@ -298,13 +298,25 @@ export default function ManutentoriSection({
               Iscrizione gratuita, primi incarichi entro 48 ore.
             </p>
             <div className="mt-8">
-              <a
-                href={CTA_URL}
-                className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
-              >
-                Diventa manutentore Hommi
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
+              {isExternalCta ? (
+                <a
+                  href={ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
+                >
+                  {ctaLabel}
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </a>
+              ) : (
+                <Link
+                  to={ctaHref}
+                  className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
+                >
+                  {ctaLabel}
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              )}
             </div>
           </div>
         </div>
