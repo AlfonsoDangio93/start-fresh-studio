@@ -90,9 +90,21 @@ const NUMBERS = [
 ];
 
 /* ─── Main Section ─── */
-export default function ManutentoriSection() {
+interface ManutentoriSectionProps {
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+
+export default function ManutentoriSection({
+  ctaHref = "/per-manutentori-domanda",
+  ctaLabel = "Diventa manutentore Hommi",
+}: ManutentoriSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
+  const isExternalCta = ctaHref.startsWith("http");
+
+  const ctaClass =
+    "inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer";
 
   useEffect(() => {
     if (!ref.current) return;
@@ -103,6 +115,7 @@ export default function ManutentoriSection() {
     obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
+
 
   return (
     <div ref={ref} className="pt-32 md:pt-40">
