@@ -130,13 +130,25 @@ export default function ManutentoriSection({
           gestisci tutto dall&apos;app e vieni pagato puntualmente.
         </p>
         <div className="mt-8">
-          <Link
-to="/per-manutentori-domanda"
-            className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
-          >
-            Diventa manutentore Hommi
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
+          {isExternalCta ? (
+            <a
+              href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={ctaClass}
+            >
+              {ctaLabel}
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </a>
+          ) : (
+            <Link
+              to={ctaHref}
+              className={ctaClass}
+            >
+              {ctaLabel}
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
+          )}
         </div>
       </div>
 
