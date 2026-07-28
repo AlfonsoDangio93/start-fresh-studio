@@ -52,6 +52,7 @@ export default function App() {
         <Route path="/landing-2" element={<Landing2 />} />
         <Route path="/landing-3" element={<Landing3 />} />
         <Route path="/landing-4" element={<Landing4 />} />
+        <Route path="/landing-5" element={<Landing5 />} />
         <Route path="/prezzi" element={<Prezzi />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/per-property-manager" element={<PerPropertyManager />} />
