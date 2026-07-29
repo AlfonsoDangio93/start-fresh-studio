@@ -35,7 +35,7 @@ export default function LandingNavbar({ ctaLabel = "Inizia", ctaHref = DEFAULT_C
     <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-6" role="navigation" aria-label="Navigazione principale">
       <div className="w-full max-w-site">
       {/* Mobile navbar */}
-      <div className="md:hidden grid grid-cols-[auto_1fr_auto] items-center gap-2 bg-white border border-border shadow-sm rounded-xl px-4 py-3 w-full z-[60]">
+      <div className="md:hidden grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 bg-white border border-border shadow-sm rounded-xl px-3 sm:px-4 py-3 w-full z-[60]">
         <button
             className="p-1.5 text-secondary cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30 rounded-lg"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -45,13 +45,13 @@ export default function LandingNavbar({ ctaLabel = "Inizia", ctaHref = DEFAULT_C
           {mobileOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
 
-        <div className="flex justify-center min-w-0">
-          <img src={LOGO} alt="Hommi" className="h-10 w-auto" />
+        <div className="flex justify-center min-w-0 px-1">
+          <img src={LOGO} alt="Hommi" className="h-7 sm:h-8 w-auto max-w-full object-contain" />
         </div>
 
         <a
             href={ctaHref} target="_blank" rel="noopener noreferrer"
-            className="text-[12px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-3 py-1.5 rounded-[10px] cursor-pointer truncate max-w-[120px] sm:max-w-[160px] leading-none">
+            className="text-[11px] sm:text-[12px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-2 sm:px-3 py-1.5 rounded-[10px] cursor-pointer truncate max-w-[110px] sm:max-w-[150px] leading-none">
             
           {ctaLabel}
         </a>
