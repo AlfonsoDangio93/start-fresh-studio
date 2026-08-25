@@ -56,7 +56,7 @@ const FEATURES: PlanFeature[] = [
   highlight: "ticket/anno* per interventi di riparazione o prevenzione",
   label: "",
   base: "1 ticket/anno*",
-  premium: "2 ticket/anno*",
+  premium: "1 ticket/anno*",
   plus: "4 ticket/anno*"
 },
 {
