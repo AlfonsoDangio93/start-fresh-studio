@@ -146,9 +146,6 @@ export default function PricingSection() {
           Tutto incluso: tecnico dedicato, sopralluogo iniziale, gestione
           end-to-end e report dettagliati via app.
         </p>
-        <p className="mt-2 text-secondary/70 text-[13px] md:text-[14px]">
-          I prezzi si intendono IVA esclusa.
-        </p>
       </div>
 
       {/* Pricing Cards */}
@@ -169,13 +166,8 @@ export default function PricingSection() {
                 </span>
             }
 
-              <h3 className="font-display text-[18px] font-bold text-primary uppercase mb-1">{plan.name}</h3>
-              <div className="flex items-baseline gap-1 mb-1">
-                <span className={`text-[32px] font-display font-bold leading-none ${plan.popular ? "text-primary" : "text-dark"}`}>
-                  {plan.price}
-                </span>
-              </div>
-              <p className="text-[12px] text-secondary mb-5">/ mese per immobile</p>
+              <h3 className="font-display text-[18px] font-bold text-primary uppercase mb-5">{plan.name}</h3>
+
 
               <div className="space-y-3 mb-6 flex-1">
                 {FEATURES.map((f, i) => {
@@ -211,7 +203,7 @@ export default function PricingSection() {
               "bg-dark text-white hover:bg-dark/90"}`
               }>
               
-                RICHIEDI ACCESSO PRIORITARIO
+                Prenota una call
               </a>
             </div>
           )}
