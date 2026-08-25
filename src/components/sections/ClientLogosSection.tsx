@@ -23,22 +23,24 @@ export default function ClientLogosSection() {
           Alcuni property manager che ci hanno gi&agrave; scelto:
         </p>
 
-
-        <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-8 md:gap-y-10 items-center">
-          {LOGOS.map((logo) => (
-            <li key={logo.name} className="flex items-center justify-center">
-              <img
-                src={logo.url}
-                alt={`Logo ${logo.name}`}
-                loading="lazy"
-                className={`max-h-9 md:max-h-10 w-auto max-w-[140px] object-contain transition-opacity duration-200 opacity-40 hover:opacity-70 ${
-                  logo.darken ? "brightness-0" : "grayscale"
-                }`}
-              />
-            </li>
-          ))}
-        </ul>
+        <div className="relative overflow-hidden mask-edges">
+          <div className="flex items-center logo-marquee">
+            {[...LOGOS, ...LOGOS].map((logo, i) => (
+              <div key={`${logo.name}-${i}`} className="shrink-0 px-8 md:px-10 flex items-center justify-center">
+                <img
+                  src={logo.url}
+                  alt={`Logo ${logo.name}`}
+                  loading="lazy"
+                  className={`max-h-9 md:max-h-10 w-auto max-w-[140px] object-contain transition-opacity duration-200 opacity-40 hover:opacity-70 ${
+                    logo.darken ? "brightness-0" : "grayscale"
+                  }`}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
     </section>
   );
 }
