@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
 
 const DEFAULT_CTA_URL =
-  "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+  "https://prenota.hommi.it/richiedi-accesso";
 
 interface Landing1PricingProps {
   ctaLabel?: string;
@@ -20,7 +20,7 @@ const KEY_SERVICES = [
   "Ticket annuali per interventi di riparazione o prevenzione",
 ];
 
-export default function Landing1Pricing({ ctaLabel = "RICHIEDI ACCESSO PRIORITARIO", ctaHref = DEFAULT_CTA_URL }: Landing1PricingProps) {
+export default function Landing1Pricing({ ctaLabel = "Prenota una call", ctaHref = DEFAULT_CTA_URL }: Landing1PricingProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
 

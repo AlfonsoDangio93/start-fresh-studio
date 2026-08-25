@@ -114,7 +114,7 @@ const BENEFITS = [
 
 
 const CTA_URL =
-"https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+"https://prenota.hommi.it/richiedi-accesso";
 
 /* ─── Ticket mockup (phone-style) ─── */
 function TicketMockup() {
@@ -283,7 +283,7 @@ export default function TicketingSection() {
               href={CTA_URL}
               className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-xl px-7 py-3 transition-all duration-200 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20 cursor-pointer">
               
-              Richiedi accesso prioritario
+              Prenota una call
               <ArrowRight className="ml-2 w-4 h-4" />
             </a>
           </div>
@@ -362,7 +362,7 @@ export default function TicketingSection() {
             <div className="mt-8">
               <a href={CTA_URL} className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer">
                 
-                Richiedi accesso prioritario
+                Prenota una call
               </a>
             </div>
           </div>

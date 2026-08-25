@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Flame, Zap, Wrench, WashingMachine, Lock } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
 
-const DEFAULT_CTA_URL = "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+const DEFAULT_CTA_URL = "https://prenota.hommi.it/richiedi-accesso";
 
 interface ServicesSectionProps {
   ctaLabel?: string;
@@ -38,7 +38,7 @@ const SERVICES = [
 }];
 
 
-export default function ServicesSection({ ctaLabel = "Inizia ora", ctaHref = DEFAULT_CTA_URL }: ServicesSectionProps) {
+export default function ServicesSection({ ctaLabel = "Prenota una call", ctaHref = DEFAULT_CTA_URL }: ServicesSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
 

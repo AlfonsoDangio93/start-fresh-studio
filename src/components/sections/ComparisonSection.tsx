@@ -3,7 +3,7 @@ import { Check, X } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
 
 const DEFAULT_CTA_URL =
-  "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+  "https://prenota.hommi.it/richiedi-accesso";
 
 interface ComparisonSectionProps {
   ctaLabel?: string;
@@ -49,7 +49,7 @@ const ROWS = [
   },
 ];
 
-export default function ComparisonSection({ ctaLabel = "Richiedi accesso prioritario", ctaHref = DEFAULT_CTA_URL }: ComparisonSectionProps) {
+export default function ComparisonSection({ ctaLabel = "Prenota una call", ctaHref = DEFAULT_CTA_URL }: ComparisonSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
 
