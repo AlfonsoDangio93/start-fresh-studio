@@ -1,78 +1,21 @@
 
 import { useEffect, useRef, useState } from "react";
-import { Check, X } from "lucide-react";
+import { Check } from "lucide-react";
 import TypingHeading from "@/components/TypingHeading";
 
-const CTA_URL =
-  "https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+const CTA_URL = "https://prenota.hommi.it/richiedi-accesso";
 
-type FeatureValue = "incluso" | "non-incluso" | string;
-
-interface PlanFeature {
-  label: string;
-  highlight?: string;
-  base: FeatureValue;
-  premium: FeatureValue;
-  plus: FeatureValue;
-}
-
-const FEATURES: PlanFeature[] = [
-  {
-    highlight: "Accesso alla rete",
-    label: ": manutentori, idraulici, elettricisti, fabbri, caldaisti ecc..",
-    base: "incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    highlight: "Piattaforma digitale",
-    label: ' con "cartella clinica dell\'immobile", report, preventivi, stato lavori e apertura ticket',
-    base: "incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    label: "",
-    highlight: "Interventi garantiti entro",
-    base: "Interventi garantiti entro 6 ore.",
-    premium: "Interventi garantiti entro 4 ore.",
-    plus: "Interventi garantiti entro 4 ore.",
-  },
-  {
-    highlight: "Sopralluogo iniziale con mappatura",
-    label: " impianti, dispositivi e punti critici.",
-    base: "incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    highlight: "Preventivi trasparenti",
-    label: " con costo materiale e manodopera indicati, lo approvi sempre prima di procedere.",
-    base: "incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    highlight: "ticket/anno* per interventi di riparazione o prevenzione",
-    label: "",
-    base: "1 ticket/anno*",
-    premium: "2 ticket/anno*",
-    plus: "4 ticket/anno*",
-  },
-  {
-    highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
-    label: "",
-    base: "non-incluso",
-    premium: "incluso",
-    plus: "incluso",
-  },
-  {
-    highlight: "Customer care manutenzioni",
-    label: " da remoto e gestione ticket degli ospiti",
-    base: "non-incluso",
-    premium: "non-incluso",
-    plus: "incluso",
-  },
+const INCLUDED: string[] = [
+  "Accesso alla rete di tecnici: manutentori, idraulici, elettricisti, fabbri, caldaisti.",
+  "Tecnico assegnato che conosce già l'impianto del tuo alloggio.",
+  "Interventi garantiti in poche ore, anche con ospiti presenti.",
+  "Sopralluogo iniziale con mappatura di impianti, dispositivi e punti critici.",
+  "\"Cartella clinica dell'immobile\": storico interventi sempre aggiornato.",
+  "Apertura ticket via WhatsApp, 7 giorni su 7.",
+  "Preventivi trasparenti: materiale e manodopera separati, approvi tu prima di procedere.",
+  "Report tracciabile con foto, costi e tempi da girare al proprietario.",
+  "Ticket di manutenzione inclusi ogni anno.",
+  "Gestione da remoto su portafogli distribuiti, senza team interno.",
 ];
 
 export default function PricingHomeSection() {
@@ -90,10 +33,10 @@ export default function PricingHomeSection() {
   }, []);
 
   return (
-    <section ref={ref} className="py-20 md:py-28">
+    <section id="prezzi" ref={ref} className="py-20 md:py-28">
       <div className="max-w-site mx-auto px-6">
-        <div className={`text-center mb-14 reveal ${vis ? "revealed" : ""}`}>
-          <span className="inline-block text-[12px] font-semibold text-primary uppercase tracking-[0.15em] mb-3">Piani</span>
+        <div className={`text-center mb-12 reveal ${vis ? "revealed" : ""}`}>
+          <span className="inline-block text-[12px] font-semibold text-primary uppercase tracking-[0.15em] mb-3">Prezzi</span>
           {vis ? (
             <TypingHeading
               lines={["Un servizio su misura per chi", "gestisce più immobili."]}
@@ -108,61 +51,45 @@ export default function PricingHomeSection() {
             </h2>
           )}
           <p className="mt-5 text-secondary text-[15px] md:text-[17px] max-w-[560px] mx-auto leading-relaxed">
-            Tutto incluso: tecnico dedicato, sopralluogo iniziale, gestione end-to-end e report dettagliati via app.
-          </p>
-          <p className="mt-2 text-secondary/70 text-[13px] md:text-[14px]">
-            I prezzi si intendono IVA esclusa.
+            Un canone mensile per immobile, tutto incluso. La configurazione giusta per il tuo portafoglio la definiamo insieme in call.
           </p>
         </div>
 
-        {/* ── Cards ── */}
-        <div className={`grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto reveal ${vis ? "revealed" : ""}`} style={{ transitionDelay: "0.1s" }}>
-          {[
-            { name: "Base", price: "€ 14,90", popular: false, key: "base" as const },
-            { name: "Premium", price: "€ 29,90", popular: true, key: "premium" as const },
-            { name: "Plus", price: "€ 39,90", popular: false, key: "plus" as const },
-          ].map((plan) => (
-            <div key={plan.name} className={`relative bg-white rounded-2xl p-6 flex flex-col ${plan.popular ? "border-2 border-primary" : "border border-border"}`}>
-              {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-primary text-white text-[10px] font-bold uppercase tracking-wider rounded-full px-4 py-1.5">Più popolare</span>
-                </div>
-              )}
-              <h3 className="font-display text-[18px] font-bold text-primary uppercase mb-1">{plan.name}</h3>
-              <div className="flex items-baseline gap-1 mb-1">
-                <span className={`text-[32px] font-display font-bold leading-none ${plan.popular ? "text-primary" : "text-dark"}`}>{plan.price}</span>
-              </div>
-              <p className="text-[12px] text-secondary mb-5">/ mese per immobile</p>
-              <div className="space-y-3 mb-6 flex-1">
-                {FEATURES.map((f, i) => {
-                  const val = f[plan.key];
-                  const isTicketFeature = f.highlight?.includes("ticket/anno*");
-                  const isInterventionFeature = f.highlight?.includes("Interventi garantiti entro");
-                  return (
-                    <div key={i} className="flex items-start gap-2 text-[13px]">
-                      {val === "non-incluso" ? (
-                        <X size={14} className="text-red-400 mt-0.5 shrink-0" />
-                      ) : (
-                        <Check size={14} className="text-green-600 mt-0.5 shrink-0" />
-                      )}
-                      <span className="font-semibold text-dark/90">
-                        {isTicketFeature ? (
-                          <>{val} per interventi di riparazione o prevenzione</>
-                        ) : isInterventionFeature ? (
-                          <>{val}</>
-                        ) : (
-                          f.highlight
-                        )}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-              <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className={`block w-full text-center font-semibold text-[14px] py-3.5 rounded-xl transition-colors duration-200 cursor-pointer ${plan.popular ? "bg-primary text-white hover:bg-primary-hover" : "bg-dark text-white hover:bg-dark/90"}`}>
-                RICHIEDI ACCESSO PRIORITARIO
-              </a>
+        <div
+          className={`max-w-[820px] mx-auto bg-white border border-border rounded-2xl p-7 md:p-10 reveal ${vis ? "revealed" : ""}`}
+          style={{ transitionDelay: "0.1s" }}
+        >
+          <div className="text-center">
+            <p className="text-[13px] font-semibold text-secondary uppercase tracking-[0.12em]">A partire da</p>
+            <div className="mt-2 flex items-end justify-center gap-2">
+              <span className="font-display text-[46px] md:text-[56px] font-bold text-primary leading-none">€ 14,90</span>
+              <span className="text-[13px] text-secondary mb-1.5">/ mese per immobile</span>
             </div>
-          ))}
+            <p className="mt-2 text-secondary/70 text-[13px]">IVA esclusa · nessun costo di attivazione</p>
+          </div>
+
+          <div className="mt-9 grid sm:grid-cols-2 gap-x-8 gap-y-3.5">
+            {INCLUDED.map((item) => (
+              <div key={item} className="flex items-start gap-2.5 text-[13.5px] leading-relaxed">
+                <Check size={16} className="text-green-600 mt-[3px] shrink-0" />
+                <span className="text-dark/90">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-9 flex flex-col items-center gap-3">
+            <a
+              href={CTA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto text-center bg-primary text-white font-semibold text-[15px] px-10 py-3.5 rounded-[10px] hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
+            >
+              Prenota una call
+            </a>
+            <p className="text-[12.5px] text-secondary/70 text-center">
+              In 15 minuti capiamo il tuo portafoglio e ti diciamo il piano più adatto.
+            </p>
+          </div>
         </div>
       </div>
     </section>
