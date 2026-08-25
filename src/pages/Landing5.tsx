@@ -1,5 +1,7 @@
 import LandingNavbar from "@/components/landing/LandingNavbar";
 import LandingFooter from "@/components/landing/LandingFooter";
+import ClientLogosSection from "@/components/sections/ClientLogosSection";
+import PressBar from "@/components/sections/PressBar";
 import Landing5MobileBottomCTA from "@/components/landing/Landing5MobileBottomCTA";
 import ManutentoriSection from "@/components/sections/ManutentoriSection";
 import { useSeo } from "@/hooks/useSeo";
@@ -22,6 +24,8 @@ export default function Landing5() {
         ctaHref={FORM_URL}
         ctaLabel="Diventa partner operativo"
       />
+      <ClientLogosSection />
+      <PressBar />
       <LandingFooter />
       <Landing5MobileBottomCTA />
     </div>
