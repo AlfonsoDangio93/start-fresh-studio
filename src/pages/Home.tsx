@@ -29,7 +29,6 @@ export default function Home() {
           role: "PM, 14 alloggi tra Milano e Como",
         }}
       />
-      <PressBar />
       <ClientLogosSection />
       <FeatureShowcase ctaLabel={CTA_LABEL} ctaHref={CTA_HREF} />
       <HowItWorksSection ctaLabel={CTA_LABEL} ctaHref={CTA_HREF} />
@@ -37,6 +36,7 @@ export default function Home() {
       <PricingHomeSection />
       <ComparisonSection ctaLabel={CTA_LABEL} ctaHref={CTA_HREF} />
       <TestimonialsSection />
+      <PressBar />
       <CTASection
         title={<>Il prossimo guasto non deve<br />costarti una recensione.</>}
         subtitle="Property manager con portafogli distribuiti risolvono con Hommi in poche ore, senza costruire un team interno."

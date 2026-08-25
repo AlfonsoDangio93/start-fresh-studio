@@ -26,7 +26,7 @@ export default function PressBar() {
       <div className="max-w-site mx-auto px-6 flex items-center gap-8 md:gap-12">
         {/* Fixed text on the left */}
         <div className="shrink-0">
-          <p className="text-[13px] md:text-[14px] text-dark font-semibold leading-snug">
+          <p className="font-display text-[13px] md:text-[14px] text-dark font-semibold leading-snug">
             Hanno parlato di noi:
           </p>
         </div>
