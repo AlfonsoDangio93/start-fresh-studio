@@ -1,6 +1,7 @@
 import LandingNavbar from "@/components/landing/LandingNavbar";
 import HeroSection from "@/components/sections/HeroSection";
 import PressBar from "@/components/sections/PressBar";
+import ClientLogosSection from "@/components/sections/ClientLogosSection";
 import FeatureShowcase from "@/components/sections/FeatureShowcase";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import ServicesSection from "@/components/sections/ServicesSection";
@@ -17,13 +18,14 @@ export default function Landing1() {
     <div className="landing-theme">
       <LandingNavbar />
       <HeroSection />
-      <PressBar />
+      <ClientLogosSection />
       <FeatureShowcase />
       <HowItWorksSection />
       <ServicesSection />
       <Landing1Pricing />
       <ComparisonSection />
       <LandingTestimonials />
+      <PressBar />
       <LandingFAQ />
       <CTASection />
       <LandingFooter />
