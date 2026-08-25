@@ -57,7 +57,7 @@ const FEATURES: PlanFeature[] = [
   label: "",
   base: "1 ticket/anno*",
   premium: "1 ticket/anno*",
-  plus: "4 ticket/anno*"
+  plus: "1 ticket/anno*"
 },
 {
   highlight: "Diritto di chiamata incluso nell'abbonamento per gli interventi extra.",
