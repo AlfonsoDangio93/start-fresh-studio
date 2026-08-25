@@ -340,7 +340,7 @@ export default function Navbar() {
                 }
             </div>
             <a href={CTA_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-white transition-colors duration-200 px-4 py-1.5 cursor-pointer bg-[#e55310] rounded">
-              Richiedi accesso
+              Prenota una call
             </a>
           </div>
         </div>
@@ -591,7 +591,7 @@ export default function Navbar() {
                 className="block w-full text-center bg-dark text-white font-semibold text-[14px] py-3 rounded-xl hover:bg-dark/90 transition-colors duration-200 cursor-pointer"
                 onClick={() => setMobileOpen(false)}>
                 
-                Richiedi accesso prioritario
+                Prenota una call
               </Link>
             </div>
           </div>
