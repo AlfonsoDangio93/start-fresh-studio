@@ -12,7 +12,7 @@ import {
 "lucide-react";
 
 const DEFAULT_CTA_URL =
-"https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw";
+"https://prenota.hommi.it/richiedi-accesso";
 
 interface HowItWorksSectionProps {
   ctaLabel?: string;
@@ -209,7 +209,7 @@ const VISUAL_MAP: Record<string, React.FC> = {
   control: ControlVisual
 };
 
-export default function HowItWorksSection({ ctaLabel = "Richiedi accesso prioritario", ctaHref = DEFAULT_CTA_URL }: HowItWorksSectionProps) {
+export default function HowItWorksSection({ ctaLabel = "Prenota una call", ctaHref = DEFAULT_CTA_URL }: HowItWorksSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);

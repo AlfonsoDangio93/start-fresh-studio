@@ -16,7 +16,7 @@ export default function CTASection({
   title = <>Pronto a dormire tranquillo<br />anche con 50 alloggi?</>,
   subtitle = "Unisciti ai property manager che hanno già scelto Hommi.",
   image = "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2970&auto=format&fit=crop",
-  ctaLabel = "Richiedi accesso prioritario",
+  ctaLabel = "Prenota una call",
   ctaHref = CTA_URL,
 }: CTASectionProps) {
 

@@ -202,7 +202,7 @@ export default function PricingSection() {
               </div>
 
               <a
-              href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
+              href="https://prenota.hommi.it/richiedi-accesso"
               target="_blank"
               rel="noopener noreferrer"
               className={`block w-full text-center font-semibold text-[14px] py-3.5 rounded-xl transition-colors duration-200 cursor-pointer ${
@@ -360,10 +360,10 @@ export default function PricingSection() {
               Hai altre domande? Parliamone.
             </p>
             <a
-              href="https://prenota.hommi.it/richiedi-accesso?_gl=1*1clkze1*_up*MQ..*_ga*MjkzODMxMTE4LjE3NzE5Mzk1MzY.*_ga_4NVKFSN1CY*czE3NzE5Mzk1MzUkbzEkZzAkdDE3NzE5Mzk1MzUkajYwJGwwJGgw"
+              href="https://prenota.hommi.it/richiedi-accesso"
               className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer">
               
-              Richiedi accesso prioritario
+              Prenota una call
               <ArrowRight className="ml-2 w-4 h-4" />
             </a>
           </div>
