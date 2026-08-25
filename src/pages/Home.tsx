@@ -1,6 +1,7 @@
 import Navbar from "@/components/sections/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import PressBar from "@/components/sections/PressBar";
+import ClientLogosSection from "@/components/sections/ClientLogosSection";
 import FeatureShowcase from "@/components/sections/FeatureShowcase";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import ServicesSection from "@/components/sections/ServicesSection";
@@ -29,6 +30,7 @@ export default function Home() {
         }}
       />
       <PressBar />
+      <ClientLogosSection />
       <FeatureShowcase ctaLabel={CTA_LABEL} ctaHref={CTA_HREF} />
       <HowItWorksSection ctaLabel={CTA_LABEL} ctaHref={CTA_HREF} />
       <ServicesSection ctaLabel={CTA_LABEL} ctaHref={CTA_HREF} />
