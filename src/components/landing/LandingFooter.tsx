@@ -36,16 +36,6 @@ export default function LandingFooter() {
         </div>
 
         <div className="border-t border-border py-6 space-y-3">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-2 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground/60">
-              <span>Made with</span>
-              <span className="text-primary">♥</span>
-              <span>by</span>
-              <a href="https://www.alfonsodangio.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                alfonsodangio.com
-              </a>
-            </div>
-          </div>
           <div className="flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground/60 flex-wrap">
             <span>© 2026 Hommi | All rights reserved</span>
             <span>|</span>
