@@ -19,9 +19,10 @@ export default function ClientLogosSection() {
   return (
     <section className="py-12 md:py-16 border-t border-border">
       <div className="max-w-site mx-auto px-6">
-        <p className="text-[13px] md:text-[14px] text-dark font-semibold leading-snug text-center mb-8 md:mb-10">
+        <p className="font-display text-[13px] md:text-[14px] text-dark font-semibold leading-snug text-center mb-8 md:mb-10">
           Property manager che ci hanno gi&agrave; scelto:
         </p>
+
 
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-8 md:gap-y-10 items-center">
           {LOGOS.map((logo) => (
