@@ -86,7 +86,7 @@ export default function HostSection() {
           &egrave; un minuto tolto alla crescita del tuo business.
           Hommi automatizza la gestione degli imprevisti.
         </p>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-col items-center gap-2">
           <a
             href={CTA_URL}
             className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer"
@@ -94,6 +94,7 @@ export default function HostSection() {
             Prenota una call gratuita
             <ArrowRight className="ml-2 w-4 h-4" />
           </a>
+          <p className="text-[12.5px] text-secondary/70">Parla con un nostro esperto (è gratis)</p>
         </div>
       </div>
 
@@ -237,7 +238,7 @@ export default function HostSection() {
               2.000+ property manager hanno gi&agrave; scelto Hommi.
               Nessun vincolo annuale, prezzo fisso, zero sorprese.
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col items-center gap-2">
               <a
                 href={CTA_URL}
                 className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer"
@@ -245,6 +246,7 @@ export default function HostSection() {
                 Prenota una call gratuita
                 <ArrowRight className="ml-2 w-4 h-4" />
               </a>
+              <p className="text-[12.5px] text-white/70">Parla con un nostro esperto (è gratis)</p>
             </div>
           </div>
         </div>
