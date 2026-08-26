@@ -136,7 +136,7 @@ const BENEFITS = [
   },
 ];
 
-export default function FeatureShowcase({ ctaLabel = "Prenota una call", ctaHref = DEFAULT_CTA_URL }: FeatureShowcaseProps) {
+export default function FeatureShowcase({ ctaLabel = "Prenota una call gratuita", ctaHref = DEFAULT_CTA_URL }: FeatureShowcaseProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);

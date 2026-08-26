@@ -27,7 +27,7 @@ export default function Landing3() {
 
   return (
     <div className="landing-theme">
-      <LandingNavbar ctaLabel="Prenota una call" ctaHref={CALL_URL} />
+      <LandingNavbar ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
       <HeroSection
         lines={["Sabato, 18:30.", "Caldaia rotta.", "Tu continui la tua serata."]}
         subtitle={
@@ -38,7 +38,7 @@ export default function Landing3() {
             tecnico sul posto in 4 ore. Anche di sabato. Anche d'agosto.
           </>
         }
-        ctaLabel="Prenota una call"
+        ctaLabel="Prenota una call gratuita"
         ctaHref={CALL_URL}
         testimonial={{
           quote: "Guasto segnalato alle 20, tecnico alle 23:45. L'ospite ha dormito caldo.",
@@ -47,11 +47,11 @@ export default function Landing3() {
         }}
       />
       <ClientLogosSection />
-      <FeatureShowcase ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <HowItWorksSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <ServicesSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <Landing1Pricing ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <ComparisonSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
+      <FeatureShowcase ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <HowItWorksSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <ServicesSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <Landing1Pricing ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <ComparisonSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
       <LandingTestimonials />
       <PressBar />
       <LandingFAQ />
@@ -64,7 +64,7 @@ export default function Landing3() {
           </>
         }
         subtitle="Tecnico in 4 ore, anche di sabato sera e ad agosto. Tu continui la tua serata."
-        ctaLabel="Prenota una call"
+        ctaLabel="Prenota una call gratuita"
         ctaHref={CALL_URL}
       />
       <LandingFooter />

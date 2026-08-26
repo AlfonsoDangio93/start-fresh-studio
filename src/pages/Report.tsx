@@ -449,7 +449,7 @@ function ReportContent({
             </ul>
 
             {/* Calendly CTA */}
-            <div className="mt-8 flex justify-center">
+            <div className="mt-8 flex flex-col items-center gap-2">
               <a
                 href={`https://calendly.com/simone-calderoni-hommi/30min?name=${encodeURIComponent(formData.nome || "")}&email=${encodeURIComponent(formData.email || "")}&a1=${encodeURIComponent(formData.telefono || "")}&a2=${encodeURIComponent(formData.azienda || "")}&utm_source=calcolatore&utm_medium=lovable&utm_campaign=meta-ads`}
                 target="_blank"
@@ -457,8 +457,9 @@ function ReportContent({
                 className="inline-flex items-center justify-center w-full md:w-auto px-10 py-5 rounded-[12px] text-white text-lg md:text-xl font-bold shadow-lg transition-transform hover:scale-[1.02]"
                 style={{ backgroundColor: "#E35210" }}
               >
-                📅 Prenota una call
+                📅 Prenota una call gratuita
               </a>
+              <p className="text-[13px]" style={{ color: TEXT_BODY }}>Parla con un nostro esperto (è gratis)</p>
             </div>
 
             <p

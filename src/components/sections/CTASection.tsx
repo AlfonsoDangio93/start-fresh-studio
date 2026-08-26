@@ -16,7 +16,7 @@ export default function CTASection({
   title = <>Pronto a dormire tranquillo<br />anche con 50 alloggi?</>,
   subtitle = "Unisciti ai property manager che hanno già scelto Hommi.",
   image = "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2970&auto=format&fit=crop",
-  ctaLabel = "Prenota una call",
+  ctaLabel = "Prenota una call gratuita",
   ctaHref = CTA_URL,
 }: CTASectionProps) {
 
@@ -38,7 +38,7 @@ export default function CTASection({
           <p className="mt-5 text-white/60 text-[15px] md:text-[17px] max-w-[460px] mx-auto leading-relaxed">
             {subtitle}
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col items-center gap-2">
             <a
               href={ctaHref}
               target="_blank"
@@ -46,6 +46,7 @@ export default function CTASection({
               className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer">
               {ctaLabel}
             </a>
+            <p className="text-[13px] text-white/70">Parla con un nostro esperto (è gratis)</p>
           </div>
         </div>
       </div>

@@ -203,7 +203,7 @@ export default function PricingSection() {
               "bg-dark text-white hover:bg-dark/90"}`
               }>
               
-                Prenota una call
+                Prenota una call gratuita
               </a>
             </div>
           )}
@@ -351,13 +351,16 @@ export default function PricingSection() {
             <p className="text-[15px] text-secondary mb-4">
               Hai altre domande? Parliamone.
             </p>
-            <a
-              href="https://prenota.hommi.it/richiedi-accesso"
-              className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer">
-              
-              Prenota una call
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </a>
+            <div className="flex flex-col items-center gap-2">
+              <a
+                href="https://prenota.hommi.it/richiedi-accesso"
+                className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer">
+                
+                Prenota una call gratuita
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </a>
+              <p className="text-[12.5px] text-secondary/70">Parla con un nostro esperto (è gratis)</p>
+            </div>
           </div>
         </div>
       </div>

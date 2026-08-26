@@ -214,12 +214,15 @@ export default function LandingHowItWorks() {
           className={`text-center reveal ${vis ? "revealed" : ""}`}
           style={{ transitionDelay: "0.2s" }}
         >
-          <a
-            href={CTA_URL}
-            className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-xl px-7 py-3.5 transition-all duration-200 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
-          >
-            Prenota una call
-          </a>
+          <div className="flex flex-col items-center gap-2">
+            <a
+              href={CTA_URL}
+              className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[14px] rounded-xl px-7 py-3.5 transition-all duration-200 hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/20 cursor-pointer"
+            >
+              Prenota una call gratuita
+            </a>
+            <p className="text-[12.5px] text-secondary/70">Parla con un nostro esperto (è gratis)</p>
+          </div>
         </div>
       </div>
     </section>

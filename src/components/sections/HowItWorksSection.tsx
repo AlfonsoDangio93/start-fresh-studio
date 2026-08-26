@@ -209,7 +209,7 @@ const VISUAL_MAP: Record<string, React.FC> = {
   control: ControlVisual
 };
 
-export default function HowItWorksSection({ ctaLabel = "Prenota una call", ctaHref = DEFAULT_CTA_URL }: HowItWorksSectionProps) {
+export default function HowItWorksSection({ ctaLabel = "Prenota una call gratuita", ctaHref = DEFAULT_CTA_URL }: HowItWorksSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);

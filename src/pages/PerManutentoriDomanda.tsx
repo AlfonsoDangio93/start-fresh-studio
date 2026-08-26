@@ -166,7 +166,7 @@ export default function PerManutentoriDomanda() {
                 Perfetto, ci siamo quasi!
               </h1>
               <p className="text-muted-foreground mb-8 text-base leading-relaxed">
-                Prenota una call con il team Hommi per completare la tua candidatura e iniziare a ricevere incarichi nella tua zona.
+                Prenota una call gratuita con il team Hommi per completare la tua candidatura e iniziare a ricevere incarichi nella tua zona.
               </p>
               <a
                 href="https://calendar.app.google/vTw7d2fB252MSwL48"
