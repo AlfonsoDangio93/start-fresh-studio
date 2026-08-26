@@ -27,7 +27,7 @@ export default function Landing4() {
 
   return (
     <div className="landing-theme">
-      <LandingNavbar ctaLabel="Prenota una call" ctaHref={CALL_URL} />
+      <LandingNavbar ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
       <HeroSection
         lines={["Il tuo manutentore", "è bravissimo.", "Il problema: è uno solo."]}
         subtitle={
@@ -39,7 +39,7 @@ export default function Landing4() {
             piattaforma. Tu non alzi il telefono.
           </>
         }
-        ctaLabel="Prenota una call"
+        ctaLabel="Prenota una call gratuita"
         ctaHref={CALL_URL}
         testimonial={{
           quote: "Prima ero io il numero di emergenza. Ora apro solo la notifica di chiusura.",
@@ -48,11 +48,11 @@ export default function Landing4() {
         }}
       />
       <ClientLogosSection />
-      <FeatureShowcase ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <HowItWorksSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <ServicesSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <Landing1Pricing ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <ComparisonSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
+      <FeatureShowcase ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <HowItWorksSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <ServicesSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <Landing1Pricing ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <ComparisonSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
       <LandingTestimonials />
       <PressBar />
       <LandingFAQ />
@@ -65,7 +65,7 @@ export default function Landing4() {
           </>
         }
         subtitle="Hommi è la rete di tecnici per il tuo affitto breve. Intervento entro 4 ore, prezzo chiaro, tutto tracciato."
-        ctaLabel="Prenota una call"
+        ctaLabel="Prenota una call gratuita"
         ctaHref={CALL_URL}
       />
       <LandingFooter />

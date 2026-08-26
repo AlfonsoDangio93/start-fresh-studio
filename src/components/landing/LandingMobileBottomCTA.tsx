@@ -8,13 +8,13 @@ const CTA_URL = "https://prenota.hommi.it/richiedi-accesso";
 
 const CONTEXTUAL_CTA: Record<string, {label: string;href: string;}> = {
   "come-funziona": { label: "Scopri i piani", href: "#prezzi" },
-  servizi: { label: "Prenota una call", href: CTA_URL },
-  prezzi: { label: "Prenota una call", href: CTA_URL },
-  testimonianze: { label: "Prenota una call", href: CTA_URL },
-  faq: { label: "Prenota una call", href: CTA_URL }
+  servizi: { label: "Prenota una call gratuita", href: CTA_URL },
+  prezzi: { label: "Prenota una call gratuita", href: CTA_URL },
+  testimonianze: { label: "Prenota una call gratuita", href: CTA_URL },
+  faq: { label: "Prenota una call gratuita", href: CTA_URL }
 };
 
-const DEFAULT_CTA = { label: "Prenota una call", href: CTA_URL };
+const DEFAULT_CTA = { label: "Prenota una call gratuita", href: CTA_URL };
 
 export default function LandingMobileBottomCTA() {
   const [show, setShow] = useState(false);

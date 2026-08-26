@@ -49,7 +49,7 @@ const ROWS = [
   },
 ];
 
-export default function ComparisonSection({ ctaLabel = "Prenota una call", ctaHref = DEFAULT_CTA_URL }: ComparisonSectionProps) {
+export default function ComparisonSection({ ctaLabel = "Prenota una call gratuita", ctaHref = DEFAULT_CTA_URL }: ComparisonSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
 

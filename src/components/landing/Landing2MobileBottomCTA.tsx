@@ -28,7 +28,7 @@ export default function Landing2MobileBottomCTA() {
         rel="noopener noreferrer"
         className="flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-[10px] py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
       >
-        Prenota una call
+        Prenota una call gratuita
       </a>
     </div>
   );

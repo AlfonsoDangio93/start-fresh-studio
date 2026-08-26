@@ -11,7 +11,7 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTASection from "@/components/sections/CTASection";
 import LandingFooter from "@/components/landing/LandingFooter";
 
-const CTA_LABEL = "Prenota una call";
+const CTA_LABEL = "Prenota una call gratuita";
 const CTA_HREF = "https://prenota.hommi.it/richiedi-accesso";
 
 export default function Home() {

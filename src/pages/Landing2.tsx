@@ -27,7 +27,7 @@ export default function Landing2() {
 
   return (
     <div className="landing-theme">
-      <LandingNavbar ctaLabel="Prenota una call" ctaHref={CALL_URL} />
+      <LandingNavbar ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
       <HeroSection
         lines={["Negli affitti brevi", "i problemi si risolvono", "in ore, non in giorni."]}
         subtitle={
@@ -37,7 +37,7 @@ export default function Landing2() {
             nemmeno se ne accorgono. Interventi urgenti, recensioni salve.
           </>
         }
-        ctaLabel="Prenota una call"
+        ctaLabel="Prenota una call gratuita"
         ctaHref={CALL_URL}
         testimonial={{
           quote: "Guasto segnalato alle 9, risolto prima del check-in delle 15.",
@@ -46,11 +46,11 @@ export default function Landing2() {
         }}
       />
       <ClientLogosSection />
-      <FeatureShowcase ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <HowItWorksSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <ServicesSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <Landing1Pricing ctaLabel="Prenota una call" ctaHref={CALL_URL} />
-      <ComparisonSection ctaLabel="Prenota una call" ctaHref={CALL_URL} />
+      <FeatureShowcase ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <HowItWorksSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <ServicesSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <Landing1Pricing ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <ComparisonSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
       <LandingTestimonials />
       <PressBar />
       <LandingFAQ />
@@ -63,7 +63,7 @@ export default function Landing2() {
           </>
         }
         subtitle="Interventi urgenti entro 4 ore, anche in alta stagione. Recensioni salve."
-        ctaLabel="Prenota una call"
+        ctaLabel="Prenota una call gratuita"
         ctaHref={CALL_URL}
       />
       <LandingFooter />

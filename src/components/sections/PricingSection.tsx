@@ -203,7 +203,7 @@ export default function PricingSection() {
               "bg-dark text-white hover:bg-dark/90"}`
               }>
               
-                Prenota una call
+                Prenota una call gratuita
               </a>
             </div>
           )}
@@ -355,7 +355,7 @@ export default function PricingSection() {
               href="https://prenota.hommi.it/richiedi-accesso"
               className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] rounded-xl px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer">
               
-              Prenota una call
+              Prenota una call gratuita
               <ArrowRight className="ml-2 w-4 h-4" />
             </a>
           </div>

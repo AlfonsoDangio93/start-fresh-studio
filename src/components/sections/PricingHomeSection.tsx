@@ -84,7 +84,7 @@ export default function PricingHomeSection() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto text-center bg-primary text-white font-semibold text-[15px] px-10 py-3.5 rounded-[10px] hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
             >
-              Prenota una call
+              Prenota una call gratuita
             </a>
             <p className="text-[12.5px] text-secondary/70 text-center">
               In 15 minuti capiamo il tuo portafoglio e ti diciamo il piano più adatto.

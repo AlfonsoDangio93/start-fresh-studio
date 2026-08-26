@@ -38,7 +38,7 @@ const SERVICES = [
 }];
 
 
-export default function ServicesSection({ ctaLabel = "Prenota una call", ctaHref = DEFAULT_CTA_URL }: ServicesSectionProps) {
+export default function ServicesSection({ ctaLabel = "Prenota una call gratuita", ctaHref = DEFAULT_CTA_URL }: ServicesSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
 

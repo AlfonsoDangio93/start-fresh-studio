@@ -554,7 +554,7 @@ const DEFAULT_CTA_HREF =
 export default function HeroSection({
   lines,
   subtitle,
-  ctaLabel = "Prenota una call",
+  ctaLabel = "Prenota una call gratuita",
   ctaHref = DEFAULT_CTA_HREF,
   testimonial = {
     quote: "In 2 ore era tutto risolto — senza dover chiamare nessuno.",

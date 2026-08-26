@@ -20,7 +20,7 @@ const KEY_SERVICES = [
   "Ticket annuali per interventi di riparazione o prevenzione",
 ];
 
-export default function Landing1Pricing({ ctaLabel = "Prenota una call", ctaHref = DEFAULT_CTA_URL }: Landing1PricingProps) {
+export default function Landing1Pricing({ ctaLabel = "Prenota una call gratuita", ctaHref = DEFAULT_CTA_URL }: Landing1PricingProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [vis, setVis] = useState(false);
 

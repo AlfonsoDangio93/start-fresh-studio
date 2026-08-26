@@ -457,7 +457,7 @@ function ReportContent({
                 className="inline-flex items-center justify-center w-full md:w-auto px-10 py-5 rounded-[12px] text-white text-lg md:text-xl font-bold shadow-lg transition-transform hover:scale-[1.02]"
                 style={{ backgroundColor: "#E35210" }}
               >
-                📅 Prenota una call
+                📅 Prenota una call gratuita
               </a>
             </div>
 
