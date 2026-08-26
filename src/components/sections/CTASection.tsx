@@ -38,7 +38,7 @@ export default function CTASection({
           <p className="mt-5 text-white/60 text-[15px] md:text-[17px] max-w-[460px] mx-auto leading-relaxed">
             {subtitle}
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col items-center gap-2">
             <a
               href={ctaHref}
               target="_blank"
@@ -46,6 +46,7 @@ export default function CTASection({
               className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-semibold text-[15px] rounded-[10px] px-8 py-3.5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-primary/30 cursor-pointer">
               {ctaLabel}
             </a>
+            <p className="text-[13px] text-white/70">Parla con un nostro esperto (è gratis)</p>
           </div>
         </div>
       </div>

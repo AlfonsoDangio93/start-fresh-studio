@@ -637,21 +637,23 @@ export default function HeroSection({
 
             {/* CTA buttons (desktop) */}
             <div
-              className={`mt-8 md:mt-10 hidden lg:flex flex-row items-center gap-3 hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
+              className={`mt-8 md:mt-10 hidden lg:flex flex-col items-start gap-2 hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
               style={{ transitionDelay: "0.3s" }}>
-              
-              <a
-                href={ctaHref}
-                className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer rounded-xl">
-                
-                {ctaLabel}
-              </a>
-              <a
-                href="#come-funziona"
-                className="inline-flex items-center justify-center text-dark font-semibold text-[15px] rounded-[10px] px-8 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer">
-                
-                Vedi come funziona
-              </a>
+              <div className="flex flex-row items-center gap-3">
+                <a
+                  href={ctaHref}
+                  className="inline-flex items-center justify-center bg-primary text-white font-semibold text-[15px] px-8 py-3.5 transition-all duration-200 hover:bg-primary-hover shadow-lg shadow-primary/20 cursor-pointer rounded-xl">
+                  
+                  {ctaLabel}
+                </a>
+                <a
+                  href="#come-funziona"
+                  className="inline-flex items-center justify-center text-dark font-semibold text-[15px] rounded-[10px] px-8 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer">
+                  
+                  Vedi come funziona
+                </a>
+              </div>
+              <p className="text-[13px] text-secondary/70">Parla con un nostro esperto (è gratis)</p>
             </div>
           </div>
 
@@ -691,7 +693,7 @@ export default function HeroSection({
 
         {/* CTA buttons */}
         <div
-          className={`flex flex-col gap-3 max-w-[400px] mx-auto hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
+          className={`flex flex-col gap-2 max-w-[400px] mx-auto hero-text-entrance ${mounted ? "hero-text-visible" : ""}`}
           style={{ transitionDelay: "0.3s" }}>
           
           <a
@@ -700,6 +702,7 @@ export default function HeroSection({
             
             {ctaLabel}
           </a>
+          <p className="text-center text-[12px] text-secondary/70">Parla con un nostro esperto (è gratis)</p>
           <a
             href="#come-funziona"
             className="flex items-center justify-center text-dark font-semibold text-[14px] rounded-[10px] px-4 py-3.5 border border-border hover:border-dark/30 transition-all duration-200 cursor-pointer">
