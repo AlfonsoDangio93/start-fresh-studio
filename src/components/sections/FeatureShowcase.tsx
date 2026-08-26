@@ -121,7 +121,7 @@ const BENEFITS = [
   },
   {
     visual: <ClockCheckIcon />,
-    title: "Interveniamo entro 4 ore. Anche con ospiti in casa.",
+    title: "Report del professionista e fattura certificata senza mal di testa.",
     desc: "Evita recensioni negative e cancellazioni. Priorit\u00e0 garantita su ogni intervento.",
   },
   {
@@ -212,15 +212,14 @@ export default function FeatureShowcase({ ctaLabel = "Prenota una call gratuita"
         <div ref={headerRef} className={`text-center mb-16 reveal ${headerVis ? "revealed" : ""}`}>
           {headerVis ? (
             <TypingHeading
-              lines={["Dimentica lo stress degli imprevisti.", "Affidati a Hommi."]}
+              lines={["Cos'è incluso?"]}
               className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight"
               speed={40}
               startDelay={200}
             />
           ) : (
             <h2 className="font-display text-[28px] md:text-[40px] lg:text-[46px] font-bold text-dark leading-[1.08] tracking-tight">
-              <span className="block invisible">Dimentica lo stress degli imprevisti.</span>
-              <span className="block invisible">Affidati a Hommi.</span>
+              <span className="block invisible">Cos'è incluso?</span>
             </h2>
           )}
           <p className="mt-5 text-secondary text-[15px] md:text-[17px] mx-auto leading-relaxed md:whitespace-nowrap">
