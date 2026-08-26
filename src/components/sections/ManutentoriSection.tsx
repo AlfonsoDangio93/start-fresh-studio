@@ -306,7 +306,7 @@ export default function ManutentoriSection({
               250+ manutentori lavorano gi&agrave; con Hommi.
               Iscrizione gratuita, primi incarichi entro 48 ore.
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col items-center gap-2">
               {isExternalCta ? (
                 <a
                   href={ctaHref}
@@ -326,6 +326,7 @@ export default function ManutentoriSection({
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               )}
+              <p className="text-[12.5px] text-white/70">Parla con un nostro esperto (è gratis)</p>
             </div>
           </div>
         </div>
