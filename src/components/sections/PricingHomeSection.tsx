@@ -87,7 +87,7 @@ export default function PricingHomeSection() {
               Prenota una call gratuita
             </a>
             <p className="text-[12.5px] text-secondary/70 text-center">
-              In 15 minuti capiamo il tuo portafoglio e ti diciamo il piano più adatto.
+              Parla con un nostro esperto (è gratis)
             </p>
           </div>
         </div>

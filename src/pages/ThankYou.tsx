@@ -38,6 +38,7 @@ export default function ThankYou() {
             Prenota una call gratuita
             <ArrowRight className="w-4 h-4" />
           </a>
+          <p className="text-[13px] text-muted-foreground text-center">Parla con un nostro esperto (è gratis)</p>
         </div>
 
         <Link
