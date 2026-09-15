@@ -57,7 +57,7 @@ export default function Landing4Hero() {
     return () => clearTimeout(t);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!immobili || !nome.trim() || !email.trim() || !telefono.trim()) return;
 
