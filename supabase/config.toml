@@ -1,20 +1,13 @@
 project_id = "clgdigtnhoqwnmjwyiwh"
 
-[functions.process-email-queue]
-verify_jwt = true
-
-[functions.send-transactional-email]
-verify_jwt = true
-
 [functions.preview-transactional-email]
-verify_jwt = false
-
-[functions.handle-email-unsubscribe]
-verify_jwt = false
-
-[functions.handle-email-suppression]
 verify_jwt = false
 
 [functions.mcp]
 verify_jwt = false
 
+[functions.send-report-calcolatore]
+verify_jwt = false
+
+[functions.send-lead-landing4]
+verify_jwt = false
