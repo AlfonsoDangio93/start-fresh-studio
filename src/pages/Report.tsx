@@ -56,7 +56,7 @@ function deliverReportInBackground(reportData: ReportData) {
     keepalive: true,
   }).catch((err) => console.error("❌ Errore invio Google Sheets:", err));
 
-  fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
+  fetch(`${supabaseUrl}/functions/v1/send-report-calcolatore`, {
     method: "POST",
     keepalive: true,
     headers: {
@@ -65,7 +65,6 @@ function deliverReportInBackground(reportData: ReportData) {
       apikey: supabaseKey,
     },
     body: JSON.stringify({
-      templateName: "report-calcolatore",
       recipientEmail: reportData.formData.email,
       idempotencyKey: `report-calcolatore-${leadId}`,
       templateData: {

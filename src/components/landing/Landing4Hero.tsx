@@ -1,35 +1,11 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
-const NOTIFY_EMAIL = "simone.calderoni@hommi.it";
-
 function notifyLead(data: Record<string, unknown>, key: string) {
   try {
     supabase.functions
-      .invoke("send-transactional-email", {
-        body: {
-          templateName: "notifica-lead-landing4",
-          recipientEmail: NOTIFY_EMAIL,
-          idempotencyKey: key,
-          templateData: data,
-        },
-      })
-      .catch(() => {});
-  } catch {
-    /* noop */
-  }
-}
-
-function sendCallInvite(leadEmail: string, nome: string, key: string) {
-  try {
-    supabase.functions
-      .invoke("send-transactional-email", {
-        body: {
-          templateName: "prenota-call-landing4",
-          recipientEmail: leadEmail,
-          idempotencyKey: key,
-          templateData: { nome },
-        },
+      .invoke("send-lead-landing4", {
+        body: { ...data, idempotencyKey: key },
       })
       .catch(() => {});
   } catch {
@@ -106,7 +82,6 @@ export default function Landing4Hero() {
     sendToSheets(lead);
     const ts = Date.now();
     notifyLead(lead, `l4-lead-${email.trim().toLowerCase()}-${ts}`);
-    sendCallInvite(email.trim(), nome.trim(), `l4-call-${email.trim().toLowerCase()}-${ts}`);
 
     // piccolo margine per lasciar partire le richieste prima del redirect
     await new Promise((r) => setTimeout(r, 400));

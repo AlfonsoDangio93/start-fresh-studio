@@ -31,7 +31,6 @@ import NotFound from "@/pages/NotFound";
 import Ticket from "@/pages/Ticket";
 import LandingCalcolatore from "@/pages/LandingCalcolatore";
 import Report from "@/pages/Report";
-import Unsubscribe from "@/pages/Unsubscribe";
 import SeoPropertyManager from "@/pages/seo/SeoPropertyManager";
 import SeoAgenzie from "@/pages/seo/SeoAgenzie";
 import SeoHost from "@/pages/seo/SeoHost";
@@ -74,7 +73,6 @@ export default function App() {
         <Route path="/ticket" element={<Ticket />} />
         <Route path="/calcolatore" element={<LandingCalcolatore />} />
         <Route path="/report" element={<Report />} />
-        <Route path="/unsubscribe" element={<Unsubscribe />} />
 
         {/* SEO landing pages */}
         <Route path="/seo/gestione-manutenzione-property-manager" element={<SeoPropertyManager />} />
