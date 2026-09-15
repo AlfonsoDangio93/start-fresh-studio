@@ -1,35 +1,11 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
-const NOTIFY_EMAIL = "simone.calderoni@hommi.it";
-
 function notifyLead(data: Record<string, unknown>, key: string) {
   try {
     supabase.functions
-      .invoke("send-transactional-email", {
-        body: {
-          templateName: "notifica-lead-landing4",
-          recipientEmail: NOTIFY_EMAIL,
-          idempotencyKey: key,
-          templateData: data,
-        },
-      })
-      .catch(() => {});
-  } catch {
-    /* noop */
-  }
-}
-
-function sendCallInvite(leadEmail: string, nome: string, key: string) {
-  try {
-    supabase.functions
-      .invoke("send-transactional-email", {
-        body: {
-          templateName: "prenota-call-landing4",
-          recipientEmail: leadEmail,
-          idempotencyKey: key,
-          templateData: { nome },
-        },
+      .invoke("send-lead-landing4", {
+        body: { ...data, idempotencyKey: key },
       })
       .catch(() => {});
   } catch {
