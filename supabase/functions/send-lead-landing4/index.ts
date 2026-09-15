@@ -55,18 +55,23 @@ Deno.serve(async (req) => {
     })
   }
 
-  // 2. Call invite to the lead
-  try {
-    await withSendLog(INVITE_TEMPLATE, email, () =>
-      sendTemplateEmail(INVITE_TEMPLATE, email, {
-        templateData: { nome },
-        idempotencyKey: `${INVITE_TEMPLATE}-${key}`,
-      }),
-    )
-  } catch (error) {
-    console.error('Failed to send lead call invite', {
-      message: error instanceof Error ? error.message : String(error),
-    })
+  // 2. Call invite to the lead — skipped when the lead used the internal
+  // address, so the same inbox never receives both emails.
+  if (email.toLowerCase() === NOTIFY_EMAIL.toLowerCase()) {
+    console.log('Lead email matches internal address — skipping call invite')
+  } else {
+    try {
+      await withSendLog(INVITE_TEMPLATE, email, () =>
+        sendTemplateEmail(INVITE_TEMPLATE, email, {
+          templateData: { nome },
+          idempotencyKey: `${INVITE_TEMPLATE}-${key}`,
+        }),
+      )
+    } catch (error) {
+      console.error('Failed to send lead call invite', {
+        message: error instanceof Error ? error.message : String(error),
+      })
+    }
   }
 
   return json({ success: true })
