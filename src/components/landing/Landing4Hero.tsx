@@ -66,7 +66,7 @@ export default function Landing4Hero() {
       timestamp: new Date().toISOString(),
     });
 
-    setSubmitted(true);
+    window.location.href = "https://www.hommi.it/thank-you";
   };
 
   const handleExtra = (e: React.FormEvent) => {
