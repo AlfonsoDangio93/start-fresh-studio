@@ -31,11 +31,11 @@ export default function Landing4() {
       <LandingNavbar ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
       <Landing4Hero />
       <ClientLogosSection />
-      <FeatureShowcase ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
-      <HowItWorksSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
-      <ServicesSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
-      <Landing1Pricing ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
-      <ComparisonSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <FeatureShowcase ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
+      <HowItWorksSection ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
+      <ServicesSection ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
+      <Landing1Pricing ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
+      <ComparisonSection ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
       <LandingTestimonials />
       <PressBar />
       <LandingFAQ />
@@ -48,7 +48,7 @@ export default function Landing4() {
           </>
         }
         subtitle="Hommi è la rete di tecnici per il tuo affitto breve. Intervento entro 4 ore, prezzo chiaro, tutto tracciato."
-        ctaLabel="Prenota una call gratuita"
+        ctaLabel={CTA_LABEL}
         ctaHref={CALL_URL}
       />
       <LandingFooter />
