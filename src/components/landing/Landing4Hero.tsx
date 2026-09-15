@@ -82,7 +82,6 @@ export default function Landing4Hero() {
     sendToSheets(lead);
     const ts = Date.now();
     notifyLead(lead, `l4-lead-${email.trim().toLowerCase()}-${ts}`);
-    sendCallInvite(email.trim(), nome.trim(), `l4-call-${email.trim().toLowerCase()}-${ts}`);
 
     // piccolo margine per lasciar partire le richieste prima del redirect
     await new Promise((r) => setTimeout(r, 400));
