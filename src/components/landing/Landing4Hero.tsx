@@ -21,7 +21,7 @@ function notifyLead(data: Record<string, unknown>, key: string) {
 }
 
 const GOOGLE_SHEETS_WEBHOOK_URL =
-  "https://script.google.com/macros/s/AKfycbwQurByRRtnLi2dTdLQcH-pTMa6fVYKdkhmOwNDB30BT6yGbLM3BFSmngbo9Kke0Gn-/exec";
+  "https://script.google.com/macros/s/AKfycbyk1T-jogBi_onI8r6vFTD_ca3VlUBjo8jcn4ohIvJNtqFB8yrc5_j4-TsBw6gb7f6w/exec";
 
 const CALENDLY_URL =
   "https://calendly.com/simone-calderoni-hommi/30min?utm_source=landing-4&utm_medium=lovable&utm_campaign=meta-ads";
