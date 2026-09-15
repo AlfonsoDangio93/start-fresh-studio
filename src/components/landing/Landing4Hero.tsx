@@ -76,7 +76,7 @@ export default function Landing4Hero() {
       w.lintrk("track");
     }
 
-    sendToSheets({
+    const lead = {
       source: "landing-4-hero",
       nome: nome.trim(),
       email: email.trim(),
@@ -84,8 +84,13 @@ export default function Landing4Hero() {
       numImmobili: immobili,
       citta: "",
       timestamp: new Date().toISOString(),
-    });
+    };
 
+    sendToSheets(lead);
+    notifyLead(lead, `l4-lead-${email.trim().toLowerCase()}-${Date.now()}`);
+
+    // piccolo margine per lasciar partire le richieste prima del redirect
+    await new Promise((r) => setTimeout(r, 400));
     window.location.href = "https://www.hommi.it/thank-you";
   };
 
