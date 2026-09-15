@@ -1,4 +1,24 @@
 import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
+
+const NOTIFY_EMAIL = "simone.calderoni@hommi.it";
+
+function notifyLead(data: Record<string, unknown>, key: string) {
+  try {
+    supabase.functions
+      .invoke("send-transactional-email", {
+        body: {
+          templateName: "notifica-lead-landing4",
+          recipientEmail: NOTIFY_EMAIL,
+          idempotencyKey: key,
+          templateData: data,
+        },
+      })
+      .catch(() => {});
+  } catch {
+    /* noop */
+  }
+}
 
 const GOOGLE_SHEETS_WEBHOOK_URL =
   "https://script.google.com/macros/s/AKfycbwQurByRRtnLi2dTdLQcH-pTMa6fVYKdkhmOwNDB30BT6yGbLM3BFSmngbo9Kke0Gn-/exec";
@@ -37,7 +57,7 @@ export default function Landing4Hero() {
     return () => clearTimeout(t);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!immobili || !nome.trim() || !email.trim() || !telefono.trim()) return;
 
@@ -56,7 +76,7 @@ export default function Landing4Hero() {
       w.lintrk("track");
     }
 
-    sendToSheets({
+    const lead = {
       source: "landing-4-hero",
       nome: nome.trim(),
       email: email.trim(),
@@ -64,8 +84,13 @@ export default function Landing4Hero() {
       numImmobili: immobili,
       citta: "",
       timestamp: new Date().toISOString(),
-    });
+    };
 
+    sendToSheets(lead);
+    notifyLead(lead, `l4-lead-${email.trim().toLowerCase()}-${Date.now()}`);
+
+    // piccolo margine per lasciar partire le richieste prima del redirect
+    await new Promise((r) => setTimeout(r, 400));
     window.location.href = "https://www.hommi.it/thank-you";
   };
 
