@@ -1,5 +1,5 @@
 import LandingNavbar from "@/components/landing/LandingNavbar";
-import HeroSection from "@/components/sections/HeroSection";
+import Landing4Hero from "@/components/landing/Landing4Hero";
 import PressBar from "@/components/sections/PressBar";
 import ClientLogosSection from "@/components/sections/ClientLogosSection";
 import FeatureShowcase from "@/components/sections/FeatureShowcase";
@@ -14,7 +14,8 @@ import LandingFooter from "@/components/landing/LandingFooter";
 import Landing4MobileBottomCTA from "@/components/landing/Landing4MobileBottomCTA";
 import { useSeo } from "@/hooks/useSeo";
 
-const CALL_URL = "https://prenota.hommi.it/richiedi-accesso";
+const CALL_URL = "#hero-form";
+const CTA_LABEL = "Attiva 3 mesi di prova";
 
 
 export default function Landing4() {
@@ -27,32 +28,14 @@ export default function Landing4() {
 
   return (
     <div className="landing-theme">
-      <LandingNavbar ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
-      <HeroSection
-        lines={["Il tuo manutentore", "è bravissimo.", "Il problema: è uno solo."]}
-        subtitle={
-          <>
-            Va in ferie ad agosto. Si ammala a gennaio. Ha già tre lavori quando la tua caldaia si
-            ferma di venerdì sera. E ogni volta che lui non c'è, il piano B sei tu: telefonate,
-            preventivi al buio, ospiti che aspettano. Hommi è la rete di tecnici che non va mai in
-            ferie. Intervento entro 4 ore, prezzo chiaro prima di iniziare, tutto tracciato in
-            piattaforma. Tu non alzi il telefono.
-          </>
-        }
-        ctaLabel="Prenota una call gratuita"
-        ctaHref={CALL_URL}
-        testimonial={{
-          quote: "Prima ero io il numero di emergenza. Ora apro solo la notifica di chiusura.",
-          author: "Davide",
-          role: "Host, 12 appartamenti a Milano",
-        }}
-      />
+      <LandingNavbar ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
+      <Landing4Hero />
       <ClientLogosSection />
-      <FeatureShowcase ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
-      <HowItWorksSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
-      <ServicesSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
-      <Landing1Pricing ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
-      <ComparisonSection ctaLabel="Prenota una call gratuita" ctaHref={CALL_URL} />
+      <FeatureShowcase ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
+      <HowItWorksSection ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
+      <ServicesSection ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
+      <Landing1Pricing ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
+      <ComparisonSection ctaLabel={CTA_LABEL} ctaHref={CALL_URL} />
       <LandingTestimonials />
       <PressBar />
       <LandingFAQ />
@@ -65,7 +48,7 @@ export default function Landing4() {
           </>
         }
         subtitle="Hommi è la rete di tecnici per il tuo affitto breve. Intervento entro 4 ore, prezzo chiaro, tutto tracciato."
-        ctaLabel="Prenota una call gratuita"
+        ctaLabel={CTA_LABEL}
         ctaHref={CALL_URL}
       />
       <LandingFooter />

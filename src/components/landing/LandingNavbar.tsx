@@ -50,7 +50,7 @@ export default function LandingNavbar({ ctaLabel = "Prenota una call gratuita", 
         </div>
 
         <a
-            href={ctaHref} target="_blank" rel="noopener noreferrer"
+            href={ctaHref} {...(ctaHref.startsWith("#") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
             className="text-[11px] sm:text-[12px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-2 sm:px-3 py-1.5 rounded-[10px] cursor-pointer truncate max-w-[110px] sm:max-w-[150px] leading-none">
             
           {ctaLabel}
@@ -75,7 +75,7 @@ export default function LandingNavbar({ ctaLabel = "Prenota una call gratuita", 
               </a>
               )}
             <a
-                href={ctaHref} target="_blank" rel="noopener noreferrer"
+                href={ctaHref} {...(ctaHref.startsWith("#") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
                 className="text-[13px] font-semibold text-white bg-primary hover:bg-primary-hover transition-colors duration-200 px-5 py-2 rounded-[10px] cursor-pointer ml-2">
                 
               {ctaLabel}
@@ -106,7 +106,7 @@ export default function LandingNavbar({ ctaLabel = "Prenota una call gratuita", 
             </div>
             <div className="p-3 pt-0">
               <a
-                href={ctaHref} target="_blank" rel="noopener noreferrer"
+                href={ctaHref} {...(ctaHref.startsWith("#") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
                 className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
                 onClick={() => setMobileOpen(false)}>
                 

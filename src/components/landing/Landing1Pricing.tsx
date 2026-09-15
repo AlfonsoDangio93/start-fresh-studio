@@ -82,8 +82,7 @@ export default function Landing1Pricing({ ctaLabel = "Prenota una call gratuita"
 
             <a
               href={ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(ctaHref.startsWith("#") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
               className="block w-full text-center bg-primary text-white font-semibold text-[14px] py-3.5 rounded-xl hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
             >
               {ctaLabel}
