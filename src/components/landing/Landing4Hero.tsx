@@ -39,7 +39,7 @@ export default function Landing4Hero() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!immobili || !nome.trim() || !telefono.trim()) return;
+    if (!immobili || !nome.trim() || !email.trim() || !telefono.trim()) return;
 
     // --- Tracking: Meta Pixel Lead + LinkedIn (invariato, allo submit del form) ---
     const w = window as unknown as {
@@ -59,9 +59,9 @@ export default function Landing4Hero() {
     sendToSheets({
       source: "landing-4-hero",
       nome: nome.trim(),
+      email: email.trim(),
       telefono: telefono.trim(),
       numImmobili: immobili,
-      email: "",
       citta: "",
       timestamp: new Date().toISOString(),
     });
