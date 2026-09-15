@@ -169,6 +169,24 @@ export default function Landing4Hero() {
 
                   <div>
                     <label
+                      htmlFor="l4-email"
+                      className="block text-[13px] font-semibold text-dark mb-1.5"
+                    >
+                      Email
+                    </label>
+                    <input
+                      id="l4-email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className={inputClass}
+                      placeholder="La tua email"
+                    />
+                  </div>
+
+                  <div>
+                    <label
                       htmlFor="l4-telefono"
                       className="block text-[13px] font-semibold text-dark mb-1.5"
                     >
