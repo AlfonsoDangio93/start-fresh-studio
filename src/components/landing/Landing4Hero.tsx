@@ -1,4 +1,24 @@
 import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
+
+const NOTIFY_EMAIL = "simone.calderoni@hommi.it";
+
+function notifyLead(data: Record<string, unknown>, key: string) {
+  try {
+    supabase.functions
+      .invoke("send-transactional-email", {
+        body: {
+          templateName: "notifica-lead-landing4",
+          recipientEmail: NOTIFY_EMAIL,
+          idempotencyKey: key,
+          templateData: data,
+        },
+      })
+      .catch(() => {});
+  } catch {
+    /* noop */
+  }
+}
 
 const GOOGLE_SHEETS_WEBHOOK_URL =
   "https://script.google.com/macros/s/AKfycbwQurByRRtnLi2dTdLQcH-pTMa6fVYKdkhmOwNDB30BT6yGbLM3BFSmngbo9Kke0Gn-/exec";
