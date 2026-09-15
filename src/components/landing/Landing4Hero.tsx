@@ -20,6 +20,23 @@ function notifyLead(data: Record<string, unknown>, key: string) {
   }
 }
 
+function sendCallInvite(leadEmail: string, nome: string, key: string) {
+  try {
+    supabase.functions
+      .invoke("send-transactional-email", {
+        body: {
+          templateName: "prenota-call-landing4",
+          recipientEmail: leadEmail,
+          idempotencyKey: key,
+          templateData: { nome },
+        },
+      })
+      .catch(() => {});
+  } catch {
+    /* noop */
+  }
+}
+
 const GOOGLE_SHEETS_WEBHOOK_URL =
   "https://script.google.com/macros/s/AKfycbyk1T-jogBi_onI8r6vFTD_ca3VlUBjo8jcn4ohIvJNtqFB8yrc5_j4-TsBw6gb7f6w/exec";
 
@@ -87,7 +104,9 @@ export default function Landing4Hero() {
     };
 
     sendToSheets(lead);
-    notifyLead(lead, `l4-lead-${email.trim().toLowerCase()}-${Date.now()}`);
+    const ts = Date.now();
+    notifyLead(lead, `l4-lead-${email.trim().toLowerCase()}-${ts}`);
+    sendCallInvite(email.trim(), nome.trim(), `l4-call-${email.trim().toLowerCase()}-${ts}`);
 
     // piccolo margine per lasciar partire le richieste prima del redirect
     await new Promise((r) => setTimeout(r, 400));

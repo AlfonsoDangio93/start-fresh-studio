@@ -11,8 +11,10 @@ export interface TemplateEntry {
 
 import { template as reportCalcolatore } from './report-calcolatore.tsx'
 import { template as notificaLeadLanding4 } from './notifica-lead-landing4.tsx'
+import { template as prenotaCallLanding4 } from './prenota-call-landing4.tsx'
 
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'report-calcolatore': reportCalcolatore,
   'notifica-lead-landing4': notificaLeadLanding4,
+  'prenota-call-landing4': prenotaCallLanding4,
 }
