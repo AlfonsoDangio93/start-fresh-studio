@@ -1,13 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
 
-const CALL_URL = "https://prenota.hommi.it/richiedi-accesso";
-
-
 export default function Landing4MobileBottomCTA() {
   const [show, setShow] = useState(false);
 
   const update = useCallback(() => {
-    setShow(window.scrollY > window.innerHeight * 0.7);
+    setShow(window.scrollY > window.innerHeight * 0.5);
   }, []);
 
   useEffect(() => {
@@ -23,12 +20,10 @@ export default function Landing4MobileBottomCTA() {
       }`}
     >
       <a
-        href={CALL_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#hero-form"
         className="flex items-center justify-center bg-primary text-white font-semibold text-[13px] rounded-[10px] py-2.5 shadow-md shadow-primary/15 hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
       >
-        Prenota una call gratuita
+        Attiva 3 mesi di prova
       </a>
     </div>
   );
