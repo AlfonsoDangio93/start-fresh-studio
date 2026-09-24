@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { getStoredUtms } from "@/hooks/useUtmPersistence";
 
 function notifyLead(data: Record<string, unknown>, key: string) {
   try {
@@ -77,6 +78,7 @@ export default function Landing4Hero() {
       numImmobili: immobili,
       citta: "",
       timestamp: new Date().toISOString(),
+      ...getStoredUtms(),
     };
 
     sendToSheets(lead);
@@ -98,6 +100,7 @@ export default function Landing4Hero() {
       email: email.trim(),
       citta: citta.trim(),
       timestamp: new Date().toISOString(),
+      ...getStoredUtms(),
     });
     setExtraSaved(true);
   };
