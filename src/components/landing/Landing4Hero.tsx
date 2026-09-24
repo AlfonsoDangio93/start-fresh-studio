@@ -120,15 +120,16 @@ export default function Landing4Hero() {
               Milano · Monza · Como · Lecco · Torino
             </p>
             <h1 className="font-display text-[34px] md:text-[48px] lg:text-[54px] font-bold text-dark leading-[1.07] tracking-[-0.025em]">
-              Il tuo manutentore
+              Quando il tuo tecnico
               <br />
-              è bravissimo.
+              non risponde,
               <br />
-              Il problema: è uno solo.
+              rispondiamo noi.
             </h1>
             <p className="mt-6 text-secondary text-[15px] md:text-[18px] max-w-[520px] mx-auto lg:mx-0 leading-[1.7]">
-              Hommi è la rete di tecnici che non va mai in ferie. Intervento entro 4 ore, prezzo
-              chiaro prima di iniziare, tutto tracciato. Tu non alzi il telefono.
+              Un guasto di venerdì sera non aspetta lunedì. Con Hommi un tecnico della rete arriva
+              entro 4 ore — sere e weekend compresi — prezzo chiaro prima di iniziare e foto a
+              lavoro chiuso.
             </p>
 
             <div className="mt-8 hidden lg:block max-w-[460px]">
@@ -233,6 +234,10 @@ export default function Landing4Hero() {
                   </button>
                   <p className="text-[12px] text-secondary/70 text-center leading-relaxed">
                     Nessuna carta di credito. Ti richiamiamo entro un giorno lavorativo.
+                  </p>
+                  <p className="text-[11px] text-secondary/50 text-center leading-relaxed">
+                    Tre mesi per provare il servizio sui tuoi immobili. Paghi solo gli interventi
+                    che richiedi, l&apos;abbonamento parte dal quarto mese.
                   </p>
                 </form>
               ) : (
