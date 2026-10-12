@@ -61,7 +61,7 @@ export default function Landing4Hero() {
       lintrk?: (...a: unknown[]) => void;
     };
     if (typeof w.fbq === "function") {
-      w.fbq("track", "Lead", {
+      w.fbq("trackCustom", "Landing4Form", {
         content_name: "Landing 4 - Attiva 3 mesi di prova",
         content_category: immobili,
       });
