@@ -19,6 +19,22 @@ import Landing1MobileBottomCTA from "@/components/landing/Landing1MobileBottomCT
 export default function Landing1() {
   const location = useLocation();
 
+  // Ogni click su un link verso prenota.hommi.it spara InitiateCheckout prima della navigazione
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      const anchor = target?.closest?.("a[href]");
+      if (!anchor) return;
+      const href = anchor.getAttribute("href") ?? "";
+      if (!href.includes("prenota.hommi.it")) return;
+      const w = window as Window & { fbq?: (...args: unknown[]) => void };
+      if (typeof w.fbq !== "function") return;
+      w.fbq("track", "InitiateCheckout");
+    };
+    document.addEventListener("click", handler, true);
+    return () => document.removeEventListener("click", handler, true);
+  }, []);
+
   // utm_content deve arrivare a prenota.hommi.it anche quando non è in localStorage
   useEffect(() => {
     const search = window.location.search;
