@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import LandingNavbar from "@/components/landing/LandingNavbar";
 import HeroSection from "@/components/sections/HeroSection";
 import PressBar from "@/components/sections/PressBar";
@@ -14,6 +16,32 @@ import LandingFooter from "@/components/landing/LandingFooter";
 import Landing1MobileBottomCTA from "@/components/landing/Landing1MobileBottomCTA";
 
 export default function Landing1() {
+  const location = useLocation();
+
+  // utm_content deve arrivare a prenota.hommi.it anche quando non è in localStorage
+  useEffect(() => {
+    const utmContent = new URLSearchParams(window.location.search).get("utm_content");
+    if (!utmContent) return;
+
+    const apply = () => {
+      document
+        .querySelectorAll('a[href*="prenota.hommi.it/richiedi-accesso"]')
+        .forEach((el) => {
+          const a = el as HTMLAnchorElement;
+          const href = a.getAttribute("href");
+          if (!href || /[?&]utm_content=/.test(href)) return;
+          a.setAttribute(
+            "href",
+            `${href}${href.includes("?") ? "&" : "?"}utm_content=${encodeURIComponent(utmContent)}`
+          );
+        });
+    };
+
+    apply();
+    const t = window.setTimeout(apply, 400);
+    return () => window.clearTimeout(t);
+  }, [location.pathname, location.search]);
+
   return (
     <div className="landing-theme">
       <LandingNavbar />

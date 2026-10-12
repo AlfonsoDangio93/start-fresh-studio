@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 
+let metaLeadSent = false;
+
 export default function ThankYou() {
   useEffect(() => {
     if (typeof (window as any).gtag === "function") {
@@ -13,10 +15,13 @@ export default function ThankYou() {
     }
 
     // Meta Pixel: advanced matching da parametri URL (em/ph) + evento Lead
+    // Una sola volta per caricamento della pagina
+    if (metaLeadSent) return;
     const w = window as unknown as {
       fbq?: (...args: unknown[]) => void;
     };
     if (typeof w.fbq !== "function") return;
+    metaLeadSent = true;
 
     const params = new URLSearchParams(window.location.search);
     const em = (params.get("em") || "").trim().toLowerCase();
