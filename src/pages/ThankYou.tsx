@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useEffect } from "react";
+import { buildAdvancedMatching } from "@/lib/metaAdvancedMatching";
+
+let metaLeadSent = false;
 
 export default function ThankYou() {
   useEffect(() => {
@@ -13,19 +16,15 @@ export default function ThankYou() {
     }
 
     // Meta Pixel: advanced matching da parametri URL (em/ph) + evento Lead
+    // Una sola volta per caricamento della pagina
+    if (metaLeadSent) return;
     const w = window as unknown as {
       fbq?: (...args: unknown[]) => void;
     };
     if (typeof w.fbq !== "function") return;
+    metaLeadSent = true;
 
-    const params = new URLSearchParams(window.location.search);
-    const em = (params.get("em") || "").trim().toLowerCase();
-    let ph = (params.get("ph") || "").replace(/[^0-9]/g, "");
-    if (ph && ph.length === 10 && ph.indexOf("39") !== 0) ph = "39" + ph;
-
-    const advancedMatching: Record<string, string> = {};
-    if (em.indexOf("@") > 0) advancedMatching.em = em;
-    if (ph) advancedMatching.ph = ph;
+    const advancedMatching = buildAdvancedMatching(window.location.search);
 
     w.fbq("init", "1920886085192779", advancedMatching);
     w.fbq("track", "Lead");
