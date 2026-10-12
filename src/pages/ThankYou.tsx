@@ -11,6 +11,24 @@ export default function ThankYou() {
         currency: "EUR",
       });
     }
+
+    // Meta Pixel: advanced matching da parametri URL (em/ph) + evento Lead
+    const w = window as unknown as {
+      fbq?: (...args: unknown[]) => void;
+    };
+    if (typeof w.fbq !== "function") return;
+
+    const params = new URLSearchParams(window.location.search);
+    const em = (params.get("em") || "").trim().toLowerCase();
+    let ph = (params.get("ph") || "").replace(/[^0-9]/g, "");
+    if (ph && ph.length === 10 && ph.indexOf("39") !== 0) ph = "39" + ph;
+
+    const advancedMatching: Record<string, string> = {};
+    if (em.indexOf("@") > 0) advancedMatching.em = em;
+    if (ph) advancedMatching.ph = ph;
+
+    w.fbq("init", "1920886085192779", advancedMatching);
+    w.fbq("track", "Lead");
   }, []);
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-6">
