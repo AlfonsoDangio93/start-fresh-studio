@@ -28,3 +28,15 @@ describe("utm_content sui link di prenotazione", () => {
     expect(withUtmContent(base, "variante a&b")).toBe(`${base}?utm_content=variante%20a%26b`);
   });
 });
+
+import { withUtmParams } from "@/lib/utmContentLink";
+describe("withUtmParams", () => {
+  it("aggiunge tutti gli UTM presenti", () => {
+    expect(withUtmParams("https://prenota.hommi.it/richiedi-accesso", "?utm_source=fb&utm_medium=cpc&utm_campaign=c1&utm_content=a"))
+      .toBe("https://prenota.hommi.it/richiedi-accesso?utm_source=fb&utm_medium=cpc&utm_campaign=c1&utm_content=a");
+  });
+  it("non rimuove né duplica quelli esistenti", () => {
+    expect(withUtmParams("https://x.it/a?utm_source=fb", "?utm_source=g&utm_content=a"))
+      .toBe("https://x.it/a?utm_source=fb&utm_content=a");
+  });
+});

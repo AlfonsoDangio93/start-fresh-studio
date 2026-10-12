@@ -105,8 +105,8 @@ function trackLeadFromReport(reportData: ReportData) {
         : `${Date.now()}-${Math.random()}`;
 
     fbq(
-      "track",
-      "Lead",
+      "trackCustom",
+      "CalcolatoreCompletato",
       {
         content_name: "Calcolatore Hommi",
         content_category: "Lead Generation",

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { BOOKING_LINK, withUtmContent } from "@/lib/utmContentLink";
+import { BOOKING_LINK, withUtmParams } from "@/lib/utmContentLink";
 import LandingNavbar from "@/components/landing/LandingNavbar";
 import HeroSection from "@/components/sections/HeroSection";
 import PressBar from "@/components/sections/PressBar";
@@ -21,15 +21,15 @@ export default function Landing1() {
 
   // utm_content deve arrivare a prenota.hommi.it anche quando non è in localStorage
   useEffect(() => {
-    const utmContent = new URLSearchParams(window.location.search).get("utm_content");
-    if (!utmContent) return;
+    const search = window.location.search;
+    if (!/utm_/.test(search)) return;
 
     const apply = () => {
       document.querySelectorAll(`a[href*="${BOOKING_LINK}"]`).forEach((el) => {
         const a = el as HTMLAnchorElement;
         const href = a.getAttribute("href");
         if (!href) return;
-        a.setAttribute("href", withUtmContent(href, utmContent));
+        a.setAttribute("href", withUtmParams(href, search));
       });
     };
 

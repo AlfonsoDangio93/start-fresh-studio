@@ -1,15 +1,8 @@
 import { Link } from "react-router-dom";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import { useEffect } from "react";
 import { useSeo } from "@/hooks/useSeo";
 
 export default function ThankYouManutentore() {
-  useEffect(() => {
-    if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
-      (window as any).fbq("track", "Lead");
-    }
-  }, []);
-
   useSeo({
     title: "Grazie per la candidatura | Hommi",
     description:

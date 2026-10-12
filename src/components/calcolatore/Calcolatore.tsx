@@ -1385,8 +1385,8 @@ function StepInterestList({
           ? crypto.randomUUID()
           : `${Date.now()}-${Math.random()}`;
       fbq(
-        "track",
-        "Lead",
+        "trackCustom",
+        "InterestListFuoriTarget",
         {
           content_name: "Interest List - Città fuori target",
           content_category: "Lead Generation",
