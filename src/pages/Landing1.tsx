@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { BOOKING_LINK, withUtmContent } from "@/lib/utmContentLink";
 import LandingNavbar from "@/components/landing/LandingNavbar";
 import HeroSection from "@/components/sections/HeroSection";
 import PressBar from "@/components/sections/PressBar";
@@ -24,17 +25,12 @@ export default function Landing1() {
     if (!utmContent) return;
 
     const apply = () => {
-      document
-        .querySelectorAll('a[href*="prenota.hommi.it/richiedi-accesso"]')
-        .forEach((el) => {
-          const a = el as HTMLAnchorElement;
-          const href = a.getAttribute("href");
-          if (!href || /[?&]utm_content=/.test(href)) return;
-          a.setAttribute(
-            "href",
-            `${href}${href.includes("?") ? "&" : "?"}utm_content=${encodeURIComponent(utmContent)}`
-          );
-        });
+      document.querySelectorAll(`a[href*="${BOOKING_LINK}"]`).forEach((el) => {
+        const a = el as HTMLAnchorElement;
+        const href = a.getAttribute("href");
+        if (!href) return;
+        a.setAttribute("href", withUtmContent(href, utmContent));
+      });
     };
 
     apply();
